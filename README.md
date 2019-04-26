@@ -6,4 +6,4 @@
 
 
 ## Colophon
-The source files in this repo were generated using Open Source Software. Pandoc was used to convert the official US EPA Version of the EPANET User's Manual from pdf into restructured text. Then, Sphinx can be used to generate versions of the manual in other formats such as html.
+The source files in this repo were generated using Open Source Software. Pandoc was used to convert the official US EPA Version of the EPANET User's Manual from pdf into restructured text. Then, Sphinx was used to generate a version of the manual in html.

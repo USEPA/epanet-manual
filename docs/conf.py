@@ -19,14 +19,14 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'EPANET'
-#copyright = u'2018, the website is created by H.Woo'
-author = u'H.Woo'
+project = 'epanet-manual'
+copyright = '2019, see AUTHORS'
+author = 'see AUTHORS'
 
 # The short X.Y version
-version = u''
+version = ''
 # The full version, including alpha/beta/rc tags
-release = u'2.00.12'
+release = '2.2'
 
 
 # -- General configuration ---------------------------------------------------
@@ -66,7 +66,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path .
-exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -77,7 +77,6 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-#html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -105,7 +104,7 @@ html_theme = 'sphinx_rtd_theme'
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'EPANETdoc'
+htmlhelp_basename = 'epanet-manualdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -132,8 +131,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'EPANET.tex', u'EPANET Documentation',
-     u'H.Woo', 'manual'),
+    (master_doc, 'epanet-manual.tex', 'epanet-manual Documentation',
+     'see AUTHORS', 'manual'),
 ]
 
 
@@ -142,7 +141,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'epanet', u'EPANET Documentation',
+    (master_doc, 'epanet-manual', 'epanet-manual Documentation',
      [author], 1)
 ]
 
@@ -153,8 +152,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'EPANET', u'EPANET Documentation',
-     author, 'EPANET', 'One line description of project.',
+    (master_doc, 'epanet-manual', 'epanet-manual Documentation',
+     author, 'epanet-manual', 'One line description of project.',
      'Miscellaneous'),
 ]
 

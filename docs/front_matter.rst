@@ -1,47 +1,54 @@
 .. raw:: latex
 
     \clearpage
-  	\pagenumbering{arabic}
-    \setcounter{page}{1}
-    
-    
-
-About This Manual
-==================================
+  	\pagenumbering{roman}
 
 
-This on-line manual is based on the **EPANET 2 USERS MANUAL** 
-by Lewis A. Rossman. 
-The original report number is EPA/600/R-00/057 (September 2000). 
+
+#####################
+EPANET 2 Users Manual
+#####################
+
+| EPA/600/R-00/057
+| September 2000
+
+
+| by Lewis A. Rossman
+| Water Supply and Water Resources Division
+| National Risk Management Research Laboratory
+
 
 | NATIONAL RISK MANAGEMENT RESEARCH LABORATORY
 | OFFICE OF RESEARCH AND DEVELOPMENT
 | U.S. ENVIRONMENTAL PROTECTION AGENCY CINCINNATI, OH 45268
 
-::
-  
-  DISCLAIMER
 
-  The information in this document has been funded wholly or in part by
-  the U.S. Environmental Protection Agency (EPA). It has been subjected
-  to the Agency's peer and administrative review, and has been approved
-  for publication as an EPA document. Mention of trade names or
-  commercial products does not constitute endorsement or recommendation
-  for use.
 
-  Although a reasonable effort has been made to assure that the results
-  obtained are correct, the computer programs described in this manual
-  are experimental. Therefore the author and the U.S. Environmental
-  Protection Agency are not responsible and assume no liability
-  whatsoever for any results or any use made of the results obtained
-  from these programs, nor for any damages or litigation that result
-  from the use of these programs for any purpose.
+**DISCLAIMER**
 
--------------
+The information in this document has been funded wholly or in part by
+the U.S. Environmental Protection Agency (EPA). It has been subjected
+to the Agency's peer and administrative review, and has been approved
+for publication as an EPA document. Mention of trade names or
+commercial products does not constitute endorsement or recommendation
+for use.
+
+Although a reasonable effort has been made to assure that the results
+obtained are correct, the computer programs described in this manual
+are experimental. Therefore the author and the U.S. Environmental
+Protection Agency are not responsible and assume no liability
+whatsoever for any results or any use made of the results obtained
+from these programs, nor for any damages or litigation that result
+from the use of these programs for any purpose.
 
 
 
-**Chapter 2** of this manual describes how to install EPANET and offers
+About This Manual
+=================
+
+**Chapter 1** of this manual describes what EPANET is and its capabilities.
+
+**Chapter 2** describes how to install EPANET and offers
 up a quick tutorial on its use. Readers unfamiliar with the basics of
 modeling distribution systems might wish to review Chapter 3 first
 before working through the tutorial.
@@ -106,12 +113,12 @@ special kinds of situations, such as modeling pneumatic tanks,
 finding the maximum flow available at a specific pressure, and
 modeling the growth of disinfection by-products.
 
-The manual also contains several appendixes. 
+The manual also contains several appendixes.
 
-| **Appendix A** provides a table of units of expression for all design 
+| **Appendix A** provides a table of units of expression for all design
   and computed parameters.
 | **Appendix B** is a list of error message codes and their meanings that
-  the program can generate. 
+  the program can generate.
 | **Appendix C** describes how EPANET can be run
   from a command line prompt within a DOS window, and discusses the
   format of the files that are used with this mode of operation.

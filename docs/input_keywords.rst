@@ -2,14 +2,6 @@
 
     \clearpage
 
-    
-F. INPUT SECTION KEYWORDS
-=========================
-
-  
-General Descriptions
-~~~~~~~~~~~~~~~~~~~~  
-
 
 [BACKDROP]
 ----------------------
@@ -71,9 +63,9 @@ General Descriptions
  **LINK** linkID status **AT CLOCKTIME** clocktime **AM/PM**
 
    where:
-   
+
     ::
-    
+
       +-----------------------+-----------------------+-----------------------+
       |    linkID             |    =                  |    a link ID label    |
       +=======================+=======================+=======================+
@@ -117,9 +109,9 @@ General Descriptions
 
 
  **Examples:**
-  
+
     ::
-    
+
       [CONTROLS]
 
       ;Close Link 12 if the level in Tank 23 exceeds 20 ft. LINK 12 CLOSED
@@ -140,8 +132,8 @@ General Descriptions
 
       LINK 12 CLOSED AT CLOCKTIME 10 AM LINK 12 OPEN AT CLOCKTIME 8 PM
 
-      
-      
+
+
 [COORDINATES]
 ------------------------
 
@@ -178,11 +170,11 @@ General Descriptions
 
 
  **Example:**
-   
+
    ::
-      
-     
-   
+
+
+
 
      [COORDINATES]
 
@@ -193,7 +185,7 @@ General Descriptions
       1 10023 128
       2 10056 95
 
-      
+
 [CURVES]
 ------------------------
 
@@ -238,7 +230,7 @@ c. If the input file will be used with the Windows version of EPANET,
 
 
  **Example:**
-   
+
     ::
 
       [CURVES]
@@ -304,8 +296,8 @@ c. If the input file will be used with the Windows version of EPANET,
 
  **Example:**
 
-    ::    
-       
+    ::
+
       [DEMANDS]
       ;ID Demand Pattern Category
       ;---------------------------------
@@ -389,9 +381,9 @@ c. If the input file will be used with the Windows version of EPANET,
 
 
  **Example:**
-  
+
   ::
-    
+
     [ENERGY]
 
      GLOBAL PRICE 0.05 ;Sets global energy price GLOBAL PATTERN PAT1 ;and
@@ -399,7 +391,7 @@ c. If the input file will be used with the Windows version of EPANET,
 
      PUMP 23 EFFIC E23 ;Assigns effic. curve to Pump 23
 
-   
+
 [JUNCTIONS]
 ------------------------
 
@@ -438,7 +430,7 @@ c. If the input file will be used with the Windows version of EPANET,
  **Example:**
 
    ::
-   
+
       [JUNCTIONS]
       ;ID Elev. Demand Pattern
       ;------------------------------
@@ -483,9 +475,9 @@ c. If the input file will be used with the Windows version of EPANET,
 
 
  **Example:**
-    
+
     ::
-    
+
       [LABELS]
       ;X-Coord. Y-Coord. Label Anchor
       ;-----------------------------------------------
@@ -535,7 +527,7 @@ c. If the input file will be used with the Windows version of EPANET,
  **Example:**
 
   ::
-  
+
      [MIXING]
 
      ;Tank Model
@@ -696,7 +688,7 @@ c. If the input file will be used with the Windows version of EPANET,
  **Example:**
 
   ::
-    
+
     [OPTIONS]
     UNITS CFS
     HEADLOSS D-W
@@ -741,7 +733,7 @@ c. If the input file will be used with the Windows version of EPANET,
  **Example:**
 
     ::
-      
+
       [PATTERNS]
       ;Pattern P1
       P1 1.1 1.4 0.9 0.7
@@ -749,7 +741,7 @@ c. If the input file will be used with the Windows version of EPANET,
       ;Pattern P2
       P2 1 1 1 1
       P2 0 0 1
-   
+
 [PIPES]
 ------------------------
 
@@ -797,7 +789,7 @@ c. If the input file will be used with the Windows version of EPANET,
  **Example:**
 
     ::
-      
+
       [PIPES]
       ;ID Node1 Node2 Length Diam. Roughness Mloss Status
       ;-------------------------------------------------------------
@@ -848,7 +840,7 @@ c. If the input file will be used with the Windows version of EPANET,
  **Example:**
 
     ::
-      
+
       [PUMPS]
       ;ID Node1 Node2 Properties
       ;---------------------------------------------
@@ -947,7 +939,7 @@ c. If the input file will be used with the Windows version of EPANET,
  **Example:**
 
     ::
-      
+
       [REACTIONS]
       ORDER WALL 0 ;Wall reactions are zero-order
       GLOBAL BULK -0.5 ;Global bulk decay coeff.
@@ -1085,7 +1077,7 @@ c. If the input file will be used with the Windows version of EPANET,
    Velocity, and F-Factor (friction factor) are displayed for links.
 
     ::
-    
+
       [REPORT]
       NODES N1 N2 N3 N17
       LINKS ALL
@@ -1127,14 +1119,14 @@ c. If the input file will be used with the Windows version of EPANET,
  **Example:**
 
     ::
-    
+
       [RESERVOIRS]
 
        ;ID Head Pattern
 
        ;---------------------
 
-       R1 512 ;Head stays constant 
+       R1 512 ;Head stays constant
        R2 120 Pat1 ;Head varies with time
 
 [RULES]
@@ -1177,13 +1169,13 @@ c. If the input file will be used with the Windows version of EPANET,
 **Condition Clause Format:**
 
  A condition clause in a Rule-Based Control takes the form of:
-  
+
   ::
-    
+
     object id attribute relation value
 
   where
-    
+
     ::
 
       object = a category of network object
@@ -1197,11 +1189,11 @@ c. If the input file will be used with the Windows version of EPANET,
       value = an attribute value
 
     Some example conditional clauses are:
-      
+
       ::
-        
+
         JUNCTION 23 PRESSURE > 20 TANK T200 FILLTIME BELOW 3.5 LINK 44 STATUS
-        
+
         IS OPEN SYSTEM DEMAND >= 1500
 
         SYSTEM CLOCKTIME = 7:30 AM
@@ -1214,7 +1206,7 @@ c. If the input file will be used with the Windows version of EPANET,
 
  When **SYSTEM** is used in a condition no ID is supplied.
 
- 
+
  The following attributes can be used with Node-type objects:
 
     **DEMAND HEAD PRESSURE**
@@ -1261,13 +1253,13 @@ c. If the input file will be used with the Windows version of EPANET,
    An action clause in a Rule-Based Control takes the form of:
 
     ::
-    
+
       object id STATUS/SETTING IS value
 
    where
 
     ::
-    
+
       object = LINK, PIPE, PUMP, or VALVE keyword
       id = the object's ID label
       value = a status condition (OPEN or CLOSED), pump speed setting, or valve
@@ -1277,9 +1269,9 @@ c. If the input file will be used with the Windows version of EPANET,
    Some example action clauses are:
 
      ::
-        
+
        LINK 23 STATUS IS CLOSED PUMP P100 SETTING IS 1.5 VALVE 123 SETTING
-       
+
        IS 90
 
  **Remarks:**
@@ -1295,23 +1287,23 @@ c. If the input file will be used with the Windows version of EPANET,
         IF A or B and C
 
      is equivalent to
-       
+
       ::
-         
+
         IF (A or B) and C.
 
-     
+
      If the interpretation was meant to be
 
       ::
-        
+
         IF A or (B and C)
 
      then this can be expressed using two rules as in
       ::
-      
+
         IF A THEN ...
-        
+
         IF B and C THEN ...
 
 c. The **PRIORITY** value is used to determine which rule applies when
@@ -1323,11 +1315,11 @@ c. The **PRIORITY** value is used to determine which rule applies when
 
 
  **Example:**
-  
+
     ::
-      
-      
-      [RULES] 
+
+
+      [RULES]
 
       RULE 1
 
@@ -1485,7 +1477,7 @@ c. The **PRIORITY** value is used to determine which rule applies when
      control or rule that re-activates it.
 
  **Example:**
- 
+
     ::
 
       [STATUS]
@@ -1534,9 +1526,9 @@ c. The **PRIORITY** value is used to determine which rule applies when
 
  **Example:**
 
-    
+
     ::
-     
+
       [TAGS]
       ;Object ID Tag
       ;------------------------------
@@ -1574,7 +1566,7 @@ c. The **PRIORITY** value is used to determine which rule applies when
 
     -  Volume curve ID (optional)
 
-  
+
 
  **Remarks:**
 
@@ -1591,7 +1583,7 @@ c. The **PRIORITY** value is used to determine which rule applies when
 
   e. A network must contain at least one tank or reservoir.
 
-  
+
 
  **Example:**
 
@@ -1618,29 +1610,29 @@ c. The **PRIORITY** value is used to determine which rule applies when
 
    Defines various time step parameters used in the simulation.
 
- **Formats:**           
+ **Formats:**
 
    **DURATION**           Value (units)
 
    **HYDRAULIC TIMESTEP** Value (units)
-   
+
    **QUALITY TIMESTEP**   Value (units)
-   
+
    **RULE TIMESTEP**      Value (units)
-   
+
    **PATTERN TIMESTEP**   Value (units)
-   
+
    **PATTERN START**      Value (units)
-   
+
    **REPORT TIMESTEP**    Value (units)
-   
+
    **REPORT START**       Value (units)
 
    **START CLOCKTIME**    Value (AM/PM)
-   
+
    **STATISTIC**           **NONE/AVERAGED/ MINIMUM/MAXIMUM RANGE**
 
- 
+
  **Definitions:**
 
    **DURATION** is the duration of the simulation. Use 0 to run a single
@@ -1678,11 +1670,11 @@ c. The **PRIORITY** value is used to determine which rule applies when
 
    **STATISTIC** determines what kind of statistical post-processing
    should be done on the time series of simulation results generated.
-   **AVERAGED** reports a set of time-averaged results, 
-   **MINIMUM**  reports only the minimum values, 
+   **AVERAGED** reports a set of time-averaged results,
+   **MINIMUM**  reports only the minimum values,
    **MAXIMUM** the maximum values, and
    **RANGE** reports the difference between the minimum and maximum
-   values. 
+   values.
    **NONE** reports the full time series for all quantities for
    all nodes and links and is the default.
 
@@ -1697,17 +1689,17 @@ c. The **PRIORITY** value is used to determine which rule applies when
   c. All entries in the [TIMES] section are optional. Items offset by
      slashes (/) indicate allowable choices.
 
-  
+
 
  **Example:**
 
   ::
-   
+
     [TIMES]
-     DURATION 240 HOURS 
-     QUALITY TIMESTEP 3 MIN 
+     DURATION 240 HOURS
+     QUALITY TIMESTEP 3 MIN
      REPORT START 120
-     STATISTIC AVERAGED 
+     STATISTIC AVERAGED
      START CLOCKTIME 6:00 AM
 
 [TITLE]
@@ -1725,7 +1717,7 @@ c. The **PRIORITY** value is used to determine which rule applies when
 
    The [TITLE] section is optional.
 
-   
+
 [VALVES]
 ------------------------
 
@@ -1761,18 +1753,18 @@ c. The **PRIORITY** value is used to determine which rule applies when
 
      PSV (pressure sustaining valve) Pressure, psi (m)
 
-     PBV (pressure breaker valve) Pressure, psi (m) 
-     
+     PBV (pressure breaker valve) Pressure, psi (m)
+
      FCV (flow control valve) Flow (flow units)
 
-     TCV (throttle control valve) Loss Coefficient 
-     
+     TCV (throttle control valve) Loss Coefficient
+
      GPV (general purpose valve) ID of head loss curve
 
   b. Shutoff valves and check valves are considered to be part of a pipe,
      not a separate control valve component (see [PIPES])
 
-     
+
 [VERTICES]
 ------------------------
 
@@ -1807,9 +1799,9 @@ c. The **PRIORITY** value is used to determine which rule applies when
 
 
 **Example:**
-  
+
   ::
-   
+
     [COORDINATES]
     ;Node X-Coord. Y-Coord
     ;-------------------------------

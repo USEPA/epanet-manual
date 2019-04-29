@@ -1,12 +1,12 @@
 .. raw:: latex
 
     \clearpage
-  
+
 
 C. COMMAND LINE EPANET
 ======================
 
-  
+
 General Instructions
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -15,8 +15,8 @@ General Instructions
   a text file and results are written to a text file. The command line
   for running EPANET in this fashion is:
 
-    ::  
-    
+    ::
+
       epanet2d  inpfile  rptfile  outfile
 
 
@@ -85,10 +85,10 @@ Input File Format
   network discussed in Chapter 2.
 
     ::
-      
+
       [TITLE]
       EPANET TUTORIAL
-      
+
       [JUNCTIONS]
       ;ID Elev Demand
       ;------------------
@@ -97,17 +97,17 @@ Input File Format
       4 700 150
       5 695 200
       6 700 150
-      
+
       [RESERVOIRS]
       ;ID Head
       ;---------
       1 700
-      
+
       [TANKS]
       ;ID Elev InitLvl MinLvl MaxLvl Diam Volume
       ;-----------------------------------------------
       7 850 5 0 15 70 0
-      
+
       [PIPES]
       ;ID Node1 Node2 Length Diam Roughness
       ;-----------------------------------------
@@ -117,58 +117,62 @@ Input File Format
       4 4 5 5000 8 100
       5 5 6 5000 8 100
       6 6 7 7000 10 100
-      
+
       [PUMPS]
       ;ID Node1 Node2 Parameters
       ;---------------------------------
       7 1 2 HEAD 1
-      
+
       [PATTERNS]
       ;ID Multipliers
       ;-----------------------
       1 0.5 1.3 1 1.2
-      
+
       [CURVES]
       ;ID X-Value Y-Value
       ;--------------------
       1 1000 200
-      
+
       [QUALITY]
       ;Node InitQual
       ;-------------
       1 1
-      
+
       [REACTIONS]
       Global Bulk -1
       Global Wall 0
-      
+
       [TIMES]
       Duration 24:00
       Hydraulic Timestep 1:00
       Quality Timestep 0:05
       Pattern Timestep 6:00
-      
+
       [REPORT]
       Page 55
       Energy Yes
       Nodes All
       Links All
-      
+
       [OPTIONS]
       Units GPM
       Headloss H-W
       Pattern 1
       Quality Chlorine mg/L
       Tolerance 0.01
-      
+
       [END]
 
-    **Figure C.1** Example EPANET Input File 
+    **Figure C.1** Example EPANET Input File
 
-  `On the pages that follow the contents and formats of each keyword
-  section are described in alphabetical order <F_en2_section_keywords.rst>`.
+  On the pages that follow the contents and formats of each keyword
+  section are described in alphabetical order.
 
-  
+
+.. include:: input_keywords.rst
+
+
+
 Report File Format
 ~~~~~~~~~~~~~~~~~~
 
@@ -235,7 +239,7 @@ Energy Section
    must appear in the [REPORT] section of the input file.
 
     ::
-      
+
       ******************************************************************
       * E P A N E T *
       * Hydraulic and Water Quality *
@@ -322,10 +326,10 @@ Energy Section
       4 89.45 0.57 0.34
       5 -10.55 0.07 0.01
       6 469.60 1.92 2.49
-      7 1044.60 0.00 -193.92 Pump                            
+      7 1044.60 0.00 -193.92 Pump
 
-    **Figure C.2** Excerpt from a Report File 
-   
+    **Figure C.2** Excerpt from a Report File
+
 Nodes Section
 --------------
 
@@ -385,7 +389,7 @@ Binary Output File Format
   the file to be divided conveniently into 4-byte records. The file
   consists of four sections of the following sizes in bytes:
 
-   
+
   +-----------------+----------------------------------------+
   | *Section*       | *Size in bytes*                        |
   +=================+========================================+
@@ -411,7 +415,7 @@ Binary Output File Format
     and all of these counts are themselves written to the file's Prolog
     or Epilog sections.
 
-    
+
 Prolog Section
 ---------------
 

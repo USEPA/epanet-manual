@@ -1,7 +1,7 @@
 .. raw:: latex
 
     \clearpage
-    
+
 
 D. ANALYSIS ALGORITHMS
 ======================
@@ -23,8 +23,8 @@ Hydraulics
   Assume we have a pipe network with N junction nodes and NF fixed
   grade nodes (tanks and reservoirs). Let the flow-headloss relation in
   a pipe between nodes i and j be given as: :math:`\boldsymbol{\nabla}` is the nabla operator.
-    
-  .. math:: H _{i} -H _{j} =h _{ij} =rQ _{ij}^{n} +mQ _{ij}^{2} ~~~~~~  
+
+  .. math:: H _{i} -H _{j} =h _{ij} =rQ _{ij}^{n} +mQ _{ij}^{2} ~~~~~~
      (D.1)
 
   where *H* = nodal head, *h* = headloss, *r* = resistance coefficient,
@@ -34,7 +34,7 @@ Hydraulics
   the headloss (negative of the head gain) can be represented by a
   power law of the form
 
-  .. math:: { h}_{ij }={ -ω}^{ 2} ( { h}_{0}-r { ( { Q}_{ij }/ω   )}^{2 }   )  
+  .. math:: { h}_{ij }={ -ω}^{ 2} ( { h}_{0}-r { ( { Q}_{ij }/ω   )}^{2 }   )
 
   where *h\ 0* is the shutoff head for the pump, ω is a relative speed
   setting, and r and n are the pump curve coefficients. The second set
@@ -63,37 +63,37 @@ Hydraulics
 
   The diagonal elements of the Jacobian matrix are:
 
-  .. math:: { A}_{ij }= \sum_{j} { P}_{ij }  
+  .. math:: { A}_{ij }= \sum_{j} { P}_{ij }
 
 
   while the non-zero, off-diagonal terms are:
 
-  .. math:: { A}_{ij }= -{ P}_{ij }  
+  .. math:: { A}_{ij }= -{ P}_{ij }
 
   where *p\ ij* is the inverse derivative of the headloss in the link
   between nodes i and j with respect to flow. For pipes,
 
-  .. math:: { P}_{ij }= \frac{ 1}{nr {{   | { Q}_{ji }   |}^{ n-1}}+2m   | { Q}_{ji }   |}  
+  .. math:: { P}_{ij }= \frac{ 1}{nr {{   | { Q}_{ji }   |}^{ n-1}}+2m   | { Q}_{ji }   |}
 
   while for pumps
 
-  .. math:: { P}_{ij }=\frac{ 1} {n{ ω}^{2 }r{ ({ Q}_{ij }/ω )}^{n-1 }}  
+  .. math:: { P}_{ij }=\frac{ 1} {n{ ω}^{2 }r{ ({ Q}_{ij }/ω )}^{n-1 }}
 
 
   Each right hand side term consists of the net flow imbalance at a
   node plus a flow correction factor:
 
-  .. math:: { F}_{i }=  ( \sum_{{ j}}{ Q}_{ij }-{ D}_{i }  )+ \sum_{{ j}}{ y}_{ij } + \sum_{{ f}}{ P}_{ij }{ H}_{f }  
+  .. math:: { F}_{i }=  ( \sum_{{ j}}{ Q}_{ij }-{ D}_{i }  )+ \sum_{{ j}}{ y}_{ij } + \sum_{{ f}}{ P}_{ij }{ H}_{f }
 
   where the last term applies to any links connecting node i to a fixed
   grade node f and the flow correction factor *y\ ij* is:
 
-  .. math:: { y}_{ij }={ P}_{ij }  ( r{   | { Q}_{ij }   |}^{n }  +m{   | { Q}_{ij }   |}^{2 }   )sgn ( { Q}_{ij }   )  
+  .. math:: { y}_{ij }={ P}_{ij }  ( r{   | { Q}_{ij }   |}^{n }  +m{   | { Q}_{ij }   |}^{2 }   )sgn ( { Q}_{ij }   )
 
 
   for pipes and
 
-  .. math:: { y}_{ij }={- P}_{ij }{ ω}^{ 2}  ( { h}_{0 } -r {   ({ Q}_{ij }/ω    )}^{n }  )  
+  .. math:: { y}_{ij }={- P}_{ij }{ ω}^{ 2}  ( { h}_{0 } -r {   ({ Q}_{ij }/ω    )}^{n }  )
 
   for pumps, where sgn(x) is 1 if x > 0 and -1 otherwise. (*Q\ ij* is
   always positive for pumps.)
@@ -133,35 +133,35 @@ Hydraulics
 
      Hagen – Poiseuille formula for Re < 2,000 (Bhave, 1991):
 
-     .. math:: f= \frac{ 64} {Re }  
+     .. math:: f= \frac{ 64} {Re }
 
 
      Swamee and Jain approximation to the Colebrook - White equation for
      Re > 4,000 (Bhave, 1991):
 
-     .. math:: f= \frac{0.25} {{ [ Ln   ( \frac{ ε}{3.7d }    +\frac{ 5.74}{{ Re}^{0.9 } }) ] }^{ 2} }  
+     .. math:: f= \frac{0.25} {{ [ Ln   ( \frac{ ε}{3.7d }    +\frac{ 5.74}{{ Re}^{0.9 } }) ] }^{ 2} }
 
 
      Cubic Interpolation From Moody Diagram for 2,000 < Re < 4,000
      (Dunlop, 1991):
 
-     .. math:: f=  ( X1+R  ( X2+R   (X3+X4    )   )   )    
-     .. math:: R= \frac{ Re} {2000 }  
-     .. math:: X1=7FA-FB 
-     .. math:: X2=0.128-17FA+2.5FB  
-     .. math:: X3=-0.128+13FA-2FB     
-     .. math:: X4=R   ( 0.032-3FA+0.5FB   )  
-     .. math:: FA={   ( Y3   )}^{-2 }  
-     .. math:: FB=FA   ( 2-\frac{ 0.00514215}  {  ( Y2   )  ( Y3   ) }   )  
-     .. math:: Y2= \frac{ ε} {3.7d }+\frac{ 5.74}{{ Re}^{ 0.9} }  
-     .. math:: Y3=-0.86859 Ln   ( \frac{ ε}{ 3.7d}+\frac{ 5.74}{{ 4000}^{0.9 } }   )  
+     .. math:: f=  ( X1+R  ( X2+R   (X3+X4    )   )   )
+     .. math:: R= \frac{ Re} {2000 }
+     .. math:: X1=7FA-FB
+     .. math:: X2=0.128-17FA+2.5FB
+     .. math:: X3=-0.128+13FA-2FB
+     .. math:: X4=R   ( 0.032-3FA+0.5FB   )
+     .. math:: FA={   ( Y3   )}^{-2 }
+     .. math:: FB=FA   ( 2-\frac{ 0.00514215}  {  ( Y2   )  ( Y3   ) }   )
+     .. math:: Y2= \frac{ ε} {3.7d }+\frac{ 5.74}{{ Re}^{ 0.9} }
+     .. math:: Y3=-0.86859 Ln   ( \frac{ ε}{ 3.7d}+\frac{ 5.74}{{ 4000}^{0.9 } }   )
 
      where *σ* = pipe roughness and *d* = pipe diameter.
 
   4. The minor loss coefficient based on velocity head (*K*) is converted
      to one based on flow (*m*) with the following relation:
 
-     .. math:: m=\frac{ 0.02517K} {{ d}^{4 } }  
+     .. math:: m=\frac{ 0.02517K} {{ d}^{4 } }
 
 
   5. Emitters at junctions are modeled as a fictitious pipe between the
@@ -200,18 +200,18 @@ Hydraulics
      some networks due to limits on numerical precision. The following
      procedure was devised to provide a more robust test of the status of
      a check valve (CV):
-      
+
       ::
-      
+
         if |h| > Htol then
-          if h < -Htol then     status = CLOSED                   
-          if Q < -Qtol then     status = CLOSED 
+          if h < -Htol then     status = CLOSED
+          if Q < -Qtol then     status = CLOSED
           else                  status = OPEN
-            
+
         else
           if *Q* < -Qtol then   status = CLOSED
-          else                  status = unchanged 
-          
+          else                  status = unchanged
+
       where Htol = 0.0005 ft and Qtol = 0.001 cfs.
 
   10. If the status check closes an open pump, pipe, or CV, its flow is
@@ -238,22 +238,22 @@ Hydraulics
   13. The logic used to test the status of a PRV is as follows:
 
         ::
-          
+
           If current status = ACTIVE then
-            if Q < -Qtol then              new status = CLOSED 
+            if Q < -Qtol then              new status = CLOSED
             if Hi < Hset + Hml – Htol then new status = OPEN
                                       else new status = ACTIVE
 
           If curent status = OPEN then
-            if Q < -Qtol then              new status = CLOSED 
+            if Q < -Qtol then              new status = CLOSED
             if Hi > Hset + Hml + Htol then new status = ACTIVE
                                       else new status = OPEN
 
-          If current status = CLOSED then 
-            if  Hi > Hj + Htol 
-            and Hi < Hset – Htol      then new status = OPEN 
-            
-            if  Hi > Hj + Htol 
+          If current status = CLOSED then
+            if  Hi > Hj + Htol
+            and Hi < Hset – Htol      then new status = OPEN
+
+            if  Hi > Hj + Htol
             and Hj < Hset - Htol      then new status = ACTIVE
                                       else new status = CLOSED
 
@@ -273,10 +273,10 @@ Hydraulics
 
       .. math:: {p}_{ij} = 0
 
-      .. math:: {F}_{j } = {F}_{j} + {10}^{8} Hset  
+      .. math:: {F}_{j } = {F}_{j} + {10}^{8} Hset
 
-      .. math:: {A}_{jj }= {A}_{jj} + {10}^{8 }  
-    
+      .. math:: {A}_{jj }= {A}_{jj} + {10}^{8 }
+
       This forces the head at the downstream node to be at the valve
       setting Hset. An equivalent assignment of coefficients is made for an
       active PSV except the subscript for F and A is the upstream node i.
@@ -304,8 +304,8 @@ Hydraulics
       a. After a solution is found for the current time period, the time
          step for the next solution is the minimum of:
 
-         
-         
+
+
        -  the time until a new demand period begins,
 
        -  the shortest time for a tank to fill or drain,
@@ -426,7 +426,7 @@ Mixing in Storage Facilities
   into the facility, and *O\ s* = set of links withdrawing flow from
   the facility.
 
-  
+
 Bulk Flow Reactions
 ---------------------
 
@@ -435,15 +435,15 @@ Bulk Flow Reactions
   reaction can generally be described as a power function of
   concentration:
 
-  .. math:: r=k{ C}^{n }  
+  .. math:: r=k{ C}^{n }
 
 
   where *k* = a reaction constant and *n* = the reaction order. When a
   limiting concentration exists on the ultimate growth or loss of a
   substance then the rate expression becomes
 
-  .. math:: R={ K}_{b }   ( { C}_{L }-C   ) { C}^{n-1 }  
-  .. math:: R={ K}_{b }   ( C-{ C}_{L }   ) { C}^{n-1 }  
+  .. math:: R={ K}_{b }   ( { C}_{L }-C   ) { C}^{n-1 }
+  .. math:: R={ K}_{b }   ( C-{ C}_{L }   ) { C}^{n-1 }
 
 
   for *n* > 0, *K\ b* > 0 for *n* > 0, *K\ b* < 0
@@ -454,14 +454,14 @@ Bulk Flow Reactions
 
     -  *Simple First-Order Decay (CL = 0, K\ b < 0, n = 1)*
 
-       .. math:: R={ K}^{b }C  
+       .. math:: R={ K}^{b }C
 
        The decay of many substances, such as chlorine, can be modeled
        adequately as a simple first-order reaction.
 
     -  *First-Order Saturation Growth (CL > 0, K\ b > 0, n = 1):*
 
-       .. math:: R={ K}_{b }   ( { C}_{L }-C   )   
+       .. math:: R={ K}_{b }   ( { C}_{L }-C   )
 
        This model can be applied to the growth of disinfection by-products,
        such as trihalomethanes, where the ultimate formation of by-product
@@ -469,8 +469,8 @@ Bulk Flow Reactions
 
     -  *Two-Component, Second Order Decay (CL* ≠ *0, K\ b < 0, n = 2):*
 
-       .. math:: R={ K}_{b }C   ( { C}_{L }-C   )   
-      
+       .. math:: R={ K}_{b }C   ( { C}_{L }-C   )
+
        This model assumes that substance A reacts with substance B in some
        unknown ratio to produce a product P. The rate of disappearance of A
        is proportional to the product of A and B remaining. *C\ L* can be
@@ -481,7 +481,7 @@ Bulk Flow Reactions
 
     -  *Michaelis-Menton Decay Kinetics (CL > 0, K\ b < 0, n < 0):*
 
-       .. math:: R = \frac{ { K}_{b }C}  {{ C}_{L }-C }  
+       .. math:: R = \frac{ { K}_{b }C}  {{ C}_{L }-C }
 
        As a special case, when a negative reaction order *n* is specified,
        EPANET will utilize the Michaelis-Menton rate equation, shown above
@@ -497,15 +497,15 @@ Bulk Flow Reactions
        *K\ b* and *C\ L* could be related to the water’s organic content and
        its ultraviolet absorbance as follows:
 
-       .. math:: { K}_{b }=-0.32UV{ A}^{1.365 }\frac{   ( 100UVA   )}{DOC }  
-       .. math:: { C}_{L }=4.98UVA-1.91DOC  
+       .. math:: { K}_{b }=-0.32UV{ A}^{1.365 }\frac{   ( 100UVA   )}{DOC }
+       .. math:: { C}_{L }=4.98UVA-1.91DOC
 
 
        where UVA = ultraviolet absorbance at 254 nm (1/cm) and DOC =
        dissolved organic carbon concentration (mg/L).
 
        Note: These expressions apply only for values of *K\ b* and *C\ L* used with Michaelis-Menton kinetics.
-    
+
 
     -  *Zero-Order growth (CL = 0, K\ b = 1, n = 0) R = 1.0*
 
@@ -516,7 +516,7 @@ Bulk Flow Reactions
        temperature (T1) to that at another temperature (T2) is often
        expressed using a van’t Hoff - Arrehnius equation of the form:
 
-       .. math:: { K}_{b2 }={ K}_{b1 }{ θ}^{T2-T1 }  
+       .. math:: { K}_{b2 }={ K}_{b1 }{ θ}^{T2-T1 }
 
 
        where θ is a constant. In one investigation for chlorine, θ was
@@ -537,7 +537,7 @@ Pipe Wall Reactions
   the Reynolds number of the flow (Rossman et. al, 1994). For first-
   order kinetics, the rate of a pipe wall reaction can be expressed as:
 
-  .. math:: r=\frac{ 2{ k}_{w }{ k}_{f }C} {R   ( { k}_{w }+{ k}_{f }   ) }  
+  .. math:: r=\frac{ 2{ k}_{w }{ k}_{f }C} {R   ( { k}_{w }+{ k}_{f }   ) }
 
 
   where *k\ w* = wall reaction rate constant (length/time), *k\ f* =
@@ -545,28 +545,28 @@ Pipe Wall Reactions
   zero-order kinetics the reaction rate cannot be any higher than the
   rate of mass transfer, so
 
-  .. math:: r=MIN   ( { k}_{w },{ k}_{f }C   )   ( 2/R   )  
+  .. math:: r=MIN   ( { k}_{w },{ k}_{f }C   )   ( 2/R   )
 
   where *k\ w* now has units of mass/area/time.
 
   Mass transfer coefficients are usually expressed in terms of a
   dimensionless Sherwood number (*Sh*):
 
-  .. math:: { k}_{f }=Sh \frac{ D} {d }  
+  .. math:: { k}_{f }=Sh \frac{ D} {d }
 
   in which *D* = the molecular diffusivity of the species being
   transported (length:sup:`2`/time) and *d* = pipe diameter. In fully
   developed laminar flow, the average Sherwood number along the length
   of a pipe can be expressed as
 
-  .. math:: Sh=3.65+\frac{ 0.0668   ( d/L   )ReSc} {1+0.04{   [   ( d/L   )ReSc   ]}^{2/3 } }  
+  .. math:: Sh=3.65+\frac{ 0.0668   ( d/L   )ReSc} {1+0.04{   [   ( d/L   )ReSc   ]}^{2/3 } }
 
   in which *Re* = Reynolds number and *Sc* = Schmidt number (kinematic
   viscosity of water divided by the diffusivity of the chemical)
   (Edwards et.al, 1976). For turbulent flow the empirical correlation
   of Notter and Sleicher (1971) can be used:
 
-  .. math:: Sh=0.0149{ Re}^{0.88 }{ Sc}^{1/3 }  
+  .. math:: Sh=0.0149{ Re}^{0.88 }{ Sc}^{1/3 }
 
 
 System of Equations
@@ -645,168 +645,7 @@ Lagrangian Transport Algorithm
 
   **Figure D.1** Behavior of Segments in the Lagrangian Solution Method
 
-..  |image0| image:: media/image1.jpeg
-..  |image1| image:: media/image2.png
-..  |image2| image:: media/image3.png
-..  |image3| image:: media/image4.png
-..  |image4| image:: media/image5.png
-..  |image5| image:: media/image6.png
-..  |image6| image:: media/image7.png
-..  |image7| image:: media/image8.png
-..  |image8| image:: media/image9.png
-..  |image9| image:: media/image10.png
-..  |image10| image:: media/image11.png
-..  |image11| image:: media/image12.png
-..  |image12| image:: media/image13.png
-..  |image13| image:: media/image12.png
-..  |image14| image:: media/image14.jpeg
-..  |image15| image:: media/image15.png
-..  |image16| image:: media/image16.jpeg
-..  |image17| image:: media/image17.png
-..  |image18| image:: media/image18.png
-..  |image19| image:: media/image19.png
-..  |image20| image:: media/image20.png
-..  |image21| image:: media/image21.png
-..  |image22| image:: media/image16.jpeg
-..  |image23| image:: media/image22.png
-..  |image24| image:: media/image18.png
-..  |image25| image:: media/image23.png
-..  |image26| image:: media/image24.png
-..  |image27| image:: media/image25.png
-..  |image28| image:: media/image26.png
-..  |image29| image:: media/image27.png
-..  |image30| image:: media/image28.png
-..  |image31| image:: media/image29.png
-    :width: 250pt
-    :align: middle
 
-..  |image31-2| image:: media/image29-2.png
-    :width: 250pt
-    :align: middle
-    
-..  |image32| image:: media/image30-2.png
-    :width: 250pt
-    :align: middle
-    
-..  |image32-2| image:: media/image30.png
-    :width: 250pt
-    :align: middle
-    
-..  |image33| image:: media/image31.png
-..  |image34| image:: media/image32.png
-..  |image35| image:: media/image33.png
-..  |image36| image:: media/image34.png
-..  |image36-2| image:: media/image36-2.png
-..  |image37| image:: media/image35.png
-..  |image38| image:: media/image36.png
-..  |image39| image:: media/image37.png
-..  |image40| image:: media/image38.png
-..  |image41| image:: media/image39.png
-..  |image42| image:: media/image40.png
-..  |image43| image:: media/image41.png
-..  |image44| image:: media/image42.png
-..  |image45| image:: media/image43.png
-..  |image46| image:: media/image44.png
-..  |image47| image:: media/image45.png
-..  |image48| image:: media/image18.png
-..  |image49| image:: media/image25.png
-..  |image50| image:: media/image19.png
-..  |image51| image:: media/image46.png
-..  |image52| image:: media/image12.png
-..  |image53| image:: media/image13.png
-..  |image54| image:: media/image47.png
-..  |image55| image:: media/image48.png
-..  |image56| image:: media/image49.png
-..  |image57| image:: media/image50.png
-..  |image58| image:: media/image51.png
-..  |image59| image:: media/image6.png
-..  |image60| image:: media/image5.png
-..  |image61| image:: media/image7.png
-..  |image62| image:: media/image9.png
-..  |image63| image:: media/image10.png
-..  |image64| image:: media/image52.png
-..  |image65| image:: media/image11.png
-..  |image66| image:: media/image53.jpeg
-..  |image67| image:: media/image54.jpeg
-..  |image68| image:: media/image55.png
-..  |image69| image:: media/image57.png
-..  |image70| image:: media/image58.png
-..  |image71| image:: media/image59.png
-..  |image72| image:: media/image38.png
-..  |image73| image:: media/image39.png
-..  |image74| image:: media/image40.png
-..  |image75| image:: media/image2.png
-..  |image76| image:: media/image60.png
-..  |image77| image:: media/image61.png
-..  |image78| image:: media/image6.png
-..  |image79| image:: media/image5.png
-..  |image80| image:: media/image7.png
-..  |image81| image:: media/image16.jpeg
-..  |image82| image:: media/image9.png
-..  |image83| image:: media/image10.png
-..  |image84| image:: media/image52.png
-..  |image85| image:: media/image11.png
-..  |image86| image:: media/image12.png
-..  |image87| image:: media/image14.jpeg
-..  |image88| image:: media/image14.jpeg
-..  |image89| image:: media/image17.png
-..  |image90| image:: media/image22.png
-..  |image91| image:: media/image62.png
-..  |image92| image:: media/image63.png
-..  |image93| image:: media/image64.png
-..  |image94| image:: media/image13.png
-..  |image95| image:: media/image65.png
-..  |image96| image:: media/image44.png
-..  |image97| image:: media/image47.png
-..  |image98| image:: media/image44.png
-..  |image99| image:: media/image66.png
-..  |image100| image:: media/image67.png
-..  |image101| image:: media/image68.png
-..  |image102| image:: media/image49.png
-..  |image103| image:: media/image50.png
-..  |image104| image:: media/image48.png
-..  |image105| image:: media/image42.png
-..  |image106| image:: media/image42.png
-..  |image107| image:: media/image69.jpeg
-..  |image108| image:: media/image70.png
-..  |image109| image:: media/image71.png
-..  |image110| image:: media/image46.png
-..  |image111| image:: media/image72.png
-..  |image112| image:: media/image14.jpeg
-..  |image113| image:: media/image18.png
-..  |image114| image:: media/image73.png
-..  |image115| image:: media/image74.png
-..  |image116| image:: media/image45.png
-..  |image117| image:: media/image25.png
-..  |image118| image:: media/image75.png
-..  |image119| image:: media/image76.png
-..  |image120| image:: media/image77.png
-..  |image121| image:: media/image78.png
-..  |image122| image:: media/image79.png
-..  |image123| image:: media/image80.png
-..  |image124| image:: media/image46.png
-..  |image125| image:: media/image81.png
-..  |image126| image:: media/image82.png
-..  |image127| image:: media/image19.png
-..  |image128| image:: media/image83.png
-..  |image129| image:: media/image84.png
-..  |image130| image:: media/image85.png
-..  |image131| image:: media/image86.png
-..  |image132| image:: media/image46.png
-..  |image133| image:: media/image87.png
-..  |image134| image:: media/image88.png
-..  |image135| image:: media/image46.png
-..  |image136| image:: media/image89.png
-..  |image137| image:: media/image90.png
-..  |image138| image:: media/image46.png
-..  |image139| image:: media/image73.png
-..  |image140| image:: media/image91.png
-..  |image141| image:: media/image41.png
-..  |image142| image:: media/image43.png
-..  |image143| image:: media/image92.png
-..  |image144| image:: media/image93.png
-..  |image145| image:: media/image94.png
-..  |image146| image:: media/image95.png
-..  |image147| image:: media/image96.png
-..  |image148| image:: media/image98.png
 
+
+.. include:: image_subdefs.rst

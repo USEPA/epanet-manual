@@ -1,7 +1,7 @@
 .. raw:: latex
 
     \clearpage
-    
+
 
 
 3. THE NETWORK MODEL
@@ -18,7 +18,7 @@ water quality transport behavior.*
 -------
 
 
-  
+
 
 Physical Components
 ~~~~~~~~~~~~~~~~~~~
@@ -33,7 +33,7 @@ Physical Components
 
    **Figure 3.1** Physical Components in a Water Distribution System
 
-   
+
 Junctions
 --------------------
 
@@ -101,7 +101,7 @@ Tanks
 
 
    The principal outputs computed over time are:
-    
+
     -  hydraulic head (water surface elevation)
     -  water quality.
 
@@ -209,7 +209,7 @@ Pipes
 
    Each formula uses the following equation to compute headloss between
    the start and end node of the pipe:
-    
+
     .. math::  h_L = A ~ q^B
 
    where *h*\ :sub:`L` = headloss (Length), *q* = flow rate (Volume/Time), *A*
@@ -250,17 +250,17 @@ Pipes
     | Chezy-Manning     |  4.66 n\ :sup:`2` d\ :sup:`-5.33` L        |    2                  |
     +-------------------+--------------------------------------------+-----------------------+
 
-    
-    Notes:                                                                                 
-    
-        | C = Hazen-Williams roughness coefficient 
+
+    Notes:
+
+        | C = Hazen-Williams roughness coefficient
         | ε = Darcy-Weisbach roughness coefficient (ft)
-        | f = friction factor  (dependent on ε, d, and q) 
-        | n = Manning roughness coefficient                                                  
-        | d = pipe diameter (ft)     
-        | L = pipe length (ft)                                                                        
-        | q = flow rate (cfs)                                                                
-    
+        | f = friction factor  (dependent on ε, d, and q)
+        | n = Manning roughness coefficient
+        | d = pipe diameter (ft)
+        | L = pipe length (ft)
+        | q = flow rate (cfs)
+
 
 
     **Table 3.2** Roughness Coefficients for New Pipe
@@ -299,7 +299,7 @@ Pipes
    certain set points, or when nodal pressures fall below or above
    certain values. See the discussion of Controls in Section 3.2.
 
-   
+
 Minor Losses
 --------------------
 
@@ -519,8 +519,8 @@ Curves
     -  Head Loss Curve Pump Curve
 
 Pump Curve
-^^^^^^^^^^  
-  
+^^^^^^^^^^
+
    A Pump Curve represents the relationship between the head and flow
    rate that a pump can deliver at its nominal speed setting. Head is
    the head gain imparted to the water by the pump and is plotted on the
@@ -531,17 +531,17 @@ Pump Curve
    EPANET will use a different shape of pump curve depending on the
    number of points supplied (see Figure 3.2):
 
-      Single-Point Pump Curve:     
-      |image31| 
-      | 
-      Three-Point Pump Curve:      
+      Single-Point Pump Curve:
+      |image31|
+      |
+      Three-Point Pump Curve:
       |image32|
-      | 
-      Multi-Point Pump Curve: 
+      |
+      Multi-Point Pump Curve:
       |image31-2|
-      | 
+      |
       Variable-Speed Pump Curve:
-      |image32-2|    
+      |image32-2|
 
     **Figure 3.2** Example Pump Curves
 
@@ -572,15 +572,15 @@ Pump Curve
    For variable speed pumps, the pump curve shifts as the speed changes.
    The relationships between flow (Q) and head (H) at speeds N1 and N2
    are
-   
+
    .. math:: \frac{Q_1}{Q_2} = \frac{N_1}{N_2}  ~~~  \frac{H_1}{H_2} = (\frac{N_1}{N_2})^2
-   
-   
-  
+
+
+
 Efficiency Curve
 ^^^^^^^^^^^^^^^^^
-  
-  
+
+
    An Efficiency Curve determines pump efficiency (Y in percent) as a
    function of pump flow rate (X in flow units). An example efficiency
    curve is shown in Figure 3.3.
@@ -595,10 +595,10 @@ Efficiency Curve
 
     **Figure 3.3** Pump Efficiency Curve
 
-   
+
 Volume Curve
 ^^^^^^^^^^^^^
-  
+
 
    A Volume Curve determines how storage tank volume (Y in cubic feet or
    cubic meters) varies as a function of water level (X in feet or
@@ -612,10 +612,10 @@ Volume Curve
 
     **Figure 3.4** Tank Volume Curve
 
-  
+
 Headloss Curve
 ^^^^^^^^^^^^^^^
-  
+
 
    A Headloss Curve is used to described the headloss (Y in feet or
    meters) through a General Purpose Valve (GPV) as a function of flow
@@ -624,7 +624,7 @@ Headloss Curve
    reduced flow - backflow prevention valves, turbines, and well
    draw-down behavior.
 
-   
+
 Time Patterns
 --------------------
 
@@ -676,11 +676,11 @@ Controls
 
     -  Rule-Based Controls Simple Controls
 
-  
+
 Simple Controls
 ^^^^^^^^^^^^^^^^
-  
-  
+
+
    Simple controls change the status or setting of a link based on:
 
     -  the water level in a tank,
@@ -694,17 +694,17 @@ Simple Controls
 
 
    They are statements expressed in one of the following three formats:
-    
-     
-     
-    
+
+
+
+
       LINK *x status* IF NODE *y* ABOVE/BELOW *z*
 
       LINK *x status* AT TIME *t*
 
       LINK *x status* AT CLOCKTIME *c* AM/PM
-      
-    
+
+
     where:
       | ``x`` = a link ID label,
       | ``status`` = OPEN or CLOSED, a pump speed setting, or a control valve
@@ -716,7 +716,7 @@ Simple Controls
       | ``c`` = a 24-hour clock time.
 
    Some examples of simple controls are:
-   
+
       +--------------------------------------+---------------------------------+
       |    *Control Statement*               |    *Meaning*                    |
       +======================================+=================================+
@@ -737,8 +737,8 @@ Simple Controls
       | | LINK 12 OPEN AT CLOCKTIME 8 PM     |   at 10 AM and                  |
       |                                      | | opened at 8 PM                |
       |                                      |   throughout the simulation)    |
-      +--------------------------------------+---------------------------------+      
-      
+      +--------------------------------------+---------------------------------+
+
       There is no limit on the number of simple control statements that can
       be used.
 
@@ -751,7 +751,7 @@ Simple Controls
       too close to one another. In this case using a pair of Rule-Based
       controls might provide more stability.
 
-   
+
 Rule-Based Controls
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -767,50 +767,50 @@ Rule-Based Controls
      the level is below another value.
 
      ::
-     
+
        RULE 1
 
-       IF TANK 1 LEVEL ABOVE 19.1      
-       THEN PUMP 335 STATUS IS CLOSED 
+       IF TANK 1 LEVEL ABOVE 19.1
+       THEN PUMP 335 STATUS IS CLOSED
        AND PIPE 330 STATUS IS OPEN
-      
+
      ::
-         
+
        RULE 2
 
-       IF TANK 1 LEVEL BELOW 17.1 
+       IF TANK 1 LEVEL BELOW 17.1
        THEN PUMP 335 STATUS IS OPEN
        AND PIPE 330 STATUS IS CLOSED
 
-     
-     
+
+
     **Example 2**:
 
      These rules change the tank level at which a pump turns on depending
      on the time of day.
 
      ::
-     
+
        RULE 3
 
-       IF SYSTEM CLOCKTIME >= 8 AM 
-       AND SYSTEM CLOCKTIME < 6 PM 
-       AND TANK 1 LEVEL BELOW 12 
+       IF SYSTEM CLOCKTIME >= 8 AM
+       AND SYSTEM CLOCKTIME < 6 PM
+       AND TANK 1 LEVEL BELOW 12
        THEN PUMP 335 STATUS IS OPEN
 
      ::
-     
+
        RULE 4
 
-       IF SYSTEM CLOCKTIME >= 6 PM 
-       OR SYSTEM CLOCKTIME < 8 AM 
-       AND TANK 1 LEVEL BELOW 14 
+       IF SYSTEM CLOCKTIME >= 6 PM
+       OR SYSTEM CLOCKTIME < 8 AM
+       AND TANK 1 LEVEL BELOW 14
        THEN PUMP 335 STATUS IS OPEN
 
    A description of the formats used with Rule-Based controls can be
    found in Appendix C, under the [RULES] heading (page 150).
 
-   
+
 Hydraulic Simulation Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -842,8 +842,8 @@ Hydraulic Simulation Model
 
     -  a simple control or rule-based control is activated.
 
-    
-    
+
+
 Water Quality Simulation Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -880,7 +880,7 @@ Basic Transport
    Whenever there is a flow reversal in a pipe, the pipe’s parcels are
    re-ordered from front to back.
 
-   
+
 Mixing in Storage Tanks
 ------------------------
 
@@ -899,20 +899,20 @@ Mixing in Storage Tanks
 
    Different models can be used with different tanks within a network.
 
-      |image35|     
-    
-    (A) Complete Mixing 
-   
+      |image35|
+
+    (A) Complete Mixing
+
       |image36|
-    
+
     (B) Two-Compartment Mixing
 
-      |image37|     
-    
-    (C) Plug Flow - FIFO 
-   
+      |image37|
+
+    (C) Plug Flow - FIFO
+
       |image38|
-    
+
     (D) Plug Flow - LIFO
 
    **Figure 3.5** Tank Mixing Models
@@ -971,13 +971,13 @@ Water Quality Reactions
    reactions can also occur within tanks. EPANET allows a modeler to
    treat these two reaction zones separately.
 
-   
-      |image36-2| 
-      
-    **Figure 3.6** Reaction Zones Within a Pipe
-    
 
-   
+      |image36-2|
+
+    **Figure 3.6** Reaction Zones Within a Pipe
+
+
+
 Bulk Reactions
 ^^^^^^^^^^^^^^^
 
@@ -1017,11 +1017,11 @@ Bulk Reactions
     +-----------------------+-----------------------+-----------------------+
     |    First-Order        |  *C*\ :sub:`L` > 0,   |    Trihalomethanes    |
     |    Saturation Growth  |  *K*\ :sub:`b` > 0,   |                       |
-    |                       |  *n* = 1              |                       |    
+    |                       |  *n* = 1              |                       |
     +-----------------------+-----------------------+-----------------------+
     | Zero-Order Kinetics   |  *C*\ :sub:`L` = 0,   |    Water Age          |
     |                       |  *K*\ :sub:`b` <> 0,  |                       |
-    |                       |  *n* = 0              |                       |    
+    |                       |  *n* = 0              |                       |
     +-----------------------+-----------------------+-----------------------+
     | No Reaction           |  *C*\ :sub:`L` = 0,   |    Fluoride Tracer    |
     |                       |  *K*\ :sub:`b` = 0    |                       |
@@ -1042,7 +1042,7 @@ Bulk Reactions
    will provide more accurate assessment of how the rate coefficient
    varies with temperature
 
-   
+
 Wall Reactions
 ^^^^^^^^^^^^^^^
 
@@ -1102,7 +1102,7 @@ Wall Reactions
    parameter, *F*, to allow wall reaction coefficients to vary
    throughout the network in a physically meaningful way.
 
-   
+
 Water Age and Source Tracing
 ------------------------------
 
@@ -1129,168 +1129,6 @@ Water Age and Source Tracing
    water from a given source blends with that from other sources, and
    how the spatial pattern of this blending changes over time.
 
-..  |image0| image:: media/image1.jpeg
-..  |image1| image:: media/image2.png
-..  |image2| image:: media/image3.png
-..  |image3| image:: media/image4.png
-..  |image4| image:: media/image5.png
-..  |image5| image:: media/image6.png
-..  |image6| image:: media/image7.png
-..  |image7| image:: media/image8.png
-..  |image8| image:: media/image9.png
-..  |image9| image:: media/image10.png
-..  |image10| image:: media/image11.png
-..  |image11| image:: media/image12.png
-..  |image12| image:: media/image13.png
-..  |image13| image:: media/image12.png
-..  |image14| image:: media/image14.jpeg
-..  |image15| image:: media/image15.png
-..  |image16| image:: media/image16.jpeg
-..  |image17| image:: media/image17.png
-..  |image18| image:: media/image18.png
-..  |image19| image:: media/image19.png
-..  |image20| image:: media/image20.png
-..  |image21| image:: media/image21.png
-..  |image22| image:: media/image16.jpeg
-..  |image23| image:: media/image22.png
-..  |image24| image:: media/image18.png
-..  |image25| image:: media/image23.png
-..  |image26| image:: media/image24.png
-..  |image27| image:: media/image25.png
-..  |image28| image:: media/image26.png
-..  |image29| image:: media/image27.png
-..  |image30| image:: media/image28.png
-..  |image31| image:: media/image29.png
-    :width: 250pt
-    :align: middle
 
-..  |image31-2| image:: media/image29-2.png
-    :width: 250pt
-    :align: middle
-    
-..  |image32| image:: media/image30-2.png
-    :width: 250pt
-    :align: middle
-    
-..  |image32-2| image:: media/image30.png
-    :width: 250pt
-    :align: middle
-    
-..  |image33| image:: media/image31.png
-..  |image34| image:: media/image32.png
-..  |image35| image:: media/image33.png
-..  |image36| image:: media/image34.png
-..  |image36-2| image:: media/image36-2.png
-..  |image37| image:: media/image35.png
-..  |image38| image:: media/image36.png
-..  |image39| image:: media/image37.png
-..  |image40| image:: media/image38.png
-..  |image41| image:: media/image39.png
-..  |image42| image:: media/image40.png
-..  |image43| image:: media/image41.png
-..  |image44| image:: media/image42.png
-..  |image45| image:: media/image43.png
-..  |image46| image:: media/image44.png
-..  |image47| image:: media/image45.png
-..  |image48| image:: media/image18.png
-..  |image49| image:: media/image25.png
-..  |image50| image:: media/image19.png
-..  |image51| image:: media/image46.png
-..  |image52| image:: media/image12.png
-..  |image53| image:: media/image13.png
-..  |image54| image:: media/image47.png
-..  |image55| image:: media/image48.png
-..  |image56| image:: media/image49.png
-..  |image57| image:: media/image50.png
-..  |image58| image:: media/image51.png
-..  |image59| image:: media/image6.png
-..  |image60| image:: media/image5.png
-..  |image61| image:: media/image7.png
-..  |image62| image:: media/image9.png
-..  |image63| image:: media/image10.png
-..  |image64| image:: media/image52.png
-..  |image65| image:: media/image11.png
-..  |image66| image:: media/image53.jpeg
-..  |image67| image:: media/image54.jpeg
-..  |image68| image:: media/image55.png
-..  |image69| image:: media/image57.png
-..  |image70| image:: media/image58.png
-..  |image71| image:: media/image59.png
-..  |image72| image:: media/image38.png
-..  |image73| image:: media/image39.png
-..  |image74| image:: media/image40.png
-..  |image75| image:: media/image2.png
-..  |image76| image:: media/image60.png
-..  |image77| image:: media/image61.png
-..  |image78| image:: media/image6.png
-..  |image79| image:: media/image5.png
-..  |image80| image:: media/image7.png
-..  |image81| image:: media/image16.jpeg
-..  |image82| image:: media/image9.png
-..  |image83| image:: media/image10.png
-..  |image84| image:: media/image52.png
-..  |image85| image:: media/image11.png
-..  |image86| image:: media/image12.png
-..  |image87| image:: media/image14.jpeg
-..  |image88| image:: media/image14.jpeg
-..  |image89| image:: media/image17.png
-..  |image90| image:: media/image22.png
-..  |image91| image:: media/image62.png
-..  |image92| image:: media/image63.png
-..  |image93| image:: media/image64.png
-..  |image94| image:: media/image13.png
-..  |image95| image:: media/image65.png
-..  |image96| image:: media/image44.png
-..  |image97| image:: media/image47.png
-..  |image98| image:: media/image44.png
-..  |image99| image:: media/image66.png
-..  |image100| image:: media/image67.png
-..  |image101| image:: media/image68.png
-..  |image102| image:: media/image49.png
-..  |image103| image:: media/image50.png
-..  |image104| image:: media/image48.png
-..  |image105| image:: media/image42.png
-..  |image106| image:: media/image42.png
-..  |image107| image:: media/image69.jpeg
-..  |image108| image:: media/image70.png
-..  |image109| image:: media/image71.png
-..  |image110| image:: media/image46.png
-..  |image111| image:: media/image72.png
-..  |image112| image:: media/image14.jpeg
-..  |image113| image:: media/image18.png
-..  |image114| image:: media/image73.png
-..  |image115| image:: media/image74.png
-..  |image116| image:: media/image45.png
-..  |image117| image:: media/image25.png
-..  |image118| image:: media/image75.png
-..  |image119| image:: media/image76.png
-..  |image120| image:: media/image77.png
-..  |image121| image:: media/image78.png
-..  |image122| image:: media/image79.png
-..  |image123| image:: media/image80.png
-..  |image124| image:: media/image46.png
-..  |image125| image:: media/image81.png
-..  |image126| image:: media/image82.png
-..  |image127| image:: media/image19.png
-..  |image128| image:: media/image83.png
-..  |image129| image:: media/image84.png
-..  |image130| image:: media/image85.png
-..  |image131| image:: media/image86.png
-..  |image132| image:: media/image46.png
-..  |image133| image:: media/image87.png
-..  |image134| image:: media/image88.png
-..  |image135| image:: media/image46.png
-..  |image136| image:: media/image89.png
-..  |image137| image:: media/image90.png
-..  |image138| image:: media/image46.png
-..  |image139| image:: media/image73.png
-..  |image140| image:: media/image91.png
-..  |image141| image:: media/image41.png
-..  |image142| image:: media/image43.png
-..  |image143| image:: media/image92.png
-..  |image144| image:: media/image93.png
-..  |image145| image:: media/image94.png
-..  |image146| image:: media/image95.png
-..  |image147| image:: media/image96.png
-..  |image148| image:: media/image98.png
 
+.. include:: image_subdefs.rst

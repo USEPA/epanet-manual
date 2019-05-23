@@ -11,6 +11,7 @@
 .. toctree::
    :maxdepth: 1
    :caption: Table of Contents
+   :numbered:
    :hidden:
 
    1_introduction
@@ -25,8 +26,13 @@
    10_printing_copying
    11_importing_exporting
    12_questions
-   references
 
+
+.. toctree::
+   :hidden:
+
+   references
+   
    back_matter
 
 

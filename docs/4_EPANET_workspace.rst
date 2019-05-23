@@ -3,8 +3,8 @@
     \clearpage
 
 
-4. EPANET’S WORKSPACE
-=====================
+EPANET's Workspace
+==================
 
 
 

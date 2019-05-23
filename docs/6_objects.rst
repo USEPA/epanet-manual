@@ -3,9 +3,8 @@
     \clearpage
 
 
-
-6. WORKING WITH OBJECTS
-=======================
+Working with Objects
+====================
 
 *EPANET uses various types of objects to model a distribution system.
 These objects can be accessed either directly on the network map or

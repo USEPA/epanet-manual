@@ -3,8 +3,8 @@
     \clearpage
 
 
-10. PRINTING AND COPYING
-========================
+Printing and Copying
+====================
 
 
 *This chapter describes how to print, copy to the Windows clipboard,

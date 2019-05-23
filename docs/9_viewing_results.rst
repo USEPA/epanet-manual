@@ -3,8 +3,8 @@
     \clearpage
 
 
-9. VIEWING RESULTS
-==================
+Viewing Results
+===============
 
 *This chapter describes the different ways in which the results of an
 analysis as well as the basic network input data can be viewed. These

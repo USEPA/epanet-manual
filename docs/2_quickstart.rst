@@ -3,8 +3,8 @@
     \clearpage
 
 
-2. QUICK START TUTORIAL
-=======================
+Quick Start Tutorial
+====================
 
 
 *This chapter provides a tutorial on how to use EPANET. If you are

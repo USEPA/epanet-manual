@@ -3,7 +3,7 @@
     \clearpage
 
 
-C. COMMAND LINE EPANET
+C. Command Line EPANET
 ======================
 
 

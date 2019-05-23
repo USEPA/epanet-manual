@@ -141,6 +141,8 @@ latex_documents = [
      'see AUTHORS', 'manual'),
 ]
 
+numfig = True
+math_numfig = True
 
 # -- Options for manual page output ------------------------------------------
 

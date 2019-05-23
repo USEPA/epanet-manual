@@ -3,8 +3,8 @@
     \clearpage
 
 
-11. IMPORTING AND EXPORTING
-===========================
+Importing and Exporting
+=======================
 
 *This chapter introduces the concept of Project Scenarios and
 describes how EPANET can import and export these and other data, such

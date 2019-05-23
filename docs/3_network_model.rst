@@ -4,8 +4,8 @@
 
 
 
-3. THE NETWORK MODEL
-====================
+The Network Model
+=================
 
 
 *This chapter discusses how EPANET models the physical objects that

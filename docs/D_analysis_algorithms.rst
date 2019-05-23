@@ -3,11 +3,13 @@
     \clearpage
 
 
-D. ANALYSIS ALGORITHMS
+D. Analysis Algorithms
 ======================
 
 Hydraulics
 ~~~~~~~~~~
+
+  .. This is a comment that will not appear in the compiled document
 
   The method used in EPANET to solve the flow continuity and headloss
   equations that characterize the hydraulic state of the pipe network
@@ -20,33 +22,36 @@ Hydraulics
   trial solution for nodal heads has been found. Because Todini's
   approach is simpler, it was chosen for use in EPANET.
 
-  Assume we have a pipe network with N junction nodes and NF fixed
+  Assume we have a pipe network with :math:`{N}` junction nodes and :math:`{NF}` fixed
   grade nodes (tanks and reservoirs). Let the flow-headloss relation in
-  a pipe between nodes i and j be given as: :math:`\boldsymbol{\nabla}` is the nabla operator.
+  a pipe between nodes :math:`i` and :math:`j` be given as:
 
-  .. math:: H _{i} -H _{j} =h _{ij} =rQ _{ij}^{n} +mQ _{ij}^{2} ~~~~~~
-     (D.1)
+  .. math::
+     :label: eq:headloss
 
-  where *H* = nodal head, *h* = headloss, *r* = resistance coefficient,
-  *Q* = flow rate, *n* = flow exponent, and *m* = minor loss
+     H _{i} -H _{j} =h _{ij} =rQ _{ij}^{n} +mQ _{ij}^{2}
+
+  where :math:`H` = nodal head, :math:`h` = headloss, :math:`r` = resistance coefficient,
+  :math:`Q` = flow rate, :math:`n` = flow exponent, and :math:`m` = minor loss
   coefficient. The value of the resistance coefficient will depend on
   which friction headloss formula is being used (see below). For pumps,
   the headloss (negative of the head gain) can be represented by a
   power law of the form
 
-  .. math:: { h}_{ij }={ -ω}^{ 2} ( { h}_{0}-r { ( { Q}_{ij }/ω   )}^{2 }   )
+  .. math::
+     { h}_{ij }={ -ω}^{ 2} ( { h}_{0}-r { ( { Q}_{ij }/ω   )}^{2 }   )
 
-  where *h\ 0* is the shutoff head for the pump, ω is a relative speed
-  setting, and r and n are the pump curve coefficients. The second set
+  where :math:`h_{0}` is the shutoff head for the pump, :math:`\omega` is a relative speed
+  setting, and :math:`r` and :math:`n` are the pump curve coefficients. The second set
   of equations that must be satisfied is flow continuity around all
   nodes:
 
   .. math:: \sum_{j} {Q}_{ij }-{ D}_{i }=0  ~~~~~~~\text{  for i = 1,... N. }~~~~~~
      (D.2)
 
-  where *D\ i* is the flow demand at node i and by convention, flow
+  where :math:`D_{i}` is the flow demand at node :math:`i` and by convention, flow
   into a node is positive. For a set of known heads at the fixed grade
-  nodes, we seek a solution for all heads *H\ i* and flows *Q\ ij* that
+  nodes, we seek a solution for all heads :math:`H_{i}` and flows :math:`Q_{ij}` that
   satisfy Eqs. (D.1) and (D.2).
 
   The Gradient solution method begins with an initial estimate of flows

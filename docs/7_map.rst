@@ -4,8 +4,8 @@
 
 
 
-7. WORKING WITH THE MAP
-=======================
+Working with the Map
+====================
 
 
 *EPANET displays a map of the pipe network being modeled. This

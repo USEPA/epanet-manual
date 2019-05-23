@@ -2,19 +2,19 @@
 
     \clearpage
 
-    
-A. UNITS OF MEASUREMENT
+
+A. Units of Measurement
 =======================
 
-   
-  
+
+
 UNITS
 ~~~~~
 
 **Note**: US Customary units apply when CFS, GPM, AFD, or MGD is
 chosen as flow units. SI Metric units apply when flow units are
 expressed using either liters or cubic meters.
- 
+
 
 +-----------------------+-----------------------+-----------------------+
 |    *PARAMETER*        | *US CUSTOMARY*        | *SI METRIC*           |
@@ -81,5 +81,3 @@ expressed using either liters or cubic meters.
 +-----------------------+-----------------------+-----------------------+
 |    Water Age          | hours                 | hours                 |
 +-----------------------+-----------------------+-----------------------+
-
-

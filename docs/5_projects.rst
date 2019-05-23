@@ -3,8 +3,8 @@
     \clearpage
 
 
-5. WORKING WITH PROJECTS
-========================
+Working with Projects
+=====================
 
 
 *This chapter discusses how EPANET uses project files to store a

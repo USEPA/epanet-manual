@@ -6,8 +6,8 @@
 
 -------
 
-1. INTRODUCTION
-===============
+Introduction
+============
 
 
 What is EPANET

@@ -3,8 +3,8 @@
     \clearpage
 
 
-8. ANALYZING A NETWORK
-======================
+Analyzing a Network
+===================
 
 *After a network has been suitably described, its hydraulic and water
 quality behavior can be analyzed. This chapter describes how to

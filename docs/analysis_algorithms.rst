@@ -3,8 +3,8 @@
     \clearpage
 
 
-D. Analysis Algorithms
-======================
+Analysis Algorithms
+===================
 
 Hydraulics
 ~~~~~~~~~~
@@ -22,8 +22,8 @@ Hydraulics
   trial solution for nodal heads has been found. Because Todini's
   approach is simpler, it was chosen for use in EPANET.
 
-  Assume we have a pipe network with :math:`{N}` junction nodes and :math:`{NF}` fixed
-  grade nodes (tanks and reservoirs). Let the flow-headloss relation in
+  Assume we have a pipe network with :math:`{N}` junction nodes and :math:`{NF}`
+  fixed grade nodes (tanks and reservoirs). Let the flow-headloss relation in
   a pipe between nodes :math:`i` and :math:`j` be given as:
 
   .. math::
@@ -31,10 +31,10 @@ Hydraulics
 
      H _{i} -H _{j} =h _{ij} =rQ _{ij}^{n} +mQ _{ij}^{2}
 
-  where :math:`H` = nodal head, :math:`h` = headloss, :math:`r` = resistance coefficient,
-  :math:`Q` = flow rate, :math:`n` = flow exponent, and :math:`m` = minor loss
-  coefficient. The value of the resistance coefficient will depend on
-  which friction headloss formula is being used (see below). For pumps,
+  where :math:`H` = nodal head, :math:`h` = headloss, :math:`r` = resistance
+  coefficient, :math:`Q` = flow rate, :math:`n` = flow exponent, and :math:`m`
+  = minor loss coefficient. The value of the resistance coefficient will depend
+  on which friction headloss formula is being used (see below). For pumps,
   the headloss (negative of the head gain) can be represented by a
   power law of the form
 

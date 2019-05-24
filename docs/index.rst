@@ -26,13 +26,13 @@
    10_printing_copying
    11_importing_exporting
    12_questions
-
+   D_analysis_algorithms
 
 .. toctree::
    :hidden:
 
    references
-   
+
    back_matter
 
 

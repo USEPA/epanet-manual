@@ -12,3 +12,17 @@
       overflow: visible !important;
    }
 }
+
+
+
+/*
+  Aligns equation left and number right
+  Source: https://bit.ly/2YJysBJ
+  Accessed: May 24, 2019
+*/
+.math {
+    text-align: left;
+}
+.eqno {
+    float: right;
+}

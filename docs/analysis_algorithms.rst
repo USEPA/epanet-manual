@@ -69,9 +69,9 @@ Hydraulics
 
      \boldsymbol{AH} = \boldsymbol{F}
 
-  where **A** = an (NxN) Jacobian matrix, **H** = an (Nx1) vector of
-  unknown nodal heads, and **F** = an (Nx1) vector of right hand side
-  terms
+  where :math:`A` = an :math:`(NxN)` Jacobian matrix, :math:`H` = an
+  :math:`(Nx1)` vector of unknown nodal heads, and :math:`F` = an :math:`(Nx1)`
+  vector of right hand side terms.
 
   The diagonal elements of the Jacobian matrix are:
 
@@ -84,8 +84,8 @@ Hydraulics
   .. math::
      {A}_{ij} = -{P}_{ij}
 
-  where *p\ ij* is the inverse derivative of the headloss in the link
-  between nodes i and j with respect to flow. For pipes,
+  where :math:`P_{ij}` is the inverse derivative of the headloss in the link
+  between nodes :math:`i` and :math:`j` with respect to flow. For pipes,
 
   .. math::
      {P}_{ij} = \frac{1}{nr {{ |{ Q}_{ji } | }^{ n-1}}+2m | { Q}_{ji } | }
@@ -93,7 +93,7 @@ Hydraulics
   while for pumps
 
   .. math::
-     {P}_{ij} = \frac{1} {n{ω}^{2}r{({Q}_{ij}/ω )}^{n-1}}
+     {P}_{ij} = \frac{1}{n{ω}^{2}r{({Q}_{ij}/ω )}^{n-1}}
 
 
   Each right hand side term consists of the net flow imbalance at a
@@ -102,8 +102,8 @@ Hydraulics
   .. math::
      {F}_{i} = ( \sum_{{j}}{Q}_{ij} - {D}_{i} ) + \sum_{{j}}{y}_{ij} + \sum_{{f}}{P}_{ij}{H}_{f}
 
-  where the last term applies to any links connecting node i to a fixed
-  grade node f and the flow correction factor *y\ ij* is:
+  where the last term applies to any links connecting node :math:`i` to a fixed
+  grade node :math:`f` and the flow correction factor :math:`y_{ij}` is:
 
   .. math::
      {y}_{ij} = {P}_{ij}  ( r{ | {Q}_{ij} | }^{n} + m { | {Q}_{ij} | }^{2} )sgn ( {Q}_{ij} )
@@ -114,12 +114,11 @@ Hydraulics
   .. math::
      {y}_{ij} = {-P}_{ij}{ω}^{2} ( {h}_{0} - r { ( { Q}_{ij }/ω ) }^{n} )
 
-  for pumps, where sgn(x) is 1 if x > 0 and -1 otherwise. (*Q\ ij* is
-  always positive for pumps.)
+  for pumps, where :math:`sgn(x)` is :math:`1` if :math:`x > 0` and :math:`-1`
+  otherwise (:math:`Q_{ij}` is always positive for pumps).
 
-  After new heads are computed by solving Eq. (D.3), new flows are
+  After new heads are computed by solving Eq. :eq:`eq:matrix_form`, new flows are
   found from:
-
 
   .. math::
      :label: eq:flow_update
@@ -127,32 +126,32 @@ Hydraulics
      {Q}_{ij} = {Q}_{ij} - ( {y}_{ij} - {P}_{ij} ( {H}_{i} - {H}_{j} ) )
 
   If the sum of absolute flow changes relative to the total flow in all
-  links is larger than some tolerance (e.g., 0.001), then Eqs. (D.3)
-  and (D.4) are solved once again. The flow update formula (D.4) always
-  results in flow continuity around each node after the first
-  iteration.
+  links is larger than some tolerance (e.g., 0.001), then Eqs
+  :eq:`eq:matrix_form` and :eq:`eq:flow_update` are solved once again. The flow
+  update formula :eq:`eq:flow_update` always results in flow continuity around
+  each node after the first iteration.
 
   EPANET implements this method using the following steps:
 
-  1. The linear system of equations D.3 is solved using a sparse matrix
-     method based on node re-ordering (George and Liu, 1981). After re-
-     ordering the nodes to minimize the amount of fill-in for matrix A, a
-     symbolic factorization is carried out so that only the non-zero
-     elements of A need be stored and operated on in memory. For extended
-     period simulation this re-ordering and factorization is only carried
-     out once at the start of the analysis.
+  1. The linear system of equations :eq:`eq:matrix_form` is solved using a
+     sparse matrix method based on node re-ordering (George and Liu, 1981).
+     After re-ordering the nodes to minimize the amount of fill-in for matrix
+     :math:`A`, a symbolic factorization is carried out so that only the
+     non-zero elements of A need be stored and operated on in memory. For
+     extended period simulation this re-ordering and factorization is only
+     carried out once at the start of the analysis.
 
   2. For the very first iteration, the flow in a pipe is chosen equal to
      the flow corresponding to a velocity of 1 ft/sec, while the flow
      through a pump equals the design flow specified for the pump. (All
      computations are made with head in feet and flow in cfs).
 
-  3. The resistance coefficient for a pipe (*r*) is computed as described
+  3. The resistance coefficient for a pipe (:math:`r`) is computed as described
      in Table 3.1. For the Darcy-Weisbach headloss equation, the friction
-     factor *f* is computed by different equations depending on the flow’s
-     Reynolds Number (Re):
+     factor :math:`f` is computed by different equations depending on the flow’s
+     Reynolds Number (:math:`Re`):
 
-     Hagen – Poiseuille formula for Re < 2,000 (Bhave, 1991):
+     Hagen – Poiseuille formula for :math:`Re < 2,000` (Bhave, 1991):
 
      .. math::
         f = \frac{64}{Re}
@@ -162,10 +161,10 @@ Hydraulics
      Re > 4,000 (Bhave, 1991):
 
      .. math::
-        f = \frac{0.25}{{ [ Ln ( \frac{ε}{3.7d} + \frac{5.74}{{Re}^{0.9} }) ] }^{2}}
+        f = \frac{0.25}{{ [ Ln ( \frac{\epsilon}{3.7d} + \frac{5.74}{{Re}^{0.9} }) ] }^{2}}
 
 
-     Cubic Interpolation From Moody Diagram for 2,000 < Re < 4,000
+     Cubic Interpolation From Moody Diagram for :math:`2,000 < Re < 4,000`
      (Dunlop, 1991):
 
      .. math::
@@ -178,20 +177,20 @@ Hydraulics
      .. math::
 
         \begin{eqnarray}
-           &X1 = 7FA - FB \\
-           &X2 = 0.128 - 17 FA + 2.5 FB \\
-           &X3 = -0.128 + 13 FA - 2 FB \\
-           &X4 = R ( 0.032 - 3 FA + 0.5 FB ) \\
+           & X1 = 7FA - FB \\
+           & X2 = 0.128 - 17 FA + 2.5 FB \\
+           & X3 = -0.128 + 13 FA - 2 FB \\
+           & X4 = R ( 0.032 - 3 FA + 0.5 FB ) \\
            &FA = { ( Y3 )}^{-2} \\
            &FB = FA ( 2 - \frac{0.00514215}  {( Y2 )  ( Y3 ) } ) \\
-           &Y2 = \frac{ε} {3.7d} + \frac{5.74}{{Re}^{0.9}} \\
-           &Y3 = -0.86859 Ln ( \frac{ε}{3.7d} + \frac{5.74}{{4000}^{0.9}} )
+           &Y2 = \frac{\epsilon} {3.7d} + \frac{5.74}{{Re}^{0.9}} \\
+           &Y3 = -0.86859 Ln ( \frac{\epsilon}{3.7d} + \frac{5.74}{{4000}^{0.9}} )
         \end{eqnarray}
 
-  where *σ* = pipe roughness and *d* = pipe diameter.
+  where :math:`\epsilon` = pipe roughness and :math:`d` = pipe diameter.
 
-  4. The minor loss coefficient based on velocity head (*K*) is converted
-     to one based on flow (*m*) with the following relation:
+  4. The minor loss coefficient based on velocity head (:math:`K`) is converted
+     to one based on flow (:math:`m`) with the following relation:
 
      .. math::
 
@@ -200,18 +199,18 @@ Hydraulics
 
   5. Emitters at junctions are modeled as a fictitious pipe between the
      junction and a fictitious reservoir. The pipe’s headloss parameters
-     are *n* = (1/γ), *r* = (1/C):sup:`n`, and *m* = 0 where C is the
-     emitter’s discharge coefficient and γ is its pressure exponent. The
-     head at the fictitious reservoir is the elevation of the junction.
-     The computed flow through the fictitious pipe becomes the flow
-     associated with the emitter.
+     are :math:`n = (1/\gamma)`, :math:`r = (1/C)^n`, and :math:`m = 0` where
+     :math:`C` is the emitter’s discharge coefficient and :math:`\gamma` is its
+     pressure exponent. The head at the fictitious reservoir is the elevation of
+     the junction. The computed flow through the fictitious pipe becomes the
+     flow associated with the emitter.
 
-  6. Open valves are assigned an *r*-value by assuming the open valve acts
-     as a smooth pipe (f = 0.02) whose length is twice the valve diameter.
-     Closed links are assumed to obey a linear headloss relation with a
-     large resistance factor, i.e., *h* = 10\ :sup:`8`\ *Q*, so that *p* =
-     10\ :sup:`-8` and *y* = *Q*. For links where *(r+m)Q* <
-     10\ :sup:`-7`, *p* = 10\ :sup:`7` and *y = Q/n*.
+  6. Open valves are assigned an :math:`r`- value by assuming the open valve acts
+     as a smooth pipe (:math:`f = 0.02`) whose length is twice the valve
+     diameter. Closed links are assumed to obey a linear headloss relation with
+     a large resistance factor, i.e., :math:`h = 10^{8} Q`, so that :math:`p =
+     10^{-8}` and :math:`y = Q`. For links where :math:`(r + m)Q <
+     10^{-7}`, :math:`p = 10^{7}` and :math:`y = Q/n`.
 
   7. Status checks on pumps, check valves (CVs), flow control valves, and
      pipes connected to full/empty tanks are made after every other
@@ -229,7 +228,7 @@ Hydraulics
      are re- opened at the next status check if such conditions no longer
      hold.
 
-  9. Simply checking if *h* < 0 to determine if a check valve should be
+  9. Simply checking if :math:`h < 0` to determine if a check valve should be
      closed or open was found to cause cycling between these two states in
      some networks due to limits on numerical precision. The following
      procedure was devised to provide a more robust test of the status of
@@ -249,18 +248,20 @@ Hydraulics
       where Htol = 0.0005 ft and Qtol = 0.001 cfs.
 
   10. If the status check closes an open pump, pipe, or CV, its flow is
-      set to 10\ :sup:`-6` cfs. If a pump is re-opened, its flow is
+      set to :math:`10^{-6}` cfs. If a pump is re-opened, its flow is
       computed by applying the current head gain to its characteristic
       curve. If a pipe or CV is re- opened, its flow is determined by
-      solving Eq. (D.1) for *Q* under the current headloss *h*, ignoring
-      any minor losses.
+      solving Eq. :eq:`eq:pipe_headloss` for :math:`Q` under the current
+      headloss :math:`h`, ignoring any minor losses.
 
   11. Matrix coefficients for pressure breaker valves (PBVs) are set to
-      the following: *p* = 10\ :sup:`8` and *y* = 10\ :sup:`8`\ Hset,
-      where Hset is the pressure drop setting for the valve (in feet).
-      Throttle control valves (TCVs) are treated as pipes with *r* as
-      described in item 6 above and *m* taken as the converted value of
+      the following: :math:`p = 10^{8}` and :math:`y = 10^{8} Hset`,
+      where :math:`Hset` is the pressure drop setting for the valve (in feet).
+      Throttle control valves (TCVs) are treated as pipes with :math:`r` as
+      described in item 6 above and :math:`m` taken as the converted value of
       the valve setting (see item 4 above).
+
+  .. YOU ARE HERE!
 
   12. Matrix coefficients for pressure reducing, pressure sustaining, and
       flow control valves (PRVs, PSVs, and FCVs) are computed after all

@@ -76,43 +76,43 @@ Hydraulics
   The diagonal elements of the Jacobian matrix are:
 
   .. math::
-     { A}_{ij }= \sum_{j} { P}_{ij }
+     {A}_{ij}= \sum_{j} {P}_{ij}
 
 
   while the non-zero, off-diagonal terms are:
 
   .. math::
-     { A}_{ij }= -{ P}_{ij }
+     {A}_{ij} = -{P}_{ij}
 
   where *p\ ij* is the inverse derivative of the headloss in the link
   between nodes i and j with respect to flow. For pipes,
 
-  .. math:: 
-     { P}_{ij }= \frac{ 1}{nr {{   | { Q}_{ji }   |}^{ n-1}}+2m   | { Q}_{ji }   |}
+  .. math::
+     {P}_{ij} = \frac{1}{nr {{ |{ Q}_{ji } | }^{ n-1}}+2m | { Q}_{ji } | }
 
   while for pumps
 
   .. math::
-     { P}_{ij }=\frac{ 1} {n{ ω}^{2 }r{ ({ Q}_{ij }/ω )}^{n-1 }}
+     {P}_{ij} = \frac{1} {n{ω}^{2}r{({Q}_{ij}/ω )}^{n-1}}
 
 
   Each right hand side term consists of the net flow imbalance at a
   node plus a flow correction factor:
 
   .. math::
-     { F}_{i }=  ( \sum_{{ j}}{ Q}_{ij }-{ D}_{i }  )+ \sum_{{ j}}{ y}_{ij } + \sum_{{ f}}{ P}_{ij }{ H}_{f }
+     {F}_{i} = ( \sum_{{j}}{Q}_{ij} - {D}_{i} ) + \sum_{{j}}{y}_{ij} + \sum_{{f}}{P}_{ij}{H}_{f}
 
   where the last term applies to any links connecting node i to a fixed
   grade node f and the flow correction factor *y\ ij* is:
 
   .. math::
-     { y}_{ij }={ P}_{ij }  ( r{   | { Q}_{ij }   |}^{n }  +m{   | { Q}_{ij }   |}^{2 }   )sgn ( { Q}_{ij }   )
+     {y}_{ij} = {P}_{ij}  ( r{ | {Q}_{ij} | }^{n} + m { | {Q}_{ij} | }^{2} )sgn ( {Q}_{ij} )
 
 
   for pipes and
 
   .. math::
-     { y}_{ij }={- P}_{ij }{ ω}^{ 2}  ( { h}_{0 } -r {   ({ Q}_{ij }/ω    )}^{n }  )
+     {y}_{ij} = {-P}_{ij}{ω}^{2} ( {h}_{0} - r { ( { Q}_{ij }/ω ) }^{n} )
 
   for pumps, where sgn(x) is 1 if x > 0 and -1 otherwise. (*Q\ ij* is
   always positive for pumps.)
@@ -122,8 +122,9 @@ Hydraulics
 
 
   .. math::
-     {Q}_{ij }={Q}_{ij } - ( { y}_{ij } -{ P}_{ij}  ({ H}_{i }- { H}_{j } ) )  ~~~~~~
-     (D.4)
+     :label: eq:flow_update
+
+     {Q}_{ij} = {Q}_{ij} - ( {y}_{ij} - {P}_{ij} ( {H}_{i} - {H}_{j} ) )
 
   If the sum of absolute flow changes relative to the total flow in all
   links is larger than some tolerance (e.g., 0.001), then Eqs. (D.3)
@@ -153,35 +154,48 @@ Hydraulics
 
      Hagen – Poiseuille formula for Re < 2,000 (Bhave, 1991):
 
-     .. math:: f= \frac{ 64} {Re }
+     .. math::
+        f = \frac{64}{Re}
 
 
      Swamee and Jain approximation to the Colebrook - White equation for
      Re > 4,000 (Bhave, 1991):
 
-     .. math:: f= \frac{0.25} {{ [ Ln   ( \frac{ ε}{3.7d }    +\frac{ 5.74}{{ Re}^{0.9 } }) ] }^{ 2} }
+     .. math::
+        f = \frac{0.25}{{ [ Ln ( \frac{ε}{3.7d} + \frac{5.74}{{Re}^{0.9} }) ] }^{2}}
 
 
      Cubic Interpolation From Moody Diagram for 2,000 < Re < 4,000
      (Dunlop, 1991):
 
-     .. math:: f=  ( X1+R  ( X2+R   (X3+X4    )   )   )
-     .. math:: R= \frac{ Re} {2000 }
-     .. math:: X1=7FA-FB
-     .. math:: X2=0.128-17FA+2.5FB
-     .. math:: X3=-0.128+13FA-2FB
-     .. math:: X4=R   ( 0.032-3FA+0.5FB   )
-     .. math:: FA={   ( Y3   )}^{-2 }
-     .. math:: FB=FA   ( 2-\frac{ 0.00514215}  {  ( Y2   )  ( Y3   ) }   )
-     .. math:: Y2= \frac{ ε} {3.7d }+\frac{ 5.74}{{ Re}^{ 0.9} }
-     .. math:: Y3=-0.86859 Ln   ( \frac{ ε}{ 3.7d}+\frac{ 5.74}{{ 4000}^{0.9 } }   )
+     .. math::
 
-     where *σ* = pipe roughness and *d* = pipe diameter.
+        \begin{eqnarray}
+           &f = (X1 + R  (X2 + R (X3 + X4) ) ) \\
+           &R = \frac{Re}{2000}
+        \end{eqnarray}
+
+     .. math::
+
+        \begin{eqnarray}
+           &X1 = 7FA - FB \\
+           &X2 = 0.128 - 17 FA + 2.5 FB \\
+           &X3 = -0.128 + 13 FA - 2 FB \\
+           &X4 = R ( 0.032 - 3 FA + 0.5 FB ) \\
+           &FA = { ( Y3 )}^{-2} \\
+           &FB = FA ( 2 - \frac{0.00514215}  {( Y2 )  ( Y3 ) } ) \\
+           &Y2 = \frac{ε} {3.7d} + \frac{5.74}{{Re}^{0.9}} \\
+           &Y3 = -0.86859 Ln ( \frac{ε}{3.7d} + \frac{5.74}{{4000}^{0.9}} )
+        \end{eqnarray}
+
+  where *σ* = pipe roughness and *d* = pipe diameter.
 
   4. The minor loss coefficient based on velocity head (*K*) is converted
      to one based on flow (*m*) with the following relation:
 
-     .. math:: m=\frac{ 0.02517K} {{ d}^{4 } }
+     .. math::
+
+        m = \frac{ 0.02517K} {{ d}^{4 } }
 
 
   5. Emitters at junctions are modeled as a fictitious pipe between the
@@ -291,11 +305,14 @@ Hydraulics
       downstream node while flow through a PSV does the same at its
       upstream node. For an active PRV from node i to j:
 
-      .. math:: {p}_{ij} = 0
+      .. math::
+         {p}_{ij} = 0
 
-      .. math:: {F}_{j } = {F}_{j} + {10}^{8} Hset
+      .. math::
+         {F}_{j} = {F}_{j} + {10}^{8} Hset
 
-      .. math:: {A}_{jj }= {A}_{jj} + {10}^{8 }
+      .. math::
+         {A}_{jj} = {A}_{jj} + {10}^{8}
 
       This forces the head at the downstream node to be at the valve
       setting Hset. An equivalent assignment of coefficients is made for an
@@ -394,8 +411,10 @@ Advective Transport in Pipes
   a pipe. Advective transport within a pipe is represented with the
   following equation:
 
-  .. math:: \frac{ \partial{C}_{i}} {∂t} = - u_{i} \frac{\partial{C}_{i}}{\partial x} + r({ C}_{i }) ~~~~~~
-     (D.5)
+  .. math::
+     :label: eq:advec_trans
+
+     \frac{ \partial{C}_{i}} {∂t} = - u_{i} \frac{\partial{C}_{i}}{\partial x} + r({C}_{i})
 
   where *C\ i* = concentration (mass/volume) in pipe i as a function of
   distance x and time t, *u\ i* = flow velocity (length/time) in pipe
@@ -411,10 +430,10 @@ Mixing at Pipe Junctions
   the flow-weighted sum of the concentrations from the inflowing pipes.
   For a specific node k one can write:
 
-  .. math:: C_{i|x=0} = \frac{\sum_{ j \in I_k} Q_{j} C_{j|x= L_j}+Q_{k,ext} C_{k,ext}} {\sum_{j \in I_k} Q_j + Q_{k,ext}} ~~~~~~
-     (D.6)
+  .. math::
+     :label: eq:nodal_mixing
 
-
+     C_{i|x=0} = \frac{\sum_{ j \in I_k} Q_{j} C_{j|x= L_j}+Q_{k,ext} C_{k,ext}} {\sum_{j \in I_k} Q_j + Q_{k,ext}}
 
   where i = link with flow leaving node k, *I\ k* = set of links with
   flow into k, *L\ j* = length of link j, *Q\ j* = flow (volume/time)
@@ -438,8 +457,10 @@ Mixing in Storage Facilities
   concentration could be changing due to reactions. The following
   equation expresses these phenomena:
 
-  .. math:: \frac{\partial ({ V}_{s } { C}_{s }) }{\partial t} = \sum_{i \in I_{s}} {Q}_{i}{C}_{ i | x={L}_{i}} - \sum_{j \in O_{s}} {Q}_{j}{C}_{s} + r ({C}_{s})  ~~~~~~
-     (D.7)
+  .. math::
+     :label: eq:tank_mixing
+
+     \frac{\partial ({V}_{s} {C}_{s}) }{\partial t} = \sum_{i \in I_{s}} {Q}_{i}{C}_{i | x={L}_{i}} - \sum_{j \in O_{s}} {Q}_{j}{C}_{s} + r({C}_{s})
 
   where *V\ s* = volume in storage at time t, *C\ s* = concentration
   within the storage facility, *I\ s* = set of links providing flow
@@ -455,15 +476,19 @@ Bulk Flow Reactions
   reaction can generally be described as a power function of
   concentration:
 
-  .. math:: r=k{ C}^{n }
+  .. math::
+     r = k{ C}^{n }
 
 
   where *k* = a reaction constant and *n* = the reaction order. When a
   limiting concentration exists on the ultimate growth or loss of a
   substance then the rate expression becomes
 
-  .. math:: R={ K}_{b }   ( { C}_{L }-C   ) { C}^{n-1 }
-  .. math:: R={ K}_{b }   ( C-{ C}_{L }   ) { C}^{n-1 }
+  .. math::
+     R = {K}_{b} ({C}_{L}-C) {C}^{n-1}
+
+  .. math::
+     R = {K}_{b} (C - {C}_{L} ) {C}^{n - 1}
 
 
   for *n* > 0, *K\ b* > 0 for *n* > 0, *K\ b* < 0
@@ -474,14 +499,16 @@ Bulk Flow Reactions
 
     -  *Simple First-Order Decay (CL = 0, K\ b < 0, n = 1)*
 
-       .. math:: R={ K}^{b }C
+       .. math::
+          R = {K}^{b}C
 
        The decay of many substances, such as chlorine, can be modeled
        adequately as a simple first-order reaction.
 
     -  *First-Order Saturation Growth (CL > 0, K\ b > 0, n = 1):*
 
-       .. math:: R={ K}_{b }   ( { C}_{L }-C   )
+       .. math::
+          R = {K}_{b} ( {C}_{L} - C )
 
        This model can be applied to the growth of disinfection by-products,
        such as trihalomethanes, where the ultimate formation of by-product
@@ -489,7 +516,8 @@ Bulk Flow Reactions
 
     -  *Two-Component, Second Order Decay (CL* ≠ *0, K\ b < 0, n = 2):*
 
-       .. math:: R={ K}_{b }C   ( { C}_{L }-C   )
+       .. math::
+          R = {K}_{b}C   ( {C}_{L} - C )
 
        This model assumes that substance A reacts with substance B in some
        unknown ratio to produce a product P. The rate of disappearance of A
@@ -501,7 +529,8 @@ Bulk Flow Reactions
 
     -  *Michaelis-Menton Decay Kinetics (CL > 0, K\ b < 0, n < 0):*
 
-       .. math:: R = \frac{ { K}_{b }C}  {{ C}_{L }-C }
+       .. math::
+          R = \frac{{K}_{b}C} {{C}_{L} - C}
 
        As a special case, when a negative reaction order *n* is specified,
        EPANET will utilize the Michaelis-Menton rate equation, shown above
@@ -517,8 +546,11 @@ Bulk Flow Reactions
        *K\ b* and *C\ L* could be related to the water’s organic content and
        its ultraviolet absorbance as follows:
 
-       .. math:: { K}_{b }=-0.32UV{ A}^{1.365 }\frac{   ( 100UVA   )}{DOC }
-       .. math:: { C}_{L }=4.98UVA-1.91DOC
+       .. math::
+          {K}_{b} = -0.32UV{ A}^{1.365 }\frac{( 100UVA )} {DOC}
+
+       .. math::
+          {C}_{L} = 4.98 UVA - 1.91 DOC
 
 
        where UVA = ultraviolet absorbance at 254 nm (1/cm) and DOC =
@@ -536,8 +568,8 @@ Bulk Flow Reactions
        temperature (T1) to that at another temperature (T2) is often
        expressed using a van’t Hoff - Arrehnius equation of the form:
 
-       .. math:: { K}_{b2 }={ K}_{b1 }{ θ}^{T2-T1 }
-
+       .. math::
+          {K}_{b2}={K}_{b1}{θ}^{T2 - T1}
 
        where θ is a constant. In one investigation for chlorine, θ was
        estimated to be 1.1 when T1 was 20 deg. C (Koechling, 1998).
@@ -557,7 +589,8 @@ Pipe Wall Reactions
   the Reynolds number of the flow (Rossman et. al, 1994). For first-
   order kinetics, the rate of a pipe wall reaction can be expressed as:
 
-  .. math:: r=\frac{ 2{ k}_{w }{ k}_{f }C} {R   ( { k}_{w }+{ k}_{f }   ) }
+  .. math::
+     r = \frac{ 2{ k}_{w }{ k}_{f }C} {R   ( { k}_{w }+{ k}_{f }   ) }
 
 
   where *k\ w* = wall reaction rate constant (length/time), *k\ f* =
@@ -565,28 +598,32 @@ Pipe Wall Reactions
   zero-order kinetics the reaction rate cannot be any higher than the
   rate of mass transfer, so
 
-  .. math:: r=MIN   ( { k}_{w },{ k}_{f }C   )   ( 2/R   )
+  .. math::
+     r = MIN ( { k}_{w },{ k}_{f }C   )   ( 2/R   )
 
   where *k\ w* now has units of mass/area/time.
 
   Mass transfer coefficients are usually expressed in terms of a
   dimensionless Sherwood number (*Sh*):
 
-  .. math:: { k}_{f }=Sh \frac{ D} {d }
+  .. math::
+     {k}_{f} = Sh \frac{D} {d}
 
   in which *D* = the molecular diffusivity of the species being
   transported (length:sup:`2`/time) and *d* = pipe diameter. In fully
   developed laminar flow, the average Sherwood number along the length
   of a pipe can be expressed as
 
-  .. math:: Sh=3.65+\frac{ 0.0668   ( d/L   )ReSc} {1+0.04{   [   ( d/L   )ReSc   ]}^{2/3 } }
+  .. math::
+     Sh = 3.65 + \frac{0.0668 ( d/L )ReSc} {1 + 0.04{ [ ( d/L )ReSc ]}^{2/3}}
 
   in which *Re* = Reynolds number and *Sc* = Schmidt number (kinematic
   viscosity of water divided by the diffusivity of the chemical)
   (Edwards et.al, 1976). For turbulent flow the empirical correlation
   of Notter and Sleicher (1971) can be used:
 
-  .. math:: Sh=0.0149{ Re}^{0.88 }{ Sc}^{1/3 }
+  .. math::
+     Sh = 0.0149{Re}^{0.88}{Sc}^{1/3}
 
 
 System of Equations

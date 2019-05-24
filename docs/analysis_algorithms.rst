@@ -11,23 +11,22 @@ Hydraulics
 
   .. This is a comment that will not appear in the compiled document
 
-  The method used in EPANET to solve the flow continuity and headloss
-  equations that characterize the hydraulic state of the pipe network
-  at a given point in time can be termed a hybrid node-loop approach.
-  Todini and Pilati (1987) and later Salgado et al. (1988) chose to
-  call it the "Gradient Method". Similar approaches have been described
-  by Hamam and Brameller (1971) (the "Hybrid Method) and by Osiadacz
-  (1987) (the "Newton Loop-Node Method"). The only difference between
-  these methods is the way in which link flows are updated after a new
-  trial solution for nodal heads has been found. Because Todini's
+  The method used in EPANET to solve the flow continuity and headloss equations
+  that characterize the hydraulic state of the pipe network at a given point in
+  time can be termed a hybrid node-loop approach. Todini and Pilati (1987) and
+  later Salgado et al. (1988) chose to call it the "Gradient Method". Similar
+  approaches have been described by Hamam and Brameller (1971) (the "Hybrid
+  Method) and by Osiadacz (1987) (the "Newton Loop-Node Method"). The only
+  difference between these methods is the way in which link flows are updated
+  after a new trial solution for nodal heads has been found. Because Todini's
   approach is simpler, it was chosen for use in EPANET.
 
   Assume we have a pipe network with :math:`{N}` junction nodes and :math:`{NF}`
-  fixed grade nodes (tanks and reservoirs). Let the flow-headloss relation in
-  a pipe between nodes :math:`i` and :math:`j` be given as:
+  fixed grade nodes (tanks and reservoirs). Let the flow-headloss relation in a
+  pipe between nodes :math:`i` and :math:`j` be given as:
 
   .. math::
-     :label: eq:headloss
+     :label: eq:pipe_headloss
 
      H _{i} -H _{j} =h _{ij} =rQ _{ij}^{n} +mQ _{ij}^{2}
 
@@ -39,28 +38,36 @@ Hydraulics
   power law of the form
 
   .. math::
-     { h}_{ij }={ -ω}^{ 2} ( { h}_{0}-r { ( { Q}_{ij }/ω   )}^{2 }   )
 
-  where :math:`h_{0}` is the shutoff head for the pump, :math:`\omega` is a relative speed
-  setting, and :math:`r` and :math:`n` are the pump curve coefficients. The second set
-  of equations that must be satisfied is flow continuity around all
-  nodes:
+     { h}_{ij }={ -ω}^{ 2} ( { h}_{0}-r { ( { Q}_{ij }/ω   )}^{2 } )
 
-  .. math:: \sum_{j} {Q}_{ij }-{ D}_{i }=0  ~~~~~~~\text{  for i = 1,... N. }~~~~~~
-     (D.2)
+  where :math:`h_{0}` is the shutoff head for the pump, :math:`\omega` is a
+  relative speed setting, and :math:`r` and :math:`n` are the pump curve
+  coefficients. The second set of equations that must be satisfied is flow
+  continuity around all nodes:
 
-  where :math:`D_{i}` is the flow demand at node :math:`i` and by convention, flow
-  into a node is positive. For a set of known heads at the fixed grade
-  nodes, we seek a solution for all heads :math:`H_{i}` and flows :math:`Q_{ij}` that
-  satisfy Eqs. (D.1) and (D.2).
+  .. math::
+     :label: eq:node_continuity
+
+     \begin{eqnarray}
+        \sum_{j} {Q}_{ij }-{ D}_{i } = 0  \\
+        \mathit{for\ i = 1,... N}
+     \end{eqnarray}
+
+  where :math:`D_{i}` is the flow demand at node :math:`i` and by convention,
+  flow into a node is positive. For a set of known heads at the fixed grade
+  nodes, we seek a solution for all heads :math:`H_{i}` and flows :math:`Q_{ij}`
+  that satisfy Eqs. :eq:`eq:pipe_headloss` and :eq:`eq:node_continuity`.
 
   The Gradient solution method begins with an initial estimate of flows
   in each pipe that may not necessarily satisfy flow continuity. At
   each iteration of the method, new nodal heads are found by solving
   the matrix equation:
 
-  .. math:: \boldsymbol{AH} = \boldsymbol{F} ~~~~~~
-     (D.3)
+  .. math::
+     :label: eq:matrix_form
+
+     \boldsymbol{AH} = \boldsymbol{F}
 
   where **A** = an (NxN) Jacobian matrix, **H** = an (Nx1) vector of
   unknown nodal heads, and **F** = an (Nx1) vector of right hand side
@@ -68,37 +75,44 @@ Hydraulics
 
   The diagonal elements of the Jacobian matrix are:
 
-  .. math:: { A}_{ij }= \sum_{j} { P}_{ij }
+  .. math::
+     { A}_{ij }= \sum_{j} { P}_{ij }
 
 
   while the non-zero, off-diagonal terms are:
 
-  .. math:: { A}_{ij }= -{ P}_{ij }
+  .. math::
+     { A}_{ij }= -{ P}_{ij }
 
   where *p\ ij* is the inverse derivative of the headloss in the link
   between nodes i and j with respect to flow. For pipes,
 
-  .. math:: { P}_{ij }= \frac{ 1}{nr {{   | { Q}_{ji }   |}^{ n-1}}+2m   | { Q}_{ji }   |}
+  .. math:: 
+     { P}_{ij }= \frac{ 1}{nr {{   | { Q}_{ji }   |}^{ n-1}}+2m   | { Q}_{ji }   |}
 
   while for pumps
 
-  .. math:: { P}_{ij }=\frac{ 1} {n{ ω}^{2 }r{ ({ Q}_{ij }/ω )}^{n-1 }}
+  .. math::
+     { P}_{ij }=\frac{ 1} {n{ ω}^{2 }r{ ({ Q}_{ij }/ω )}^{n-1 }}
 
 
   Each right hand side term consists of the net flow imbalance at a
   node plus a flow correction factor:
 
-  .. math:: { F}_{i }=  ( \sum_{{ j}}{ Q}_{ij }-{ D}_{i }  )+ \sum_{{ j}}{ y}_{ij } + \sum_{{ f}}{ P}_{ij }{ H}_{f }
+  .. math::
+     { F}_{i }=  ( \sum_{{ j}}{ Q}_{ij }-{ D}_{i }  )+ \sum_{{ j}}{ y}_{ij } + \sum_{{ f}}{ P}_{ij }{ H}_{f }
 
   where the last term applies to any links connecting node i to a fixed
   grade node f and the flow correction factor *y\ ij* is:
 
-  .. math:: { y}_{ij }={ P}_{ij }  ( r{   | { Q}_{ij }   |}^{n }  +m{   | { Q}_{ij }   |}^{2 }   )sgn ( { Q}_{ij }   )
+  .. math::
+     { y}_{ij }={ P}_{ij }  ( r{   | { Q}_{ij }   |}^{n }  +m{   | { Q}_{ij }   |}^{2 }   )sgn ( { Q}_{ij }   )
 
 
   for pipes and
 
-  .. math:: { y}_{ij }={- P}_{ij }{ ω}^{ 2}  ( { h}_{0 } -r {   ({ Q}_{ij }/ω    )}^{n }  )
+  .. math::
+     { y}_{ij }={- P}_{ij }{ ω}^{ 2}  ( { h}_{0 } -r {   ({ Q}_{ij }/ω    )}^{n }  )
 
   for pumps, where sgn(x) is 1 if x > 0 and -1 otherwise. (*Q\ ij* is
   always positive for pumps.)
@@ -107,7 +121,8 @@ Hydraulics
   found from:
 
 
-  .. math:: {Q}_{ij }={Q}_{ij } - ( { y}_{ij } -{ P}_{ij}  ({ H}_{i }- { H}_{j } ) )  ~~~~~~
+  .. math::
+     {Q}_{ij }={Q}_{ij } - ( { y}_{ij } -{ P}_{ij}  ({ H}_{i }- { H}_{j } ) )  ~~~~~~
      (D.4)
 
   If the sum of absolute flow changes relative to the total flow in all

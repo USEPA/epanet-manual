@@ -3,6 +3,8 @@
     \clearpage
 
 
+.. _viewing_results:
+
 Viewing Results
 ===============
 

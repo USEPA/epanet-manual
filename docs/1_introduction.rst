@@ -6,6 +6,8 @@
 
 -------
 
+.. _introduction:
+
 Introduction
 ============
 

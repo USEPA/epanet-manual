@@ -3,6 +3,8 @@
     \clearpage
 
 
+.. _objects:
+
 Working with Objects
 ====================
 

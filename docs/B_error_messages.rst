@@ -3,6 +3,8 @@
     \clearpage
 
 
+.. _error_messages:
+
 B. Error Messages
 =================
 

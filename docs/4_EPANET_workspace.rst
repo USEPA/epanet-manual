@@ -3,6 +3,8 @@
     \clearpage
 
 
+.. _workspace:
+
 EPANET's Workspace
 ==================
 

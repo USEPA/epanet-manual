@@ -3,6 +3,8 @@
     \clearpage
 
 
+.. _quickstart: 
+
 Quick Start Tutorial
 ====================
 

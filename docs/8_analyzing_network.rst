@@ -3,6 +3,8 @@
     \clearpage
 
 
+.. _analyzing_network:
+
 Analyzing a Network
 ===================
 

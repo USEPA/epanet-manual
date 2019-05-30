@@ -3,6 +3,7 @@
     \clearpage
 
 
+.. _network_model:
 
 The Network Model
 =================

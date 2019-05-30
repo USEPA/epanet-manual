@@ -3,6 +3,8 @@
     \clearpage
 
 
+.. _command_line:
+
 C. Command Line EPANET
 ======================
 

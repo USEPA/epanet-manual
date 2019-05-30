@@ -3,6 +3,7 @@
     \clearpage
 
 
+.. _map:
 
 Working with the Map
 ====================

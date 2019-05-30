@@ -3,6 +3,8 @@
     \clearpage
 
 
+.. _projects:
+
 Working with Projects
 =====================
 

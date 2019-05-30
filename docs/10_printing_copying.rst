@@ -3,6 +3,8 @@
     \clearpage
 
 
+.. _printing_copying:
+
 Printing and Copying
 ====================
 

@@ -51,8 +51,8 @@ capabilities.
 
 :ref:`Chapter 2 <quickstart>` describes how to install EPANET and offers
 up a quick tutorial on its use. Readers unfamiliar with the basics of
-modeling distribution systems might wish to review Chapter 3 first
-before working through the tutorial.
+modeling distribution systems might wish to review :ref:`Chapter 3 <network_model>`
+first before working through the tutorial.
 
 :ref:`Chapter 3 <network_model>` provides background material on how EPANET
 models a water distribution system. It discusses the behavior of the physical
@@ -99,7 +99,7 @@ network map, various kinds of graphs and tables, and several different types
 of special reports.
 
 :ref:`Chapter 10 <printing_copying>` explains how to print and copy the views
-discussed in Chapter 9.
+discussed in :ref:`Chapter 9 <viewing_results>`.
 
 :ref:`Chapter 11 <importing_exporting>` describes how EPANET can import and
 export project scenarios. A scenario is a subset of the data that characterizes

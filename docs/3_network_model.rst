@@ -120,13 +120,15 @@ Emitters
     flow rate through the emitter varies as a function of the pressure
     available at the node:
 
-    .. math:: q = C ~p^\gamma
+    .. math::
+       q = C p^{\gamma}
 
-    where *q* = flow rate, *p* = pressure, *C* = discharge coefficient,
-    and γ = pressure exponent. For nozzles and sprinkler heads γ equals
-    0.5 and the manufacturer usually provides the value of the discharge
-    coefficient in units of gpm/psi :sup:`0.5` (stated as the flow
-    through the device at a 1 psi pressure drop).
+    where :math:`q` = flow rate, :math:`p` = pressure, :math:`C` = discharge
+    coefficient, and :math:`\gamma` = pressure exponent. For nozzles and
+    sprinkler heads :math:`\gamma` equals 0.5 and the manufacturer usually
+    provides the value of the discharge coefficient in units of
+    :math:`gpm/psi^{0.5}` (stated as the flow through the device at a 1 psi
+    pressure drop).
 
     Emitters are used to model flow through sprinkler systems and
     irrigation networks. They can also be used to simulate leakage in a
@@ -211,11 +213,12 @@ Pipes
    Each formula uses the following equation to compute headloss between
    the start and end node of the pipe:
 
-    .. math::  h_L = A ~ q^B
+    .. math::
+       h_{L} = A q^{B}
 
-   where *h*\ :sub:`L` = headloss (Length), *q* = flow rate (Volume/Time), *A*
-   = resistance coefficient, and *B* = flow exponent. Table 3.1 lists
-   expressions for the resistance coefficient and values for the flow
+   where :math:`h_{L}` = headloss (Length), :math:`q` = flow rate (Volume/Time),
+   :math:`A` = resistance coefficient, and :math:`B` = flow exponent. Table 3.1
+   lists expressions for the resistance coefficient and values for the flow
    exponent for each of the formulas. Each formula uses a different pipe
    roughness coefficient that must be determined empirically. Table 3.2
    lists general ranges of these coefficients for different types of new
@@ -242,33 +245,33 @@ Pipes
 
     +-------------------+--------------------------------------------+-----------------------+
     |    *Formula*      |    *Resistance  Coefficient*               |    *Flow Exponent*    |
-    |                   |    *(A)*                                   |    *(B)*              |
+    |                   |    (:math:`A`)                             |    (:math:`B`)        |
     +===================+============================================+=======================+
-    | Hazen-Williams    |  4.727 C\ :sup:`-1.852` d\ :sup:`-4.871` L |    1.852              |
+    | Hazen-Williams    |  :math:`4.727\,C^{-1.852}\,d^{-4.871}\,L`  |    :math:`1.852`      |
     +-------------------+--------------------------------------------+-----------------------+
-    | Darcy-Weisbach    |  0.0252 f(ε,d,q)d\ :sup:`-5` L             |    2                  |
+    | Darcy-Weisbach    |:math:`0.0252\,f(\epsilon,d,q)\,d ^{-5}\,L` |    :math:`2`          |
     +-------------------+--------------------------------------------+-----------------------+
-    | Chezy-Manning     |  4.66 n\ :sup:`2` d\ :sup:`-5.33` L        |    2                  |
+    | Chezy-Manning     |    :math:`4.66\,n^{2}\,d^{-5.33}\,L`       |    :math:`2`          |
     +-------------------+--------------------------------------------+-----------------------+
 
 
     Notes:
 
-        | C = Hazen-Williams roughness coefficient
-        | ε = Darcy-Weisbach roughness coefficient (ft)
-        | f = friction factor  (dependent on ε, d, and q)
-        | n = Manning roughness coefficient
-        | d = pipe diameter (ft)
-        | L = pipe length (ft)
-        | q = flow rate (cfs)
+        | :math:`C` = Hazen-Williams roughness coefficient
+        | :math:`\epsilon` = Darcy-Weisbach roughness coefficient (ft)
+        | :math:`f` = friction factor  (dependent on :math:`\epsilon`, :math:`d`, and :math:`q`)
+        | :math:`n` = Manning roughness coefficient
+        | :math:`d` = pipe diameter (ft)
+        | :math:`L` = pipe length (ft)
+        | :math:`q` = flow rate (cfs)
 
 
 
     **Table 3.2** Roughness Coefficients for New Pipe
 
     +-----------------+-----------------+------------------+-----------------+
-    |   *Material*    | *Hazen-Williams | *Darcy-Weisbach  | *Manning's n*   |
-    |                 | C*              | ε*               |                 |
+    |   *Material*    | *Hazen-Williams*| *Darcy-Weisbach* | *Manning's*     |
+    |                 | :math:`C`       | :math:`\epsilon` | :math:`n`       |
     |                 |                 |                  |                 |
     |                 | | *(unitless)*  || *(feet x 10^-3)*| | *(unitless)*  |
     +=================+=================+==================+=================+
@@ -311,11 +314,12 @@ Minor Losses
    the pipe a minor loss coefficient. The minor headloss becomes the
    product of this coefficient and the velocity head of the pipe, i.e.,
 
-   .. math:: h_L = K (\frac{v^2}{2g})
+   .. math::
+      h_L = K (\frac{v^2}{2g})
 
-   where *K* = minor loss coefficient, *v* = flow velocity
-   (Length/Time), and *g* = acceleration of gravity
-   (Length/Time:sup:`2`). Table 3.3 provides minor loss coefficients for
+   where :math:`K` = minor loss coefficient, :math:`v` = flow velocity
+   (Length/Time), and :math:`g` = acceleration of gravity
+   (Length/Time :sup:`2`). Table 3.3 provides minor loss coefficients for
    several types of fittings.
 
     **Table 3.3** Minor Loss Coefficients for Selected Fittings
@@ -533,15 +537,19 @@ Pump Curve
    number of points supplied (see Figure 3.2):
 
       Single-Point Pump Curve:
+
       |image31|
-      |
+
       Three-Point Pump Curve:
+
       |image32|
-      |
+
       Multi-Point Pump Curve:
+
       |image31-2|
-      |
+
       Variable-Speed Pump Curve:
+
       |image32-2|
 
     **Figure 3.2** Example Pump Curves
@@ -559,11 +567,12 @@ Pump Curve
    point), and a Maximum Flow point (flow and head at maximum flow).
    EPANET tries to fit a continuous function of the form
 
-   .. math:: h_G = A − B ~ q^C
+   .. math::
+      h_G = A − B \, q^C
 
    through the three points to define the entire pump curve. In this
-   function, *h*\ :sub:`g` = head gain, *q* = flow rate, and *A, B*, and *C*
-   are constants.
+   function, :math:`h_{g}` = head gain, :math:`q` = flow rate, and :math:`A`,
+   :math:`B`, and :math:`C` are constants.
 
    *Multi-Point Curve* – A multi-point pump curve is defined by
    providing either a pair of head-flow points or four or more such
@@ -571,11 +580,13 @@ Pump Curve
    straight-line segments.
 
    For variable speed pumps, the pump curve shifts as the speed changes.
-   The relationships between flow (Q) and head (H) at speeds N1 and N2
-   are
+   The relationships between flow (:math:`Q`) and head (:math:`H`) at speeds
+   :math:`N1` and :math:`N2` are
 
-   .. math:: \frac{Q_1}{Q_2} = \frac{N_1}{N_2}  ~~~  \frac{H_1}{H_2} = (\frac{N_1}{N_2})^2
-
+   .. math::
+      \begin{eqnarray}
+        \frac{Q_1}{Q_2} = \frac{N_1}{N_2} & \ \ \ \ & \frac{H_1}{H_2} = \left( \frac{N_1}{N_2} \right)^2
+      \end{eqnarray}
 
 
 Efficiency Curve
@@ -584,12 +595,11 @@ Efficiency Curve
 
    An Efficiency Curve determines pump efficiency (Y in percent) as a
    function of pump flow rate (X in flow units). An example efficiency
-   curve is shown in Figure 3.3.
-   Efficiency should represent wire-to-water efficiency that takes into
-   account mechanical losses in the pump itself as well as electrical
-   losses in the pump's motor. The curve is used only for energy
-   calculations. If not supplied for a specific pump then a fixed global
-   pump efficiency will be used.
+   curve is shown in Figure 3.3. Efficiency should represent wire-to-water
+   efficiency that takes into account mechanical losses in the pump itself
+   as well as electrical losses in the pump's motor. The curve is used only
+   for energy calculations. If not supplied for a specific pump then a
+   fixed global pump efficiency will be used.
 
 
       |image33|
@@ -696,24 +706,22 @@ Simple Controls
 
    They are statements expressed in one of the following three formats:
 
+   ::
 
+      LINK x status IF NODE y ABOVE/BELOW z
 
+      LINK x status AT TIME t
 
-      LINK *x status* IF NODE *y* ABOVE/BELOW *z*
+      LINK x status AT CLOCKTIME c AM/PM
 
-      LINK *x status* AT TIME *t*
-
-      LINK *x status* AT CLOCKTIME *c* AM/PM
-
-
-    where:
+   where:
       | ``x`` = a link ID label,
       | ``status`` = OPEN or CLOSED, a pump speed setting, or a control valve
         setting,
       | ``y`` = a node ID label,
       | ``z`` = a pressure for a junction or a water level for a tank,
-      | ``t`` = a time since the start of the simulation in decimal hours or in
-        hours:minutes notation,
+      | ``t`` = a time since the start of the simulation (decimal hours or
+        hours:minutes),
       | ``c`` = a 24-hour clock time.
 
    Some examples of simple controls are:
@@ -721,8 +729,8 @@ Simple Controls
       +--------------------------------------+---------------------------------+
       |    *Control Statement*               |    *Meaning*                    |
       +======================================+=================================+
-      | LINK 12 CLOSED IF NODE 23 ABOVE 20   | | (Close Link 12 when the       |
-      |                                      |   level in Tank 23              |
+      |                                      | | (Close Link 12 when the       |
+      |``LINK 12 CLOSED IF NODE 23 ABOVE 20``|   level in Tank 23              |
       |                                      | | exceeds 20 ft.)               |
       +--------------------------------------+---------------------------------+
       | LINK 12 OPEN IF NODE 130 BELOW 30    | | (Open Link 12 if the pressure |

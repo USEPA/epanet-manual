@@ -127,7 +127,7 @@ Emitters
     coefficient, and :math:`\gamma` = pressure exponent. For nozzles and
     sprinkler heads :math:`\gamma` equals 0.5 and the manufacturer usually
     provides the value of the discharge coefficient in units of
-    :math:`gpm/psi^{0.5}` (stated as the flow through the device at a 1 psi
+    gpm/psi :sup:`0.5` (stated as the flow through the device at a 1 psi
     pressure drop).
 
     Emitters are used to model flow through sprinkler systems and
@@ -715,14 +715,14 @@ Simple Controls
       LINK x status AT CLOCKTIME c AM/PM
 
    where:
-      | ``x`` = a link ID label,
-      | ``status`` = OPEN or CLOSED, a pump speed setting, or a control valve
+      | *x* = a link ID label,
+      | *status* = OPEN or CLOSED, a pump speed setting, or a control valve
         setting,
-      | ``y`` = a node ID label,
-      | ``z`` = a pressure for a junction or a water level for a tank,
-      | ``t`` = a time since the start of the simulation (decimal hours or
+      | *y* = a node ID label,
+      | *z* = a pressure for a junction or a water level for a tank,
+      | *t* = a time since the start of the simulation (decimal hours or
         hours:minutes),
-      | ``c`` = a 24-hour clock time.
+      | *c* = a 24-hour clock time.
 
    Some examples of simple controls are:
 
@@ -730,7 +730,7 @@ Simple Controls
       |    *Control Statement*               |    *Meaning*                    |
       +======================================+=================================+
       |                                      | | (Close Link 12 when the       |
-      |``LINK 12 CLOSED IF NODE 23 ABOVE 20``|   level in Tank 23              |
+      |  LINK 12 CLOSED IF NODE 23 ABOVE 20  |   level in Tank 23              |
       |                                      | | exceeds 20 ft.)               |
       +--------------------------------------+---------------------------------+
       | LINK 12 OPEN IF NODE 130 BELOW 30    | | (Open Link 12 if the pressure |
@@ -831,9 +831,8 @@ Hydraulic Simulation Model
    the current flow solution. The solution for heads and flows at a
    particular point in time involves solving simultaneously the
    conservation of flow equation for each junction and the headloss
-   relationship across each link in the network. This process,
-
-   known as “hydraulically balancing” the network, requires using an
+   relationship across each link in the network. This process, known as
+   “hydraulically balancing” the network, requires using an
    iterative technique to solve the nonlinear equations involved. EPANET
    employs the “Gradient Algorithm” for this purpose. Consult Appendix D
    for details.
@@ -908,37 +907,40 @@ Mixing in Storage Tanks
 
    Different models can be used with different tanks within a network.
 
-      |image35|
 
     (A) Complete Mixing
 
-      |image36|
+      |image35|
+
 
     (B) Two-Compartment Mixing
 
-      |image37|
+      |image36|
+
 
     (C) Plug Flow - FIFO
 
-      |image38|
+      |image37|
+
 
     (D) Plug Flow - LIFO
 
+      |image38|
+
    **Figure 3.5** Tank Mixing Models
 
-   The Complete Mixing model (Figure 3.5(a)) assumes that all water that
+   The Complete Mixing model (Figure 3.5(A)) assumes that all water that
    enters a tank is instantaneously and completely mixed with the water
    already in the tank. It is the simplest form of mixing behavior to
    assume, requires no extra parameters to describe it, and seems to
    apply quite well to a large number of facilities that operate in
-   fill- and-draw fashion.
+   fill-and-draw fashion.
 
-   The Two-Compartment Mixing model (Figure 3.5(b)) divides the
+   The Two-Compartment Mixing model (Figure 3.5(B)) divides the
    available storage volume in a tank into two compartments, both of
    which are assumed completely mixed. The inlet/outlet pipes of the
-   tank are assumed to be located in the first
-
-   compartment. New water that enters the tank mixes with the water in
+   tank are assumed to be located in the first compartment. New water
+   that enters the tank mixes with the water in
    the first compartment. If this compartment is full, then it sends its
    overflow to the second compartment where it completely mixes with the
    water already stored there. When water leaves the tank, it exits from
@@ -949,7 +951,7 @@ Mixing in Storage Tanks
    zones. The user must supply a single parameter, which is the fraction
    of the total tank volume devoted to the first compartment.
 
-   The FIFO Plug Flow model (Figure 3.5(c)) assumes that there is no
+   The FIFO Plug Flow model (Figure 3.5(C)) assumes that there is no
    mixing of water at all during its residence time in a tank. Water
    parcels move through the tank in a segregated fashion where the first
    parcel to enter is also the first to leave. Physically speaking, this
@@ -957,7 +959,7 @@ Mixing in Storage Tanks
    simultaneous inflow and outflow. There are no additional parameters
    needed to describe this mixing model.
 
-   The LIFO Plug Flow model (Figure 3.5(d)) also assumes that there is
+   The LIFO Plug Flow model (Figure 3.5(D)) also assumes that there is
    no mixing between parcels of water that enter a tank. However in
    contrast to FIFO Plug Flow, the water parcels stack up one on top of
    another, where water enters and leaves the tank on the bottom. This
@@ -991,60 +993,69 @@ Bulk Reactions
 ^^^^^^^^^^^^^^^
 
    EPANET models reactions occurring in the bulk flow with n-th order
-   kinetics, where the instantaneous rate of reaction (R in
+   kinetics, where the instantaneous rate of reaction (:math:`R` in
    mass/volume/time) is assumed to be concentration-dependent according
    to
 
-   .. math:: R = K_b ~ C^n
+   .. math::
+      R = K_{b} C^{n}
 
-   Here *K\ b* = a bulk reaction rate coefficient, *C* = reactant
-   concentration (mass/volume), and *n* = a reaction order. *K\ b* has
-   units of concentration raised to the (1-*n*) power divided by time.
-   It is positive for growth reactions and negative for decay reactions.
+   Here :math:`K_{b}` = a bulk reaction rate coefficient, :math:`C` = reactant
+   concentration (mass/volume), and :math:`n` = a reaction order. :math:`K_b`
+   has units of concentration raised to the :math:`(1 - n)`` power divided by
+   time. It is positive for growth reactions and negative for decay reactions.
 
    EPANET can also consider reactions where a limiting concentration
    exists on the ultimate growth or loss of the substance. In this case
    the rate expression becomes
 
-   .. math:: R = K_b (C_L − C) \times C^{(n−1)}
+   .. math::
+      \begin{eqnarray}
+         & R = K_{b} (C_{L} − C) \times C^{(n − 1)} & \\
+         & for\ n > 0, K_{b} > 0 &
+      \end{eqnarray}
 
-   .. math:: R = K_b (C − C_L ) \times C^{(n−1)}
+   .. math::
+      \begin{eqnarray}
+        & R = K_{b} (C − C_{L} ) \times C^{(n − 1)} & \\
+        & for\ n > 0, K_{b} < 0 &
+      \end{eqnarray}
 
-   for *n* > 0, *K*\ :sub:`b` > 0 for *n* > 0, *K*\ :sub:`b` < 0
 
-   where *C*:sub:`L` = the limiting concentration. Thus there are three
-   parameters (*K*\ :sub:`b`, *C*\ :sub:`L`, and *n*) that are used to characterize
-   bulk reaction rates. Some special cases of well-known kinetic models
-   include the following (See Appendix D for more examples):
+   where :math:`C_L` = the limiting concentration. Thus there are three
+   parameters (:math:`K_b`, :math:`C_L`, and :math:`n`) that are used to
+   characterize bulk reaction rates. Some special cases of well-known kinetic
+   models include the following (See Appendix D for more examples):
 
     +-----------------------+-----------------------+-----------------------+
     |    *Model*            |    *Parameters*       |    *Examples*         |
     +=======================+=======================+=======================+
-    |    First-Order Decay  |  *C*\ :sub:`L` = 0,   |    Chlorine           |
-    |                       |  *K*\ :sub:`b` < 0,   |                       |
-    |                       |  *n* = 1              |                       |
+    |    First-Order Decay  |  :math:`C_L = 0,      |    Chlorine           |
+    |                       |  K_b < 0,             |                       |
+    |                       |  n = 1`               |                       |
     +-----------------------+-----------------------+-----------------------+
-    |    First-Order        |  *C*\ :sub:`L` > 0,   |    Trihalomethanes    |
-    |    Saturation Growth  |  *K*\ :sub:`b` > 0,   |                       |
-    |                       |  *n* = 1              |                       |
+    |    First-Order        |  :math:`C_L > 0,      |    Trihalomethanes    |
+    |    Saturation Growth  |  K_b > 0,             |                       |
+    |                       |  n = 1`               |                       |
     +-----------------------+-----------------------+-----------------------+
-    | Zero-Order Kinetics   |  *C*\ :sub:`L` = 0,   |    Water Age          |
-    |                       |  *K*\ :sub:`b` <> 0,  |                       |
-    |                       |  *n* = 0              |                       |
+    | Zero-Order Kinetics   |  :math:`C_L = 0,      |    Water Age          |
+    |                       |  K_b <> 0,            |                       |
+    |                       |  n = 0`               |                       |
     +-----------------------+-----------------------+-----------------------+
-    | No Reaction           |  *C*\ :sub:`L` = 0,   |    Fluoride Tracer    |
-    |                       |  *K*\ :sub:`b` = 0    |                       |
+    | No Reaction           |  :math:`C_L = 0,      |    Fluoride Tracer    |
+    |                       |  K_b = 0`             |                       |
     +-----------------------+-----------------------+-----------------------+
 
 
 
-   The *K*\ :sub:`b` for first-order reactions can be estimated by placing a
+   The :math:`K_b` for first-order reactions can be estimated by placing a
    sample of water in a series of non-reacting glass bottles and
    analyzing the contents of each bottle at different points in time. If
    the reaction is first-order, then plotting the natural log
-   (*C*\ :sub:`t` / *C*\ :sub:`o`) against time should result in a straight line, where
-   *C*\ :sub:`t` is concentration at time t and *C*:sub:`o` is concentration at time
-   zero. *K*\ :sub:`b` would then be estimated as the slope of this line.
+   :math:`(C_t / C_0)` against time should result in a straight line, where
+   :math:`C_t` is concentration at time :math:`t` and :math:`C_0` is
+   concentration at time zero. :math:`K_b` would then be estimated as the
+   slope of this line.
 
    Bulk reaction coefficients usually increase with increasing
    temperature. Running multiple bottle tests at different temperatures
@@ -1059,18 +1070,19 @@ Wall Reactions
    wall can be considered to be dependent on the concentration in the
    bulk flow by using an expression of the form
 
-   .. math::  R = ( A /V ) K_w ~ C^n
+   .. math::
+      R = ( A / V ) K_{w} C^{n}
 
-   where *K*\ :sub:`w` = a wall reaction rate coefficient and *(A/V)* = the
-   surface area per unit volume within a pipe (equal to 4 divided by the
+   where :math:`K_{w}` = a wall reaction rate coefficient and :math:`(A / V)`
+   = the surface area per unit volume within a pipe (equal to 4 divided by the
    pipe diameter). The latter term converts the mass reacting per unit
    of wall area to a per unit volume basis. EPANET limits the choice of
-   wall reaction order to either 0 or 1, so that the units of *K\ w* are
-   either mass/area/time or length/time, respectively. As with *K*\ :sub:`b`,
-   *K*\ :sub:`w` must be supplied to the program by the modeler. First-order
-   *K*\ :sub:`w` values can range anywhere from 0 to as much as 5 ft/day.
+   wall reaction order to either 0 or 1, so that the units of :math:`K_{w}` are
+   either mass/area/time or length/time, respectively. As with :math:`K_{b}`,
+   :math:`K_{w}` must be supplied to the program by the modeler. First-order
+   :math:`K_{w}` values can range anywhere from 0 to as much as 5 ft/day.
 
-   *K*\ :sub:`w` should be adjusted to account for any mass transfer
+   :math:`K_{w}` should be adjusted to account for any mass transfer
    limitations in moving reactants and products between the bulk flow
    and the wall. EPANET does this automatically, basing the adjustment
    on the molecular diffusivity of the substance being modeled and on
@@ -1089,27 +1101,30 @@ Wall Reactions
    There is some evidence to suggest that the same processes that
    increase a pipe's roughness with age also tend to increase the
    reactivity of its wall with some chemical species, particularly
-   chlorine and other disinfectants. EPANET can make each pipe's *K\ w*
+   chlorine and other disinfectants. EPANET can make each pipe's :math:`K_{w}`
    be a function of the coefficient used to describe its roughness. A
    different function applies depending on the formula used to compute
    headloss through the pipe:
 
-   *Headloss Formula     Wall Reaction Formula*
 
-   Hazen-Williams   *K*\ :sub:`w` = *F / C*
+    +-----------------------------+-----------------------------+
+    |     Headloss Formula        |  Wall Reaction Formula      |
+    +=============================+=============================+
+    |     Hazen-Williams          |   :math:`K_w = F / C`       |
+    +-----------------------------+-----------------------------+
+    |     Darcy-Weisbach          |:math:`K_w = -F / \log(e/d)` |
+    +-----------------------------+-----------------------------+
+    |     Chezy-Manning           |    :math:`K_w = F n`        |
+    +-----------------------------+-----------------------------+
 
-   Darcy-Weisbach   *K*\ :sub:`w` = *-F / log(e/d)*
-
-   Chezy-Manning   *K*\ :sub:`w` = *F n*
-
-   where *C* = Hazen-Williams C-factor, *e* = Darcy-Weisbach roughness,
-   *d* = pipe diameter, *n* = Manning roughness coefficient, and *F* =
-   wall reaction - pipe roughness coefficient The coefficient F must be
-   developed from site-specific field measurements and will have a
-   different meaning depending on which head loss equation is used. The
-   advantage of using this approach is that it requires only a single
-   parameter, *F*, to allow wall reaction coefficients to vary
-   throughout the network in a physically meaningful way.
+   where :math:`C` = Hazen-Williams C-factor, :math:`e` = Darcy-Weisbach
+   roughness, :math:`d` = pipe diameter, :math:`n` = Manning roughness
+   coefficient, and :math:`F` = wall reaction - pipe roughness coefficient.
+   The coefficient :math:`F` must be developed from site-specific field
+   measurements and will have a different meaning depending on which head
+   loss equation is used. The advantage of using this approach is that it
+   requires only a single parameter, :math:`F`, to allow wall reaction
+   coefficients to vary throughout the network in a physically meaningful way.
 
 
 Water Age and Source Tracing
@@ -1121,11 +1136,9 @@ Water Age and Source Tracing
    entering the network from reservoirs or source nodes enters with age
    of zero. Water age provides a simple, non-specific measure of the
    overall quality of delivered drinking water. Internally, EPANET
-   treats age as a
-
-   reactive constituent whose growth follows zero-order kinetics with a
-   rate constant equal to 1 (i.e., each second the water becomes a
-   second older).
+   treats age as a reactive constituent whose growth follows zero-order
+   kinetics with a rate constant equal to 1 (i.e., each second the water
+   becomes a second older).
 
    EPANET can also perform source tracing. Source tracing tracks over
    time what percent of water reaching any node in the network had its

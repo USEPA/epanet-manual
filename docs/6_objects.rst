@@ -18,8 +18,6 @@ deleted, and repositioned.*
 
 
 
-
-
 Types of Objects
 ~~~~~~~~~~~~~~~~
 
@@ -384,7 +382,7 @@ Editing Visual Objects
   |                                   | blank the tank will not appear on |
   |                                   | the network map.                  |
   +-----------------------------------+-----------------------------------+
-  | Y-C  oordinate                    | The vertical location of the tank |
+  | Y-Coordinate                      | The vertical location of the tank |
   |                                   | on the map, measured in the map's |
   |                                   | scaling units. If left blank the  |
   |                                   | tank will not appear on the       |
@@ -742,7 +740,7 @@ Editing Visual Objects
   +-----------------------------------+-----------------------------------+
   | Type                              | The valve type (PRV, PSV, PBV,    |
   |                                   | FCV, TCV, or GPV). See Valves in  |
-  |                                   | Section 6.1for descriptions of    |
+  |                                   | Section 6.1 for descriptions of   |
   |                                   | the various types of valves. This |
   |                                   | is a required property.           |
   +-----------------------------------+-----------------------------------+
@@ -795,7 +793,7 @@ Editing Visual Objects
   |                                   | scaling units. This is a required |
   |                                   | property.                         |
   +-----------------------------------+-----------------------------------+
-  | Y-C  oordinate                    | The vertical location of the      |
+  | Y-Coordinate                      | The vertical location of the      |
   |                                   | upper left corner of the label on |
   |                                   | the map, measured in the map's    |
   |                                   | scaling units. This is a required |

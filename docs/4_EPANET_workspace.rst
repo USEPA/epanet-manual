@@ -9,15 +9,12 @@ EPANET's Workspace
 ==================
 
 
-
 *This chapter discusses the essential features of EPANET’s workspace.
 It describes the main menu bar, the tool and status bars, and the
 three windows used most often – the Network Map, the Browser, and the
 Property Editor. It also shows how to set program preferences.*
 
 -------
-
-
 
 
 Overview
@@ -31,7 +28,6 @@ Overview
 
 
    |image39|
-
 
 
 Menu Bar
@@ -118,6 +114,7 @@ Edit Menu
   |                                   | outlined region of the map        |
   +-----------------------------------+-----------------------------------+
 
+
 View Menu
 ----------------------
 
@@ -150,6 +147,7 @@ View Menu
   +--------------+-----------------------------------------------------------+
   | Options      | Sets map appearance options                               |
   +--------------+-----------------------------------------------------------+
+
 
 Project Menu
 ----------------------
@@ -209,6 +207,7 @@ Report Menu
   |                                   | report, graph, or table           |
   +-----------------------------------+-----------------------------------+
 
+
 Window Menu
 ----------------------
 
@@ -245,6 +244,7 @@ Help Menu
 
 
    Context-sensitive Help is also available by pressing the F1 key.
+
 
 Toolbars
 ~~~~~~~~
@@ -337,25 +337,26 @@ Status Bar
    The Status Bar appears at the bottom of the EPANET workspace and is
    divided into four sections which display the following information:
 
-    -  **Auto-Length** – indicates whether automatic computation of pipe
-       lengths is turned on or off
+   - **Auto-Length** – indicates whether automatic computation of pipe
+     lengths is turned on or off
 
-    -  **Flow Units** - displays the current flow units that are in effect
+   - **Flow Units** - displays the current flow units that are in effect
 
-    -  **Zoom Level** - displays the current zoom in level for the map (100%
-       is full scale)
+   - **Zoom Level** - displays the current zoom in level for the map (100%
+     is full scale)
 
-    -  **Run Status** - a faucet icon shows:
+   - **Run Status** - a faucet icon shows:
 
-       -  no running water if no analysis results are available,
+      - no running water if no analysis results are available,
 
-       -  running water when valid analysis results are available,
+      - running water when valid analysis results are available,
 
-       -  a broken faucet when analysis results are available but may be
-          invalid because the network data have been modified.
+      - a broken faucet when analysis results are available but may be
+        invalid because the network data have been modified.
 
-    -  **XY Location** - displays the map coordinates of the current
-       position of the mouse pointer.
+   - **XY Location** - displays the map coordinates of the current
+     position of the mouse pointer.
+
 
 Network Map
 ~~~~~~~~~~~
@@ -376,6 +377,7 @@ Network Map
    property values displayed. The map can be printed, copied onto the
    Windows clipboard, or exported as a DXF file or Windows metafile.
 
+
 Data Browser
 ~~~~~~~~~~~~
 
@@ -390,6 +392,7 @@ Data Browser
    Lists items in the selected category
 
    Add, Delete, and Edit buttons
+
 
 Map Browser
 ~~~~~~~~~~~

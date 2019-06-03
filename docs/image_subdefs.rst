@@ -123,9 +123,19 @@
 ..  |image104| image:: media/image48.png
 ..  |image105| image:: media/image42.png
 ..  |image106| image:: media/image42.png
-..  |image107| image:: media/image69.jpeg
+
+..
+    Moved to map.rst line 267
+    |image107| image:: media/image69.jpeg
+
+
 ..  |image108| image:: media/image70.png
-..  |image109| image:: media/image71.png
+
+..
+    Moving to map.rst line 332
+    |image109| image:: media/image71.png
+
+
 ..  |image110| image:: media/image46.png
 ..  |image111| image:: media/image72.png
 ..  |image112| image:: media/image14.jpeg

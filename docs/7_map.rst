@@ -264,7 +264,10 @@ Finding an Object
 Map Legends
 ~~~~~~~~~~~
 
-   |image107|\ There are three types of map legends that can be
+   .. image:: media/image69.jpeg
+      :align: left
+
+   There are three types of map legends that can be
    displayed. The Node and Link Legends associate a color with a range
    of values for the current parameter being viewed on the map. The Time
    Legend displays the clock time of the simulation time period being
@@ -326,14 +329,8 @@ Map Legends
 Overview Map
 ~~~~~~~~~~~~
 
-      |image109|
-
-
-
-
-
-Map Display Options
-~~~~~~~~~~~~~~~~~~~
+   .. image:: media/image71.png
+      :align: left
 
    The Overview Map allows you to see where in terms of the overall
    system the main network map is currently focused. This zoom area is
@@ -343,6 +340,10 @@ Map Display Options
    by selecting **View >> Overview Map**. Clicking the mouse on its
    title bar will update its map image to match that of the main network
    map.
+
+
+Map Display Options
+~~~~~~~~~~~~~~~~~~~
 
    There are several ways to bring up the Map Options dialog form
    (Figure 7.3) used to change the appearance of the Network Map:
@@ -534,7 +535,7 @@ Flow Arrow Options
    network has been successfully analyzed (see Section 8.2 Running an
    Analysis).
 
-   Background Options
+   **Background Options**
 
    The Background page of the Map Options dialog offers a selection of
    colors used to paint the map’s background with.

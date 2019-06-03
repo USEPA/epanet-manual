@@ -43,8 +43,8 @@ Setting Analysis Options
   can move to the next or previous category by simply hitting the
   **Page Down** or **Page Up** keys, respectively.
 
-Hydraulic Options
-------------------
+
+**Hydraulic Options**
 
    Hydraulic options control how the hydraulic computations are carried
    out. They consist of the following items:
@@ -68,13 +68,11 @@ Hydraulic Options
   +-----------------------------------+-----------------------------------+
   | Headloss Formula                  | Formula used to compute headloss  |
   |                                   | as a function of flow rate in a   |
-  |                                   | pipe. Choices are:                |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         Hazen-Williams          |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         Darcy-Weisbach          |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         Chezy-Manning           |
+  |                                   | pipe.                             |
+  |                                   | Choices are:                      |
+  |                                   | - Hazen-Williams                  |
+  |                                   | - Darcy-Weisbach                  |
+  |                                   | - Chezy-Manning                   |
   +-----------------------------------+-----------------------------------+
   |                                   | Because each formula measures     |
   |                                   | pipe roughness differently,       |
@@ -143,15 +141,12 @@ Hydraulic Options
   |                                   | report after an analysis is made. |
   +-----------------------------------+-----------------------------------+
   |                                   | Choices are:                      |
-  +-----------------------------------+-----------------------------------+
   |                                   | •         NONE (no status         |
   |                                   | reporting)                        |
-  +-----------------------------------+-----------------------------------+
   |                                   | •         YES (normal status      |
   |                                   | reporting – lists all changes in  |
   |                                   | link status throughout the        |
   |                                   | simulation )                      |
-  +-----------------------------------+-----------------------------------+
   |                                   | •         FULL (full reporting –  |
   |                                   | normal reporting plus the         |
   |                                   | convergence error from each trial |
@@ -165,8 +160,8 @@ Hydraulic Options
    **Note**: Choices for Hydraulic Options can also be set from the
    **Project >> Defaults** menu and saved for use with all future projects (see Section 5.2).
 
-Water Quality Options
------------------------
+
+**Water Quality Options**
 
    Water Quality Options control how the water quality analysis is
    carried out. They consist of the following:
@@ -235,8 +230,7 @@ Water Quality Options
    might be called for.
 
 
-Reaction Options
------------------
+**Reaction Options**
 
    Reaction Options set the types of reactions that apply to a water
    quality analysis. They include the following:
@@ -312,8 +306,7 @@ Reaction Options
   +-----------------------------------+-----------------------------------+
 
 
-Times Options
------------------
+**Times Options**
 
    Times options set values for the various time steps used in an
    extended period simulation. These are listed below (times can be
@@ -397,8 +390,7 @@ Times Options
    a non-zero Total Duration be specified.
 
 
-Energy Options
------------------
+**Energy Options**
 
    Energy Analysis Options provide default values used to compute
    pumping energy and cost when no specific energy parameters are
@@ -456,9 +448,8 @@ are encountered in running a hydraulic/water quality analysis (see
 Appendix B for a complete listing). The most common problems are
 discussed below.
 
-Pumps Cannot Deliver Flow or Head
------------------------------------
 
+**Pumps Cannot Deliver Flow or Head**
 
    EPANET will issue a warning message when a pump is asked to operate
    outside the range of its pump curve. If the pump is required to
@@ -466,9 +457,8 @@ Pumps Cannot Deliver Flow or Head
    down. This might lead to portions of the network becoming
    disconnected from any source of water.
 
-Network is Disconnected
---------------------------------
 
+**Network is Disconnected**
 
    EPANET classifies a network as being disconnected if there is no way
    to provide water to all nodes that have demands. This can occur if
@@ -483,9 +473,8 @@ Network is Disconnected
    it is possible for nodes to become disconnected as links change
    status over time.
 
-Negative Pressures Exist
---------------------------------
 
+**Negative Pressures Exist**
 
    EPANET will issue a warning message when it encounters negative
    pressures at junctions that have positive demands. This usually
@@ -495,9 +484,8 @@ Negative Pressures Exist
    closed off. In such cases an additional warning message about the
    network being disconnected is also issued.
 
-System Unbalanced
---------------------------------
 
+**System Unbalanced**
 
    A System Unbalanced condition can occur when EPANET cannot converge
    to a hydraulic solution in some time period within its allowed
@@ -527,8 +515,8 @@ System Unbalanced
    as errors in flows into or out of storage tanks, this might affect
    the accuracy of results in all future periods as well.
 
-Hydraulic Equations Unsolvable
---------------------------------
+
+**Hydraulic Equations Unsolvable**
 
    Error 110 is issued if at some point in an analysis the set of
    equations that model flow and energy balance in the network cannot be

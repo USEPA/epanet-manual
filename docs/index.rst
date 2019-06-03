@@ -8,9 +8,9 @@
 
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Table of Contents
    :numbered:
+   :maxdepth: 2
+   :caption: Table of Contents
    :hidden:
 
    1_introduction

@@ -51,9 +51,7 @@ Menu Bar
     -  Help Menu
 
 
-
-File Menu
-----------------------
+**File Menu**
 
    The File Menu contains commands for opening and saving data files and
    for printing:
@@ -85,8 +83,7 @@ File Menu
   +---------------+------------------------------------------------------+
 
 
-Edit Menu
-----------------------
+**Edit Menu**
 
    The Edit Menu contains commands for editing and copying.
 
@@ -115,8 +112,7 @@ Edit Menu
   +-----------------------------------+-----------------------------------+
 
 
-View Menu
-----------------------
+**View Menu**
 
    The View Menu controls how the network map is viewed.
 
@@ -149,8 +145,7 @@ View Menu
   +--------------+-----------------------------------------------------------+
 
 
-Project Menu
-----------------------
+**Project Menu**
 
   +-----------------------------------+-----------------------------------+
   | *Command*                         | *Description*                     |
@@ -170,8 +165,7 @@ Project Menu
   +-----------------------------------+-----------------------------------+
 
 
-Report Menu
-----------------------
+**Report Menu**
 
    The Report menu has commands used to report analysis results in
    different formats.
@@ -208,8 +202,7 @@ Report Menu
   +-----------------------------------+-----------------------------------+
 
 
-Window Menu
-----------------------
+**Window Menu**
 
    The Window Menu contains the following commands:
 
@@ -225,8 +218,7 @@ Window Menu
 
 
 
-Help Menu
-----------------------
+**Help Menu**
 
    The Help Menu contains commands for getting help in using EPANET:
 
@@ -264,8 +256,7 @@ Toolbars
    **View >> Toolbars**.
 
 
-Standard Toolbar
---------------------
+**Standard Toolbar**
 
    The Standard Toolbar contains speed buttons for commonly used
    commands.
@@ -296,8 +287,7 @@ Standard Toolbar
    Options** or **Report >> Options**)
 
 
-Map Toolbar
--------------
+**Map Toolbar**
 
    The Map Toolbar contains buttons for working with the Network Map.
 
@@ -477,8 +467,7 @@ Program Preferences
    pages – one for General Preferences and one for Format Preferences.
 
 
-General Preferences
---------------------
+**General Preferences**
 
    The following preferences can be set on the General page of the
    Preferences dialog:
@@ -522,8 +511,7 @@ General Preferences
       |image70|
 
 
-Formatting Preferences
------------------------
+**Formatting Preferences**
 
    The Formats page of the Preferences dialog box controls how many
    decimal places are displayed when results for computed parameters are

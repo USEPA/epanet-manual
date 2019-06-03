@@ -847,8 +847,8 @@ Editing Non-Visual Objects
    a button that launches a special Source Quality editor. Each of these
    specialized editors is described next.
 
-Curve Editor
-----------------
+
+**Curve Editor**
 
    The Curve Editor is a dialog form as shown in Figure 6.1. To use the
    Curve Editor, enter values for the following items:
@@ -879,8 +879,7 @@ Curve Editor
    **Figure 6.1** Curve Editor
 
 
-Pattern Editor
-----------------
+**Pattern Editor**
 
    The Pattern Editor, displayed in Figure 6.2, edits the properties of
    a time pattern object. To use the Pattern Editor enter values for the
@@ -913,8 +912,7 @@ Pattern Editor
    **Figure 6.2** Pattern Editor
 
 
-Controls Editor
------------------
+**Controls Editor**
 
    The Controls Editor, shown in Figure 6.3, is a text editor window
    used to edit both simple and rule-based controls. It has a standard
@@ -927,8 +925,7 @@ Controls Editor
    **Figure 6.3** Controls Editor
 
 
-Demand Editor
----------------
+**Demand Editor**
 
    The Demand Editor is pictured in Figure 6.4. It is used to assign
    base demands and time patterns when there is more than one category
@@ -961,8 +958,7 @@ Demand Editor
    appear in the Base Demand field of the Property Editor.
 
 
-Source Quality Editor
-----------------------
+**Source Quality Editor**
 
    The Source Quality Editor is a pop-up dialog used to describe the
    quality of source flow entering the network at a specific node. This
@@ -1023,6 +1019,7 @@ Source Quality Editor
    assigned a negative demand). The booster-type source is best used to
    model direct injection of a tracer or additional disinfectant into
    the network or to model a contaminant intrusion.
+
 
 Copying and Pasting Objects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

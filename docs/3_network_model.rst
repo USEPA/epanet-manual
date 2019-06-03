@@ -35,8 +35,7 @@ Physical Components
    **Figure 3.1** Physical Components in a Water Distribution System
 
 
-Junctions
---------------------
+**Junctions**
 
     Junctions are points in the network where links join together and
     where water enters or leaves the network. The basic input data
@@ -67,8 +66,7 @@ Junctions
          on the pressure.
 
 
-Reservoirs
---------------------
+**Reservoirs**
 
    Reservoirs are nodes that represent an infinite external source or
    sink of water to the network. They are used to model such things as
@@ -85,8 +83,8 @@ Reservoirs
    be made to vary with time by assigning a time pattern to it (see Time
    Patterns below).
 
-Tanks
---------------------
+
+**Tanks**
 
    Tanks are nodes with storage capacity, where the volume of stored
    water can vary with time during a simulation. The primary input
@@ -112,8 +110,8 @@ Tanks
    stops inflow if it is at its maximum level. Tanks can also serve as
    water quality source points.
 
-Emitters
---------------------
+
+**Emitters**
 
     Emitters are devices associated with junctions that model the flow
     through a nozzle or orifice that discharges to the atmosphere. The
@@ -141,8 +139,8 @@ Emitters
     equivalent head of the pressure target. EPANET treats emitters as a
     property of a junction and not as a separate network component.
 
-Pipes
---------------------
+
+**Pipes**
 
    Pipes are links that convey water from one point in the network to
    another. EPANET assumes that all pipes are full at all times. Flow
@@ -304,8 +302,7 @@ Pipes
    certain values. See the discussion of Controls in Section 3.2.
 
 
-Minor Losses
---------------------
+**Minor Losses**
 
    Minor head losses (also called local losses) are caused by the added
    turbulence that occurs at bends and fittings. The importance of
@@ -356,8 +353,7 @@ Minor Losses
 
 
 
-Pumps
---------------------
+**Pumps**
 
    Pumps are links that impart energy to a fluid thereby raising its
    hydraulic head. The principal input parameters for a pump are its
@@ -394,8 +390,8 @@ Pumps
    curve to the required flow, even if this produces a negative head. In
    both cases a warning message will be issued.
 
-Valves
---------------------
+
+**Valves**
 
    Valves are links that limit the pressure or flow at a specific point
    in the network. Their principal input parameters include:
@@ -407,7 +403,6 @@ Valves
     -  setting
 
     -  status.
-
 
 
    The computed outputs for a valve are flow rate and headloss. The
@@ -499,6 +494,7 @@ Valves
 
     -  a PSV cannot be connected to the downstream node of a PRV.
 
+
 Non-Physical Components
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -507,8 +503,7 @@ Non-Physical Components
    describe the behavior and operational aspects of a distribution
    system.
 
-Curves
---------------------
+**Curves**
 
    Curves are objects that contain data pairs representing a
    relationship between two quantities. Two or more objects can share
@@ -523,8 +518,8 @@ Curves
 
     -  Head Loss Curve Pump Curve
 
-Pump Curve
-^^^^^^^^^^
+
+*Pump Curve*
 
    A Pump Curve represents the relationship between the head and flow
    rate that a pump can deliver at its nominal speed setting. Head is
@@ -589,9 +584,7 @@ Pump Curve
       \end{eqnarray}
 
 
-Efficiency Curve
-^^^^^^^^^^^^^^^^^
-
+*Efficiency Curve*
 
    An Efficiency Curve determines pump efficiency (Y in percent) as a
    function of pump flow rate (X in flow units). An example efficiency
@@ -607,9 +600,7 @@ Efficiency Curve
     **Figure 3.3** Pump Efficiency Curve
 
 
-Volume Curve
-^^^^^^^^^^^^^
-
+**Volume Curve**
 
    A Volume Curve determines how storage tank volume (Y in cubic feet or
    cubic meters) varies as a function of water level (X in feet or
@@ -624,9 +615,7 @@ Volume Curve
     **Figure 3.4** Tank Volume Curve
 
 
-Headloss Curve
-^^^^^^^^^^^^^^^
-
+**Headloss Curve**
 
    A Headloss Curve is used to described the headloss (Y in feet or
    meters) through a General Purpose Valve (GPV) as a function of flow
@@ -636,8 +625,7 @@ Headloss Curve
    draw-down behavior.
 
 
-Time Patterns
---------------------
+*Time Patterns*
 
   A Time Pattern is a collection of multipliers that can be applied to
   a quantity to allow it to vary over time. Nodal demands, reservoir
@@ -674,9 +662,7 @@ Time Patterns
   +--------+--------+-----+------+-------+-------+-------+-------+
 
 
-
-Controls
----------
+*Controls*
 
   Controls are statements that determine how the network is operated
   over time. They specify the status of selected links as a function of
@@ -688,9 +674,7 @@ Controls
     -  Rule-Based Controls Simple Controls
 
 
-Simple Controls
-^^^^^^^^^^^^^^^^
-
+**Simple Controls**
 
    Simple controls change the status or setting of a link based on:
 
@@ -761,8 +745,7 @@ Simple Controls
       controls might provide more stability.
 
 
-Rule-Based Controls
-^^^^^^^^^^^^^^^^^^^^
+**Rule-Based Controls**
 
    Rule-Based Controls allow link status and settings to be based on a
    combination of conditions that might exist in the network after an
@@ -855,8 +838,8 @@ Hydraulic Simulation Model
 Water Quality Simulation Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Basic Transport
---------------------
+
+**Basic Transport**
 
    EPANET’s water quality simulator uses a Lagrangian time-based
    approach to track the fate of discrete parcels of water as they move
@@ -889,8 +872,7 @@ Basic Transport
    re-ordered from front to back.
 
 
-Mixing in Storage Tanks
-------------------------
+**Mixing in Storage Tanks**
 
    EPANET can use four different types of models to characterize mixing
    within storage tanks as illustrated in Figure 3.5:
@@ -902,7 +884,6 @@ Mixing in Storage Tanks
     -  FIFO Plug Flow
 
     -  LIFO Plug Flow
-
 
 
    Different models can be used with different tanks within a network.
@@ -967,8 +948,8 @@ Mixing in Storage Tanks
    inlet/outlet pipe at the bottom and a low momentum inflow. It
    requires no additional parameters be provided.
 
-Water Quality Reactions
--------------------------
+
+**Water Quality Reactions**
 
    EPANET can track the growth or decay of a substance by reaction as it
    travels through a distribution system. In order to do this it needs
@@ -988,9 +969,7 @@ Water Quality Reactions
     **Figure 3.6** Reaction Zones Within a Pipe
 
 
-
-Bulk Reactions
-^^^^^^^^^^^^^^^
+*Bulk Reactions*
 
    EPANET models reactions occurring in the bulk flow with n-th order
    kinetics, where the instantaneous rate of reaction (:math:`R` in
@@ -1063,8 +1042,7 @@ Bulk Reactions
    varies with temperature
 
 
-Wall Reactions
-^^^^^^^^^^^^^^^
+*Wall Reactions*
 
    The rate of water quality reactions occurring at or near the pipe
    wall can be considered to be dependent on the concentration in the
@@ -1127,8 +1105,7 @@ Wall Reactions
    coefficients to vary throughout the network in a physically meaningful way.
 
 
-Water Age and Source Tracing
-------------------------------
+**Water Age and Source Tracing**
 
    In addition to chemical transport, EPANET can also model the changes
    in the age of water throughout a distribution system. Water age is

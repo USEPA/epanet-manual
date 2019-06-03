@@ -382,9 +382,7 @@ Map Display Options
     -  *Background* (changes color of map's background)
 
 
-
-Node Options
-^^^^^^^^^^^^^
+**Node Options**
 
    The Nodes page of the Map Options dialog controls how nodes are
    displayed on the Network Map.
@@ -408,8 +406,8 @@ Node Options
   |                                   | this option is checked).          |
   +-----------------------------------+-----------------------------------+
 
-Link Options
-^^^^^^^^^^^^^
+
+**Link Options**
 
    The Links page of the Map Options dialog controls how links are
    displayed on the map.
@@ -426,8 +424,7 @@ Link Options
   +-----------------------------------+-----------------------------------+
 
 
-Label Options
-^^^^^^^^^^^^^
+**Label Options**
 
   +-----------------------------------+-----------------------------------+
   | *Option*                          | *Description*                     |
@@ -448,8 +445,7 @@ Label Options
   +-----------------------------------+-----------------------------------+
 
 
-Notation Options
-^^^^^^^^^^^^^^^^^
+**Notation Options**
 
    The Notation page of the Map Options dialog form determines what kind
    of annotation is provided alongside of the nodes and links of the
@@ -483,8 +479,7 @@ Notation Options
    for those objects. See Sections 6.2 and 6.4 as well as Table 6.7.
 
 
-Symbol Options
-^^^^^^^^^^^^^^^
+**Symbol Options**
 
    The Symbols page of the Map Options dialog determines which types of
    objects are represented with special symbols on the map.
@@ -510,8 +505,7 @@ Symbol Options
   +-----------------------------------+-----------------------------------+
 
 
-Flow Arrow Options
-^^^^^^^^^^^^^^^^^^^
+**Flow Arrow Options**
 
    The Flow Arrows page of the Map Options dialog controls how
    flow-direction arrows are displayed on the network map.
@@ -535,7 +529,8 @@ Flow Arrow Options
    network has been successfully analyzed (see Section 8.2 Running an
    Analysis).
 
-   **Background Options**
+
+**Background Options**
 
    The Background page of the Map Options dialog offers a selection of
    colors used to paint the map’s background with.

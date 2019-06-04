@@ -168,7 +168,7 @@ Setting Analysis Options
   |                                   | - NONE (no quality analysis)      |
   |                                   | - CHEMICAL (compute concentration)|
   |                                   | - AGE (estimate water age)        |
-  |                                   | - TRACE (percent from source node)|
+  |                                   | - TRACE (percent flow from node)  |
   +-----------------------------------+-----------------------------------+
   |                                   | In lieu of CHEMICAL, you can      |
   |                                   | enter the actual name of the      |
@@ -177,7 +177,7 @@ Setting Analysis Options
   +-----------------------------------+-----------------------------------+
   | Mass Units                        | Mass units used to express        |
   |                                   | concentration. Choices are mg/L   |
-  |                                   | or μg/L. Units for Age and Trace  |
+  |                                   | ug/L. Units for Age and Trace     |
   |                                   | analyses are fixed at hours and   |
   |                                   | percent, respectively.            |
   +-----------------------------------+-----------------------------------+
@@ -247,7 +247,7 @@ Setting Analysis Options
   |                                   | this option is ignored.           |
   +-----------------------------------+-----------------------------------+
   | Global Bulk Coefficient           | Default bulk reaction rate        |
-  |                                   | coefficient (K:sub:`b`) assigned  |
+  |                                   | coefficient :math:`K_b` assigned  |
   |                                   | to all pipes. This global         |
   |                                   | coefficient can be overridden by  |
   |                                   | editing this property for         |
@@ -260,7 +260,7 @@ Setting Analysis Options
   |                                   | the bulk reaction order.          |
   +-----------------------------------+-----------------------------------+
   | Global Wall Coefficient           | Wall reaction rate coefficient    |
-  |                                   | (K:sub:`w`) assigned to all       |
+  |                                   | :math:`K_w` assigned to all       |
   |                                   | pipes. Can be overridden by       |
   |                                   | editing this property for         |
   |                                   | specific pipes. Use a positive    |
@@ -346,21 +346,11 @@ Setting Analysis Options
   |                                   | an extended period simulation.    |
   |                                   | Choices are:                      |
   +-----------------------------------+-----------------------------------+
-  |                                   | •         NONE (results reported  |
-  |                                   | at each reporting time step)      |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         AVERAGE (time-averaged  |
-  |                                   | results reported)                 |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         MINIMUM (minimum value  |
-  |                                   | results reported)                 |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         MAXIMUM (maximum value  |
-  |                                   | results reported)                 |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         RANGE (difference       |
-  |                                   | between maximum and minimum       |
-  |                                   | results reported)                 |
+  |                                   | - NONE (current time step results)|
+  |                                   | - AVERAGE (time-averaged results) |
+  |                                   | - MINIMUM (minimum value results) |
+  |                                   | - MAXIMUM (maximum value results) |
+  |                                   | - RANGE (diff between min and max)|
   +-----------------------------------+-----------------------------------+
   |                                   | Statistical processing is applied |
   |                                   | to all node and link results      |

@@ -49,9 +49,7 @@ Viewing Results on the Map
      a DXF file or Windows metafile.
 
 
-
-Submitting a Map Query
-----------------------
+**Submitting a Map Query**
 
   A Map Query identifies nodes or links on the network map that meet a
   specific criterion (e.g., nodes with pressure less than 20 psi, links
@@ -263,13 +261,9 @@ Viewing Results with a Graph
        categories of options:
 
        -  General
-
        -  Horizontal Axis
-
        -  Vertical Axis
-
        -  Legend
-
        -  Series
 
     2. Check the **Default** box if you wish to use the current settings as
@@ -282,8 +276,8 @@ Viewing Results with a Graph
    The items contained on each page of the Graph Options dialog are as
    follows:
 
-General Page
-------------
+
+**General Page**
 
   +-----------------------------------+-----------------------------------+
   | *Option*                          | *Description*                     |
@@ -312,8 +306,8 @@ General Page
 
    **Figure 9.4** Graph Options Dialog
 
-   Horizontal and Vertical Axis Pages
 
+**Horizontal and Vertical Axis Pages**
 
   +-----------------------------------+-----------------------------------+
   | *Option*                          | *Description*                     |
@@ -342,10 +336,7 @@ General Page
   +-----------------------------------+-----------------------------------+
 
 
-
-   Legend Page
-
-
+**Legend Page**
 
   +-----------------------------------+-----------------------------------+
   | *Option*                          | *Description*                     |
@@ -366,9 +357,7 @@ General Page
   +-----------------------------------+-----------------------------------+
 
 
-
-Series Page
------------
+**Series Page**
 
    The Series page (see Figure 9.4) of the Graph Options dialog controls
    how individual data series (or curves) are displayed on a graph. To
@@ -385,11 +374,8 @@ Series Page
        choices are:
 
        -  Lines
-
        -  Markers
-
        -  Patterns
-
        -  Labels
 
        (Not all properties are available for some types of graphs.)
@@ -513,6 +499,7 @@ Series Page
     |                       |                       |    contour plot       |
     +-----------------------+-----------------------+-----------------------+
 
+
 Viewing Results with a Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -555,8 +542,8 @@ Viewing Results with a Table
 
      **Figure 9.7** Table Selection Dialog
 
-Type Page
-----------
+
+**Type Page**
 
    The Type page of the Table Options dialog is used to select the type
    of table to create. The choices are:
@@ -573,8 +560,8 @@ Type Page
    Data fields are available for selecting the time period or node/link
    to which the table applies.
 
-Columns Page
--------------
+
+**Columns Page**
 
    The Columns page of the Table Options dialog form (Figure 9.8)
    selects the parameters that are displayed in the table’s columns.
@@ -595,8 +582,8 @@ Columns Page
 
      **Figure 9.8** Columns Page of the Table Selection Dialog
 
-Filters Page
--------------
+
+**Filters Page**
 
    The Filters page of the Table Options dialog form (Figure 9.9) is
    used to define conditions for selecting items to appear in a table.
@@ -629,6 +616,7 @@ Filters Page
     -  Use the Columns and Filters pages of the Table Selection dialog form
        to modify your table.
 
+
 Viewing Special Reports
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -650,8 +638,8 @@ Viewing Special Reports
    All of these reports can be printed, copied to a file, or copied to
    the Windows clipboard (the Full Report can only be saved to file.)
 
-Status Report
---------------
+
+**Status Report**
 
    EPANET writes all error and warning messages generated during an
    analysis to a Status Report (see Figure 9.10). Additional information
@@ -664,8 +652,8 @@ Status Report
 
      **Figure 9.10** Excerpt from a Status Report
 
-Energy Report
---------------
+
+**Energy Report**
 
    EPANET can generate an Energy Report that displays statistics about
    the energy consumed by each pump and the cost of this energy usage
@@ -679,8 +667,8 @@ Energy Report
 
      **Figure 9.11** Example Energy Report
 
-Calibration Report
--------------------
+
+**Calibration Report**
 
    A Calibration Report can show how well EPANET's simulated results
    match measurements taken from the system being modeled. To create a
@@ -711,8 +699,8 @@ Calibration Report
    three tabbed pages: Statistics, Correlation Plot, and Mean
    Comparisons.
 
-Statistics Page
-----------------
+
+   *Statistics Page*
 
    The Statistics page of a Calibration Report lists various error
    statistics between simulated and observed values at each measurement
@@ -750,7 +738,8 @@ Statistics Page
    the correlation between means (correlation coefficient between the
    mean observed value and mean simulated value at each location).
 
-   **Correlation Plot Page**
+
+   *Correlation Plot Page*
 
    The Correlation Plot page of a Calibration Report displays a scatter
    plot of the observed and simulated values for each measurement made
@@ -759,13 +748,15 @@ Statistics Page
    the plot the closer is the match between observed and simulated
    values.
 
-   **Mean Comparisons Page**
+
+   *Mean Comparisons Page*
 
    The Mean Comparisons page of a Calibration Report presents a bar
    chart that compares the mean observed and mean simulated value for a
    calibration parameter at each location where measurements were taken.
 
-   **Reaction Report**
+
+**Reaction Report**
 
    A Reaction Report, available when modeling the fate of a reactive
    water quality constituent, graphically depicts the overall average
@@ -777,7 +768,6 @@ Statistics Page
     -  the pipe wall
 
     -  within storage tanks.
-
 
 
    A pie chart shows what percent of the overall reaction rate is
@@ -798,7 +788,8 @@ Statistics Page
    |image138| on the Standard Toolbar, or by right-clicking anywhere on
    the chart.
 
-   **Full Report**
+
+**Full Report**
 
    When the |image139| icon appears in the Run Status section of the
    Status Bar, a report of computed results for all nodes, links and
@@ -817,7 +808,6 @@ Statistics Page
        each node (demand, head, pressure, and quality) and for each link
        (flow, velocity, headloss, and status).
 
-..
 
    This feature is useful mainly for documenting the final results of a
    network analysis on small to moderately sized networks (full report

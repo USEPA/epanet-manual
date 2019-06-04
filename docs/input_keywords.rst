@@ -3,9 +3,11 @@
     \clearpage
 
 
+---------------------
+
 
 [BACKDROP]
-----------------------
+----------
 
  **Purpose:**
 
@@ -50,9 +52,11 @@
      backdrops.
 
 
+---------------------
+
 
 [CONTROLS]
-----------------------
+----------
 
  **Purpose:**
 
@@ -116,9 +120,11 @@
       LINK 12 CLOSED AT CLOCKTIME 10 AM LINK 12 OPEN AT CLOCKTIME 8 PM
 
 
+---------------------
+
 
 [COORDINATES]
-------------------------
+-------------
 
  **Purpose:**
 
@@ -166,9 +172,11 @@
       2 10056 95
 
 
+---------------------
+
 
 [CURVES]
-------------------------
+--------
 
  **Purpose:**
 
@@ -237,9 +245,11 @@ c. If the input file will be used with the Windows version of EPANET,
       E1 3000 65
 
 
+---------------------
+
 
 [DEMANDS]
-------------------------
+---------
 
  **Purpose:**
 
@@ -289,9 +299,11 @@ c. If the input file will be used with the Windows version of EPANET,
       J256 50 101 ;Domestic
 
 
+---------------------
+
 
 [EMITTERS]
-------------------------
+----------
 
  **Purpose:**
 
@@ -324,9 +336,11 @@ c. If the input file will be used with the Windows version of EPANET,
   e. An [EMITTERS] section is optional.
 
 
+---------------------
+
 
 [ENERGY]
-------------------------
+--------
 
  **Purpose:**
 
@@ -379,9 +393,11 @@ c. If the input file will be used with the Windows version of EPANET,
      PUMP 23 EFFIC E23 ;Assigns effic. curve to Pump 23
 
 
+---------------------
+
 
 [JUNCTIONS]
-------------------------
+-----------
 
  **Purpose:**
 
@@ -427,9 +443,11 @@ c. If the input file will be used with the Windows version of EPANET,
       J3 115 ;No demand at this junction
 
 
+---------------------
+
 
 [LABELS]
-------------------------
+--------
 
  **Purpose:**
 
@@ -475,9 +493,11 @@ c. If the input file will be used with the Windows version of EPANET,
       34.57 12.75 “North Tank” T22
 
 
+---------------------
+
 
 [MIXING]
-------------------------
+--------
 
  **Purpose:**
 
@@ -529,9 +549,11 @@ c. If the input file will be used with the Windows version of EPANET,
      T23 2COMP 0.2
 
 
+---------------------
+
 
 [OPTIONS]
-------------------------
+---------
 
  **Purpose:**
 
@@ -690,9 +712,11 @@ c. If the input file will be used with the Windows version of EPANET,
     UNBALANCED CONTINUE 10
 
 
+---------------------
+
 
 [PATTERNS]
-------------------------
+----------
 
  **Purpose:**
 
@@ -739,9 +763,11 @@ c. If the input file will be used with the Windows version of EPANET,
       P2 0 0 1
 
 
+---------------------
+
 
 [PIPES]
-------------------------
+-------
 
  **Purpose:**
 
@@ -796,9 +822,11 @@ c. If the input file will be used with the Windows version of EPANET,
       P3 J1 J10 1000 12 120
 
 
+---------------------
+
 
 [PUMPS]
-------------------------
+-------
 
  **Purpose:**
 
@@ -849,9 +877,11 @@ c. If the input file will be used with the Windows version of EPANET,
       Pump3 N22 N23 POWER 100
 
 
+---------------------
+
 
 [QUALITY]
-------------------------
+---------
 
  **Purpose:**
 
@@ -877,9 +907,11 @@ c. If the input file will be used with the Windows version of EPANET,
   c. The [QUALITY] section is optional.
 
 
+---------------------
+
 
 [REACTIONS]
-------------------------
+-----------
 
  **Purpose:**
 
@@ -957,9 +989,11 @@ c. If the input file will be used with the Windows version of EPANET,
       WALL P244 -0.7
 
 
+---------------------
+
 
 [REPORT]
-------------------------
+--------
 
  **Purpose:**
 
@@ -1105,9 +1139,11 @@ c. If the input file will be used with the Windows version of EPANET,
       VELOCITY ABOVE 3.0
 
 
+---------------------
+
 
 [RESERVOIRS]
-------------------------
+------------
 
  **Purpose:**
 
@@ -1150,9 +1186,11 @@ c. If the input file will be used with the Windows version of EPANET,
        R2 120 Pat1 ;Head varies with time
 
 
+---------------------
+
 
 [RULES]
-------------------------
+-------
 
  **Purpose:**
 
@@ -1352,9 +1390,11 @@ c. The **PRIORITY** value is used to determine which rule applies when
       LEVEL BELOW 14 THEN PUMP 335 STATUS IS OPEN
 
 
+---------------------
+
 
 [SOURCES]
-------------------------
+---------
 
  **Purpose:**
 
@@ -1453,9 +1493,11 @@ c. The **PRIORITY** value is used to determine which rule applies when
       ;Constant mass injection
 
 
+---------------------
+
 
 [STATUS]
-------------------------
+--------
 
  **Purpose:**
 
@@ -1512,9 +1554,11 @@ c. The **PRIORITY** value is used to determine which rule applies when
       ;(overrides normal operation)
 
 
+---------------------
+
 
 [TAGS]
-------------------------
+------
 
  **Purpose:**
 
@@ -1560,9 +1604,11 @@ c. The **PRIORITY** value is used to determine which rule applies when
       LINK 202 PVC-1985
 
 
+---------------------
+
 
 [TANKS]
-------------------------
+-------
 
  **Purpose:**
 
@@ -1626,9 +1672,11 @@ c. The **PRIORITY** value is used to determine which rule applies when
     T2 100 15 5 25 1 0 VC1
 
 
+---------------------
+
 
 [TIMES]
-------------------------
+-------
 
  **Purpose:**
 
@@ -1734,9 +1782,11 @@ c. The **PRIORITY** value is used to determine which rule applies when
      START CLOCKTIME 6:00 AM
 
 
+---------------------
+
 
 [TITLE]
-------------------------
+-------
 
  **Purpose:**
 
@@ -1751,9 +1801,11 @@ c. The **PRIORITY** value is used to determine which rule applies when
    The [TITLE] section is optional.
 
 
+---------------------
+
 
 [VALVES]
-------------------------
+--------
 
 **Purpose:**
 
@@ -1799,9 +1851,11 @@ c. The **PRIORITY** value is used to determine which rule applies when
      not a separate control valve component (see [PIPES])
 
 
+---------------------
+
 
 [VERTICES]
-------------------------
+----------
 
 **Purpose:**
 

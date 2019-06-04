@@ -44,17 +44,14 @@ Input File Format
   listed below.
 
   +-------------+-------------+-------------+-------------+-------------+
-  | *Network    | *System     | *Water      | *Options    | *Network    |
-  | Components* | Operation*  | Quality*    | and         | Map/Tags*   |
-  |             |             |             | Reporting*  |             |
+  | *Network    | *System     | *Water      | *Options*   | *Network    |
+  | Components* | Operation*  | Quality*    |             | Map/Tags*   |
   +=============+=============+=============+=============+=============+
-  | [TITLE]     | [CURVES]    | [QUALITY]   | [OPTIONS]   | [COORDINATES|
-  |             |             |             |             | ]           |
+  | [TITLE]     | [CURVES]    | [QUALITY]   | [OPTIONS]   |[COORDINATES]|
   +-------------+-------------+-------------+-------------+-------------+
   | [JUNCTIONS] | [PATTERNS]  | [REACTIONS] | [TIMES]     | [VERTICES]  |
   +-------------+-------------+-------------+-------------+-------------+
-  | [RESERVOIRS | [ENERGY]    | [SOURCES]   | [REPORT]    | [LABELS]    |
-  | ]           |             |             |             |             |
+  | [RESERVOIRS]| [ENERGY]    | [SOURCES]   | [REPORT]    | [LABELS]    |
   +-------------+-------------+-------------+-------------+-------------+
   | [TANKS]     | [STATUS]    | [MIXING]    |             | [BACKDROP]  |
   +-------------+-------------+-------------+-------------+-------------+

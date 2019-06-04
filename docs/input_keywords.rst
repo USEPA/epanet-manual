@@ -3,6 +3,7 @@
     \clearpage
 
 
+
 [BACKDROP]
 ----------------------
 
@@ -22,19 +23,23 @@
 
  **Definitions:**
 
- **DIMENSIONS** provides the X and Y coordinates of the lower-left and
-   upper-right corners of the map’s bounding rectangle. Defaults are the
-   extents of the nodal coordinates supplied in the [COORDINATES]
-   section.
+   DIMENSIONS
+     provides the X and Y coordinates of the lower-left and
+     upper-right corners of the map’s bounding rectangle. Defaults are the
+     extents of the nodal coordinates supplied in the [COORDINATES]
+     section.
 
- **UNITS** specifies the units that the map’s dimensions are given in.
-   Default is NONE.
+   UNITS
+     specifies the units that the map’s dimensions are given in.
+     Default is NONE.
 
- **FILE** is the name of the file that contains the backdrop image.
+   FILE
+     is the name of the file that contains the backdrop image.
 
- **OFFSET** lists the X and Y distance that the upper-left corner of
-   the backdrop image is offset from the upper-left corner of the map’s
-   bounding rectangle. Default is zero offset.
+   OFFSET
+     lists the X and Y distance that the upper-left corner of
+     the backdrop image is offset from the upper-left corner of the map’s
+     bounding rectangle. Default is zero offset.
 
  **Remarks:**
 
@@ -43,6 +48,8 @@
 
   b. Only Windows Enhanced Metafiles and bitmap files can be used as
      backdrops.
+
+
 
 [CONTROLS]
 ----------------------
@@ -56,45 +63,21 @@
 
    One line for each control which can be of the form:
 
- **LINK** linkID status **IF NODE** nodeID **ABOVE/BELOW** value
+     LINK *linkID* *status* IF NODE *nodeID* ABOVE/BELOW *value*
 
- **LINK** linkID status **AT TIME** time
+     LINK *linkID* *status* AT TIME *time*
 
- **LINK** linkID status **AT CLOCKTIME** clocktime **AM/PM**
+     LINK *linkID* *status* AT CLOCKTIME *time* AM/PM
 
    where:
 
-    ::
-
-      +-----------------------+-----------------------+-----------------------+
-      |    linkID             |    =                  |    a link ID label    |
-      +=======================+=======================+=======================+
-      |    status             |    =                  |    OPEN or CLOSED, a  |
-      |                       |                       |    pump speed         |
-      |                       |                       |    setting, or a      |
-      |                       |                       |    control            |
-      +-----------------------+-----------------------+-----------------------+
-      |                       |                       |    valve setting      |
-      +-----------------------+-----------------------+-----------------------+
-      |    nodeID             |    =                  |    a node ID label    |
-      +-----------------------+-----------------------+-----------------------+
-      |    value              |    =                  |    a pressure for a   |
-      |                       |                       |    junction or a      |
-      |                       |                       |    water level for a  |
-      |                       |                       |    tank               |
-      +-----------------------+-----------------------+-----------------------+
-      |    time               |    =                  |    a time since the   |
-      |                       |                       |    start of the       |
-      |                       |                       |    simulation in      |
-      |                       |                       |    decimal hours or   |
-      |                       |                       |    in hours:minutes   |
-      |                       |                       |    format             |
-      +-----------------------+-----------------------+-----------------------+
-      |    clocktime          |    =                  |    a 24-hour clock    |
-      |                       |                       |    time               |
-      |                       |                       |    (hours:minutes)    |
-      +-----------------------+-----------------------+-----------------------+
-
+     | *linkID* = a link ID label
+     | *status* = OPEN or CLOSED, a pump speed setting, or a control valve setting
+     | *nodeID* = a node ID label
+     | *value*  = a pressure for a junction or a water level for a tank
+     | *time*   = a time since the start of the simulation in decimal hours or in
+       hours:minutes format
+     | *time* = a 12-hour clock time (hours:minutes)
 
 
  **Remarks:**
@@ -173,9 +156,6 @@
 
    ::
 
-
-
-
      [COORDINATES]
 
      ;Node X-Coord. Y-Coord
@@ -184,6 +164,7 @@
 
       1 10023 128
       2 10056 95
+
 
 
 [CURVES]
@@ -255,6 +236,8 @@ c. If the input file will be used with the Windows version of EPANET,
 
       E1 3000 65
 
+
+
 [DEMANDS]
 ------------------------
 
@@ -305,6 +288,8 @@ c. If the input file will be used with the Windows version of EPANET,
       J1 25 102 ;School
       J256 50 101 ;Domestic
 
+
+
 [EMITTERS]
 ------------------------
 
@@ -337,6 +322,8 @@ c. If the input file will be used with the Windows version of EPANET,
      normal demand at the junction plus flow through the emitter.
 
   e. An [EMITTERS] section is optional.
+
+
 
 [ENERGY]
 ------------------------
@@ -392,6 +379,7 @@ c. If the input file will be used with the Windows version of EPANET,
      PUMP 23 EFFIC E23 ;Assigns effic. curve to Pump 23
 
 
+
 [JUNCTIONS]
 ------------------------
 
@@ -438,6 +426,8 @@ c. If the input file will be used with the Windows version of EPANET,
       J2 120 10 ;Uses default demand pattern
       J3 115 ;No demand at this junction
 
+
+
 [LABELS]
 ------------------------
 
@@ -483,6 +473,8 @@ c. If the input file will be used with the Windows version of EPANET,
       ;-----------------------------------------------
       1230 3459 “Pump 1”
       34.57 12.75 “North Tank” T22
+
+
 
 [MIXING]
 ------------------------
@@ -535,6 +527,8 @@ c. If the input file will be used with the Windows version of EPANET,
      ;----------------------- T12 LIFO
 
      T23 2COMP 0.2
+
+
 
 [OPTIONS]
 ------------------------
@@ -695,6 +689,8 @@ c. If the input file will be used with the Windows version of EPANET,
     QUALITY TRACE Tank23
     UNBALANCED CONTINUE 10
 
+
+
 [PATTERNS]
 ------------------------
 
@@ -741,6 +737,8 @@ c. If the input file will be used with the Windows version of EPANET,
       ;Pattern P2
       P2 1 1 1 1
       P2 0 0 1
+
+
 
 [PIPES]
 ------------------------
@@ -797,6 +795,8 @@ c. If the input file will be used with the Windows version of EPANET,
       P2 J3 J2 600 6 110 0 CV
       P3 J1 J10 1000 12 120
 
+
+
 [PUMPS]
 ------------------------
 
@@ -848,6 +848,8 @@ c. If the input file will be used with the Windows version of EPANET,
       Pump2 N121 N55 HEAD Curve1 SPEED 1.2
       Pump3 N22 N23 POWER 100
 
+
+
 [QUALITY]
 ------------------------
 
@@ -874,6 +876,8 @@ c. If the input file will be used with the Windows version of EPANET,
 
   c. The [QUALITY] section is optional.
 
+
+
 [REACTIONS]
 ------------------------
 
@@ -893,36 +897,41 @@ c. If the input file will be used with the Windows version of EPANET,
 
  **Definitions:**
 
- **ORDER** is used to set the order of reactions occurring in the bulk
-   fluid, at the pipe wall, or in tanks, respectively. Values for wall
-   reactions must be either 0 or 1. If not supplied the default reaction
-   order is 1.0.
+   ORDER
+     is used to set the order of reactions occurring in the bulk
+     fluid, at the pipe wall, or in tanks, respectively. Values for wall
+     reactions must be either 0 or 1. If not supplied the default reaction
+     order is 1.0.
 
- **GLOBAL** is used to set a global value for all bulk reaction
-   coefficients (pipes and tanks) or for all pipe wall coefficients. The
-   default value is zero.
+   GLOBAL
+     is used to set a global value for all bulk reaction coefficients (pipes
+     and tanks) or for all pipe wall coefficients. The default value is zero.
 
- **BULK, WALL**, and **TANK** are used to override the global reaction
-   coefficients for specific pipes and tanks.
+   BULK, WALL, and TANK
+     are used to override the global reaction coefficients for specific pipes
+     and tanks.
 
- **LIMITING POTENTIAL** specifies that reaction rates are proportional
-   to the difference between the current concentration and some limiting
-   potential value.
+   LIMITING POTENTIAL
+     specifies that reaction rates are proportional to the difference between
+     the current concentration and some limiting potential value.
 
- **ROUGHNESS CORRELATION** will make all default pipe wall reaction
-   coefficients be related to pipe roughness in the following manner:
+   ROUGHNESS CORRELATION
+     will make all default pipe wall reaction coefficients be related to pipe
+     roughness in the following manner:
 
-   Head Loss Equation Roughness Correlation Hazen-Williams F / C
+     ==================  =====================
+     Head Loss Equation  Roughness Correlation
+     ==================  =====================
+     Hazen-Williams      :math:`F / C`
+     Darcy-Weisbach      :math:`F / log(e/D)`
+     Chezy-Manning       :math:`F*n`
+     ==================  =====================
 
-   Darcy-Weisbach F / log(e/D)
-
-   Chezy-Manning F*n
-
-   where F = roughness correlation, C = Hazen-Williams C-factor, e =
-   Darcy-Weisbach roughness, D = pipe diameter, and n = Chezy-Manning
-   roughness coefficient. The default value computed this way can be
-   overridden for any pipe by using the **WALL** format to supply a
-   specific value for the pipe.
+     where :math:`F` = roughness correlation, :math:`C` = Hazen-Williams C-factor,
+     :math:`e` = Darcy-Weisbach roughness, :math:`D` = pipe diameter, and
+     :math:`n` = Chezy-Manning roughness coefficient. The default value computed
+     this way can be overridden for any pipe by using the **WALL** format to
+     supply a specific value for the pipe.
 
  **Remarks:**
 
@@ -946,6 +955,8 @@ c. If the input file will be used with the Windows version of EPANET,
       GLOBAL WALL -1.0 ;Global wall decay coeff.
       WALL P220 -0.5 ;Pipe-specific wall coeffs.
       WALL P244 -0.7
+
+
 
 [REPORT]
 ------------------------
@@ -977,37 +988,44 @@ c. If the input file will be used with the Windows version of EPANET,
 
  **Definitions:**
 
- **PAGESIZE** sets the number of lines written per page of the output
-   report. The default is 0, meaning that no line limit per page is in
-   effect.
+   PAGESIZE
+     sets the number of lines written per page of the output
+     report. The default is 0, meaning that no line limit per page is in
+     effect.
 
- **FILE** supplies the name of a file to which the output report will
-   be written (ignored by the Windows version of EPANET).
+   FILE
+     supplies the name of a file to which the output report will
+     be written (ignored by the Windows version of EPANET).
 
- **STATUS** determines whether a hydraulic status report should be
-   generated. If **YES** is selected the report will identify all
-   network components that change status during each time step of the
-   simulation. If **FULL** is selected, then the status report will also
-   include information from each trial of each hydraulic analysis. This
-   level of detail is only useful for de-bugging networks that become
-   hydraulically unbalanced. The default is **NO**.
+   STATUS
+     determines whether a hydraulic status report should be
+     generated. If **YES** is selected the report will identify all
+     network components that change status during each time step of the
+     simulation. If **FULL** is selected, then the status report will also
+     include information from each trial of each hydraulic analysis. This
+     level of detail is only useful for de-bugging networks that become
+     hydraulically unbalanced. The default is **NO**.
 
- **SUMMARY** determines whether a summary table of number of network
-   components and key analysis options is generated. The default is
-   **YES**.
+   SUMMARY
+     determines whether a summary table of number of network
+     components and key analysis options is generated. The default is
+     **YES**.
 
- **ENERGY** determines if a table reporting average energy usage and
-   cost for each pump is provided. The default is NO.
+   ENERGY
+     determines if a table reporting average energy usage and
+     cost for each pump is provided. The default is NO.
 
- **NODES** identifies which nodes will be reported on. You can either
-   list individual node ID labels or use the keywords **NONE** or
-   **ALL**. Additional **NODES** lines can be used to continue the list.
-   The default is **NONE**.
+   NODES
+     identifies which nodes will be reported on. You can either
+     list individual node ID labels or use the keywords **NONE** or
+     **ALL**. Additional **NODES** lines can be used to continue the list.
+     The default is **NONE**.
 
- **LINKS** identifies which links will be reported on. You can either
-   list individual link ID labels or use the keywords **NONE** or
-   **ALL**. Additional **LINKS** lines can be used to continue the list.
-   The default is **NONE**.
+   LINKS
+     identifies which links will be reported on. You can either
+     list individual link ID labels or use the keywords **NONE** or
+     **ALL**. Additional **LINKS** lines can be used to continue the list.
+     The default is **NONE**.
 
    The “parameter” reporting option is used to identify which quantities
    are reported on, how many decimal places are displayed, and what kind
@@ -1086,6 +1104,8 @@ c. If the input file will be used with the Windows version of EPANET,
       F-FACTOR PRECISION 4
       VELOCITY ABOVE 3.0
 
+
+
 [RESERVOIRS]
 ------------------------
 
@@ -1129,6 +1149,8 @@ c. If the input file will be used with the Windows version of EPANET,
        R1 512 ;Head stays constant
        R2 120 Pat1 ;Head varies with time
 
+
+
 [RULES]
 ------------------------
 
@@ -1153,17 +1175,10 @@ c. If the input file will be used with the Windows version of EPANET,
  **PRIORITY** value
 
    where:
-
-+---------------+---+--------------------------------------------------+
-|    ruleID     | = |    an ID label assigned to the rule              |
-+===============+===+==================================================+
-|    conditon_n | = |    a condition clause                            |
-+---------------+---+--------------------------------------------------+
-|    action_n   | = |    an action clause                              |
-+---------------+---+--------------------------------------------------+
-|    Priority   | = |    a priority value (e.g., a number from 1 to 5) |
-+---------------+---+--------------------------------------------------+
-
+     | ruleID  = an ID label assigned to the rule
+     | conditon_n = a condition clause
+     | action_n = an action clause
+     | Priority = a priority value (e.g., a number from 1 to 5)
 
 
 **Condition Clause Format:**
@@ -1336,6 +1351,8 @@ c. The **PRIORITY** value is used to determine which rule applies when
       IF SYSTEM CLOCKTIME >= 6 PM OR SYSTEM CLOCKTIME < 8 AM AND TANK 1
       LEVEL BELOW 14 THEN PUMP 335 STATUS IS OPEN
 
+
+
 [SOURCES]
 ------------------------
 
@@ -1435,6 +1452,8 @@ c. The **PRIORITY** value is used to determine which rule applies when
       N1 CONCEN 1.2 Pat1 ;Concentration varies with time N44 MASS 12
       ;Constant mass injection
 
+
+
 [STATUS]
 ------------------------
 
@@ -1492,6 +1511,8 @@ c. The **PRIORITY** value is used to determine which rule applies when
 
       ;(overrides normal operation)
 
+
+
 [TAGS]
 ------------------------
 
@@ -1537,6 +1558,7 @@ c. The **PRIORITY** value is used to determine which rule applies when
       NODE 45 Zone_B
       LINK 201 UNCI-1960
       LINK 202 PVC-1985
+
 
 
 [TANKS]
@@ -1603,6 +1625,8 @@ c. The **PRIORITY** value is used to determine which rule applies when
 
     T2 100 15 5 25 1 0 VC1
 
+
+
 [TIMES]
 ------------------------
 
@@ -1635,48 +1659,55 @@ c. The **PRIORITY** value is used to determine which rule applies when
 
  **Definitions:**
 
-   **DURATION** is the duration of the simulation. Use 0 to run a single
-   period snapshot analysis. The default is 0.
+   DURATION
+     is the duration of the simulation. Use 0 to run a single
+     period snapshot analysis. The default is 0.
 
-   **HYDRAULIC TIMESTEP** determines how often a new hydraulic state of
-   the network is computed. If greater than either the **PATTERN** or
-   **REPORT** time step it will be automatically reduced. The default is
-   1 hour.
+   HYDRAULIC TIMESTEP
+     determines how often a new hydraulic state of
+     the network is computed. If greater than either the **PATTERN** or
+     **REPORT** time step it will be automatically reduced. The default is
+     1 hour.
 
-   **QUALITY TIMESTEP** is the time step used to track changes in water
-   quality throughout the network. The default is 1/10 of the hydraulic
-   time step.
+   QUALITY TIMESTEP
+     is the time step used to track changes in water
+     quality throughout the network. The default is 1/10 of the hydraulic
+     time step.
 
-   **RULE TIMESTEP** is the time step used to check for changes in
-   system status due to activation of rule-based controls between
-   hydraulic time steps. The default is 1/10 of the hydraulic time step.
+   RULE TIMESTEP
+     is the time step used to check for changes in
+     system status due to activation of rule-based controls between
+     hydraulic time steps. The default is 1/10 of the hydraulic time step.
 
-   **PATTERN TIMESTEP** is the interval between time periods in all time
-   patterns. The default is 1 hour.
+   PATTERN TIMESTEP
+     is the interval between time periods in all time
+     patterns. The default is 1 hour.
 
-   **PATTERN START** is the time offset at which all patterns will
-   start. For example, a value of 6 hours would start the simulation
-   with each pattern in the time period that corresponds to hour 6. The
-   default is 0.
+   PATTERN START
+     is the time offset at which all patterns will
+     start. For example, a value of 6 hours would start the simulation
+     with each pattern in the time period that corresponds to hour 6. The
+     default is 0.
 
-   **REPORT TIMESTEP** sets the time interval between which output
-   results are reported. The default is 1 hour.
+   REPORT TIMESTEP
+     sets the time interval between which output
+     results are reported. The default is 1 hour.
 
-   **REPORT START** is the length of time into the simulation at which
-   output results begin to be reported. The default is 0.
+   REPORT START
+     is the length of time into the simulation at which
+     output results begin to be reported. The default is 0.
 
-   **START CLOCKTIME** is the time of day (e.g., 3:00 PM) at which the
-   simulation begins. The default is 12:00 AM midnight.
+   START CLOCKTIME
+     is the time of day (e.g., 3:00 PM) at which the
+     simulation begins. The default is 12:00 AM midnight.
 
-   **STATISTIC** determines what kind of statistical post-processing
-   should be done on the time series of simulation results generated.
-   **AVERAGED** reports a set of time-averaged results,
-   **MINIMUM**  reports only the minimum values,
-   **MAXIMUM** the maximum values, and
-   **RANGE** reports the difference between the minimum and maximum
-   values.
-   **NONE** reports the full time series for all quantities for
-   all nodes and links and is the default.
+   STATISTIC
+     determines what kind of statistical post-processing should be done on the
+     time series of simulation results generated. **AVERAGED** reports a set
+     of time-averaged results, **MINIMUM** reports only the minimum values,
+     **MAXIMUM** the maximum values, and **RANGE** reports the difference
+     between the minimum and maximum values. **NONE** reports the full time
+     series for all quantities for all nodes and links and is the default.
 
  **Remarks:**
 
@@ -1702,6 +1733,8 @@ c. The **PRIORITY** value is used to determine which rule applies when
      STATISTIC AVERAGED
      START CLOCKTIME 6:00 AM
 
+
+
 [TITLE]
 ------------------------
 
@@ -1716,6 +1749,7 @@ c. The **PRIORITY** value is used to determine which rule applies when
  **Remarks:**
 
    The [TITLE] section is optional.
+
 
 
 [VALVES]
@@ -1763,6 +1797,7 @@ c. The **PRIORITY** value is used to determine which rule applies when
 
   b. Shutoff valves and check valves are considered to be part of a pipe,
      not a separate control valve component (see [PIPES])
+
 
 
 [VERTICES]

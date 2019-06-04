@@ -68,11 +68,11 @@ Setting Analysis Options
   +-----------------------------------+-----------------------------------+
   | Headloss Formula                  | Formula used to compute headloss  |
   |                                   | as a function of flow rate in a   |
-  |                                   | pipe.                             |
-  |                                   | Choices are:                      |
-  |                                   | - Hazen-Williams                  |
-  |                                   | - Darcy-Weisbach                  |
-  |                                   | - Chezy-Manning                   |
+  |                                   | pipe. Choices are:                |
+  +-----------------------------------+-----------------------------------+
+  |                                   | - Hazen-Williams                  |
+  |                                   | - Darcy-Weisbach                  |
+  |                                   | - Chezy-Manning                   |
   +-----------------------------------+-----------------------------------+
   |                                   | Because each formula measures     |
   |                                   | pipe roughness differently,       |
@@ -139,19 +139,11 @@ Setting Analysis Options
   +-----------------------------------+-----------------------------------+
   | Status Report                     | Amount of status information to   |
   |                                   | report after an analysis is made. |
-  +-----------------------------------+-----------------------------------+
   |                                   | Choices are:                      |
-  |                                   | •         NONE (no status         |
-  |                                   | reporting)                        |
-  |                                   | •         YES (normal status      |
-  |                                   | reporting – lists all changes in  |
-  |                                   | link status throughout the        |
-  |                                   | simulation )                      |
-  |                                   | •         FULL (full reporting –  |
-  |                                   | normal reporting plus the         |
-  |                                   | convergence error from each trial |
-  |                                   | of the hydraulic analysis made in |
-  |                                   | each time period)                 |
+  +-----------------------------------+-----------------------------------+
+  |                                   | - NONE (no reporting)             |
+  |                                   | - YES  (link status changes)      |
+  |                                   | - FULL (normal plus convergence)  |
   +-----------------------------------+-----------------------------------+
   |                                   | Full status reporting is only     |
   |                                   | useful for debugging purposes.    |
@@ -159,6 +151,7 @@ Setting Analysis Options
 
    **Note**: Choices for Hydraulic Options can also be set from the
    **Project >> Defaults** menu and saved for use with all future projects (see Section 5.2).
+
 
 
 **Water Quality Options**

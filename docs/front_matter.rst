@@ -4,13 +4,13 @@
   	\pagenumbering{roman}
 
 
+| EPA/600/R-00/057
+| September 2000
+
 
 #####################
 EPANET 2 Users Manual
 #####################
-
-| EPA/600/R-00/057
-| September 2000
 
 
 | by Lewis A. Rossman
@@ -41,6 +41,8 @@ whatsoever for any results or any use made of the results obtained
 from these programs, nor for any damages or litigation that result
 from the use of these programs for any purpose.
 
+
+-----------------------
 
 
 About This Manual

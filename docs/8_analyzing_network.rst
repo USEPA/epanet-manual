@@ -165,18 +165,10 @@ Setting Analysis Options
   | Parameter                         | Type of water quality parameter   |
   |                                   | being modeled. Choices include:   |
   +-----------------------------------+-----------------------------------+
-  |                                   | •         NONE (no quality        |
-  |                                   | analysis),                        |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         CHEMICAL (compute       |
-  |                                   | chemical concentration),          |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         AGE (compute water      |
-  |                                   | age),                             |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         TRACE (trace the        |
-  |                                   | percent of flow originating from  |
-  |                                   | a specific node).                 |
+  |                                   | - NONE (no quality analysis)      |
+  |                                   | - CHEMICAL (compute concentration)|
+  |                                   | - AGE (estimate water age)        |
+  |                                   | - TRACE (percent from source node)|
   +-----------------------------------+-----------------------------------+
   |                                   | In lieu of CHEMICAL, you can      |
   |                                   | enter the actual name of the      |

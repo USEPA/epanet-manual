@@ -15,9 +15,6 @@ as the network map and the entire project database.*
 -------
 
 
-
-
-
 Project Scenarios
 ~~~~~~~~~~~~~~~~~
 
@@ -28,18 +25,11 @@ Project Scenarios
 
     -  Demands (baseline demand plus time patterns for all categories) at
        all nodes
-
     -  Initial water quality at all nodes
-
     -  Diameters for all pipes
-
     -  Roughness coefficients for all pipes
-
     -  Reaction coefficients (bulk and wall) for all pipes
-
     -  Simple and rule-based controls
-
-
 
   EPANET can compile a scenario based on some or all of the data
   categories listed above, save the scenario to file, and read the
@@ -51,6 +41,7 @@ Project Scenarios
   estimates, and evaluate changes in operating policies. The scenario
   files are saved as ASCII text and can be created or modified outside
   of EPANET using a text editor or spreadsheet program.
+
 
 Exporting a Scenario
 ~~~~~~~~~~~~~~~~~~~~
@@ -81,6 +72,7 @@ Exporting a Scenario
    The exported scenario can be imported back into the project at a
    later time as described in the next section.
 
+
 Importing a Scenario
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -98,6 +90,7 @@ Importing a Scenario
 
    The data contained in the scenario file will replace any existing of
    the same kind in the current project.
+
 
 Importing a Partial Network
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -136,6 +129,7 @@ Importing a Partial Network
 
      <Pipe ID and the X and Y coordinates of an intermediate vertex point>
 
+
    Note that only junctions and pipes are represented. Other network
    elements, such as reservoirs and pumps, can either be imported as
    junctions or pipes and converted later on or simply be added in later
@@ -149,6 +143,7 @@ Importing a Partial Network
    file would also contain information on node and link properties, such
    as elevations, demands, diameters, roughness, etc.
 
+
 Importing a Network Map
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -161,6 +156,7 @@ Importing a Network Map
 
     3. Click **OK** to replace the current network map with the one
        described in the file.
+
 
 Exporting the Network Map
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -195,6 +191,7 @@ Exporting the Network Map
 
       **Figure 11.2** Map Export Dialog
 
+
 Exporting to a Text File
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -206,7 +203,6 @@ Exporting to a Text File
        save to (the default extension is .INP).
 
     3. Click **OK** to complete the export.
-
 
 
    The resulting file will be written in ASCII text format, with the
@@ -228,8 +224,6 @@ Exporting to a Text File
    as the colors and ranges chosen for the map legends, the set of map
    display options in effect, the names of registered calibration data
    files, and any printing options that were selected.
-
-
 
 
 

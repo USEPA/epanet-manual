@@ -82,9 +82,9 @@ node?**
   changes in volume produce only very small changes in water surface
   elevation.
 
-  If the pressure head developed in the tank ranges between H1 and H2,
-  with corresponding volumes V1 and V2, then use a cylindrical tank
-  whose cross-sectional area equals (V2-V1)/(H2-H1).
+  If the pressure head developed in the tank ranges between :math:`H1` and
+  :math:`H2`, with corresponding volumes :math:`V1` and :math:`V2`, then use
+  a cylindrical tank whose cross-sectional area equals :math:`(V2-V1)/(H2-H1)`.
 
 **How do I model a tank inlet that discharges above the water surface?**
 

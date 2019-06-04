@@ -17,9 +17,6 @@ a report, or the properties of an object selected from the Browser.*
 -------
 
 
-
-
-
 Selecting a Printer
 ~~~~~~~~~~~~~~~~~~~
 
@@ -38,6 +35,7 @@ Selecting a Printer
        (which vary with choice of printer).
 
     5. Click **OK** on each dialog box to accept your selections.
+
 
 Setting the Page Format
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -74,12 +72,14 @@ Setting the Page Format
 
     **Figure 10.1** Page Setup Dialog
 
+
 Print Preview
 ~~~~~~~~~~~~~
 
    To preview a printout, select **File >> Print Preview** from the main
    menu. A Preview form will appear which shows how each page of the
    object being printed will appear when printed.
+
 
 Printing the Current View
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -100,9 +100,9 @@ Printing the Current View
 
     -  Status, Energy, Calibration, and Reaction Reports.
 
-Copying to the Clipboard or to a File
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Copying to the Clipboard or to a File
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    EPANET can copy the text and graphics of the current window being
    viewed to both the Windows clipboard and to a file. Views that can be
@@ -116,7 +116,6 @@ Copying to the Clipboard or to a File
 
     3. If you selected to copy-to-file, enter the name of the file in the
        Save As dialog box that appears and click **OK**.
-
 
 
    Use the Copy dialog as follows to define how you want your data

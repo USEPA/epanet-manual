@@ -459,33 +459,27 @@
 [MIXING]
 --------
 
- **Purpose:**
+**Purpose:**
 
-   Identifies the model that governs mixing within storage tanks.
+  Identifies the model that governs mixing within storage tanks.
 
- **Format:**
+**Format:**
 
-   One line per tank containing:
+  One line per tank containing:
 
     -  Tank ID label
-
     -  Mixing model (MIXED, 2COMP, FIFO, or LIFO)
-
     -  Compartment volume (fraction)
-
 
 
  **Remarks:**
 
   a. Mixing models include:
 
-     -  Completely Mixed (MIXED)
-
-     -  Two-Compartment Mixing (2COMP)
-
-     -  Plug Flow (FIFO)
-
-     -  Stacked Plug Flow (LIFO)
+     | Completely Mixed (MIXED)
+     | Two-Compartment Mixing (2COMP)
+     | Plug Flow (FIFO)
+     | Stacked Plug Flow (LIFO)
 
   b. The compartment volume parameter only applies to the two-compartment
      model and represents the fraction of the total tank volume devoted to
@@ -496,17 +490,15 @@
 
 
 
- **Example:**
+**Example:**
 
-  ::
+::
 
-     [MIXING]
-
-     ;Tank Model
-
-     ;----------------------- T12 LIFO
-
-     T23 2COMP 0.2
+  [MIXING]
+  ;Tank       Model
+  ;-----------------------
+  T12         LIFO
+  T23         2COMP    0.2
 
 
 ---------------------

@@ -132,9 +132,7 @@
   One line for each node containing:
 
     -  Node ID label
-
     -  X-coordinate
-
     -  Y-coordinate
 
 
@@ -172,71 +170,56 @@
 [CURVES]
 --------
 
- **Purpose:**
+**Purpose:**
 
-   Defines data curves and their X,Y points.
+  Defines data curves and their X,Y points.
 
- **Format:**
+**Format:**
 
-   One line for each X,Y point on each curve containing:
+  One line for each X,Y point on each curve containing:
 
-    -  Curve ID label
-
-    -  X value
-
-    -  Y value
+    - Curve ID label
+    - X value
+    - Y value
 
 
 
- **Remarks:**
+**Remarks:**
 
-a. Curves can be used to represent the following relations:
+  a. Curves can be used to represent the following relations:
 
-   -  Head v. Flow for pumps
+      | Head v. Flow for pumps
+      | Efficiency v. Flow for pumps
+      | Volume v. Depth for tanks
+      | Headloss v. Flow for General Purpose Valves
 
-   -  Efficiency v. Flow for pumps
+  b. The points of a curve must be entered in order of increasing X-values
+     (lower to higher).
 
-   -  Volume v. Depth for tanks
-
-   -  Headloss v. Flow for General Purpose Valves
-
-b. The points of a curve must be entered in order of increasing X-values
-   (lower to higher).
-
-c. If the input file will be used with the Windows version of EPANET,
-   then adding a comment which contains the curve type and description,
-   separated by a colon, directly above the first entry for a curve will
-   ensure that these items appear correctly in EPANET’s Curve Editor.
-   Curve types include PUMP, EFFICIENCY, VOLUME, and HEADLOSS. See the
-   examples below.
+  c. If the input file will be used with the Windows version of EPANET,
+     then adding a comment which contains the curve type and description,
+     separated by a colon, directly above the first entry for a curve will
+     ensure that these items appear correctly in EPANET’s Curve Editor.
+     Curve types include PUMP, EFFICIENCY, VOLUME, and HEADLOSS. See the
+     examples below.
 
 
+**Example:**
 
- **Example:**
+::
 
-    ::
+  [CURVES]
+  ;ID   Flow    Head
+  ;PUMP: Curve for Pump 1 C1 0 200
+  C1    1000    100
+  C1    3000    0
 
-      [CURVES]
-
-      ;ID Flow Head
-
-      ;PUMP: Curve for Pump 1 C1 0 200
-
-      C1 1000 100
-
-      C1 3000 0
-
-      ;ID Flow Effic.
-
-      ;EFFICIENCY:
-
-      E1 200 50
-
-      E1 1000 85
-
-      E1 2000 75
-
-      E1 3000 65
+  ;ID   Flow    Effic.
+  ;EFFICIENCY:
+  E1    200     50
+  E1    1000    85
+  E1    2000    75
+  E1    3000    65
 
 
 ---------------------

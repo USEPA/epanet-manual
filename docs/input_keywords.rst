@@ -277,20 +277,20 @@
 [EMITTERS]
 ----------
 
- **Purpose:**
+**Purpose:**
 
-   Defines junctions modeled as emitters (sprinklers or orifices).
+  Defines junctions modeled as emitters (sprinklers or orifices).
 
- **Format:**
+**Format:**
 
-   One line for each emitter containing:
+  One line for each emitter containing:
 
     -  Junction ID label
 
     -  Flow coefficient, flow units at 1 psi (1 meter) pressure drop
 
 
- **Remarks:**
+**Remarks:**
 
   a. Emitters are used to model flow through sprinkler heads or pipe
      leaks.

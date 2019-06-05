@@ -228,26 +228,22 @@
 [DEMANDS]
 ---------
 
- **Purpose:**
+**Purpose:**
 
-   Supplement to [JUNCTIONS] section for defining multiple water demands
-   at junction nodes.
+  Supplement to [JUNCTIONS] section for defining multiple water demands
+  at junction nodes.
 
- **Format:**
+**Format:**
 
-   One line for each category of demand at a junction containing:
+  One line for each category of demand at a junction containing:
 
     -  Junction ID label
-
     -  Base demand (flow units)
-
     -  Demand pattern ID (optional)
-
     -  Name of demand category preceded by a semicolon (optional)
 
 
-
- **Remarks:**
+**Remarks:**
 
   a. Only use for junctions whose demands need to be changed or
      supplemented from entries in [JUNCTIONS] section.
@@ -263,17 +259,16 @@
      Pattern 1) does not exist, then the demand remains constant.
 
 
+**Example:**
 
- **Example:**
+::
 
-    ::
-
-      [DEMANDS]
-      ;ID Demand Pattern Category
-      ;---------------------------------
-      J1 100 101 ;Domestic
-      J1 25 102 ;School
-      J256 50 101 ;Domestic
+  [DEMANDS]
+  ;ID    Demand   Pattern   Category
+  ;---------------------------------
+  J1     100      101       ;Domestic
+  J1     25       102       ;School
+  J256   50       101       ;Domestic
 
 
 ---------------------

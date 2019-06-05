@@ -9,41 +9,42 @@
 [BACKDROP]
 ----------
 
- **Purpose:**
+**Purpose:**
 
-   Identifies a backdrop image and dimensions for the network map.
+  Identifies a backdrop image and dimensions for the network map.
 
- **Formats:**
+**Formats:**
 
- **DIMENSIONS** *LLx LLy URx URy*
+  **DIMENSIONS** *LLx LLy URx URy*
 
- **UNITS FEET/METERS/DEGREES/NONE**
+  **UNITS FEET/METERS/DEGREES/NONE**
 
- **FILE** *filename*
+  **FILE** *filename*
 
- **OFFSET** *X Y*
+  **OFFSET** *X Y*
 
- **Definitions:**
+**Definitions:**
 
-   DIMENSIONS
-     provides the X and Y coordinates of the lower-left and
-     upper-right corners of the map’s bounding rectangle. Defaults are the
-     extents of the nodal coordinates supplied in the [COORDINATES]
-     section.
+  DIMENSIONS
+    provides the X and Y coordinates of the lower-left and
+    upper-right corners of the map’s bounding rectangle. Defaults are the
+    extents of the nodal coordinates supplied in the [COORDINATES]
+    section.
 
-   UNITS
-     specifies the units that the map’s dimensions are given in.
-     Default is NONE.
+  UNITS
+    specifies the units that the map’s dimensions are given in.
+    Default is NONE.
 
-   FILE
-     is the name of the file that contains the backdrop image.
+  FILE
+    is the name of the file that contains the backdrop image.
 
-   OFFSET
-     lists the X and Y distance that the upper-left corner of
-     the backdrop image is offset from the upper-left corner of the map’s
-     bounding rectangle. Default is zero offset.
+  OFFSET
+    lists the X and Y distance that the upper-left corner of
+    the backdrop image is offset from the upper-left corner of the map’s
+    bounding rectangle. Default is zero offset.
 
- **Remarks:**
+
+**Remarks:**
 
   a. The [BACKDROP] section is optional and is not used at all when EPANET
      is run as a console application.

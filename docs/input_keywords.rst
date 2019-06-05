@@ -15,13 +15,12 @@
 
 **Formats:**
 
-  **DIMENSIONS** *LLx LLy URx URy*
-
-  **UNITS FEET/METERS/DEGREES/NONE**
-
-  **FILE** *filename*
-
-  **OFFSET** *X Y*
+  =============== =============================
+  **DIMENSIONS**  *LLx LLy URx URy*
+  **UNITS**       **FEET/METERS/DEGREES/NONE**
+  **FILE**        *filename*
+  **OFFSET**      *X Y*
+  =============== =============================
 
 **Definitions:**
 
@@ -68,11 +67,11 @@
 
   One line for each control which can be of the form:
 
-    LINK *linkID* *status* IF NODE *nodeID* ABOVE/BELOW *value*
-
-    LINK *linkID* *status* AT TIME *time*
-
-    LINK *linkID* *status* AT CLOCKTIME *time* AM/PM
+    ==== ======== ======== == ========= ======== =========== =======
+    LINK *linkID* *status* IF NODE      *nodeID* ABOVE/BELOW *value*
+    LINK *linkID* *status* AT TIME      *time*
+    LINK *linkID* *status* AT CLOCKTIME *time*   AM/PM
+    ==== ======== ======== == ========= ======== =========== =======
 
   where:
 
@@ -314,16 +313,19 @@
 [ENERGY]
 --------
 
- **Purpose:**
+**Purpose:**
 
-   Defines parameters used to compute pumping energy and cost.
+  Defines parameters used to compute pumping energy and cost.
 
- **Formats:**
+**Formats:**
 
- **GLOBAL PRICE/PATTERN/EFFIC** *value* **PUMP** *PumpID*
- **PRICE/PATTERN/EFFIC** *value* **DEMAND CHARGE** *value*
+  ========== ========== ======================= =======
+  **GLOBAL**            **PRICE/PATTERN/EFFIC** *value*
+  **PUMP**   *PumpID*   **PRICE/PATTERN/EFFIC** *value*
+  **DEMAND** **CHARGE** *value*
+  ========== ========== ======================= =======
 
- **Remarks:**
+**Remarks:**
 
   a. Lines beginning with the keyword **GLOBAL** are used to set global
      default values of energy price, price pattern, and pumping efficiency
@@ -334,16 +336,13 @@
 
   c. Parameters are defined as follows:
 
-     -  **PRICE** = average cost per kW-hour,
-
-     -  **PATTERN** = ID label of time pattern describing how energy price
-        varies with time,
-
-     -  **EFFIC** = either a single percent efficiency for global setting
-        or the ID label of an efficiency curve for a specific pump,
-
-     -  **DEMAND CHARGE** = added cost per maximum kW usage during the
-        simulation period.
+     | **PRICE** = average cost per kW-hour,
+     | **PATTERN** = ID label of time pattern describing how energy price
+       varies with time,
+     | **EFFIC** = either a single percent efficiency for global setting
+       or the ID label of an efficiency curve for a specific pump,
+     | **DEMAND CHARGE** = added cost per maximum kW usage during the
+       simulation period.
 
   d. The default global pump efficiency is 75% and the default global
      energy price is 0.
@@ -352,17 +351,15 @@
      indicate allowable choices.
 
 
+**Example:**
 
- **Example:**
+::
 
-  ::
-
-    [ENERGY]
-
-     GLOBAL PRICE 0.05 ;Sets global energy price GLOBAL PATTERN PAT1 ;and
-     time-of-day pattern PUMP 23 PRICE 0.10 ;Overrides price for Pump 23
-
-     PUMP 23 EFFIC E23 ;Assigns effic. curve to Pump 23
+  [ENERGY]
+  GLOBAL  PRICE      0.05   ;Sets global energy price
+  GLOBAL  PATTERN    PAT1   ;and time-of-day pattern
+  PUMP    23 PRICE   0.10   ;Overrides price for Pump 23
+  PUMP    23 EFFIC   E23    ;Assigns effic. curve to Pump 23
 
 
 ---------------------

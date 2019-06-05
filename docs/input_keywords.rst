@@ -718,33 +718,25 @@
 [PIPES]
 -------
 
- **Purpose:**
+**Purpose:**
 
-   Defines all pipe links contained in the network.
+  Defines all pipe links contained in the network.
 
- **Format:**
+**Format:**
 
-   One line for each pipe containing:
+  One line for each pipe containing:
 
     -  ID label of pipe
-
     -  ID of start node
-
     -  ID of end node
-
     -  Length, ft (m)
-
     -  Diameter, inches (mm)
-
     -  Roughness coefficient
-
     -  Minor loss coefficient
-
     -  Status (OPEN, CLOSED, or CV)
 
 
-
- **Remarks:**
+**Remarks:**
 
   a. Roughness coefficient is unitless for the Hazen-Williams and
      Chezy-Manning head loss formulas and has units of millifeet (mm) for
@@ -759,16 +751,16 @@
 
 
 
- **Example:**
+**Example:**
 
-    ::
+::
 
-      [PIPES]
-      ;ID Node1 Node2 Length Diam. Roughness Mloss Status
-      ;-------------------------------------------------------------
-      P1 J1 J2 1200 12 120 0.2 OPEN
-      P2 J3 J2 600 6 110 0 CV
-      P3 J1 J10 1000 12 120
+  [PIPES]
+  ;ID   Node1  Node2   Length   Diam.   Roughness  Mloss   Status
+  ;-------------------------------------------------------------
+   P1    J1     J2     1200      12       120       0.2    OPEN
+   P2    J3     J2      600       6       110       0      CV
+   P3    J1     J10    1000      12       120
 
 
 ---------------------

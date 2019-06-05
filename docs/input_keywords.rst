@@ -813,18 +813,16 @@
 [QUALITY]
 ---------
 
- **Purpose:**
+**Purpose:**
 
-   Defines initial water quality at nodes.
+  Defines initial water quality at nodes.
 
- **Format:**
+**Format:**
 
-   One line per node containing:
+  One line per node containing:
 
     -  Node ID label
-
     -  Initial quality
-
 
 
  **Remarks:**

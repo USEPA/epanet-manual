@@ -17,9 +17,9 @@ General Instructions
   a text file and results are written to a text file. The command line
   for running EPANET in this fashion is:
 
-    ::
+  ::
 
-      epanet2d  inpfile  rptfile  outfile
+    runepanet  inpfile  rptfile  outfile
 
 
   Here **inpfile** is the name of the input file, **rptfile** is the
@@ -28,11 +28,11 @@ General Instructions
   format. If the latter file is not needed then just the input and
   report file names should be supplied. As written, the above command
   assumes that you are working in the directory in which EPANET was
-  installed or that this directory has been added to the PATH statement
-  in your AUTOEXEC.BAT file. Otherwise full pathnames for the
-  executable **epanet2d.exe** and the files on the command line must be
-  used. The error messages for command line EPANET are the same as
-  those for Windows EPANET and are listed in Appendix B.
+  installed or that this directory has been added to the system PATH
+  variable. Otherwise full pathnames for the executable **runepanet.exe**
+  and the files on the command line must be used. The error messages for
+  command line EPANET are the same as those for Windows EPANET and are
+  listed in Appendix B.
 
 Input File Format
 ~~~~~~~~~~~~~~~~~
@@ -43,126 +43,120 @@ Input File Format
   begins with a keyword enclosed in brackets. The various keywords are
   listed below.
 
-  +-------------+-------------+-------------+-------------+-------------+
-  | *Network    | *System     | *Water      | *Options*   | *Network    |
-  | Components* | Operation*  | Quality*    |             | Map/Tags*   |
-  +=============+=============+=============+=============+=============+
-  | [TITLE]     | [CURVES]    | [QUALITY]   | [OPTIONS]   |[COORDINATES]|
-  +-------------+-------------+-------------+-------------+-------------+
-  | [JUNCTIONS] | [PATTERNS]  | [REACTIONS] | [TIMES]     | [VERTICES]  |
-  +-------------+-------------+-------------+-------------+-------------+
-  | [RESERVOIRS]| [ENERGY]    | [SOURCES]   | [REPORT]    | [LABELS]    |
-  +-------------+-------------+-------------+-------------+-------------+
-  | [TANKS]     | [STATUS]    | [MIXING]    |             | [BACKDROP]  |
-  +-------------+-------------+-------------+-------------+-------------+
-  | [PIPES]     | [CONTROLS]  |             |             | [TAGS]      |
-  +-------------+-------------+-------------+-------------+-------------+
-  | [PUMPS]     | [RULES]     |             |             |             |
-  +-------------+-------------+-------------+-------------+-------------+
-  | [VALVES]    | [DEMANDS]   |             |             |             |
-  +-------------+-------------+-------------+-------------+-------------+
-  | [EMITTERS]  |             |             |             |             |
-  +-------------+-------------+-------------+-------------+-------------+
+  +-------------+-------------+-------------+-------------+--------------+
+  | *Network    | *System     | *Water      | *Options*   | *Network     |
+  | Components* | Operation*  | Quality*    |             | Map/Tags*    |
+  +=============+=============+=============+=============+==============+
+  | [TITLE]     | [CURVES]    | [QUALITY]   | [OPTIONS]   | [COORDINATES]|
+  | [JUNCTIONS] | [PATTERNS]  | [REACTIONS] | [TIMES]     | [VERTICES]   |
+  | [RESERVOIRS]| [ENERGY]    | [SOURCES]   | [REPORT]    | [LABELS]     |
+  | [TANKS]     | [STATUS]    | [MIXING]    |             | [BACKDROP]   |
+  | [PIPES]     | [CONTROLS]  |             |             | [TAGS]       |
+  | [PUMPS]     | [RULES]     |             |             |              |
+  | [VALVES]    | [DEMANDS]   |             |             |              |
+  | [EMITTERS]  |             |             |             |              |
+  +-------------+-------------+-------------+-------------+--------------+
 
 
   The order of sections is not important. However, whenever a node or
   link is referred to in a section it must have already been defined in
   the [JUNCTIONS], [RESERVOIRS], [TANKS], [PIPES], [PUMPS], or [VALVES]
-  sections. Thus it is
-  recommended that these sections be placed first, right after the
-  [TITLE] section. The network map and tags sections are not used by
-  command line EPANET and can be eliminated from the file.
+  sections. Therefore, it is recommended that these sections be placed first,
+  right after the [TITLE] section. The network map and tags sections are
+  not used by command line EPANET and can be eliminated from the file.
 
   Each section can contain one or more lines of data. Blank lines can
   appear anywhere in the file and the semicolon (;) can be used to
   indicate that what follows on the line is a comment, not data. A
   maximum of 255 characters can appear on a line. The ID labels used to
   identify nodes, links, curves and patterns can be any combination of
-  up to 15 characters and numbers.
+  up to 31 characters and numbers.
 
   Figure C.1 displays the input file that represents the tutorial
   network discussed in Chapter 2.
 
-    ::
 
-      [TITLE]
-      EPANET TUTORIAL
+  ::
 
-      [JUNCTIONS]
-      ;ID Elev Demand
-      ;------------------
-      2 0 0
-      3 710 650
-      4 700 150
-      5 695 200
-      6 700 150
+    [TITLE]
+    EPANET TUTORIAL
 
-      [RESERVOIRS]
-      ;ID Head
-      ;---------
-      1 700
+    [JUNCTIONS]
+    ;ID   Elev   Demand
+    ;------------------
+    2     0      0
+    3     710    650
+    4     700    150
+    5     695    200
+    6     700    150
 
-      [TANKS]
-      ;ID Elev InitLvl MinLvl MaxLvl Diam Volume
-      ;-----------------------------------------------
-      7 850 5 0 15 70 0
+    [RESERVOIRS]
+    ;ID   Head
+    ;---------
+    1     700
 
-      [PIPES]
-      ;ID Node1 Node2 Length Diam Roughness
-      ;-----------------------------------------
-      1 2 3 3000 12 100
-      2 3 6 5000 12 100
-      3 3 4 5000 8 100
-      4 4 5 5000 8 100
-      5 5 6 5000 8 100
-      6 6 7 7000 10 100
+    [TANKS]
+    ;ID  Elev  InitLvl  MinLvl  MaxLvl  Diam  Volume
+    ;-----------------------------------------------
+    7    850   5        0       15      70    0
 
-      [PUMPS]
-      ;ID Node1 Node2 Parameters
-      ;---------------------------------
-      7 1 2 HEAD 1
+    [PIPES]
+    ;ID  Node1  Node2  Length  Diam  Roughness
+    ;-----------------------------------------
+    1    2      3      3000    12    100
+    2    3      6      5000    12    100
+    3    3      4      5000    8     100
+    4    4      5      5000    8     100
+    5    5      6      5000    8     100
+    6    6      7      7000    10    100
 
-      [PATTERNS]
-      ;ID Multipliers
-      ;-----------------------
-      1 0.5 1.3 1 1.2
+    [PUMPS]
+    ;ID  Node1  Node2  Parameters
+    ;---------------------------------
+    7    1      2      HEAD  1
 
-      [CURVES]
-      ;ID X-Value Y-Value
-      ;--------------------
-      1 1000 200
+    [PATTERNS]
+    ;ID   Multipliers
+    ;-----------------------
+    1       0.5  1.3  1  1.2
 
-      [QUALITY]
-      ;Node InitQual
-      ;-------------
-      1 1
+    [CURVES]
+    ;ID  X-Value  Y-Value
+    ;--------------------
+    1    1000     200
 
-      [REACTIONS]
-      Global Bulk -1
-      Global Wall 0
+    [QUALITY]
+    ;Node InitQual
+    ;-------------
+    1     1
 
-      [TIMES]
-      Duration 24:00
-      Hydraulic Timestep 1:00
-      Quality Timestep 0:05
-      Pattern Timestep 6:00
+    [REACTIONS]
+    Global Bulk -1
+    Global Wall 0
 
-      [REPORT]
-      Page 55
-      Energy Yes
-      Nodes All
-      Links All
+    [TIMES]
+    Duration           24:00
+    Hydraulic Timestep 1:00
+    Quality Timestep   0:05
+    Pattern Timestep   6:00
 
-      [OPTIONS]
-      Units GPM
-      Headloss H-W
-      Pattern 1
-      Quality Chlorine mg/L
-      Tolerance 0.01
+    [REPORT]
+    Page      55
+    Energy    Yes
+    Nodes     All
+    Links     All
 
-      [END]
+    [OPTIONS]
+    Units           GPM
+    Headloss        H-W
+    Pattern         1
+    Quality         Chlorine mg/L
+    Tolerance       0.01
 
-    **Figure C.1** Example EPANET Input File
+    [END]
+
+  **Figure C.1** Example EPANET Input File
+
 
   On the pages that follow the contents and formats of each keyword
   section are described in alphabetical order.

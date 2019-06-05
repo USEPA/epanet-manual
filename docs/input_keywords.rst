@@ -59,33 +59,33 @@
 [CONTROLS]
 ----------
 
- **Purpose:**
+**Purpose:**
 
-   Defines simple controls that modify links based on a single
-   condition.
+  Defines simple controls that modify links based on a single
+  condition.
 
- **Format:**
+**Format:**
 
-   One line for each control which can be of the form:
+  One line for each control which can be of the form:
 
-     LINK *linkID* *status* IF NODE *nodeID* ABOVE/BELOW *value*
+    LINK *linkID* *status* IF NODE *nodeID* ABOVE/BELOW *value*
 
-     LINK *linkID* *status* AT TIME *time*
+    LINK *linkID* *status* AT TIME *time*
 
-     LINK *linkID* *status* AT CLOCKTIME *time* AM/PM
+    LINK *linkID* *status* AT CLOCKTIME *time* AM/PM
 
-   where:
+  where:
 
-     | *linkID* = a link ID label
-     | *status* = OPEN or CLOSED, a pump speed setting, or a control valve setting
-     | *nodeID* = a node ID label
-     | *value*  = a pressure for a junction or a water level for a tank
-     | *time*   = a time since the start of the simulation in decimal hours or in
-       hours:minutes format
-     | *time* = a 12-hour clock time (hours:minutes)
+    | *linkID* = a link ID label
+    | *status* = OPEN or CLOSED, a pump speed setting, or a control valve setting
+    | *nodeID* = a node ID label
+    | *value*  = a pressure for a junction or a water level for a tank
+    | *time*   = a time since the start of the simulation in decimal hours or in
+      hours:minutes format
+    | *time* = a 12-hour clock time (hours:minutes)
 
 
- **Remarks:**
+**Remarks:**
 
   a. Simple controls are used to change link status or settings based on
      tank water level, junction pressure, time into the simulation or time
@@ -96,29 +96,25 @@
 
 
 
- **Examples:**
+**Examples:**
 
-    ::
+::
 
-      [CONTROLS]
+  [CONTROLS]
+  ;Close Link 12 if the level in Tank 23 exceeds 20 ft.
+  LINK 12 CLOSED IF NODE 23 ABOVE 20
 
-      ;Close Link 12 if the level in Tank 23 exceeds 20 ft. LINK 12 CLOSED
-      IF NODE 23 ABOVE 20
+  ;Open Link 12 if pressure at Node 130 is under 30 psi
+  LINK 12 OPEN IF NODE 130 BELOW 30
 
-      ;Open Link 12 if pressure at Node 130 is under 30 psi LINK 12 OPEN IF
-      NODE 130 BELOW 30
+  ;Pump PUMP02's speed is set to 1.5 at 16 hours into
+  ;the simulation
+  LINK PUMP02 1.5 AT TIME 16
 
-      ;Pump PUMP02's speed is set to 1.5 at 16 hours into
-
-      ;the simulation
-
-      LINK PUMP02 1.5 AT TIME 16
-
-      ;Link 12 is closed at 10 am and opened at 8 pm
-
-      ;throughout the simulation
-
-      LINK 12 CLOSED AT CLOCKTIME 10 AM LINK 12 OPEN AT CLOCKTIME 8 PM
+  ;Link 12 is closed at 10 am and opened at 8 pm
+  ;throughout the simulation
+  LINK 12 CLOSED AT CLOCKTIME 10 AM
+  LINK 12 OPEN AT CLOCKTIME 8 PM
 
 
 ---------------------

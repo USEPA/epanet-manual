@@ -653,15 +653,15 @@
   b. Items offset by slashes (/) indicate allowable choices.
 
 
- **Example:**
+**Example:**
 
-  ::
+::
 
-    [OPTIONS]
-    UNITS        CFS
-    HEADLOSS     D-W
-    QUALITY      TRACE   Tank23
-    UNBALANCED   CONTINUE   10
+  [OPTIONS]
+  UNITS        CFS
+  HEADLOSS     D-W
+  QUALITY      TRACE   Tank23
+  UNBALANCED   CONTINUE   10
 
 
 ---------------------
@@ -670,21 +670,19 @@
 [PATTERNS]
 ----------
 
- **Purpose:**
+**Purpose:**
 
-   Defines time patterns.
+  Defines time patterns.
 
- **Format:**
+**Format:**
 
-   One or more lines for each pattern containing:
+  One or more lines for each pattern containing:
 
     -  Pattern ID label
-
     -  One or more multipliers
 
 
-
- **Remarks:**
+**Remarks:**
 
   Multipliers define how some base quantity (e.g., demand) is
   adjusted for each time period.
@@ -701,18 +699,17 @@
      pattern.
 
 
+**Example:**
 
- **Example:**
+::
 
-    ::
-
-      [PATTERNS]
-      ;Pattern P1
-      P1 1.1 1.4 0.9 0.7
-      P1 0.6 0.5 0.8 1.0
-      ;Pattern P2
-      P2 1 1 1 1
-      P2 0 0 1
+  [PATTERNS]
+  ;Pattern P1
+  P1    1.1    1.4    0.9    0.7
+  P1    0.6    0.5    0.8    1.0
+  ;Pattern P2
+  P2    1      1      1      1
+  P2    0      0      1
 
 
 ---------------------

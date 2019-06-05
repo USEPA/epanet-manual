@@ -414,25 +414,21 @@
 [LABELS]
 --------
 
- **Purpose:**
+**Purpose:**
 
-   Assigns coordinates to map labels.
+  Assigns coordinates to map labels.
 
- **Format:**
+**Format:**
 
-   One line for each label containing:
+  One line for each label containing:
 
     -  X-coordinate
-
     -  Y-coordinate
-
     -  Text of label in double quotes
-
     -  ID label of an anchor node (optional)
 
 
-
- **Remarks:**
+**Remarks:**
 
   a. Include one line for each label on the map.
 
@@ -446,16 +442,15 @@
      is run as a console application.
 
 
+**Example:**
 
- **Example:**
+::
 
-    ::
-
-      [LABELS]
-      ;X-Coord. Y-Coord. Label Anchor
-      ;-----------------------------------------------
-      1230 3459 “Pump 1”
-      34.57 12.75 “North Tank” T22
+  [LABELS]
+  ;X-Coord.    Y-Coord.    Label            Anchor
+  ;-----------------------------------------------
+  1230         3459        “Pump 1”
+  34.57        12.75       “North Tank”     T22
 
 
 ---------------------

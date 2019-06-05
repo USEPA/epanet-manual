@@ -123,13 +123,13 @@
 [COORDINATES]
 -------------
 
- **Purpose:**
+**Purpose:**
 
-   Assigns map coordinates to network nodes.
+  Assigns map coordinates to network nodes.
 
- **Format:**
+**Format:**
 
-   One line for each node containing:
+  One line for each node containing:
 
     -  Node ID label
 
@@ -139,7 +139,7 @@
 
 
 
- **Remarks:**
+**Remarks:**
 
   a. Include one line for each node displayed on the map.
 
@@ -155,18 +155,15 @@
 
 
 
- **Example:**
+**Example:**
 
-   ::
+::
 
-     [COORDINATES]
-
-     ;Node X-Coord. Y-Coord
-
-     ;-------------------------------
-
-      1 10023 128
-      2 10056 95
+  [COORDINATES]
+  ;Node     X-Coord.     Y-Coord
+  ;-------------------------------
+    1       10023        128
+    2       10056        95
 
 
 ---------------------

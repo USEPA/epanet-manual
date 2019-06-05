@@ -368,25 +368,21 @@
 [JUNCTIONS]
 -----------
 
- **Purpose:**
+**Purpose:**
 
-   Defines junction nodes contained in the network.
+  Defines junction nodes contained in the network.
 
- **Format:**
+**Format:**
 
-   One line for each junction containing:
+  One line for each junction containing:
 
     -  ID label
-
     -  Elevation, ft (m)
-
     -  Base demand flow (flow units) (optional)
-
     -  Demand pattern ID (optional)
 
 
-
- **Remarks:**
+**Remarks:**
 
   a. A [JUNCTIONS] section with at least one junction is required.
 
@@ -400,16 +396,16 @@
 
 
 
- **Example:**
+**Example:**
 
-   ::
+::
 
-      [JUNCTIONS]
-      ;ID Elev. Demand Pattern
-      ;------------------------------
-      J1 100 50 Pat1
-      J2 120 10 ;Uses default demand pattern
-      J3 115 ;No demand at this junction
+  [JUNCTIONS]
+  ;ID    Elev.   Demand   Pattern
+  ;------------------------------
+  J1     100     50       Pat1
+  J2     120     10              ;Uses default demand pattern
+  J3     115                     ;No demand at this junction
 
 
 ---------------------

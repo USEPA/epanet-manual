@@ -507,144 +507,145 @@
 [OPTIONS]
 ---------
 
- **Purpose:**
+**Purpose:**
 
-   Defines various simulation options.
+  Defines various simulation options.
 
- **Formats:**
+**Formats:**
 
- **UNITS CFS/GPM/MGD/IMGD/AFD/ LPS/LPM/MLD/CMH/CMD**
+  ===================== ============================== ========
+  **UNITS**             **CFS/GPM/MGD/IMGD/AFD/**
+                        **LPS/LPM/MLD/CMH/CMD**
+  **HEADLOSS**          **H-W/D-W/C-M**
+  **HYDRAULICS**        **USE/SAVE**                   filename
+  **QUALITY**           **NONE/CHEMICAL/AGE/TRACE**    id
+  **VISCOSITY**         value
+  **DIFFUSIVITY**       value
+  **SPECIFIC GRAVITY**  value
+  **TRIALS**            value
+  **ACCURACY**          value
+  **UNBALANCED**        **STOP/CONTINUE/CONTINUE**     n
+  **PATTERN**           id
+  **DEMAND MULTIPLIER** value
+  **EMITTER EXPONENT**  value
+  **TOLERANCE**         value
+  **MAP**               filename
+  ===================== ============================== ========
 
- **HEADLOSS H-W/D-W/C-M**
 
- **HYDRAULICS USE/SAVE** filename
+**Definitions:**
 
- **QUALITY NONE/CHEMICAL/AGE/TRACE id**
+  UNITS
+    sets the units in which flow rates are expressed where:
 
- **VISCOSITY** value
+    | **CFS** = cubic feet per second
+    | **GPM** = gallons per minute
+    | **MGD** = million gallons per day
+    | **IMGD** = Imperial MGD
+    | **AFD** = acre-feet per day
+    | **LPS** = liters per second
+    | **LPM** = liters per minute
+    | **MLD** = million liters per day
+    | **CMH** = cubic meters per hour
+    | **CMD** = cubic meters per day
 
- **DIFFUSIVITY** value
+    For **CFS, GPM, MGD, IMGD**, and **AFD** other input quantities are
+    expressed in US Customary Units. If flow units are in liters or cubic
+    meters then Metric Units must be used for all other input quantities
+    as well. (See Appendix A. Units of Measurement). The default flow units
+    are **GPM**.
 
- **SPECIFIC GRAVITY** value
+  HEADLOSS
+    selects a formula to use for computing head loss for
+    flow through a pipe. The choices are the Hazen-Williams (**H-W**),
+    Darcy-Weisbach (**D-W**), or Chezy-Manning (**C-M**) formulas. The
+    default is **H-W**.
 
- **TRIALS** value
+    The **HYDRAULICS** option allows you to either **SAVE** the current
+    hydraulics solution to a file or **USE** a previously saved
+    hydraulics solution. This is useful when studying factors that only
+    affect water quality behavior.
 
- **ACCURACY** value
+  QUALITY
+    selects the type of water quality analysis to perform.
+    The choices are **NONE, CHEMICAL, AGE**, and **TRACE**. In place of
+    **CHEMICAL** the actual name of the chemical can be used followed by
+    its concentration units (e.g., **CHLORINE mg/L**). If **TRACE** is
+    selected it must be followed by the ID label of the node being
+    traced. The default selection is **NONE** (no water quality
+    analysis).
 
- **UNBALANCED STOP/CONTINUE/CONTINUE n**
+  VISCOSITY
+    is the kinematic viscosity of the fluid being modeled
+    relative to that of water at 20 deg. C (1.0 centistoke). The default
+    value is 1.0.
 
- **PATTERN** id
+  DIFFUSIVITY
+    is the molecular diffusivity of the chemical being
+    analyzed relative to that of chlorine in water. The default value is
+    1.0. Diffusivity is only used when mass transfer limitations are
+    considered in pipe wall reactions. A value of 0 will cause EPANET to
+    ignore mass transfer limitations.
 
- **DEMAND MULTIPLIER** value
+  SPECIFIC GRAVITY
+    is the ratio of the density of the fluid being
+    modeled to that of water at 4 deg. C (unitless).
 
- **EMITTER EXPONENT** value
+  TRIALS
+    are the maximum number of trials used to solve network
+    hydraulics at each hydraulic time step of a simulation. The default
+    is 40.
 
- **TOLERANCE** value
+  ACCURACY
+    prescribes the convergence criterion that determines
+    when a hydraulic solution has been reached. The trials end when the
+    sum of all flow changes from the previous solution divided by the
+    total flow in all links is less than this number. The default is
+    0.001.
 
- **MAP** filename
+  UNBALANCED
+    determines what happens if a hydraulic solution cannot
+    be reached within the prescribed number of **TRIALS** at some
+    hydraulic time step into the simulation. **"STOP"** will halt the
+    entire analysis at that point. **"CONTINUE"** will continue the
+    analysis with a warning message issued. **"CONTINUE n"** will
+    continue the search for a solution for another "n" trials with the
+    status of all links held fixed at their current settings. The
+    simulation will be continued at this point with a message issued
+    about whether convergence was achieved or not. The default choice is
+    **"STOP"**.
 
- **Definitions:**
+  PATTERN
+    provides the ID label of a default demand pattern to be
+    applied to all junctions where no demand pattern was specified. If no
+    such pattern exists in the [PATTERNS] section then by default the
+    pattern consists of a single multiplier equal to 1.0. If this option
+    is not used, then the global default demand pattern has a label of
+    "1".
 
- **UNITS** sets the units in which flow rates are expressed where:
+    The **DEMAND MULTIPLIER** is used to adjust the values of baseline
+    demands for all junctions and all demand categories. For example, a
+    value of 2 doubles all baseline demands, while a value of 0.5 would
+    halve them. The default value is 1.0.
 
- **CFS** = cubic feet per second **GPM** = gallons per minute **MGD**
-   = million gallons per day **IMGD** = Imperial MGD
+  EMITTER EXPONENT
+    specifies the power to which the pressure at a
+    junction is raised when computing the flow issuing from an emitter.
+    The default is 0.5.
 
- **AFD** = acre-feet per day
+  MAP
+    is used to supply the name of a file containing coordinates
+    of the network's nodes so that a map of the network can be drawn. It
+    is not used for any hydraulic or water quality computations.
 
- **LPS** = liters per second
+  TOLERANCE
+    is the difference in water quality level below which
+    one can say that one parcel of water is essentially the same as
+    another. The default is 0.01 for all types of quality analyses
+    (chemical, age (measured in hours), or source tracing (measured in
+    percent)).
 
- **LPM** = liters per minute
-
- **MLD** = million liters per day **CMH** = cubic meters per hour
- **CMD** = cubic meters per day
-
-   For **CFS, GPM, MGD, IMGD**, and **AFD** other input quantities are
-   expressed in US Customary Units. If flow units are in liters or cubic
-   meters then Metric Units must be used for all other input quantities
-   as
-
-   well. (See Appendix A. Units of Measurement). The default flow units
-   are **GPM**.
-
- **HEADLOSS** selects a formula to use for computing head loss for
-   flow through a pipe. The choices are the Hazen-Williams (**H-W**),
-   Darcy-Weisbach (**D-W**), or Chezy-Manning (**C-M**) formulas. The
-   default is **H-W**.
-
-   The **HYDRAULICS** option allows you to either **SAVE** the current
-   hydraulics solution to a file or **USE** a previously saved
-   hydraulics solution. This is useful when studying factors that only
-   affect water quality behavior.
-
- **QUALITY** selects the type of water quality analysis to perform.
-   The choices are **NONE, CHEMICAL, AGE**, and **TRACE**. In place of
- **CHEMICAL** the actual name of the chemical can be used followed by
-   its concentration units (e.g., **CHLORINE mg/L**). If **TRACE** is
-   selected it must be followed by the ID label of the node being
-   traced. The default selection is **NONE** (no water quality
-   analysis).
-
- **VISCOSITY** is the kinematic viscosity of the fluid being modeled
-   relative to that of water at 20 deg. C (1.0 centistoke). The default
-   value is 1.0.
-
- **DIFFUSIVITY** is the molecular diffusivity of the chemical being
-   analyzed relative to that of chlorine in water. The default value is
-   1.0. Diffusivity is only used when mass transfer limitations are
-   considered in pipe wall reactions. A value of 0 will cause EPANET to
-   ignore mass transfer limitations.
-
- **SPECIFIC GRAVITY** is the ratio of the density of the fluid being
-   modeled to that of water at 4 deg. C (unitless).
-
- **TRIALS** are the maximum number of trials used to solve network
-   hydraulics at each hydraulic time step of a simulation. The default
-   is 40.
-
- **ACCURACY** prescribes the convergence criterion that determines
-   when a hydraulic solution has been reached. The trials end when the
-   sum of all flow changes from the previous solution divided by the
-   total flow in all links is less than this number. The default is
-   0.001.
-
- **UNBALANCED** determines what happens if a hydraulic solution cannot
-   be reached within the prescribed number of **TRIALS** at some
-   hydraulic time step into the simulation. **"STOP"** will halt the
-   entire analysis at that point. **"CONTINUE"** will continue the
-   analysis with a warning message issued. **"CONTINUE n"** will
-   continue the search for a solution for another "n" trials with the
-   status of all links held fixed at their current settings. The
-   simulation will be continued at this point with a message issued
-   about whether convergence was achieved or not. The default choice is **"STOP"**.
-
- **PATTERN** provides the ID label of a default demand pattern to be
-   applied to all junctions where no demand pattern was specified. If no
-   such pattern exists in the [PATTERNS] section then by default the
-   pattern consists of a single multiplier equal to 1.0. If this option
-   is not used, then the global default demand pattern has a label of
-   "1".
-
-   The **DEMAND MULTIPLIER** is used to adjust the values of baseline
-   demands for all junctions and all demand categories. For example, a
-   value of 2 doubles all baseline demands, while a value of 0.5 would
-   halve them. The default value is 1.0.
-
- **EMITTER EXPONENT** specifies the power to which the pressure at a
-   junction is raised when computing the flow issuing from an emitter.
-   The default is 0.5.
-
- **MAP** is used to supply the name of a file containing coordinates
-   of the network's nodes so that a map of the network can be drawn. It
-   is not used for any hydraulic or water quality computations.
-
- **TOLERANCE** is the difference in water quality level below which
-   one can say that one parcel of water is essentially the same as
-   another. The default is 0.01 for all types of quality analyses
-   (chemical, age (measured in hours), or source tracing (measured in
-   percent)).
-
- **Remarks:**
+**Remarks:**
 
   a. All options assume their default values if not explicitly specified
      in this section.
@@ -652,16 +653,15 @@
   b. Items offset by slashes (/) indicate allowable choices.
 
 
-
  **Example:**
 
   ::
 
     [OPTIONS]
-    UNITS CFS
-    HEADLOSS D-W
-    QUALITY TRACE Tank23
-    UNBALANCED CONTINUE 10
+    UNITS        CFS
+    HEADLOSS     D-W
+    QUALITY      TRACE   Tank23
+    UNBALANCED   CONTINUE   10
 
 
 ---------------------

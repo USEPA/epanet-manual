@@ -76,84 +76,7 @@ Input File Format
   network discussed in Chapter 2.
 
 
-  ::
-
-    [TITLE]
-    EPANET TUTORIAL
-
-    [JUNCTIONS]
-    ;ID   Elev   Demand
-    ;------------------
-    2     0      0
-    3     710    650
-    4     700    150
-    5     695    200
-    6     700    150
-
-    [RESERVOIRS]
-    ;ID   Head
-    ;---------
-    1     700
-
-    [TANKS]
-    ;ID  Elev  InitLvl  MinLvl  MaxLvl  Diam  Volume
-    ;-----------------------------------------------
-    7    850   5        0       15      70    0
-
-    [PIPES]
-    ;ID  Node1  Node2  Length  Diam  Roughness
-    ;-----------------------------------------
-    1    2      3      3000    12    100
-    2    3      6      5000    12    100
-    3    3      4      5000    8     100
-    4    4      5      5000    8     100
-    5    5      6      5000    8     100
-    6    6      7      7000    10    100
-
-    [PUMPS]
-    ;ID  Node1  Node2  Parameters
-    ;---------------------------------
-    7    1      2      HEAD  1
-
-    [PATTERNS]
-    ;ID   Multipliers
-    ;-----------------------
-    1       0.5  1.3  1  1.2
-
-    [CURVES]
-    ;ID  X-Value  Y-Value
-    ;--------------------
-    1    1000     200
-
-    [QUALITY]
-    ;Node InitQual
-    ;-------------
-    1     1
-
-    [REACTIONS]
-    Global Bulk -1
-    Global Wall 0
-
-    [TIMES]
-    Duration           24:00
-    Hydraulic Timestep 1:00
-    Quality Timestep   0:05
-    Pattern Timestep   6:00
-
-    [REPORT]
-    Page      55
-    Energy    Yes
-    Nodes     All
-    Links     All
-
-    [OPTIONS]
-    Units           GPM
-    Headloss        H-W
-    Pattern         1
-    Quality         Chlorine mg/L
-    Tolerance       0.01
-
-    [END]
+  .. literalinclude:: tutorial.inp
 
   **Figure C.1** Example EPANET Input File
 
@@ -214,116 +137,22 @@ Energy Section
    consumption and cost for each pump in the network. The items listed
    for each pump include:
 
-    -  Percent Utilization (percent of the time that the pump is on-line)
-
-    -  Average Efficiency
-
-    -  Kilowatt-hours consumed per million gallons (or cubic meters) pumped
-
-    -  Average Kilowatts consumed
-
-    -  Peak Kilowatts used
-
-    -  Average cost per day
-
-
+    - Percent Utilization (percent of the time that the pump is on-line)
+    - Average Efficiency
+    - Kilowatt-hours consumed per million gallons (or cubic meters) pumped
+    - Average Kilowatts consumed
+    - Peak Kilowatts used
+    - Average cost per day
 
    Also listed is the total cost per day for pumping and the total
    demand charge (cost based on the peak energy usage) incurred. To
    include an Energy Section in the report the command **ENERGY YES**
    must appear in the [REPORT] section of the input file.
 
-    ::
+   .. literalinclude:: tutorial.out
 
-      ******************************************************************
-      * E P A N E T *
-      * Hydraulic and Water Quality *
-      * Analysis for Pipe Networks *
-      * Version 2.0 *
-      ******************************************************************
-      EPANET TUTORIAL
-      Input Data File ................... tutorial.inp
-      Number of Junctions................ 5
-      Number of Reservoirs............... 1
-      Number of Tanks ................... 1
-      Number of Pipes ................... 6
-      Number of Pumps ................... 1
-      Number of Valves .................. 0
-      Headloss Formula .................. Hazen-Williams
-      Hydraulic Timestep ................ 1.00 hrs
-      Hydraulic Accuracy ................ 0.001000
-      Maximum Trials .................... 40
-      Quality Analysis .................. Chlorine
-      Water Quality Time Step ........... 5.00 min
-      Water Quality Tolerance ........... 0.01 mg/L
-      Specific Gravity .................. 1.00
-      Relative Kinematic Viscosity ...... 1.00
-      Relative Chemical Diffusivity ..... 1.00
-      Demand Multiplier ................. 1.00
-      Total Duration .................... 24.00 hrs
-      Reporting Criteria:
-      All Nodes
-      All Links
-      Energy Usage:
-      ----------------------------------------------------------------
-      Usage Avg. Kw-hr Avg. Peak Cost
-      Pump Factor Effic. /Mgal Kw Kw /day
-      ----------------------------------------------------------------
-      7 100.00 75.00 746.34 51.34 51.59 0.00
-      ----------------------------------------------------------------
-                         Demand Charge: 0.00
-                            Total Cost: 0.00
+   **Figure C.2** Excerpt from a Report File
 
-      Node Results at 0:00 hrs:
-      --------------------------------------------------------
-      Demand Head Pressure Chlorine
-      Node gpm ft psi mg/L
-      --------------------------------------------------------
-      2 0.00 893.37 387.10 0.00
-      3 325.00 879.78 73.56 0.00
-      4 75.00 874.43 75.58 0.00
-      5 100.00 872.69 76.99 0.00
-      6 75.00 872.71 74.84 0.00
-      1 -1048.52 700.00 0.00 1.00 Reservoir
-      7 473.52 855.00 2.17 0.00 Tank
-      Link Results at 0:00 hrs:
-      ----------------------------------------------
-      Flow Velocity Headloss
-      Link gpm fps /1000ft
-      ----------------------------------------------
-      1 1048.52 2.97 4.53
-      2 558.33 1.58 1.41
-      3 165.19 1.05 1.07
-      4 90.19 0.58 0.35
-      5 -9.81 0.06 0.01
-      6 473.52 1.93 2.53
-      7 1048.52 0.00 -193.37 Pump
-      Node Results at 1:00 hrs:
-      --------------------------------------------------------
-      Demand Head Pressure Chlorine
-      Node gpm ft psi mg/L
-      --------------------------------------------------------
-      2 0.00 893.92 387.34 1.00
-      3 325.00 880.42 73.84 0.99
-      4 75.00 875.12 75.88 0.00
-      5 100.00 873.40 77.30 0.00
-      6 75.00 873.43 75.15 0.00
-      1 -1044.60 700.00 0.00 1.00 Reservoir
-      7 469.60 855.99 2.59 0.00 Tank
-      Link Results at 1:00 hrs:
-      ----------------------------------------------
-      Flow Velocity Headloss
-      Link gpm fps /1000ft
-      ----------------------------------------------
-      1 1044.60 2.96 4.50
-      2 555.14 1.57 1.40
-      3 164.45 1.05 1.06
-      4 89.45 0.57 0.34
-      5 -10.55 0.07 0.01
-      6 469.60 1.92 2.49
-      7 1044.60 0.00 -193.92 Pump
-
-    **Figure C.2** Excerpt from a Report File
 
 Nodes Section
 --------------

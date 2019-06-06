@@ -1472,33 +1472,25 @@ Relation operators consist of the following:
 [TANKS]
 -------
 
- **Purpose:**
+**Purpose:**
 
-   Defines all tank nodes contained in the network.
+  Defines all tank nodes contained in the network.
 
- **Format:**
+**Format:**
 
-   One line for each tank containing:
+  One line for each tank containing:
 
-    -  ID label
-
-    -  Bottom elevation, ft (m)
-
-    -  Initial water level, ft (m)
-
-    -  Minimum water level, ft (m)
-
-    -  Maximum water level, ft (m)
-
-    -  Nominal diameter, ft (m)
-
-    -  Minimum volume, cubic ft (cubic meters)
-
-    -  Volume curve ID (optional)
+    - ID label
+    - Bottom elevation, ft (m)
+    - Initial water level, ft (m)
+    - Minimum water level, ft (m)
+    - Maximum water level, ft (m)
+    - Nominal diameter, ft (m)
+    - Minimum volume, cubic ft (cubic meters)
+    - Volume curve ID (optional)
 
 
-
- **Remarks:**
+**Remarks:**
 
   a. Water surface elevation equals bottom elevation plus water level.
 
@@ -1514,24 +1506,17 @@ Relation operators consist of the following:
   e. A network must contain at least one tank or reservoir.
 
 
+**Example:**
 
- **Example:**
+::
 
-  ::
-
-    [TANKS]
-
-    ;ID Elev. InitLvl MinLvl MaxLvl Diam MinVol VolCurve
-
-    ;-----------------------------------------------------------
-
-    ;Cylindrical tank
-
-    T1 100 15 5 25 120 0
-
-    ;Non-cylindrical tank with arbitrary diameter
-
-    T2 100 15 5 25 1 0 VC1
+  [TANKS]
+  ;ID   Elev.  InitLvl  MinLvl  MaxLvl  Diam  MinVol  VolCurve
+  ;-----------------------------------------------------------
+  ;Cylindrical tank
+  T1    100     15       5       25     120    0
+  ;Non-cylindrical tank with arbitrary diameter
+  T2    100     15       5       25      1     0      VC1
 
 
 ---------------------

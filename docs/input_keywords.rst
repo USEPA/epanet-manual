@@ -1629,17 +1629,17 @@ Relation operators consist of the following:
 [TITLE]
 -------
 
- **Purpose:**
+**Purpose:**
 
-   Attaches a descriptive title to the network being analyzed.
+  Attaches a descriptive title to the network being analyzed.
 
- **Format:**
+**Format:**
 
-   Any number of lines of text.
+  Any number of lines of text.
 
- **Remarks:**
+**Remarks:**
 
-   The [TITLE] section is optional.
+  The [TITLE] section is optional.
 
 
 ---------------------

@@ -690,23 +690,21 @@ Non-Physical Components
 
    They are statements expressed in one of the following three formats:
 
-   ::
-
-      LINK x status IF NODE y ABOVE/BELOW z
-
-      LINK x status AT TIME t
-
-      LINK x status AT CLOCKTIME c AM/PM
+    ==== = ====== == ========= = =========== =
+    LINK x status IF NODE      y ABOVE/BELOW z
+    LINK x status AT TIME      t
+    LINK x status AT CLOCKTIME c AM/PM
+    ==== = ====== == ========= = =========== =
 
    where:
-      | *x* = a link ID label,
-      | *status* = OPEN or CLOSED, a pump speed setting, or a control valve
+      | x = a link ID label,
+      | status = OPEN or CLOSED, a pump speed setting, or a control valve
         setting,
-      | *y* = a node ID label,
-      | *z* = a pressure for a junction or a water level for a tank,
-      | *t* = a time since the start of the simulation (decimal hours or
+      | y = a node ID label,
+      | z = a pressure for a junction or a water level for a tank,
+      | t = a time since the start of the simulation (decimal hours or
         hours:minutes),
-      | *c* = a 24-hour clock time.
+      | c = a 24-hour clock time.
 
    Some examples of simple controls are:
 

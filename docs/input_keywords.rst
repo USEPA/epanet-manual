@@ -825,7 +825,7 @@
     -  Initial quality
 
 
- **Remarks:**
+**Remarks:**
 
   a. Quality is assumed to be zero for nodes not listed.
 
@@ -841,59 +841,60 @@
 [REACTIONS]
 -----------
 
- **Purpose:**
+**Purpose:**
 
    Defines parameters related to chemical reactions occurring in the
    network.
 
- **Formats:**
+**Formats:**
 
- **ORDER BULK/WALL/TANK** value
+  ========================= ====== =====
+  **ORDER BULK/WALL/TANK**  value
+  **GLOBAL BULK/WALL**      value
+  **BULK/WALL/TANK**        pipeID value
+  **LIMITING POTENTIAL**    value
+  **ROUGHNESS CORRELATION** value
+  ========================= ====== =====
 
- **GLOBAL BULK/WALL** value
+**Definitions:**
 
- **BULK/WALL/TANK** pipeID value **LIMITING POTENTIAL** value
- **ROUGHNESS CORRELATION** value
+  ORDER
+    is used to set the order of reactions occurring in the bulk
+    fluid, at the pipe wall, or in tanks, respectively. Values for wall
+    reactions must be either 0 or 1. If not supplied the default reaction
+    order is 1.0.
 
- **Definitions:**
+  GLOBAL
+    is used to set a global value for all bulk reaction coefficients (pipes
+    and tanks) or for all pipe wall coefficients. The default value is zero.
 
-   ORDER
-     is used to set the order of reactions occurring in the bulk
-     fluid, at the pipe wall, or in tanks, respectively. Values for wall
-     reactions must be either 0 or 1. If not supplied the default reaction
-     order is 1.0.
+  BULK, WALL, and TANK
+    are used to override the global reaction coefficients for specific pipes
+    and tanks.
 
-   GLOBAL
-     is used to set a global value for all bulk reaction coefficients (pipes
-     and tanks) or for all pipe wall coefficients. The default value is zero.
+  LIMITING POTENTIAL
+    specifies that reaction rates are proportional to the difference between
+    the current concentration and some limiting potential value.
 
-   BULK, WALL, and TANK
-     are used to override the global reaction coefficients for specific pipes
-     and tanks.
+  ROUGHNESS CORRELATION
+    will make all default pipe wall reaction coefficients be related to pipe
+    roughness in the following manner:
 
-   LIMITING POTENTIAL
-     specifies that reaction rates are proportional to the difference between
-     the current concentration and some limiting potential value.
+    ==================  =====================
+    Head Loss Equation  Roughness Correlation
+    ==================  =====================
+    Hazen-Williams      :math:`F / C`
+    Darcy-Weisbach      :math:`F / log(e/D)`
+    Chezy-Manning       :math:`F*n`
+    ==================  =====================
 
-   ROUGHNESS CORRELATION
-     will make all default pipe wall reaction coefficients be related to pipe
-     roughness in the following manner:
+    where :math:`F` = roughness correlation, :math:`C` = Hazen-Williams C-factor,
+    :math:`e` = Darcy-Weisbach roughness, :math:`D` = pipe diameter, and
+    :math:`n` = Chezy-Manning roughness coefficient. The default value computed
+    this way can be overridden for any pipe by using the **WALL** format to
+    supply a specific value for the pipe.
 
-     ==================  =====================
-     Head Loss Equation  Roughness Correlation
-     ==================  =====================
-     Hazen-Williams      :math:`F / C`
-     Darcy-Weisbach      :math:`F / log(e/D)`
-     Chezy-Manning       :math:`F*n`
-     ==================  =====================
-
-     where :math:`F` = roughness correlation, :math:`C` = Hazen-Williams C-factor,
-     :math:`e` = Darcy-Weisbach roughness, :math:`D` = pipe diameter, and
-     :math:`n` = Chezy-Manning roughness coefficient. The default value computed
-     this way can be overridden for any pipe by using the **WALL** format to
-     supply a specific value for the pipe.
-
- **Remarks:**
+**Remarks:**
 
   a. Remember to use positive numbers for growth reaction coefficients and
      negative numbers for decay coefficients.
@@ -905,16 +906,16 @@
 
 
 
- **Example:**
+**Example:**
 
-    ::
+::
 
-      [REACTIONS]
-      ORDER WALL 0 ;Wall reactions are zero-order
-      GLOBAL BULK -0.5 ;Global bulk decay coeff.
-      GLOBAL WALL -1.0 ;Global wall decay coeff.
-      WALL P220 -0.5 ;Pipe-specific wall coeffs.
-      WALL P244 -0.7
+  [REACTIONS]
+  ORDER WALL    0    ;Wall reactions are zero-order
+  GLOBAL BULK  -0.5  ;Global bulk decay coeff.
+  GLOBAL WALL  -1.0  ;Global wall decay coeff.
+  WALL   P220  -0.5  ;Pipe-specific wall coeffs.
+  WALL   P244  -0.7
 
 
 ---------------------

@@ -1052,23 +1052,20 @@
 [RESERVOIRS]
 ------------
 
- **Purpose:**
+**Purpose:**
 
-   Defines all reservoir nodes contained in the network.
+  Defines all reservoir nodes contained in the network.
 
- **Format:**
+**Format:**
 
-   One line for each reservoir containing:
+  One line for each reservoir containing:
 
     -  ID label
-
     -  Head, ft (m)
-
     -  Head pattern ID (optional)
 
 
-
- **Remarks:**
+**Remarks:**
 
   a. Head is the hydraulic head (elevation + pressure head) of water in
      the reservoir.
@@ -1078,19 +1075,15 @@
   c. At least one reservoir or tank must be contained in the network.
 
 
+**Example:**
 
- **Example:**
+::
 
-    ::
-
-      [RESERVOIRS]
-
-       ;ID Head Pattern
-
-       ;---------------------
-
-       R1 512 ;Head stays constant
-       R2 120 Pat1 ;Head varies with time
+  [RESERVOIRS]
+  ;ID    Head    Pattern
+  ;---------------------
+  R1     512               ;Head stays constant
+  R2     120     Pat1      ;Head varies with time
 
 
 ---------------------

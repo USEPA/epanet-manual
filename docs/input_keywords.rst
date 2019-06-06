@@ -1092,142 +1092,135 @@
 [RULES]
 -------
 
- **Purpose:**
+**Purpose:**
 
    Defines rule-based controls that modify links based on a combination
    of conditions.
 
- **Format:**
+**Format:**
 
-   Each rule is a series of statements of the form:
+  Each rule is a series of statements of the form:
 
- **RULE** ruleID
+  ============ ===========
+  **RULE**     ruleID
+  **IF**       condition_1
+  **AND**      condition_2
+  **OR**       condition_3
+  **AND**      condition_4
+  etc.
+  **THEN**     action_1
+  **AND**      action_2
+  etc.
+  **ELSE**     action_3
+  **AND**      action_4
+  etc.
+  **PRIORITY** value
+  ============ ===========
 
- **IF** condition_1 **AND** condition_2 **OR** condition_3 **AND**
-   condition_4 etc.
-
- **THEN** action_1 **AND** action_2 etc.
-
- **ELSE** action_3 **AND** action_4 etc.
-
- **PRIORITY** value
-
-   where:
-     | ruleID  = an ID label assigned to the rule
-     | conditon_n = a condition clause
-     | action_n = an action clause
-     | Priority = a priority value (e.g., a number from 1 to 5)
+  where:
+    | ruleID  = an ID label assigned to the rule
+    | conditon_n = a condition clause
+    | action_n = an action clause
+    | Priority = a priority value (e.g., a number from 1 to 5)
 
 
 **Condition Clause Format:**
 
- A condition clause in a Rule-Based Control takes the form of:
+  A condition clause in a Rule-Based Control takes the form of:
+
+  ====== == ========= ======== =====
+  object id attribute relation value
+  ====== == ========= ======== =====
+
+  where:
+    | object = a category of network object
+    | id = the object's ID label
+    | attribute = an attribute or property of the object
+    | relation = a relational operator
+    | value = an attribute value
+
+  Some example conditional clauses are:
 
   ::
 
-    object id attribute relation value
+    JUNCTION 23 PRESSURE > 20
+    TANK T200 FILLTIME BELOW 3.5
+    LINK 44 STATUS IS OPEN
+    SYSTEM DEMAND >= 1500
+    SYSTEM CLOCKTIME = 7:30 AM
 
-  where
+The Object keyword can be any of the following:
 
-    ::
+  ============= ========= ==========
+  **NODE**      **LINK**  **SYSTEM**
+  **JUNCTION**  **PIPE**
+  **RESERVOIR** **PUMP**
+  **TANK**      **VALVE**
+  ============= ========= ==========
 
-      object = a category of network object
+When **SYSTEM** is used in a condition no ID is supplied.
 
-      id = the object's ID label
+The following attributes can be used with Node-type objects:
 
-      attribute = an attribute or property of the object
+  - **DEMAND**
+  - **HEAD**
+  - **PRESSURE**
 
-      relation = a relational operator
+The following attributes can be used with Tanks:
 
-      value = an attribute value
+  - **LEVEL**
+  - **FILLTIME** (hours needed to fill a tank)
+  - **DRAINTIME** (hours needed to empty a tank)
 
-    Some example conditional clauses are:
+These attributes can be used with Link-Type objects:
 
-      ::
+  - **FLOW**
+  - **STATUS** (**OPEN**, **CLOSED**, or **ACTIVE**)
+  - **SETTING** (pump speed or valve setting)
 
-        JUNCTION 23 PRESSURE > 20 TANK T200 FILLTIME BELOW 3.5 LINK 44 STATUS
+The **SYSTEM** object can use the following attributes:
 
-        IS OPEN SYSTEM DEMAND >= 1500
+  - **DEMAND** (total system demand)
+  - **TIME** (hours from the start of the simulation expressed either as
+    a decimal number or in hours:minutes format)
+  - **CLOCKTIME** (24-hour clock time with **AM** or **PM** appended)
 
-        SYSTEM CLOCKTIME = 7:30 AM
+Relation operators consist of the following:
 
- The Object keyword can be any of the following:
-
-     **NODE LINK SYSTEM**
-
-     **JUNCTION PIPE RESERVOIR PUMP TANK VALVE**
-
- When **SYSTEM** is used in a condition no ID is supplied.
-
-
- The following attributes can be used with Node-type objects:
-
-    **DEMAND HEAD PRESSURE**
-
- The following attributes can be used with Tanks:
-
-    **LEVEL**
-
-    **FILLTIME** (hours needed to fill a tank)
-
-    **DRAINTIME** (hours needed to empty a tank)
-
- These attributes can be used with Link-Type objects:
-
-     **FLOW**
-
-     **STATUS** (**OPEN**, **CLOSED**, or **ACTIVE**)
-
-     **SETTING** (pump speed or valve setting)
-
- The **SYSTEM** object can use the following attributes:
-
-     **DEMAND** (total system demand)
-
-     **TIME** (hours from the start of the simulation expressed either as
-       a decimal number or in hours:minutes format)
-
-     **CLOCKTIME** (24-hour clock time with **AM** or **PM** appended)
-
- Relation operators consist of the following:
-
-     **= IS**
-
-     **<> NOT**
-
-     **< BELOW**
-
-     **> ABOVE**
-
-     **<= >=**
+  ====== =========
+  **=**  **IS**
+  **<>** **NOT**
+  **<**  **BELOW**
+  **>**  **ABOVE**
+  **<=** **>=**
+  ====== =========
 
 **Action Clause Format:**
 
-   An action clause in a Rule-Based Control takes the form of:
+  An action clause in a Rule-Based Control takes the form of:
 
-    ::
+  ====== == ============== == =====
+  object id STATUS/SETTING IS value
+  ====== == ============== == =====
 
-      object id STATUS/SETTING IS value
+  where:
 
-   where
-
-    ::
-
-      object = LINK, PIPE, PUMP, or VALVE keyword
-      id = the object's ID label
-      value = a status condition (OPEN or CLOSED), pump speed setting, or valve
-      setting
+    | object = LINK, PIPE, PUMP, or VALVE keyword
+    | id = the object's ID label
+    | value = a status condition (OPEN or CLOSED), pump speed setting, or valve
+    | setting
 
 
-   Some example action clauses are:
+  Some example action clauses are:
 
-     ::
+  ::
 
-       LINK 23 STATUS IS CLOSED PUMP P100 SETTING IS 1.5 VALVE 123 SETTING
+    LINK 23 STATUS IS CLOSED
+    PUMP P100 SETTING IS 1.5
+    VALVE 123 SETTING IS 90
 
-       IS 90
 
- **Remarks:**
+**Remarks:**
 
   a. Only the **RULE**, **IF** and **THEN** portions of a rule are
      required; the other portions are optional.
@@ -1235,59 +1228,59 @@
   b. When mixing **AND** and **OR** clauses, the **OR** operator has
      higher precedence than **AND**, i.e.,
 
-      ::
+     ::
 
-        IF A or B and C
+       IF A or B and C
 
      is equivalent to
 
-      ::
+     ::
 
-        IF (A or B) and C.
+       IF (A or B) and C.
 
 
      If the interpretation was meant to be
 
-      ::
+     ::
 
-        IF A or (B and C)
+       IF A or (B and C)
 
      then this can be expressed using two rules as in
-      ::
 
-        IF A THEN ...
+     ::
 
-        IF B and C THEN ...
+       IF A THEN ...
+       IF B and C THEN ...
 
-c. The **PRIORITY** value is used to determine which rule applies when
-   two or more rules require that conflicting actions be taken on a
-   link. A rule without a priority value always has a lower priority
-   than one with a value. For two rules with the same priority value,
-   the rule that appears first is given the higher priority.
-
-
-
- **Example:**
-
-    ::
+  c. The **PRIORITY** value is used to determine which rule applies when
+     two or more rules require that conflicting actions be taken on a
+     link. A rule without a priority value always has a lower priority
+     than one with a value. For two rules with the same priority value,
+     the rule that appears first is given the higher priority.
 
 
-      [RULES]
 
-      RULE 1
+**Example:**
 
-      IF TANK 1 LEVEL ABOVE 19.1 THEN PUMP 335 STATUS IS CLOSED AND PIPE
-      330 STATUS IS OPEN
+::
 
-      RULE 2
+  [RULES]
+  RULE 1
+  IF TANK 1 LEVEL ABOVE 19.1
+  THEN PUMP 335 STATUS IS CLOSED
+  AND PIPE 330 STATUS IS OPEN
 
-      IF SYSTEM CLOCKTIME >= 8 AM AND SYSTEM CLOCKTIME < 6 PM AND TANK 1
-      LEVEL BELOW 12 THEN PUMP 335 STATUS IS OPEN
+  RULE 2
+  IF SYSTEM CLOCKTIME >= 8 AM
+  AND SYSTEM CLOCKTIME < 6 PM
+  AND TANK 1 LEVEL BELOW 12
+  THEN PUMP 335 STATUS IS OPEN
 
-      RULE 3
-
-      IF SYSTEM CLOCKTIME >= 6 PM OR SYSTEM CLOCKTIME < 8 AM AND TANK 1
-      LEVEL BELOW 14 THEN PUMP 335 STATUS IS OPEN
+  RULE 3
+  IF SYSTEM CLOCKTIME >= 6 PM
+  OR SYSTEM CLOCKTIME < 8 AM
+  AND TANK 1 LEVEL BELOW 14
+  THEN PUMP 335 STATUS IS OPEN
 
 
 ---------------------

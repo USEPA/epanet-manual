@@ -1656,37 +1656,25 @@ Relation operators consist of the following:
 
   One line for each valve containing:
 
-    -  ID label of valve
-
-    -  ID of start node
-
-    -  ID of end node
-
-    -  Diameter, inches (mm)
-
-    -  Valve type
-
-    -  Valve setting
-
-    -  Minor loss coefficient
-
+    - ID label of valve
+    - ID of start node
+    - ID of end node
+    - Diameter, inches (mm)
+    - Valve type
+    - Valve setting
+    - Minor loss coefficient
 
 
 **Remarks:**
 
   a. Valve types and settings include:
 
-     Valve Type Setting PRV (pressure reducing valve) Pressure, psi (m)
-
-     PSV (pressure sustaining valve) Pressure, psi (m)
-
-     PBV (pressure breaker valve) Pressure, psi (m)
-
-     FCV (flow control valve) Flow (flow units)
-
-     TCV (throttle control valve) Loss Coefficient
-
-     GPV (general purpose valve) ID of head loss curve
+    | Valve Type Setting PRV (pressure reducing valve) Pressure, psi (m)
+    | PSV (pressure sustaining valve) Pressure, psi (m)
+    | PBV (pressure breaker valve) Pressure, psi (m)
+    | FCV (flow control valve) Flow (flow units)
+    | TCV (throttle control valve) Loss Coefficient
+    | GPV (general purpose valve) ID of head loss curve
 
   b. Shutoff valves and check valves are considered to be part of a pipe,
      not a separate control valve component (see [PIPES])

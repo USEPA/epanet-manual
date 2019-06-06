@@ -283,35 +283,25 @@ Prolog Section
   |   - 2 = mgd           |                |                       |
   |   - 3 = Imperial mgd  |                |                       |
   |   - 4 = acre-ft/day   |                |                       |
-  |   - 5 = liters/second |                |                       |
-  |   - 6 = liters/minute |                |                       |
-  |   - 7 = megaliters/day|                |                       |
-  |   - 8 = cubic         |                |                       |
-  |   meters/hour         |                |                       |
-  |   - 9 = cubic         |                |                       |
-  |   meters/day          |                |                       |
+  |   - 5 = liter/sec     |                |                       |
+  |   - 6 = liter/min     |                |                       |
+  |   - 7 = megaliter/day |                |                       |
+  |   - 8 = cu meter / hr |                |                       |
+  |   - 9 = cu meter/day  |                |                       |
   +-----------------------+----------------+-----------------------+
-  |    Pressure Units     |    Integer     |    4                  |
-  |    Option 0 = psi     |                |                       |
+  | Pressure Units Option |    Integer     |    4                  |
   |                       |                |                       |
-  |    1 = meters         |                |                       |
-  |                       |                |                       |
-  |    2 = kPa            |                |                       |
+  |   - 0 = psi           |                |                       |
+  |   - 1 = meters        |                |                       |
+  |   - 2 = kPa           |                |                       |
   +-----------------------+----------------+-----------------------+
   | Statistics Flag       |    Integer     |    4                  |
   |                       |                |                       |
-  |    0 = no statistical |                |                       |
-  |    processing 1 =     |                |                       |
-  |    results are        |                |                       |
-  |    time-averaged      |                |                       |
-  |                       |                |                       |
-  |    2 = only minimum   |                |                       |
-  |    values reported    |                |                       |
-  |                       |                |                       |
-  |    3 = only maximum   |                |                       |
-  |    values reported 4  |                |                       |
-  |    = only ranges      |                |                       |
-  |    reported           |                |                       |
+  |   - 0 = no statistics |                |                       |
+  |   - 1 = time-averaged |                |                       |
+  |   - 2 = minimums      |                |                       |
+  |   - 3 = maximums      |                |                       |
+  |   - 4 = ranges        |                |                       |
   +-----------------------+----------------+-----------------------+
   | Reporting Start Time  |    Integer     |    4                  |
   | (seconds)             |                |                       |
@@ -346,29 +336,22 @@ Prolog Section
   +-----------------------+----------------+-----------------------+
   | Index of Start Node   |    Integer     |    4*Nlinks           |
   | of Each Link          |                |                       |
-  +-----------------------+------------ ---+-----------------------+
+  +-----------------------+----------------+-----------------------+
   | Index of End Node of  |    Integer     |    4*Nlinks           |
   | Each Link             |                |                       |
   +-----------------------+----------------+-----------------------+
-  |    Type Code of Each  |    Integer     |    4*Nlinks           |
-  |    Link 0 = Pipe with |                |                       |
-  |    CV                 |                |                       |
+  | Type Code of Each     |    Integer     |    4*Nlinks           |
+  |    Link               |                |                       |
   |                       |                |                       |
-  |    1 = Pipe           |                |                       |
-  |                       |                |                       |
-  |    2 = Pump           |                |                       |
-  |                       |                |                       |
-  |    3 = PRV            |                |                       |
-  |                       |                |                       |
-  |    4 = PSV            |                |                       |
-  |                       |                |                       |
-  |    5 = PBV            |                |                       |
-  |                       |                |                       |
-  |    6 = FCV            |                |                       |
-  |                       |                |                       |
-  |    7 = TCV            |                |                       |
-  |                       |                |                       |
-  |    8 = GPV            |                |                       |
+  |   - 0 = Pipe with CV  |                |                       |
+  |   - 1 = Pipe          |                |                       |
+  |   - 2 = Pump          |                |                       |
+  |   - 3 = PRV           |                |                       |
+  |   - 4 = PSV           |                |                       |
+  |   - 5 = PBV           |                |                       |
+  |   - 6 = FCV           |                |                       |
+  |   - 7 = TCV           |                |                       |
+  |   - 8 = GPV           |                |                       |
   +-----------------------+----------------+-----------------------+
   | Node Index of Each    |    Integer     |    4*Ntanks           |
   | Tank                  |                |                       |
@@ -397,38 +380,21 @@ Energy Use Section
   The Energy Use section of the binary output file immediately follows
   the Prolog section. It contains the following data:
 
-  +-----------------------+-----------------------+-----------------------+
-  | **Item**              |    **Type**           |    **Number of        |
-  |                       |                       |    Bytes**            |
-  +=======================+=======================+=======================+
-  | Repeated for each     |                       |                       |
-  | pump:                 |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
-  | -  Pump Index in List |    Float              |    4                  |
-  |    of Links           |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
-  | -  Pump Utilization   |    Float              |    4                  |
-  |    (%)                |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
-  | -  Average Efficiency |    Float Float        |    4                  |
-  |    (%)                |                       |                       |
-  |                       |                       |    4                  |
-  | -  Average            |                       |                       |
-  |    Kwatts/Million     |                       |                       |
-  |    Gallons            |                       |                       |
-  |    (/Meter:sup:`3`)   |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
-  | -  Average Kwatts     |    Float              |    4                  |
-  +-----------------------+-----------------------+-----------------------+
-  | -  Peak Kwatts        |    Float              |    4                  |
-  +-----------------------+-----------------------+-----------------------+
-  | -  Average Cost Per   |    Float              |    4                  |
-  |    Day                |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
-  | Overall Peak Energy   |    Float              |    4                  |
-  | Usage                 |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
+  ========================================= ======== ===================
+  **Item**                                  **Type** **Number of Bytes**
+  ========================================= ======== ===================
+   Repeated for each pump:
 
+    - Pump Index in List of Links            Float     4
+    - Pump Utilization (%)                   Float     4
+    - Average Efficiency (%)                 Float     4
+    - Average Kwatts/MGal (/meter :sup:`3`)
+    - Average Kwatts                         Float     4
+    - Peak Kwatts                            Float     4
+    - Average Cost Per Day                   Float     4
+
+   Overall Peak Energy Usage                 Float     4
+  ========================================= ======== ===================
 
   The statistics reported in this section refer to the period of time
   between the start of the output reporting period and the end of the
@@ -444,76 +410,53 @@ Extended Period Section
   section). For each reporting period the following values are written
   to the file:
 
-  +-----------------------+-----------------------+-----------------------+
-  | **Item**              |    **Type**           |    **Size in Bytes**  |
-  +=======================+=======================+=======================+
-  | Demand at Each Node   |    Float              |    4*Nnodes           |
-  +-----------------------+-----------------------+-----------------------+
-  | Hydraulic Head at     |    Float              |    4*Nnodes           |
-  | Each Node             |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
-  | Pressure at Each Node |    Float              |    4*Nnodes           |
-  +-----------------------+-----------------------+-----------------------+
-  | Water Quality at Each |    Float              |    4*Nnodes           |
-  | Node                  |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
-  | Flow in Each Link     |    Float              |    4*Nlinks           |
-  |                       |                       |                       |
-  | (negative for reverse |                       |                       |
-  | flow)                 |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
-  | Velocity in Each Link |    Float              |    4*Nlinks           |
-  +-----------------------+-----------------------+-----------------------+
-  | Headloss per 1000     |    Float              |    4*Nlinks           |
-  | Units of Length for   |                       |                       |
-  | Each Link (Negative   |                       |                       |
-  | of head gain for      |                       |                       |
-  | pumps and total head  |                       |                       |
-  |                       |                       |                       |
-  | loss for valves)      |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
-  | Average Water Quality |    Float              |    4*Nlinks           |
-  | in Each Link          |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
-  | Status Code for Each  |    Float              |    4*Nlinks           |
-  | Link                  |                       |                       |
-  |                       |                       |                       |
-  |    0 = closed (max.   |                       |                       |
-  |    head exceeded) 1 = |                       |                       |
-  |    temporarily closed |                       |                       |
-  |                       |                       |                       |
-  |    2 = closed         |                       |                       |
-  |                       |                       |                       |
-  |    3 = open           |                       |                       |
-  |                       |                       |                       |
-  |    4 = active         |                       |                       |
-  |    (partially open)   |                       |                       |
-  |                       |                       |                       |
-  |    5 = open (max.     |                       |                       |
-  |    flow exceeded) 6 = |                       |                       |
-  |    open (flow setting |                       |                       |
-  |    not met)           |                       |                       |
-  |                       |                       |                       |
-  |    7 = open (pressure |                       |                       |
-  |    setting not met)   |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
-  | Setting for Each      |    Float              |    4*Nlinks           |
-  | Link:                 |                       |                       |
-  |                       |                       |                       |
-  |    Roughness          |                       |                       |
-  |    Coefficient for    |                       |                       |
-  |    Pipes Speed for    |                       |                       |
-  |    Pumps              |                       |                       |
-  |                       |                       |                       |
-  |    Setting for Valves |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
-  | Reaction Rate for     |    Float              |    4*Nlinks           |
-  | Each Link             |                       |                       |
-  | (mass/L/day)          |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
-  | Friction Factor for   |    Float              |    4*Nlinks           |
-  | Each Link             |                       |                       |
-  +-----------------------+-----------------------+-----------------------+
+  +------------------------------------+----------------+-------------------+
+  | **Item**                           |    **Type**    | **Size in Bytes** |
+  +====================================+================+===================+
+  | Demand at Each Node                |    Float       |    4*Nnodes       |
+  +------------------------------------+----------------+-------------------+
+  | Hydraulic Head at Each Node        |    Float       |    4*Nnodes       |
+  +------------------------------------+----------------+-------------------+
+  | Pressure at Each Node              |    Float       |    4*Nnodes       |
+  +------------------------------------+----------------+-------------------+
+  | Water Quality at Each Node         |    Float       |    4*Nnodes       |
+  +------------------------------------+----------------+-------------------+
+  | Flow in Each Link                  |    Float       |    4*Nlinks       |
+  | (negative for reverse flow)        |                |                   |
+  +------------------------------------+----------------+-------------------+
+  | Velocity in Each Link              |    Float       |    4*Nlinks       |
+  +------------------------------------+----------------+-------------------+
+  | Headloss per 1000 Units of Length  |    Float       |    4*Nlinks       |
+  | for Each Link (Negative of head    |                |                   |
+  | gain for pumps and total head loss |                |                   |
+  | for valves)                        |                |                   |
+  +------------------------------------+----------------+-------------------+
+  | Average Water Quality              |    Float       |    4*Nlinks       |
+  | in Each Link                       |                |                   |
+  +------------------------------------+----------------+-------------------+
+  | Status Code for Each Link          |    Float       |    4*Nlinks       |
+  |                                    |                |                   |
+  |  - 0 = closed (max head exceeded)  |                |                   |
+  |  - 1 = temporarily closed          |                |                   |
+  |  - 2 = closed                      |                |                   |
+  |  - 3 = open                        |                |                   |
+  |  - 4 = active (partially open)     |                |                   |
+  |  - 5 = open (max flow exceeded)    |                |                   |
+  |  - 6 = open (flow setting not met) |                |                   |
+  |  - 7 = open (press setting not met)|                |                   |
+  +------------------------------------+----------------+-------------------+
+  | Setting for Each Link:             |    Float       |    4*Nlinks       |
+  |                                    |                |                   |
+  |  - Roughness Coefficient for Pipes |                |                   |
+  |  - Speed for pumps                 |                |                   |
+  |  - Setting for Valves              |                |                   |
+  +------------------------------------+----------------+-------------------+
+  | Reaction Rate for Each Link        |    Float       |    4*Nlinks       |
+  | (mass/L/day)                       |                |                   |
+  +------------------------------------+----------------+-------------------+
+  | Friction Factor for Each Link      |    Float       |    4*Nlinks       |
+  | Each Link                          |                |                   |
+  +------------------------------------+----------------+-------------------+
 
 
 

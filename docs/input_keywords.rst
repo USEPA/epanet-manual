@@ -1525,86 +1525,80 @@ Relation operators consist of the following:
 [TIMES]
 -------
 
- **Purpose:**
+**Purpose:**
 
-   Defines various time step parameters used in the simulation.
+  Defines various time step parameters used in the simulation.
 
- **Formats:**
+**Formats:**
 
-   **DURATION**           Value (units)
+  ====================== ====================
+  **DURATION**           Value (units)
+  **HYDRAULIC TIMESTEP** Value (units)
+  **QUALITY TIMESTEP**   Value (units)
+  **RULE TIMESTEP**      Value (units)
+  **PATTERN TIMESTEP**   Value (units)
+  **PATTERN START**      Value (units)
+  **REPORT TIMESTEP**    Value (units)
+  **REPORT START**       Value (units)
+  **START CLOCKTIME**    Value (AM/PM)
+  **STATISTIC**          **NONE/AVERAGED/**
+                         **MINIMUM/MAXIMUM/**
+                         **RANGE**
+  ====================== ====================
 
-   **HYDRAULIC TIMESTEP** Value (units)
+**Definitions:**
 
-   **QUALITY TIMESTEP**   Value (units)
+  DURATION
+    is the duration of the simulation. Use 0 to run a single
+    period snapshot analysis. The default is 0.
 
-   **RULE TIMESTEP**      Value (units)
+  HYDRAULIC TIMESTEP
+    determines how often a new hydraulic state of
+    the network is computed. If greater than either the **PATTERN** or
+    **REPORT** time step it will be automatically reduced. The default is
+    1 hour.
 
-   **PATTERN TIMESTEP**   Value (units)
+  QUALITY TIMESTEP
+    is the time step used to track changes in water
+    quality throughout the network. The default is 1/10 of the hydraulic
+    time step.
 
-   **PATTERN START**      Value (units)
+  RULE TIMESTEP
+    is the time step used to check for changes in
+    system status due to activation of rule-based controls between
+    hydraulic time steps. The default is 1/10 of the hydraulic time step.
 
-   **REPORT TIMESTEP**    Value (units)
+  PATTERN TIMESTEP
+    is the interval between time periods in all time
+    patterns. The default is 1 hour.
 
-   **REPORT START**       Value (units)
+  PATTERN START
+    is the time offset at which all patterns will
+    start. For example, a value of 6 hours would start the simulation
+    with each pattern in the time period that corresponds to hour 6. The
+    default is 0.
 
-   **START CLOCKTIME**    Value (AM/PM)
+  REPORT TIMESTEP
+    sets the time interval between which output
+    results are reported. The default is 1 hour.
 
-   **STATISTIC**           **NONE/AVERAGED/ MINIMUM/MAXIMUM RANGE**
+  REPORT START
+    is the length of time into the simulation at which
+    output results begin to be reported. The default is 0.
 
+  START CLOCKTIME
+    is the time of day (e.g., 3:00 PM) at which the
+    simulation begins. The default is 12:00 AM midnight.
 
- **Definitions:**
+  STATISTIC
+    determines what kind of statistical post-processing should be done on the
+    time series of simulation results generated. **AVERAGED** reports a set
+    of time-averaged results, **MINIMUM** reports only the minimum values,
+    **MAXIMUM** the maximum values, and **RANGE** reports the difference
+    between the minimum and maximum values. **NONE** reports the full time
+    series for all quantities for all nodes and links and is the default.
 
-   DURATION
-     is the duration of the simulation. Use 0 to run a single
-     period snapshot analysis. The default is 0.
-
-   HYDRAULIC TIMESTEP
-     determines how often a new hydraulic state of
-     the network is computed. If greater than either the **PATTERN** or
-     **REPORT** time step it will be automatically reduced. The default is
-     1 hour.
-
-   QUALITY TIMESTEP
-     is the time step used to track changes in water
-     quality throughout the network. The default is 1/10 of the hydraulic
-     time step.
-
-   RULE TIMESTEP
-     is the time step used to check for changes in
-     system status due to activation of rule-based controls between
-     hydraulic time steps. The default is 1/10 of the hydraulic time step.
-
-   PATTERN TIMESTEP
-     is the interval between time periods in all time
-     patterns. The default is 1 hour.
-
-   PATTERN START
-     is the time offset at which all patterns will
-     start. For example, a value of 6 hours would start the simulation
-     with each pattern in the time period that corresponds to hour 6. The
-     default is 0.
-
-   REPORT TIMESTEP
-     sets the time interval between which output
-     results are reported. The default is 1 hour.
-
-   REPORT START
-     is the length of time into the simulation at which
-     output results begin to be reported. The default is 0.
-
-   START CLOCKTIME
-     is the time of day (e.g., 3:00 PM) at which the
-     simulation begins. The default is 12:00 AM midnight.
-
-   STATISTIC
-     determines what kind of statistical post-processing should be done on the
-     time series of simulation results generated. **AVERAGED** reports a set
-     of time-averaged results, **MINIMUM** reports only the minimum values,
-     **MAXIMUM** the maximum values, and **RANGE** reports the difference
-     between the minimum and maximum values. **NONE** reports the full time
-     series for all quantities for all nodes and links and is the default.
-
- **Remarks:**
+**Remarks:**
 
   a. Units can be **SECONDS (SEC), MINUTES (MIN), HOURS**, or **DAYS**.
      The default is hours.
@@ -1617,16 +1611,16 @@ Relation operators consist of the following:
 
 
 
- **Example:**
+**Example:**
 
-  ::
+::
 
-    [TIMES]
-     DURATION 240 HOURS
-     QUALITY TIMESTEP 3 MIN
-     REPORT START 120
-     STATISTIC AVERAGED
-     START CLOCKTIME 6:00 AM
+  [TIMES]
+  DURATION           240 HOURS
+  QUALITY TIMESTEP   3 MIN
+  REPORT START       120
+  STATISTIC          AVERAGED
+  START CLOCKTIME    6:00 AM
 
 
 ---------------------

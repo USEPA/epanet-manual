@@ -924,32 +924,27 @@
 [REPORT]
 --------
 
- **Purpose:**
+**Purpose:**
 
-   Describes the contents of the output report produced from a
-   simulation.
+  Describes the contents of the output report produced from a
+  simulation.
 
- **Formats:**
+**Formats:**
 
- **PAGESIZE** value
+  ============ ========================= ===============
+  **PAGESIZE** value
+  **FILE**     filename
+  **STATUS**   **YES/NO/FULL**
+  **SUMMARY**  **YES/NO**
+  **ENERGY**   **YES/NO**
+  **NODES**    **NONE/ALL/**             node1 node2 ...
+  **LINKS**    **NONE/ALL/**             link1 link2 ...
+  parameter    **YES/NO**
+  parameter    **BELOW/ABOVE/PRECISION** value
+  ============ ========================= ===============
 
- **FILE** filename
 
- **STATUS YES/NO/FULL**
-
- **SUMMARY YES/NO**
-
- **ENERGY YES/NO**
-
- **NODES NONE/ALL/**\ node1 node2 ...
-
- **LINKS NONE/ALL/**\ link1 link2 ...
-
-   parameter **YES/NO**
-
-   parameter **BELOW/ABOVE/PRECISION** value
-
- **Definitions:**
+**Definitions:**
 
    PAGESIZE
      sets the number of lines written per page of the output
@@ -1034,7 +1029,7 @@
    **Quality** for nodes and **Flow, Velocity**, and **Headloss** for links. The default precision
    is two decimal places.
 
- **Remarks:**
+**Remarks:**
 
   a. All options assume their default values if not explicitly specified
      in this section.
@@ -1050,22 +1045,22 @@
 
 
 
- **Example:**
+**Example:**
 
-   The following example reports on nodes N1, N2, N3, and N17 and all
-   links with velocity above 3.0. The standard node parameters (Demand,
-   Head, Pressure, and Quality) are reported on while only Flow,
-   Velocity, and F-Factor (friction factor) are displayed for links.
+  The following example reports on nodes N1, N2, N3, and N17 and all
+  links with velocity above 3.0. The standard node parameters (Demand,
+  Head, Pressure, and Quality) are reported on while only Flow,
+  Velocity, and F-Factor (friction factor) are displayed for links.
 
-    ::
+::
 
-      [REPORT]
-      NODES N1 N2 N3 N17
-      LINKS ALL
-      FLOW YES
-      VELOCITY PRECISION 4
-      F-FACTOR PRECISION 4
-      VELOCITY ABOVE 3.0
+  [REPORT]
+  NODES N1 N2 N3 N17
+  LINKS ALL
+  FLOW YES
+  VELOCITY PRECISION 4
+  F-FACTOR PRECISION 4
+  VELOCITY ABOVE 3.0
 
 
 ---------------------

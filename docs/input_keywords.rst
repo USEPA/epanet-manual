@@ -946,88 +946,72 @@
 
 **Definitions:**
 
-   PAGESIZE
-     sets the number of lines written per page of the output
-     report. The default is 0, meaning that no line limit per page is in
-     effect.
+  PAGESIZE
+    sets the number of lines written per page of the output
+    report. The default is 0, meaning that no line limit per page is in
+    effect.
 
-   FILE
-     supplies the name of a file to which the output report will
-     be written (ignored by the Windows version of EPANET).
+  FILE
+    supplies the name of a file to which the output report will
+    be written (ignored by the Windows version of EPANET).
 
-   STATUS
-     determines whether a hydraulic status report should be
-     generated. If **YES** is selected the report will identify all
-     network components that change status during each time step of the
-     simulation. If **FULL** is selected, then the status report will also
-     include information from each trial of each hydraulic analysis. This
-     level of detail is only useful for de-bugging networks that become
-     hydraulically unbalanced. The default is **NO**.
+  STATUS
+    determines whether a hydraulic status report should be
+    generated. If **YES** is selected the report will identify all
+    network components that change status during each time step of the
+    simulation. If **FULL** is selected, then the status report will also
+    include information from each trial of each hydraulic analysis. This
+    level of detail is only useful for de-bugging networks that become
+    hydraulically unbalanced. The default is **NO**.
 
-   SUMMARY
-     determines whether a summary table of number of network
-     components and key analysis options is generated. The default is
-     **YES**.
+  SUMMARY
+    determines whether a summary table of number of network
+    components and key analysis options is generated. The default is
+    **YES**.
 
-   ENERGY
-     determines if a table reporting average energy usage and
-     cost for each pump is provided. The default is NO.
+  ENERGY
+    determines if a table reporting average energy usage and
+    cost for each pump is provided. The default is NO.
 
-   NODES
-     identifies which nodes will be reported on. You can either
-     list individual node ID labels or use the keywords **NONE** or
-     **ALL**. Additional **NODES** lines can be used to continue the list.
-     The default is **NONE**.
+  NODES
+    identifies which nodes will be reported on. You can either
+    list individual node ID labels or use the keywords **NONE** or
+    **ALL**. Additional **NODES** lines can be used to continue the list.
+    The default is **NONE**.
 
-   LINKS
-     identifies which links will be reported on. You can either
-     list individual link ID labels or use the keywords **NONE** or
-     **ALL**. Additional **LINKS** lines can be used to continue the list.
-     The default is **NONE**.
+  LINKS
+    identifies which links will be reported on. You can either
+    list individual link ID labels or use the keywords **NONE** or
+    **ALL**. Additional **LINKS** lines can be used to continue the list.
+    The default is **NONE**.
 
-   The “parameter” reporting option is used to identify which quantities
-   are reported on, how many decimal places are displayed, and what kind
-   of filtering should be used to limit output reporting. Node
-   parameters that can be reported on include:
+  The “parameter” reporting option is used to identify which quantities
+  are reported on, how many decimal places are displayed, and what kind
+  of filtering should be used to limit output reporting. Node
+  parameters that can be reported on include:
 
-    -  **Elevation**
+    - **Elevation**
+    - **Demand**
+    - **Head**
+    - **Pressure**
+    - **Quality.**
 
-    -  **Demand**
+  Link parameters include:
 
-    -  **Head**
-
-    -  **Pressure**
-
-    -  **Quality.**
-
-
-
-   Link parameters include:
-
-    -  **Length**
-
-    -  **Diameter**
-
-    -  **Flow**
-
-    -  **Velocity**
-
-    -  **Headloss**
-
-    -  **Position** (same as status – open, active, closed)
-
-    -  **Setting** (Roughness for pipes, speed for pumps, pressure/flow
-       setting for valves)
-
-    -  **Reaction** (reaction rate)
-
-    -  **F-Factor** (friction factor).
+    - **Length**
+    - **Diameter**
+    - **Flow**
+    - **Velocity**
+    - **Headloss**
+    - **Position** (same as status – open, active, closed)
+    - **Setting** (Roughness for pipes, speed for pumps, pressure/flow setting for valves)
+    - **Reaction** (reaction rate)
+    - **F-Factor** (friction factor).
 
 
-
-   The default quantities reported are **Demand, Head, Pressure**, and
-   **Quality** for nodes and **Flow, Velocity**, and **Headloss** for links. The default precision
-   is two decimal places.
+  The default quantities reported are **Demand, Head, Pressure**, and
+  **Quality** for nodes and **Flow, Velocity**, and **Headloss** for links. The default precision
+  is two decimal places.
 
 **Remarks:**
 
@@ -1042,7 +1026,6 @@
 
   d. For the Windows version of EPANET, the only [REPORT] option
      recognized is **STATUS**. All others are ignored.
-
 
 
 **Example:**

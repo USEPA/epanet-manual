@@ -1716,8 +1716,8 @@ Relation operators consist of the following:
 
 ::
 
-  [COORDINATES]
-  ;Node      X-Coord.     Y-Coord
+  [VERTICES]
+  ;Link      X-Coord.     Y-Coord
   ;-------------------------------
-  1           10023        128
-  2           10056        95
+   1          10023       128
+   2          10056       95

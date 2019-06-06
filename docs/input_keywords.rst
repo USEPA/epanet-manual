@@ -1426,23 +1426,20 @@ Relation operators consist of the following:
 [TAGS]
 ------
 
- **Purpose:**
+**Purpose:**
 
-   Associates category labels (tags) with specific nodes and links.
+  Associates category labels (tags) with specific nodes and links.
 
- **Format:**
+**Format:**
 
-   One line for each node and link with a tag containing
+  One line for each node and link with a tag containing
 
-    -  the keyword NODE or LINK
-
-    -  the node or link ID label
-
-    -  the text of the tag label (with no spaces)
+    - the keyword NODE or LINK
+    - the node or link ID label
+    - the text of the tag label (with no spaces)
 
 
-
- **Remarks:**
+**Remarks:**
 
   a. Tags can be useful for assigning nodes to different pressure zones or
      for classifying pipes by material or age.
@@ -1455,19 +1452,18 @@ Relation operators consist of the following:
 
 
 
- **Example:**
+**Example:**
 
+::
 
-    ::
-
-      [TAGS]
-      ;Object ID Tag
-      ;------------------------------
-      NODE 1001 Zone_A
-      NODE 1002 Zone_A
-      NODE 45 Zone_B
-      LINK 201 UNCI-1960
-      LINK 202 PVC-1985
+  [TAGS]
+  ;Object  ID       Tag
+  ;------------------------------
+   NODE    1001     Zone_A
+   NODE    1002     Zone_A
+   NODE    45       Zone_B
+   LINK    201      UNCI-1960
+   LINK    202      PVC-1985
 
 
 ---------------------

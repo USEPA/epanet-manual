@@ -1371,22 +1371,20 @@ Relation operators consist of the following:
 [STATUS]
 --------
 
- **Purpose:**
+**Purpose:**
 
-   Defines initial status of selected links at the start of a
-   simulation.
+  Defines initial status of selected links at the start of a
+  simulation.
 
- **Format:**
+**Format:**
 
-   One line per link being controlled containing:
+  One line per link being controlled containing:
 
-    -  Link ID label
-
-    -  Status or setting
-
+    - Link ID label
+    - Status or setting
 
 
- **Remarks:**
+**Remarks:**
 
   a. Links not listed in this section have a default status of **OPEN**
      (for pipes and pumps) or **ACTIVE** (for valves).
@@ -1409,21 +1407,17 @@ Relation operators consist of the following:
      again, then its pressure or flow setting must be specified in the
      control or rule that re-activates it.
 
- **Example:**
+**Example:**
 
-    ::
+::
 
-      [STATUS]
-
-      ; Link Status/Setting
-
-      ;----------------------
-
-      L22 CLOSED ;Link L22 is closed P14 1.5 ;Speed for pump P14
-
-      PRV1 OPEN ;PRV1 forced open
-
-      ;(overrides normal operation)
+  [STATUS]
+  ; Link   Status/Setting
+  ;----------------------
+    L22     CLOSED         ;Link L22 is closed
+    P14     1.5            ;Speed for pump P14
+    PRV1    OPEN           ;PRV1 forced open
+                           ;(overrides normal operation)
 
 
 ---------------------

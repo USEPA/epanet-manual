@@ -398,8 +398,8 @@ Water Quality
   kinetics. The following phenomena are represented (Rossman et al.,
   1993; Rossman and Boulos, 1996):
 
-Advective Transport in Pipes
------------------------------
+**Advective Transport in Pipes**
+
 
   A dissolved substance will travel down the length of a pipe with the
   same average velocity as the carrier fluid while at the same time
@@ -415,36 +415,36 @@ Advective Transport in Pipes
 
      \frac{ \partial {C}_{i}} {\partial t} = - u_{i} \frac{\partial{C}_{i}}{\partial x} + r({C}_{i})
 
-  where *C\ i* = concentration (mass/volume) in pipe i as a function of
-  distance x and time t, *u\ i* = flow velocity (length/time) in pipe
-  i, and *r* = rate of reaction (mass/volume/time) as a function of
-  concentration.
+  where :math:`C_i` = concentration (mass/volume) in pipe :math:`i` as a
+  function of distance :math:`x` and time :math:`t`, :math:`u_i` = flow
+  velocity (length/time) in pipe :math:`i`, and :math:`r` = rate of reaction
+  (mass/volume/time) as a function of concentration.
 
-Mixing at Pipe Junctions
--------------------------
+
+**Mixing at Pipe Junctions**
 
   At junctions receiving inflow from two or more pipes, the mixing of
   fluid is taken to be complete and instantaneous. Thus the
   concentration of a substance in water leaving the junction is simply
   the flow-weighted sum of the concentrations from the inflowing pipes.
-  For a specific node k one can write:
+  For a specific node :math:`k` one can write:
 
   .. math::
      :label: eq:nodal_mixing
 
      C_{i|x=0} = \frac{\sum_{ j \in I_k} Q_{j} C_{j|x= L_j}+Q_{k,ext} C_{k,ext}} {\sum_{j \in I_k} Q_j + Q_{k,ext}}
 
-  where i = link with flow leaving node k, *I\ k* = set of links with
-  flow into k, *L\ j* = length of link j, *Q\ j* = flow (volume/time)
-  in link j, *Q\ k,ext* = external source flow entering the network at
-  node k, and *C\ k,ext* = concentration of the external flow entering
-  at node k. The notation *C\ i|x=0* represents the concentration at
-  the start of link i, while *C\ i|x=L* is the concentration at the end
-  of the link.
+  where :math:`i` = link with flow leaving node :math:`k`, :math:`I_k` = set
+  of links with flow into :math:`k`, :math:`L_j` = length of link :math:`j`,
+  :math:`Q_j` = flow (volume/time) in link :math:`j`, :math:`Q_k,ext` =
+  external source flow entering the network at node :math:`k`, and
+  :math:`C_k,ext` = concentration of the external flow entering at node
+  :math:`k`. The notation :math:`C_i|x=0` represents the concentration at
+  the start of link :math:`i`, while :math:`C_i|x=L` is the concentration
+  at the end of the link.
 
 
-Mixing in Storage Facilities
------------------------------
+**Mixing in Storage Facilities**
 
   It is convenient to assume that the contents of storage facilities
   (tanks and reservoirs) are completely mixed. This is a reasonable
@@ -461,42 +461,42 @@ Mixing in Storage Facilities
 
      \frac{\partial ({V}_{s} {C}_{s}) }{\partial t} = \sum_{i \in I_{s}} {Q}_{i}{C}_{i | x={L}_{i}} - \sum_{j \in O_{s}} {Q}_{j}{C}_{s} + r({C}_{s})
 
-  where *V\ s* = volume in storage at time t, *C\ s* = concentration
-  within the storage facility, *I\ s* = set of links providing flow
-  into the facility, and *O\ s* = set of links withdrawing flow from
-  the facility.
+  where :math:`V_s` = volume in storage at time :math:`t`, :math:`C_s` =
+  concentration within the storage facility, :math:`I_s` = set of links
+  providing flow into the facility, and :math:`O_s` = set of links withdrawing
+  flow from the facility.
 
 
-Bulk Flow Reactions
----------------------
+**Bulk Flow Reactions**
 
   While a substance moves down a pipe or resides in storage it can
   undergo reaction with constituents in the water column. The rate of
-  reaction can generally be described as a power function of
-  concentration:
+  reaction can generally be described as a power function of concentration:
 
   .. math::
      r = k{ C}^{n }
 
-
-  where *k* = a reaction constant and *n* = the reaction order. When a
-  limiting concentration exists on the ultimate growth or loss of a
+  where :math:`k` = a reaction constant and :math:`n` = the reaction order.
+  When a limiting concentration exists on the ultimate growth or loss of a
   substance then the rate expression becomes
 
   .. math::
-     R = {K}_{b} ({C}_{L}-C) {C}^{n-1}
+     \begin{gathered}
+       R = {K}_{b} ({C}_{L}-C) {C}^{n-1} \\
+       \mathit{for\ n > 0, K_b > 0}
+     \end{gathered}
 
   .. math::
-     R = {K}_{b} (C - {C}_{L} ) {C}^{n - 1}
+     \begin{gathered}
+       R = {K}_{b} (C - {C}_{L} ) {C}^{n - 1} \\
+       \mathit{for\ n > 0, K_b < 0}
+     \end{gathered}
 
-
-  for *n* > 0, *K\ b* > 0 for *n* > 0, *K\ b* < 0
-
-  where *C\ L* = the limiting concentration.
+  where :math:`C_L` = the limiting concentration.
 
   Some examples of different reaction rate expressions are:
 
-    -  *Simple First-Order Decay (CL = 0, K\ b < 0, n = 1)*
+    - *Simple First-Order Decay* (:math:`C_L = 0, K_b < 0, n = 1`):
 
        .. math::
           R = {K}^{b}C
@@ -504,29 +504,29 @@ Bulk Flow Reactions
        The decay of many substances, such as chlorine, can be modeled
        adequately as a simple first-order reaction.
 
-    -  *First-Order Saturation Growth (CL > 0, K\ b > 0, n = 1):*
+    - *First-Order Saturation Growth* (:math:`C_L > 0, K_b > 0, n = 1`):
 
        .. math::
           R = {K}_{b} ( {C}_{L} - C )
 
        This model can be applied to the growth of disinfection by-products,
        such as trihalomethanes, where the ultimate formation of by-product
-       (*C\ L*) is limited by the amount of reactive precursor present.
+       (:math:`C_L`) is limited by the amount of reactive precursor present.
 
-    -  *Two-Component, Second Order Decay (CL* \neq *0, K\ b < 0, n = 2):*
+    - *Two-Component, Second Order Decay* (:math:`C_L \neq 0, K_b < 0, n = 2`):
 
        .. math::
-          R = {K}_{b}C   ( {C}_{L} - C )
+          R = {K}_{b} C({C}_{L} - C)
 
        This model assumes that substance A reacts with substance B in some
        unknown ratio to produce a product P. The rate of disappearance of A
-       is proportional to the product of A and B remaining. *C\ L* can be
+       is proportional to the product of A and B remaining. :math:`C_L` can be
        either positive or negative, depending on whether either component A
        or B is in excess, respectively. Clark (1998) has had success in
        applying this model to chlorine decay data that did not conform to
        the simple first-order model.
 
-    -  *Michaelis-Menton Decay Kinetics (CL > 0, K\ b < 0, n < 0):*
+    - *Michaelis-Menton Decay Kinetics* (:math:`C_L > 0, K_b < 0, n < 0`):
 
        .. math::
           R = \frac{{K}_{b}C} {{C}_{L} - C}
@@ -534,32 +534,35 @@ Bulk Flow Reactions
        As a special case, when a negative reaction order *n* is specified,
        EPANET will utilize the Michaelis-Menton rate equation, shown above
        for a decay reaction. (For growth reactions the denominator becomes
-       *C\ L + C*.) This rate equation is often used to describe
+       :math:`C_L + C`.) This rate equation is often used to describe
        enzyme-catalyzed reactions and microbial growth. It produces first-
        order behavior at low concentrations and zero-order behavior at
-       higher concentrations. Note that for decay reactions, *C\ L* must be
-       set higher than the initial concentration present.
+       higher concentrations. Note that for decay reactions, :math:`C_L` must
+       be set higher than the initial concentration present.
 
        Koechling (1998) has applied Michaelis-Menton kinetics to model
        chlorine decay in a number of different waters and found that both
-       *K\ b* and *C\ L* could be related to the water’s organic content and
-       its ultraviolet absorbance as follows:
+       :math:`K_b` and :math:`C_L` could be related to the water’s organic
+       content and its ultraviolet absorbance as follows:
 
        .. math::
-          {K}_{b} = -0.32UV{ A}^{1.365 }\frac{( 100UVA )} {DOC}
+          {K}_{b} = -0.32\ UVA^{1.365 }\frac{( 100\ UVA )} {DOC}
 
        .. math::
-          {C}_{L} = 4.98 UVA - 1.91 DOC
+          {C}_{L} = 4.98\ UVA - 1.91\ DOC
 
 
-       where UVA = ultraviolet absorbance at 254 nm (1/cm) and DOC =
-       dissolved organic carbon concentration (mg/L).
+       where :math:`UVA` = ultraviolet absorbance at 254 nm (1/cm) and
+       :math:`DOC` = dissolved organic carbon concentration (mg/L).
 
        Note: These expressions apply only for values of :math:`K_b` and
        :math:`C_L` used with Michaelis-Menton kinetics.
 
 
-    -  *Zero-Order growth (CL = 0, K\ b = 1, n = 0) R = 1.0*
+    -  *Zero-Order growth* (:math:`C_L = 0, K_b = 1, n = 0`)
+
+       .. math::
+          R = 1.0
 
        This special case can be used to model water age, where with each
        unit of time the “concentration” (i.e., age) increases by one unit.
@@ -572,11 +575,11 @@ Bulk Flow Reactions
           {K}_{b2}={K}_{b1}{\theta}^{T2 - T1}
 
        where :math:`\theta` is a constant. In one investigation for chlorine,
-       :math:`\theta` was estimated to be 1.1 when T1 was 20 deg. C
+       :math:`\theta` was estimated to be 1.1 when :math:`T1` was 20 deg. C
        (Koechling, 1998).
 
-Pipe Wall Reactions
---------------------
+
+**Pipe Wall Reactions**
 
   While flowing through pipes, dissolved substances can be transported
   to the pipe wall and react with material such as corrosion products
@@ -591,35 +594,34 @@ Pipe Wall Reactions
   order kinetics, the rate of a pipe wall reaction can be expressed as:
 
   .. math::
-     r = \frac{ 2{ k}_{w }{ k}_{f }C} {R   ( { k}_{w }+{ k}_{f }   ) }
+     r = \frac{ 2 k_w k_f C } { R (k_w + k_f) }
 
-
-  where *k\ w* = wall reaction rate constant (length/time), *k\ f* =
-  mass transfer coefficient (length/time), and R = pipe radius. For
-  zero-order kinetics the reaction rate cannot be any higher than the
-  rate of mass transfer, so
+  where :math:`k_w` = wall reaction rate constant (length/time),
+  :math:`k_f` = mass transfer coefficient (length/time), and :math:`R` = pipe
+  radius. For zero-order kinetics the reaction rate cannot be any higher
+  than the rate of mass transfer, so
 
   .. math::
-     r = MIN ( { k}_{w },{ k}_{f }C   )   ( 2/R   )
+     r = \min ( k_w, k_f C) ( 2/R )
 
-  where *k\ w* now has units of mass/area/time.
+  where :math:`k_w` now has units of mass/area/time.
 
   Mass transfer coefficients are usually expressed in terms of a
-  dimensionless Sherwood number (*Sh*):
+  dimensionless Sherwood number (:math:`Sh`):
 
   .. math::
-     {k}_{f} = Sh \frac{D} {d}
+     {k}_{f} = Sh \frac{D}{d}
 
-  in which *D* = the molecular diffusivity of the species being
-  transported (length:sup:`2`/time) and *d* = pipe diameter. In fully
-  developed laminar flow, the average Sherwood number along the length
+  in which :math:`D` = the molecular diffusivity of the species being
+  transported (length :sup:`2` /time) and :math:`d` = pipe diameter. In
+  fully developed laminar flow, the average Sherwood number along the length
   of a pipe can be expressed as
 
   .. math::
-     Sh = 3.65 + \frac{0.0668 ( d/L )ReSc} {1 + 0.04{ [ ( d/L )ReSc ]}^{2/3}}
+     Sh = 3.65 + \frac{0.0668 ( d/L )Re\ Sc} {1 + 0.04{ [ ( d/L )Re\ Sc ]}^{2/3}}
 
-  in which *Re* = Reynolds number and *Sc* = Schmidt number (kinematic
-  viscosity of water divided by the diffusivity of the chemical)
+  in which :math:`Re` = Reynolds number and :math:`Sc` = Schmidt number
+  (kinematic viscosity of water divided by the diffusivity of the chemical)
   (Edwards et.al, 1976). For turbulent flow the empirical correlation
   of Notter and Sleicher (1971) can be used:
 
@@ -627,28 +629,28 @@ Pipe Wall Reactions
      Sh = 0.0149{Re}^{0.88}{Sc}^{1/3}
 
 
-System of Equations
---------------------
+**System of Equations**
 
   When applied to a network as a whole, Equations D.5-D.7 represent a
   coupled set of differential/algebraic equations with time-varying
-  coefficients that must be solved for *C\ i* in each pipe i and *C\ s*
-  in each storage facility s. This solution is subject to the following
-  set of externally imposed conditions:
+  coefficients that must be solved for :math:`C_i` in each pipe :math:`i`
+  and :math:`C_s` in each storage facility :math:`s`. This solution is
+  subject to the following set of externally imposed conditions:
 
-  -  initial conditions that specify *C\ i* for all x in each pipe i and
-     *C\ s* in each storage facility s at time 0,
+  - initial conditions that specify :math:`C_i` for all :math:`x` in each
+    pipe :math:`i` and :math:`C_s` in each storage facility :math:`s` at
+    time 0,
 
-  -  boundary conditions that specify values for *C\ k,ext* and *Q\ k,ext*
-     for all time t at each node k which has external mass inputs
+  - boundary conditions that specify values for :math:`C_k,ext` and
+    :math:`Q_k,ext` for all time :math:`t` at each node :math:`k` which
+    has external mass inputs
 
-  -  hydraulic conditions which specify the volume *V\ s* in each storage
-     facility s and the flow *Q\ i* in each link i at all times t.
+  - hydraulic conditions which specify the volume :math:`V_s` in each
+    storage facility :math:`s` and the flow :math:`Q_i` in each link
+    :math:`i` at all times :math:`t`.
 
 
-
-Lagrangian Transport Algorithm
-----------------------------------
+**Lagrangian Transport Algorithm**
 
   EPANET’s water quality simulator uses a Lagrangian time-based
   approach to track the fate of discrete parcels of water as they move

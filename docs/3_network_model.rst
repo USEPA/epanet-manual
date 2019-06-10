@@ -977,7 +977,6 @@ Water Quality Simulation Model
          R = K_{b} (C_{L} - C) \times C^{(n - 1)} \\
          for\ n > 0, K_{b} > 0
 
-
    .. math::
         R = K_{b} (C - C_{L} ) \times C^{(n - 1)} \\
         for\ n > 0, K_{b} < 0

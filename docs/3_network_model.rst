@@ -549,27 +549,27 @@ Non-Physical Components
 
     **Figure 3.2** Example Pump Curves
 
-   *Single-Point Curve* - A single-point pump curve is defined by a
+   *Single-Point Curve* -- A single-point pump curve is defined by a
    single head-flow combination that represents a pump's desired
    operating point. EPANET adds two more points to the curve by assuming
    a shutoff head at zero flow equal to 133% of the design head and a
    maximum flow at zero head equal to twice the design flow. It then
    treats the curve as a three-point curve.
 
-   *Three-Point Curve* - A three-point pump curve is defined by three
+   *Three-Point Curve* -- A three-point pump curve is defined by three
    operating points: a Low Flow point (flow and head at low or zero flow
    condition), a Design Flow point (flow and head at desired operating
    point), and a Maximum Flow point (flow and head at maximum flow).
    EPANET tries to fit a continuous function of the form
 
    .. math::
-      h_G = A − B \, q^C
+      h_{G} = A - B \, q^{C}
 
    through the three points to define the entire pump curve. In this
    function, :math:`h_{g}` = head gain, :math:`q` = flow rate, and :math:`A`,
    :math:`B`, and :math:`C` are constants.
 
-   *Multi-Point Curve* – A multi-point pump curve is defined by
+   *Multi-Point Curve* -- A multi-point pump curve is defined by
    providing either a pair of head-flow points or four or more such
    points. EPANET creates a complete curve by connecting the points with
    straight-line segments.
@@ -579,9 +579,7 @@ Non-Physical Components
    :math:`N1` and :math:`N2` are
 
    .. math::
-      \begin{eqnarray}
-        \frac{Q_1}{Q_2} = \frac{N_1}{N_2} & \ \ \ \ & \frac{H_1}{H_2} = \left( \frac{N_1}{N_2} \right)^2
-      \end{eqnarray}
+      \frac{Q_1}{Q_2} = \frac{N_1}{N_2} & \ \ \ \ & \frac{H_1}{H_2} = \left( \frac{N_1}{N_2} \right)^2
 
 
 *Efficiency Curve*
@@ -711,23 +709,21 @@ Non-Physical Components
       +--------------------------------------+---------------------------------+
       |    *Control Statement*               |    *Meaning*                    |
       +======================================+=================================+
-      |                                      | | (Close Link 12 when the       |
-      |  LINK 12 CLOSED IF NODE 23 ABOVE 20  |   level in Tank 23              |
-      |                                      | | exceeds 20 ft.)               |
+      |                                      | (Close Link 12 when the         |
+      | LINK 12 CLOSED IF NODE 23 ABOVE 20   | level in Tank 23                |
+      |                                      | exceeds 20 ft.)                 |
       +--------------------------------------+---------------------------------+
-      | LINK 12 OPEN IF NODE 130 BELOW 30    | | (Open Link 12 if the pressure |
-      |                                      |   at Node 130                   |
-      |                                      | | drops below 30 psi)           |
+      | LINK 12 OPEN IF NODE 130 BELOW 30    | (Open Link 12 if the pressure   |
+      |                                      | at Node 130 drops below 30 psi) |
+      |                                      | drops below 30 psi)             |
       +--------------------------------------+---------------------------------+
-      | LINK 12 1.5 AT TIME 16               | | (Set the relative speed of    |
-      |                                      |   pump 12 to 1.5                |
-      |                                      | | at 16 hours into the          |
-      |                                      |   simulation)                   |
+      | LINK 12 1.5 AT TIME 16               | (Set the relative speed of      |
+      |                                      | pump 12 to 1.5 at 16 hours      |
+      |                                      | into the simulation)            |
       +--------------------------------------+---------------------------------+
-      | | LINK 12 CLOSED AT CLOCKTIME 10 AM  | | (Link 12 is repeatedly closed |
-      | | LINK 12 OPEN AT CLOCKTIME 8 PM     |   at 10 AM and                  |
-      |                                      | | opened at 8 PM                |
-      |                                      |   throughout the simulation)    |
+      | | LINK 12 CLOSED AT CLOCKTIME 10 AM  | (Link 12 is repeatedly closed   |
+      | | LINK 12 OPEN AT CLOCKTIME 8 PM     | at 10 AM and opened at 8 PM     |
+      |                                      | throughout the simulation)      |
       +--------------------------------------+---------------------------------+
 
       There is no limit on the number of simple control statements that can
@@ -759,7 +755,6 @@ Non-Physical Components
      ::
 
        RULE 1
-
        IF TANK 1 LEVEL ABOVE 19.1
        THEN PUMP 335 STATUS IS CLOSED
        AND PIPE 330 STATUS IS OPEN
@@ -767,7 +762,6 @@ Non-Physical Components
      ::
 
        RULE 2
-
        IF TANK 1 LEVEL BELOW 17.1
        THEN PUMP 335 STATUS IS OPEN
        AND PIPE 330 STATUS IS CLOSED
@@ -782,7 +776,6 @@ Non-Physical Components
      ::
 
        RULE 3
-
        IF SYSTEM CLOCKTIME >= 8 AM
        AND SYSTEM CLOCKTIME < 6 PM
        AND TANK 1 LEVEL BELOW 12
@@ -791,7 +784,6 @@ Non-Physical Components
      ::
 
        RULE 4
-
        IF SYSTEM CLOCKTIME >= 6 PM
        OR SYSTEM CLOCKTIME < 8 AM
        AND TANK 1 LEVEL BELOW 14
@@ -824,11 +816,8 @@ Hydraulic Simulation Model
    events occurs:
 
     -  the next output reporting time period occurs
-
     -  the next time pattern period occurs
-
     -  a tank becomes empty or full
-
     -  a simple control or rule-based control is activated.
 
 
@@ -876,11 +865,8 @@ Water Quality Simulation Model
    within storage tanks as illustrated in Figure 3.5:
 
     -  Complete Mixing
-
     -  Two-Compartment Mixing
-
     -  FIFO Plug Flow
-
     -  LIFO Plug Flow
 
 

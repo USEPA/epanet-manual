@@ -3,7 +3,7 @@
     \clearpage
 
 
-.. _quickstart: 
+.. _quickstart:
 
 Quick Start Tutorial
 ====================
@@ -192,7 +192,7 @@ Drawing the Network
 
    **Figure 2.4** Network Map after Adding Nodes
 
-   Next we will add the pipes. Let’s begin with pipe 1 connecting node 2
+   Next we will add the pipes. Let's begin with pipe 1 connecting node 2
    to node 3. First click the Pipe button |image8| on the Toolbar. Then
    click the mouse on node 2 on the map and then on node 3. Note how an
    outline of the pipe is drawn as you move the mouse from node 2 to 3.

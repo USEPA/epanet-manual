@@ -579,7 +579,8 @@ Non-Physical Components
    :math:`N1` and :math:`N2` are
 
    .. math::
-      \frac{Q_1}{Q_2} = \frac{N_1}{N_2} & \ \ \ \ & \frac{H_1}{H_2} = \left( \frac{N_1}{N_2} \right)^2
+      \frac{Q_1}{Q_2} = \frac{N_1}{N_2} \\
+      \frac{H_1}{H_2} = \left( \frac{N_1}{N_2} \right)^2
 
 
 *Efficiency Curve*
@@ -973,16 +974,13 @@ Water Quality Simulation Model
    the rate expression becomes
 
    .. math::
-      \begin{eqnarray}
-         & R = K_{b} (C_{L} − C) \times C^{(n − 1)} & \\
-         & for\ n > 0, K_{b} > 0 &
-      \end{eqnarray}
+         R = K_{b} (C_{L} - C) \times C^{(n - 1)} \\
+         for\ n > 0, K_{b} > 0
+
 
    .. math::
-      \begin{eqnarray}
-        & R = K_{b} (C − C_{L} ) \times C^{(n − 1)} & \\
-        & for\ n > 0, K_{b} < 0 &
-      \end{eqnarray}
+        R = K_{b} (C - C_{L} ) \times C^{(n - 1)} \\
+        for\ n > 0, K_{b} < 0
 
 
    where :math:`C_L` = the limiting concentration. Thus there are three

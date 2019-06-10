@@ -40,7 +40,7 @@ Hydraulics
 
   .. math::
 
-     { h}_{ij }={ -ω}^{ 2} ( { h}_{0}-r { ( { Q}_{ij }/ω   )}^{2 } )
+     { h}_{ij }={ -\omega}^{ 2} ( { h}_{0}-r { ( { Q}_{ij }/{\omega}   )}^{2 } )
 
   where :math:`h_{0}` is the shutoff head for the pump, :math:`\omega` is a
   relative speed setting, and :math:`r` and :math:`n` are the pump curve
@@ -50,10 +50,8 @@ Hydraulics
   .. math::
      :label: eq:node_continuity
 
-     \begin{eqnarray}
         \sum_{j} {Q}_{ij }-{ D}_{i } = 0  \\
         \mathit{for\ i = 1,... N}
-     \end{eqnarray}
 
   where :math:`D_{i}` is the flow demand at node :math:`i` and by convention,
   flow into a node is positive. For a set of known heads at the fixed grade
@@ -94,7 +92,7 @@ Hydraulics
   while for pumps
 
   .. math::
-     {P}_{ij} = \frac{1}{n{ω}^{2}r{({Q}_{ij}/ω )}^{n-1}}
+     {P}_{ij} = \frac{1}{n{\omega}^{2}r{({Q}_{ij}/{\omega} )}^{n-1}}
 
 
   Each right hand side term consists of the net flow imbalance at a
@@ -113,7 +111,7 @@ Hydraulics
   for pipes and
 
   .. math::
-     {y}_{ij} = {-P}_{ij}{ω}^{2} ( {h}_{0} - r { ( { Q}_{ij }/ω ) }^{n} )
+     {y}_{ij} = {-P}_{ij}{\omega}^{2} ( {h}_{0} - r { ( { Q}_{ij }/{\omega} ) }^{n} )
 
   for pumps, where :math:`sgn(x)` is :math:`1` if :math:`x > 0` and :math:`-1`
   otherwise (:math:`Q_{ij}` is always positive for pumps).
@@ -169,24 +167,23 @@ Hydraulics
      (Dunlop, 1991):
 
      .. math::
+        \begin{gathered}
+           f = (X1 + R  (X2 + R (X3 + X4))) \\
+           R = \frac{Re}{2000}
+        \end{gathered}
 
-        \begin{eqnarray}
-           &f = (X1 + R  (X2 + R (X3 + X4) ) ) \\
-           &R = \frac{Re}{2000}
-        \end{eqnarray}
 
      .. math::
-
-        \begin{eqnarray}
-           & X1 = 7FA - FB \\
-           & X2 = 0.128 - 17 FA + 2.5 FB \\
-           & X3 = -0.128 + 13 FA - 2 FB \\
-           & X4 = R ( 0.032 - 3 FA + 0.5 FB ) \\
-           &FA = { ( Y3 )}^{-2} \\
-           &FB = FA ( 2 - \frac{0.00514215}  {( Y2 )  ( Y3 ) } ) \\
-           &Y2 = \frac{\epsilon} {3.7d} + \frac{5.74}{{Re}^{0.9}} \\
-           &Y3 = -0.86859 Ln ( \frac{\epsilon}{3.7d} + \frac{5.74}{{4000}^{0.9}} )
-        \end{eqnarray}
+        \begin{gathered}
+           X1 = 7FA - FB \\
+           X2 = 0.128 - 17 FA + 2.5 FB \\
+           X3 = -0.128 + 13 FA - 2 FB \\
+           X4 = R ( 0.032 - 3 FA + 0.5 FB ) \\
+           FA = { ( Y3 )}^{-2} \\
+           FB = FA ( 2 - \frac{0.00514215}  {( Y2 )  ( Y3 ) } ) \\
+           Y2 = \frac{\epsilon} {3.7d} + \frac{5.74}{{Re}^{0.9}} \\
+           Y3 = -0.86859 Ln ( \frac{\epsilon}{3.7d} + \frac{5.74}{{4000}^{0.9}} )
+        \end{gathered}
 
   where :math:`\epsilon` = pipe roughness and :math:`d` = pipe diameter.
 
@@ -416,7 +413,7 @@ Advective Transport in Pipes
   .. math::
      :label: eq:advec_trans
 
-     \frac{ \partial{C}_{i}} {∂t} = - u_{i} \frac{\partial{C}_{i}}{\partial x} + r({C}_{i})
+     \frac{ \partial {C}_{i}} {\partial t} = - u_{i} \frac{\partial{C}_{i}}{\partial x} + r({C}_{i})
 
   where *C\ i* = concentration (mass/volume) in pipe i as a function of
   distance x and time t, *u\ i* = flow velocity (length/time) in pipe
@@ -516,7 +513,7 @@ Bulk Flow Reactions
        such as trihalomethanes, where the ultimate formation of by-product
        (*C\ L*) is limited by the amount of reactive precursor present.
 
-    -  *Two-Component, Second Order Decay (CL* ≠ *0, K\ b < 0, n = 2):*
+    -  *Two-Component, Second Order Decay (CL* \neq *0, K\ b < 0, n = 2):*
 
        .. math::
           R = {K}_{b}C   ( {C}_{L} - C )
@@ -558,7 +555,8 @@ Bulk Flow Reactions
        where UVA = ultraviolet absorbance at 254 nm (1/cm) and DOC =
        dissolved organic carbon concentration (mg/L).
 
-       Note: These expressions apply only for values of *K\ b* and *C\ L* used with Michaelis-Menton kinetics.
+       Note: These expressions apply only for values of :math:`K_b` and
+       :math:`C_L` used with Michaelis-Menton kinetics.
 
 
     -  *Zero-Order growth (CL = 0, K\ b = 1, n = 0) R = 1.0*
@@ -571,10 +569,11 @@ Bulk Flow Reactions
        expressed using a van’t Hoff - Arrehnius equation of the form:
 
        .. math::
-          {K}_{b2}={K}_{b1}{θ}^{T2 - T1}
+          {K}_{b2}={K}_{b1}{\theta}^{T2 - T1}
 
-       where θ is a constant. In one investigation for chlorine, θ was
-       estimated to be 1.1 when T1 was 20 deg. C (Koechling, 1998).
+       where :math:`\theta` is a constant. In one investigation for chlorine,
+       :math:`\theta` was estimated to be 1.1 when T1 was 20 deg. C
+       (Koechling, 1998).
 
 Pipe Wall Reactions
 --------------------

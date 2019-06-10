@@ -45,8 +45,7 @@ from the use of these programs for any purpose.
 -----------------------
 
 
-About This Manual
-=================
+**About This Manual**
 
 :ref:`Chapter 1 <introduction>` of this manual describes what EPANET is and its
 capabilities.

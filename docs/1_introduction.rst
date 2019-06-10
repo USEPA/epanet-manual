@@ -4,7 +4,6 @@
   	\pagenumbering{arabic}
     \setcounter{page}{1}
 
--------
 
 .. _introduction:
 

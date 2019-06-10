@@ -1,6 +1,4 @@
-.. raw:: latex
 
-    \clearpage
 
 
 .. _units:

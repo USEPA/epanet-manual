@@ -1,11 +1,14 @@
 .. raw:: latex
 
     \clearpage
-    
--------
+  	\pagenumbering{arabic}
+    \setcounter{page}{1}
 
-1. INTRODUCTION
-===============
+
+.. _introduction:
+
+Introduction
+============
 
 
 What is EPANET

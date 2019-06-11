@@ -513,6 +513,8 @@
 
 **Formats:**
 
+  .. tabularcolumns:: |\X{2}{5}|\X{2}{5}|\X{1}{10}|
+   
   ===================== ============================== ========
   **UNITS**             **CFS/GPM/MGD/IMGD/AFD/**
                         **LPS/LPM/MLD/CMH/CMD**

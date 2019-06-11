@@ -43,6 +43,8 @@ Input File Format
   begins with a keyword enclosed in brackets. The various keywords are
   listed below.
 
+  .. tabularcolumns:: |\X{1}{5}|\X{9}{50}|\X{1}{5}|\X{1}{6}|\X{1}{5}|
+
   +-------------+-------------+-------------+-------------+--------------+
   | *Network    | *System     | *Water      | *Options*   | *Network     |
   | Components* | Operation*  | Quality*    |             | Map/Tags*    |

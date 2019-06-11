@@ -575,9 +575,10 @@ Non-Physical Components
    :math:`N1` and :math:`N2` are
 
    .. math::
-      \frac{Q_1}{Q_2} = \frac{N_1}{N_2} \\
-      \frac{H_1}{H_2} = \left( \frac{N_1}{N_2} \right)^2
-
+      \begin{gathered}
+        \frac{Q_1}{Q_2} = \frac{N_1}{N_2} \\
+        \frac{H_1}{H_2} = \left( \frac{N_1}{N_2} \right)^2
+      \end{gathered}
 
 *Efficiency Curve*
 

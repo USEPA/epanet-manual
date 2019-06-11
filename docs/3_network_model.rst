@@ -970,12 +970,16 @@ Water Quality Simulation Model
    the rate expression becomes
 
    .. math::
-         R = K_{b} (C_{L} - C) \times C^{(n - 1)} \\
-         for\ n > 0, K_{b} > 0
+      \begin{gathered}
+        R = K_{b} (C_{L} - C) \times C^{(n - 1)} \\
+        for\ n > 0, K_{b} > 0
+      \end{gathered}
 
    .. math::
+      \begin{gathered}
         R = K_{b} (C - C_{L} ) \times C^{(n - 1)} \\
         for\ n > 0, K_{b} < 0
+      \end{gathered}
 
 
    where :math:`C_L` = the limiting concentration. Thus there are three

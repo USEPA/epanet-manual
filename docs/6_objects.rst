@@ -744,17 +744,16 @@ Editing Visual Objects
   |                                   | the various types of valves. This |
   |                                   | is a required property.           |
   +-----------------------------------+-----------------------------------+
-  | Setting                           | A required parameter that         |
-  |                                   | describes the valve's operational |
-  |                                   | setting.                          |
-  +-----------------------------------+-----------------------------------+
-  |                                   | Valve Type - Setting Parameter    |
-  |                                   | PRV - Pressure (psi or m)         |
-  |                                   | PSV - Pressure (psi or m)         |
-  |                                   | PBV - Pressure (psi or m)         |
-  |                                   | FCV - Flow (flow units)           |
-  |                                   | TCV - Loss Coefficient (unitless) |
-  |                                   | GPV - ID of head loss curve       |
+  | Setting                           | A required parameter for each     |
+  |                                   | valve type that describes its     |
+  |                                   | operational setting:              |
+  +                                   +-----------------------------------+
+  |                                   | - PRV - Pressure (psi or m)       |
+  |                                   | - PSV - Pressure (psi or m)       |
+  |                                   | - PBV - Pressure (psi or m)       |
+  |                                   | - FCV - Flow (flow units)         |
+  |                                   | - TCV - Loss Coeff (unitless)     |
+  |                                   | - GPV - ID of head loss curve     |
   +-----------------------------------+-----------------------------------+
   | Loss Coefficient                  | Unitless minor loss coefficient   |
   |                                   | that applies when the valve is    |

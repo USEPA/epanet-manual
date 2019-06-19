@@ -5,12 +5,12 @@
 [![Documentation Status](https://readthedocs.org/projects/epanet-manual/badge/?version=latest)](https://epanet-manual.readthedocs.io/en/latest/?badge=latest)
 
 
-Dependencies
+### Dependencies
 ```
 pip install -U Sphinx
 ```
 
-Build
+### Build
 ```
 cd epanet-manual
 make html

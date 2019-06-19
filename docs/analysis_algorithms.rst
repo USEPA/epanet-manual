@@ -30,7 +30,7 @@ Hydraulics
   .. math::
      :label: eq:pipe_headloss
 
-     H _{i} -H _{j} =h _{ij} =rQ _{ij}^{n} +mQ _{ij}^{2}
+     H _{i} - H _{j} = h _{ij} = rQ _{ij}^{n} + mQ _{ij}^{2}
 
   where :math:`H` = nodal head, :math:`h` = headloss, :math:`r` = resistance
   coefficient, :math:`Q` = flow rate, :math:`n` = flow exponent, and :math:`m`
@@ -41,7 +41,7 @@ Hydraulics
 
   .. math::
 
-     { h}_{ij }={ -\omega}^{ 2} ( { h}_{0}-r { ( { Q}_{ij }/{\omega}   )}^{2 } )
+     {h}_{ij} = {-\omega}^{2} ( {h}_{0} - r { ( {Q}_{ij}/{\omega} )}^{2 } )
 
   where :math:`h_{0}` is the shutoff head for the pump, :math:`\omega` is a
   relative speed setting, and :math:`r` and :math:`n` are the pump curve
@@ -51,7 +51,7 @@ Hydraulics
   .. math::
      :label: eq:node_continuity
 
-        \sum_{j} {Q}_{ij }-{ D}_{i } = 0  \\
+        \sum_{j} {Q}_{ij} - {D}_{i} = 0  \\
         \mathit{for\ i = 1,... N}
 
   where :math:`D_{i}` is the flow demand at node :math:`i` and by convention,
@@ -88,7 +88,7 @@ Hydraulics
   between nodes :math:`i` and :math:`j` with respect to flow. For pipes,
 
   .. math::
-     {P}_{ij} = \frac{1}{nr {{ |{ Q}_{ji } | }^{ n-1}}+2m | { Q}_{ji } | }
+     {P}_{ij} = \frac{1}{nr {{ |{Q}_{ji} | }^{n - 1}} +2m | {Q}_{ji} | }
 
   while for pumps
 

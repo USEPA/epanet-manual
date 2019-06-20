@@ -11,8 +11,6 @@ Analysis Algorithms
 Hydraulics
 ~~~~~~~~~~
 
-  .. This is a comment that will not appear in the compiled document
-
   The method used in EPANET to solve the flow continuity and headloss equations
   that characterize the hydraulic state of the pipe network at a given point in
   time can be termed a hybrid node-loop approach. Todini and Pilati (1987) and
@@ -23,6 +21,16 @@ Hydraulics
   after a new trial solution for nodal heads has been found. Because Todini's
   approach is simpler, it was chosen for use in EPANET.
 
+  Todini (2003) describes how the Gradient Method can be modified to simulate
+  pressure dependent demands (PDD). The latest version of EPANET has been
+  updated to include these capabilities. A water distribution pipe network
+  can now be analyzed two ways, 1) assuming fixed demands, and 2) assuming
+  pressure dependent demands. The subsections that follow provide a technical
+  description for these demand models.
+
+
+**Fixed Demand Model**
+
   Assume we have a pipe network with :math:`{N}` junction nodes and :math:`{NF}`
   fixed grade nodes (tanks and reservoirs). Let the flow-headloss relation in a
   pipe between nodes :math:`i` and :math:`j` be given as:
@@ -30,7 +38,7 @@ Hydraulics
   .. math::
      :label: eq:pipe_headloss
 
-     H _{i} - H _{j} = h _{ij} = rQ _{ij}^{n} + mQ _{ij}^{2}
+     H_{i} - H_{j} = h_{ij} = rQ_{ij}^{n} + mQ_{ij}^{2}
 
   where :math:`H` = nodal head, :math:`h` = headloss, :math:`r` = resistance
   coefficient, :math:`Q` = flow rate, :math:`n` = flow exponent, and :math:`m`
@@ -65,9 +73,23 @@ Hydraulics
   the matrix equation:
 
   .. math::
-     :label: eq:matrix_form
+     :label: eq:fixed_matrix_form
 
-     \boldsymbol{AH} = \boldsymbol{F}
+     \left[  \begin{array}{c c c}
+                \mathbf{A_{11}}  &  \vdots  &  \mathbf{A_{12}}  \\
+                                 \cdots  &  \cdots  &  \cdots  \\
+                \mathbf{A_{21}}  &  \vdots  &  \mathbf{0}
+              \end{array}
+     \right]
+     \left[  \begin{array}{c}
+                \mathbf{Q} \\ \cdots  \\ \mathbf{H}
+              \end{array}
+     \right]
+        =
+     \left[  \begin{array}{c}
+                \mathbf{-A_{10} H_{0}}  \\  \cdots  \\  \mathbf{-q}
+              \end{array}
+     \right]
 
   where :math:`A` = an :math:`(NxN)` Jacobian matrix, :math:`H` = an
   :math:`(Nx1)` vector of unknown nodal heads, and :math:`F` = an :math:`(Nx1)`
@@ -117,8 +139,8 @@ Hydraulics
   for pumps, where :math:`sgn(x)` is :math:`1` if :math:`x > 0` and :math:`-1`
   otherwise (:math:`Q_{ij}` is always positive for pumps).
 
-  After new heads are computed by solving Eq. :eq:`eq:matrix_form`, new flows are
-  found from:
+  After new heads are computed by solving Eq. :eq:`eq:fixed_matrix_form`,
+  new flows are found from:
 
   .. math::
      :label: eq:flow_update
@@ -127,14 +149,37 @@ Hydraulics
 
   If the sum of absolute flow changes relative to the total flow in all
   links is larger than some tolerance (e.g., 0.001), then Eqs
-  :eq:`eq:matrix_form` and :eq:`eq:flow_update` are solved once again. The flow
-  update formula :eq:`eq:flow_update` always results in flow continuity around
-  each node after the first iteration.
+  :eq:`eq:fixed_matrix_form` and :eq:`eq:flow_update` are solved once again.
+  The flow update formula :eq:`eq:flow_update` always results in flow
+  continuity around each node after the first iteration.
+
+
+**Pressure Dependent Demand Model**
+
+  .. math::
+     :label: eq:pdd_matrix_form
+
+     \left[  \begin{array}{c c c}
+                \mathbf{A_{11}}  &  \vdots  &  \mathbf{A_{12}}  \\
+                                 \cdots  &  \cdots  &  \cdots  \\
+                \mathbf{A_{21}}  &  \vdots  &  \mathbf{A_{22}}
+              \end{array}
+     \right]
+     \left[  \begin{array}{c}
+                \mathbf{Q} \\ \cdots  \\ \mathbf{H}
+              \end{array}
+     \right]
+        =
+     \left[  \begin{array}{c}
+                \mathbf{-A_{10} H_{0}}  \\  \cdots  \\  \mathbf{-q^{*}}
+              \end{array}
+     \right]
+
 
   EPANET implements this method using the following steps:
 
-  1. The linear system of equations :eq:`eq:matrix_form` is solved using a
-     sparse matrix method based on node re-ordering (George and Liu, 1981).
+  1. The linear system of equations :eq:`eq:fixed_matrix_form` is solved using
+     a sparse matrix method based on node re-ordering (George and Liu, 1981).
      After re-ordering the nodes to minimize the amount of fill-in for matrix
      :math:`A`, a symbolic factorization is carried out so that only the
      non-zero elements of A need be stored and operated on in memory. For

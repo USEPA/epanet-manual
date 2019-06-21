@@ -84,24 +84,24 @@ Hydraulics
   The diagonal elements of the Jacobian matrix are:
 
   .. math::
-     {A}_{ij}= \sum_{j} {P}_{ij}
+     {A}_{ij}= \sum_{j} \frac{1}{g_{ij}}
 
 
   while the non-zero, off-diagonal terms are:
 
   .. math::
-     {A}_{ij} = -{P}_{ij}
+     {A}_{ij} = -\frac{1}{g_{ij}}
 
-  where :math:`P_{ij}` is the inverse derivative of the headloss in the link
+  where :math:`g_{ij}` is the derivative of the headloss in the link
   between nodes :math:`i` and :math:`j` with respect to flow. For pipes,
 
   .. math::
-     {P}_{ij} = \frac{1}{nr {{ |{Q}_{ji} | }^{n - 1}} + 2m | {Q}_{ji} | }
+     {g}_{ij} = nr {{ | Q_{ij} | }^{n - 1}} + 2m | Q_{ij} |
 
   while for pumps
 
   .. math::
-     {P}_{ij} = \frac{1}{n{\omega}^{2}r{({Q}_{ij}/{\omega} )}^{n-1}}
+     {g}_{ij} = n \omega^{2} r ({Q}_{ij}/{\omega} )^{n-1}
 
 
   Each right hand side term consists of the net flow imbalance at a
@@ -110,7 +110,7 @@ Hydraulics
   .. math::
      :label: eq:matrix_rhs
 
-     {F}_{i} = ( \sum_{{j}} Q_{ij} + P_{ij} y_{ij} ) - {D}_{i} + \sum_{{f}}{P}_{ij}{H}_{f}
+     {F}_{i} = \sum_{{j}} \left( Q_{ij} + \frac{y_{ij}}{g_{ij}} \right) - {D}_{i} + \sum_{f} \frac{H_{f}}{g_{ij}}
 
   where the last term applies to any links connecting node :math:`i` to a fixed
   grade node :math:`f` and the flow correction factor :math:`y_{ij}` is:
@@ -133,7 +133,7 @@ Hydraulics
   .. math::
      :label: eq:flow_update
 
-     {Q}_{ij} = {Q}_{ij} - P_{ij} ( y_{ij} - {H}_{i} - {H}_{j} )
+     {Q}_{ij} = {Q}_{ij} - \frac{1}{g_{ij}} ( y_{ij} - {H}_{i} - {H}_{j} )
 
   If the sum of absolute flow changes relative to the total flow in all
   links is larger than some tolerance (e.g., 0.001), then Eqs
@@ -144,11 +144,114 @@ Hydraulics
 
 **Pressure Dependent Demand Model**
 
+  Now consider the case where the demand at a node :math:`i`, :math:`d_{i}`,
+  depends on the pressure head :math:`p_{i}` available at the node (where
+  pressure head is hydraulic head :math:`h_{i}` minus elevation :math:`E_{i}`).
+  There are several different forms of pressure dependency that have been
+  proposed. Here we use Wagner’s equation:
 
-  .. include:: pdd_for_epanet.rst
+  .. math::
+     :label: eq:wagners
+
+     d_{i} =
+       \left\{
+         \begin{array}{l l}
+           D_{i}                                                           & p_{i} \ge P_{f}     \\
+           D_{i} \left( \frac{p_{i} - P_{0}}{P_{f} - P_{0}} \right) ^{1/e} & P_{0} < p_i < P_{f} \\
+           0                                                               & p_{i} \le P_{0}
+         \end{array}
+       \right.
+
+  :math:`D_{i}` is the full normal demand at node :math:`i` when the pressure
+  :math:`p_{i}` equals or exceeds :math:`P_{f}`, :math:`P_{0}` is the pressure
+  below which the demand is 0, and :math:`e` is an exponent usually set equal
+  to 2 (to mimic flow through an orifice).
+
+  Eq. :eq:`eq:wagners` can be inverted to express head loss through a virtual
+  link as a function of the demand flowing out of node :math:`i` to a virtual
+  reservoir with fixed pressure head :math:`P_{0} + E_{i}`:
+
+  .. math::
+     :label: eq:inv_wagner
+
+       h_{i} - P_{0} - E_{i} = R_{di} d_{i}^{e}
+
+  where :math:`E_{i}` is the node’s elevation and
+  :math:`R_{di} = (P_{f} - P_{0})/D_{i}^{e}` is the link’s resistance
+  coefficient. This expression can be folded into the GGA matrix equations,
+  where the pressure dependent demands :math:`d_{i}` are treated as the
+  unknown flows in the virtual links that honor constraints in Eq.
+  :eq:`eq:wagners`.
+
+  The head loss :math:`h_{d}` and its gradient :math:`g_{d}` through the
+  virtual link can be evaluated as follows (with node subscripts
+  suppressed for clarity):
+
+  1. If the current demand flow :math:`d` is greater than the full Demand
+     :math:`D`:
+
+     .. math::
+        \begin{gathered}
+          h_{d} = R_{d} D^{e} + R_{\text{HIGH}}(d - D) \\
+          g_{d} = R_{\text{HIGH}}
+        \end{gathered}
+
+     where :math:`R_{\text{HIGH}}` is a large resistance factor
+     (e.g. 10\ :sup:`9`).
+
+  2. Otherwise Eq. :eq:`eq:inv_wagner` is used to evaluate the head loss and
+     gradient:
+
+     .. math::
+        \begin{gathered}
+          g_{d} = e R_{d} \left| d \right|^{e - 1} \\
+          h_{d} = g_{d} d / e
+        \end{gathered}
+
+     and a one-sided barrier function :math:`h_{b}(d)` and its derivative
+     :math:`g_{b}(d)` is added onto :math:`h_{d}` and :math:`g_{d}`,
+     respectively, to prevent :math:`d` from going negative.
+
+  The aforementioned barrier function has the form:
+
+  .. math::
+     \begin{gathered}
+       h_{b} = \ \left( a - \sqrt{a^{2} + \epsilon^{2}} \right)/2 \\
+       g_{b} = \left( R_{\text{HIGH}}/2 \right)\left( 1 - a/\sqrt{a^{2} + \epsilon^{2}} \right)
+     \end{gathered}
+
+  where :math:`a = R_{\text{HIGH}}d` and :math:`\epsilon` is a small
+  tolerance (e.g., 10\ :sup:`-3`).
+
+  These head loss and gradient values are then incorporated into the normal
+  set of GGA matrix equations as follows:
+
+  1. For the diagonal entry of :math:`A` corresponding to node *i*:
+
+     .. math::
+        A_{ii} = A_{ii} + 1/g_{di}
+
+  2. For the entry of :math:`F` corresponding to node :math:`i`:
+
+     .. math::
+        F_{i} = F_{i} + D_{i} - d_{i} + \left( h_{di} + E_{i} + P_{0} \right) / g_{di}
 
 
-  EPANET implements this method using the following steps:
+  Note that :math:`D_{i}` is added to :math:`F_{i}` to cancel out having
+  subtracted it from the original :math:`F_{i}` value appearing in Eq.
+  :eq:`eq:matrix_rhs`.
+
+  After a new set of nodal heads is found, the demands at node :math:`i` are
+  updated using Eq. :eq:`eq:flow_update` which takes the form:
+
+  .. math::
+     d_{i} = d_{i} - ( h_{di} - h_{i} + E_{i} + P_{0} ) / g_{di}
+
+
+**EPANET Implementation**
+
+  EPANET implements the fixed demand and PDD models for hydraulics using the
+  procedure outlined in this section.
 
   1. The linear system of equations :eq:`eq:matrix_form` is solved using
      a sparse matrix method based on node re-ordering (George and Liu, 1981).
@@ -407,6 +510,15 @@ Hydraulics
 
       c. A new set of iterations with Eqs. (D.3) and (D.4) are begun at the
          current set of flows.
+
+  18. A global set of minimum :math:`P_{0}`and full :math:`P_{f}` (or nominal)
+      pressure limits apply to all nodes.
+
+  19. In extended period analysis, where the full demands change at
+      different time periods, the same pressure-dependent demand function
+      is applied to the current full demand (instead of changing :math:P_{f}
+      to accommodate changes in :math:`D_{f}`.
+
 
 Water Quality
 ~~~~~~~~~~~~~

@@ -651,8 +651,6 @@ Lagrangian Transport Algorithm
   the upstream node.
 
     |imagetransport|
-
-
   **Figure D.1** Behavior of Segments in the Lagrangian Solution Method
 
 ..  |image0| image:: media/image1.jpeg

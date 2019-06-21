@@ -611,16 +611,16 @@ Lagrangian Transport Algorithm
 
   2. For each node in topological order (from upstream to downstream):
 
-    2.1 If the node is a junction or tank, the water from the leading segments of
-        the links with flow into it, if not zero, is blended together to compute a new
-        water quality value. The volume contributed from each segment equals the
-        product of its link’s flow rate and the time step. If this volume exceeds
-        that of the segment, then the segment is destroyed and the next one in line
-        behind it begins to contribute its volume.
+    a. If the node is a junction or tank, the water from the leading segments of
+       the links with flow into it, if not zero, is blended together to compute a new
+       water quality value. The volume contributed from each segment equals the
+       product of its link’s flow rate and the time step. If this volume exceeds
+       that of the segment, then the segment is destroyed and the next one in line
+       behind it begins to contribute its volume.
 
-    2.2 If the node is a junction its new quality is computed as its total mass
-        inflow divided by its total inflow volume. If it is a tank, its quality is
-        updated depending on the method used to model mixing in the tank (see below).
+    b. If the node is a junction its new quality is computed as its total mass
+       inflow divided by its total inflow volume. If it is a tank, its quality is
+       updated depending on the method used to model mixing in the tank (see below).
 
     c. The node’s concentration is adjusted by any contributions made by
        external water quality sources.

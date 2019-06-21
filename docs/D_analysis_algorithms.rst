@@ -618,14 +618,14 @@ Lagrangian Transport Algorithm
        that of the segment, then the segment is destroyed and the next one in line
        behind it begins to contribute its volume.
 
-    a. If the node is a junction its new quality is computed as its total mass
+    b. If the node is a junction its new quality is computed as its total mass
        inflow divided by its total inflow volume. If it is a tank, its quality is
        updated depending on the method used to model mixing in the tank (see below).
 
-    a. The node’s concentration is adjusted by any contributions made by
+    c. The node’s concentration is adjusted by any contributions made by
        external water quality sources.
 
-    a. A new segment is created in each link with flow out of the node. Its
+    d. A new segment is created in each link with flow out of the node. Its
        volume equals the product of the link flow and the time step and its quality
        equals the new quality value computed for the node.
 

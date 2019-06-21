@@ -632,7 +632,7 @@ Lagrangian Transport Algorithm
         and its quality equals the new quality value computed for the
         node.
 
-  To cut down on the number of segments, Step 2.iv is only carried out if
+  To cut down on the number of segments, Step 2.4 is only carried out if
   the new node quality differs by a user-specified tolerance from that of
   the last segment in the outflow link. If the difference in quality is
   below the tolerance, then the size of the current last segment in the
@@ -652,7 +652,7 @@ Lagrangian Transport Algorithm
 
                     .. image:: media/transport.png
                       :align: center
-                      
+
   **Figure D.1** Behavior of Segments in the Lagrangian Solution Method
 
 ..  |image0| image:: media/image1.jpeg

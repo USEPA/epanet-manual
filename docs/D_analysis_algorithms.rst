@@ -650,10 +650,9 @@ Lagrangian Transport Algorithm
   of a single segment whose quality equals the initial quality assigned to
   the upstream node.
 
-              .. image:: media/transport.png
-                :align: center
-
-    |imagetransport|
+                    .. image:: media/transport.png
+                      :align: center
+                      
   **Figure D.1** Behavior of Segments in the Lagrangian Solution Method
 
 ..  |image0| image:: media/image1.jpeg

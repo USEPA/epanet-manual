@@ -592,22 +592,22 @@ System of Equations
 Lagrangian Transport Algorithm
 ----------------------------------
 
-EPANET’s water quality simulator uses a Lagrangian time-based approach to track
-the fate of discrete parcels of water as they move along pipes and mix together
-at junctions between fixed-length time steps (Liou and Kroon, 1987). These water
-quality time steps are typically much shorter than the hydraulic time step
-(e.g., minutes rather than hours) to accommodate the short times of travel that
-can occur within pipes. As time progresses, the size of the most upstream
-segment in a pipe may increase as water enters the pipe while an equal loss in
-size of the most downstream segment occurs as water leaves the link, therefore
-the total volume of all the segments within a pipe does not change. The size of
-the segments between these leading and trailing segments remains unchanged.
-(See Figure D.1).
+  EPANET’s water quality simulator uses a Lagrangian time-based approach to track
+  the fate of discrete parcels of water as they move along pipes and mix together
+  at junctions between fixed-length time steps (Liou and Kroon, 1987). These water
+  quality time steps are typically much shorter than the hydraulic time step
+  (e.g., minutes rather than hours) to accommodate the short times of travel that
+  can occur within pipes. As time progresses, the size of the most upstream
+  segment in a pipe may increase as water enters the pipe while an equal loss in
+  size of the most downstream segment occurs as water leaves the link, therefore
+  the total volume of all the segments within a pipe does not change. The size of
+  the segments between these leading and trailing segments remains unchanged.
+  (See Figure D.1).
 
-The following steps occur within each such time step:
-1.	The water quality in each segment is updated to reflect any reaction that
-may have occurred over the time step.
-2.	For each node in topological order (from upstream to downstream):
+  The following steps occur within each such time step:
+  1.  The water quality in each segment is updated to reflect any reaction that
+  may have occurred over the time step.
+  2.	For each node in topological order (from upstream to downstream):
   2.1	If the node is a junction or tank, the water from the leading segments of
   the links with flow into it, if not zero, is blended together to compute a new
   water quality value. The volume contributed from each segment equals the
@@ -623,27 +623,24 @@ may have occurred over the time step.
   volume equals the product of the link flow and the time step and its quality
   equals the new quality value computed for the node.
 
-To cut down on the number of segments, Step 2.4 is only carried out if the new
-node quality differs by a user-specified tolerance from that of the last
-segment in the outflow link. If the difference in quality is below the
-tolerance, then the size of the current last segment in the link is simply
-increased by the volume flowing into the link over the time step and the segment
-quality is a volume-weighted average of the node and segment quality.
+  To cut down on the number of segments, Step 2.4 is only carried out if the new
+  node quality differs by a user-specified tolerance from that of the last
+  segment in the outflow link. If the difference in quality is below the
+  tolerance, then the size of the current last segment in the link is simply
+  increased by the volume flowing into the link over the time step and the segment
+  quality is a volume-weighted average of the node and segment quality.
 
-This process is then repeated for the next water-quality time step. At the
-start of the next hydraulic time step any link experiencing a flow reversal has
-the order of its segments is reversed and if any flow reversal occurs the
-network’s nodes are re-sorted topologically, from upstream to downstream.
-Sorting the nodes topologically allows the method to conserve mass, even when
-very short pipes or zero-length pumps and valves are encountered. Initially
-each pipe in the network consists of a single segment whose quality equals the
-initial quality assigned to the upstream node.
+  This process is then repeated for the next water-quality time step. At the
+  start of the next hydraulic time step any link experiencing a flow reversal has
+  the order of its segments is reversed and if any flow reversal occurs the
+  network’s nodes are re-sorted topologically, from upstream to downstream.
+  Sorting the nodes topologically allows the method to conserve mass, even when
+  very short pipes or zero-length pumps and valves are encountered. Initially
+  each pipe in the network consists of a single segment whose quality equals the
+  initial quality assigned to the upstream node.
 
     |imagetransport|
 
-    |image147|
-
-    |image148|
 
   **Figure D.1** Behavior of Segments in the Lagrangian Solution Method
 
@@ -812,3 +809,4 @@ initial quality assigned to the upstream node.
 ..  |image147| image:: media/image96.png
 ..  |image148| image:: media/image98.png
 ..  |imagetransport| image:: media/transport.png
+    :align: middle

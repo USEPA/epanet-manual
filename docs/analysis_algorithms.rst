@@ -511,13 +511,13 @@ Hydraulics
       c. A new set of iterations with Eqs. (D.3) and (D.4) are begun at the
          current set of flows.
 
-  18. A global set of minimum :math:`P_{0}`and full :math:`P_{f}` (or nominal)
+  18. A global set of minimum :math:`P_{0}` and full :math:`P_{f}` (or nominal)
       pressure limits apply to all nodes.
 
   19. In extended period analysis, where the full demands change at
       different time periods, the same pressure-dependent demand function
-      is applied to the current full demand (instead of changing :math:P_{f}
-      to accommodate changes in :math:`D_{f}`.
+      is applied to the current full demand (instead of changing :math:`P_{f}`
+      to accommodate changes in :math:`D_{f}` ).
 
 
 Water Quality

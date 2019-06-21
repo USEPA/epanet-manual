@@ -173,5 +173,3 @@
 ..  |image144| image:: media/image93.png
 ..  |image145| image:: media/image94.png
 ..  |image146| image:: media/image95.png
-..  |image147| image:: media/image96.png
-..  |image148| image:: media/image98.png

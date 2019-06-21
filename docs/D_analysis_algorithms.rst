@@ -649,7 +649,8 @@ Lagrangian Transport Algorithm
   and valves are encountered. Initially each pipe in the network consists
   of a single segment whose quality equals the initial quality assigned to
   the upstream node.
-
+    ..image:: media/transport.png
+      :align: center
     |imagetransport|
   **Figure D.1** Behavior of Segments in the Lagrangian Solution Method
 
@@ -819,4 +820,3 @@ Lagrangian Transport Algorithm
 ..  |image148| image:: media/image98.png
 ..  |imagetransport| image:: media/transport.png
     :align: center
-    

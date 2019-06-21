@@ -605,23 +605,23 @@ Lagrangian Transport Algorithm
   (See Figure D.1).
 
   The following steps occur within each such time step:
-  1.  The water quality in each segment is updated to reflect any reaction that
-  may have occurred over the time step.
-  2.	For each node in topological order (from upstream to downstream):
+  1. The water quality in each segment is updated to reflect any reaction that
+     may have occurred over the time step. 
+  2. For each node in topological order (from upstream to downstream):
   2.1	If the node is a junction or tank, the water from the leading segments of
-  the links with flow into it, if not zero, is blended together to compute a new
-  water quality value. The volume contributed from each segment equals the
-  product of its link’s flow rate and the time step. If this volume exceeds
-  that of the segment, then the segment is destroyed and the next one in line
-  behind it begins to contribute its volume.
+      the links with flow into it, if not zero, is blended together to compute a new
+      water quality value. The volume contributed from each segment equals the
+      product of its link’s flow rate and the time step. If this volume exceeds
+      that of the segment, then the segment is destroyed and the next one in line
+      behind it begins to contribute its volume.
   2.2	If the node is a junction its new quality is computed as its total mass
-  inflow divided by its total inflow volume. If it is a tank, its quality is
-  updated depending on the method used to model mixing in the tank (see below).
+      inflow divided by its total inflow volume. If it is a tank, its quality is
+      updated depending on the method used to model mixing in the tank (see below).
   2.3	The node’s concentration is adjusted by any contributions made by
-  external water quality sources.
+      external water quality sources.
   2.4	A new segment is created in each link with flow out of the node. Its
-  volume equals the product of the link flow and the time step and its quality
-  equals the new quality value computed for the node.
+      volume equals the product of the link flow and the time step and its quality
+      equals the new quality value computed for the node.
 
   To cut down on the number of segments, Step 2.4 is only carried out if the new
   node quality differs by a user-specified tolerance from that of the last

@@ -818,4 +818,4 @@ Lagrangian Transport Algorithm
 ..  |image147| image:: media/image96.png
 ..  |image148| image:: media/image98.png
 ..  |imagetransport| image:: media/transport.png
-    :align: middle
+    :align: center

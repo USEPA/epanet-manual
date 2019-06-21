@@ -789,52 +789,61 @@ Water Quality
   typically much shorter than the hydraulic time step (e.g., minutes
   rather than hours) to accommodate the short times of travel that can
   occur within pipes. As time progresses, the size of the most upstream
-  segment in a pipe increases as water enters the pipe while an equal
+  segment in a pipe may increase as water enters the pipe while an equal
   loss in size of the most downstream segment occurs as water leaves
-  the link. The size of the segments in between these remains
-  unchanged. (See Figure D.1).
+  the link; therefore, the total volume of all the segments within a pipe
+  does not change and the size of the segments between these leading and
+  trailing segments remains unchanged. (See Figure D.1).
 
-  The following steps occur at the end of each such time step:
+  The following steps occur within each such time step:
 
   1. The water quality in each segment is updated to reflect any reaction
      that may have occurred over the time step.
 
-  2. The water from the leading segments of pipes with flow into each
-     junction is blended together to compute a new water quality value at
-     the junction. The volume contributed from each segment equals the
-     product of its pipe’s flow rate and the time step. If this volume
-     exceeds that of the segment then the segment is destroyed and the
-     next one in line behind it begins to contribute its volume.
+  2. For each node in topological order (from upstream to downstream):
 
-  3. Contributions from outside sources are added to the quality values at
-     the junctions. The quality in storage tanks is updated depending on
-     the method used to model mixing in the tank (see below).
+     - If the node is a junction or tank, the water from the leading
+       segments of the links with flow into it, if not zero, is blended
+       together to compute a new water quality value. The volume
+       contributed from each segment equals the product of its link’s
+       flow rate and the time step. If this volume exceeds that of the
+       segment, then the segment is destroyed and the next one in line
+       behind it begins to contribute its volume.
 
-  4. New segments are created in pipes with flow out of each junction,
-     reservoir, and tank. The segment volume equals the product of the
-     pipe flow and the time step. The segment’s water quality equals the
-     new quality value computed for the node.
+     - If the node is a junction its new quality is computed as its total
+       mass inflow divided by its total inflow volume. If it is a tank,
+       its quality is updated depending on the method used to model
+       mixing in the tank (see below).
 
+     - The node’s concentration is adjusted by any contributions made by
+       external water quality sources.
 
-     To cut down on the number of segments, Step 4 is only carried out if
-     the new node quality differs by a user-specified tolerance from that
-     of the last segment in the outflow pipe. If the difference in quality
-     is below the tolerance then the size of the current last segment in
-     the outflow pipe is simply increased by the volume flowing into the
-     pipe over the time step.
+     - A new segment is created in each link with flow out of the node.
+       Its volume equals the product of the link flow and the time step
+       and its quality equals the new quality value computed for the node.
 
-     This process is then repeated for the next water-quality time step.
-     At the start of the next hydraulic time step the order of segments in
-     any links that experience a flow reversal is switched. Initially each
-     pipe in the network consists of a single segment whose quality equals
-     the initial quality assigned to the upstream node.
+  To cut down on the number of segments, new ones are only created if
+  the new node quality differs by a user-specified tolerance from that of
+  the last segment in the outflow link. If the difference in quality is
+  below the tolerance, then the size of the current last segment in the
+  link is simply increased by the volume flowing into the link over the
+  time step and the segment quality is a volume-weighted average of the
+  node and segment quality.
 
-    |image147|
+  This process is then repeated for the next water-quality time step. At
+  the start of the next hydraulic time step any link experiencing a flow
+  reversal has the order of its segments reversed and if any flow
+  reversal occurs the network’s nodes are re-sorted topologically, from
+  upstream to downstream. Sorting the nodes topologically allows the
+  method to conserve mass, even when very short pipes or zero-length pumps
+  and valves are encountered. Initially each pipe in the network consists
+  of a single segment whose quality equals the initial quality assigned to
+  the upstream node.
 
-    |image148|
+  .. image:: media/transport.png
+     :align: center
 
   **Figure D.1** Behavior of Segments in the Lagrangian Solution Method
-
 
 
 

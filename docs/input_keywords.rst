@@ -527,9 +527,13 @@
   **TRIALS**            value
   **ACCURACY**          value
   **HEADERROR**         value
-  **FLOWERROR**         value
+  **FLOWCHANGE**        value
   **UNBALANCED**        **STOP/CONTINUE/CONTINUE**     n
   **PATTERN**           id
+  **DEMAND MODEL**      **DDA/PDA**
+  **MINIMUM PRESSURE**  value
+  **REQUIRED PRESSURE** value
+  **PRESSURE EXPONENT** value
   **DEMAND MULTIPLIER** value
   **EMITTER EXPONENT**  value
   **TOLERANCE**         value
@@ -617,7 +621,7 @@
     feet (US) or meters (SI). The default value of 0 indicates that no
     head error limit applies.
 
-  FLOWERROR
+  FLOWCHANGE
     augments the **ACCURACY** option. Sets the largest change in flow
     that any network element (link, emitter, or pressure-dependent
     demand) can have for hydraulic convergence to occur. It is specified
@@ -644,10 +648,37 @@
     is not used, then the global default demand pattern has a label of
     "1".
 
-    The **DEMAND MULTIPLIER** is used to adjust the values of baseline
-    demands for all junctions and all demand categories. For example, a
-    value of 2 doubles all baseline demands, while a value of 0.5 would
-    halve them. The default value is 1.0.
+  DEMAND MULTIPLIER
+    is used to adjust the values of baseline demands for all junctions
+    and all demand categories. For example, a value of 2 doubles all
+    baseline demands, while a value of 0.5 would halve them. The default
+    value is 1.0.
+
+  DEMAND MODEL
+    determines nodal demand model. Wither Demand Driven Analysis (**DDA**) or
+    Pressure Driven Analysis (**PDA**). DDA assumes a nodal demand at a given
+    point in time is a fixed value :math:`D`. This sometimes results in
+    hydraulic solutions with negative pressures (a physical impossibility).
+    PDA assumes the demand delivered, :math:`d`, is a function of nodal
+    pressure, :math:`p`, as follows:
+
+    .. math::
+       d = D \left[ \frac{p - P_{min}}{P_{req} - P_{min}} \right]^{Pexp}
+
+    where :math:`D` is the full demand required, :math:`Pmin` is the pressure
+    below which demand is zero, :math:`Preq` is the pressure required to
+    deliver the full required demand and :math:`Pexp` is an exponent. When
+    :math:`p < Pmin` demand is 0 and when :math:`p > Preq` demand equals
+    :math:`D`. The default value is **DDA**.
+
+  MINIMUM PRESSURE
+    value for :math:`Pmin`. Default value is 0.0.
+
+  REQUIRED PRESSURE
+    value for :math:`Preq`. Default value is 0.0.
+
+  PRESSURE EXPONENT
+    value for :math:`Pexp`. Default value is 0.5.
 
   EMITTER EXPONENT
     specifies the power to which the pressure at a

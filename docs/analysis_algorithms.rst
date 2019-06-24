@@ -48,7 +48,6 @@ Hydraulics
   power law of the form
 
   .. math::
-
      {h}_{ij} = {-\omega}^{2} ( {h}_{0} - r { ( {Q}_{ij}/{\omega} )}^{2 } )
 
   where :math:`h_{0}` is the shutoff head for the pump, :math:`\omega` is a
@@ -152,6 +151,8 @@ Hydraulics
   rigorous control over hydraulic convergence.
 
 
+.. _press_dependent_analysis:
+
 **Pressure Dependent Demand Model**
 
   Now consider the case where the demand at a node :math:`i`, :math:`d_{i}`,
@@ -167,7 +168,7 @@ Hydraulics
        \left\{
          \begin{array}{l l}
            D_{i}                                                           & p_{i} \ge P_{f}     \\
-           D_{i} \left( \frac{p_{i} - P_{0}}{P_{f} - P_{0}} \right) ^{1/e} & P_{0} < p_i < P_{f} \\
+           D_{i} \left( \frac{p_{i} - P_{0}}{P_{f} - P_{0}} \right) ^{e}   & P_{0} < p_i < P_{f} \\
            0                                                               & p_{i} \le P_{0}
          \end{array}
        \right.
@@ -175,7 +176,7 @@ Hydraulics
   :math:`D_{i}` is the full normal demand at node :math:`i` when the pressure
   :math:`p_{i}` equals or exceeds :math:`P_{f}`, :math:`P_{0}` is the pressure
   below which the demand is 0, and :math:`e` is an exponent usually set equal
-  to 2 (to mimic flow through an orifice).
+  to 0.5 (to mimic flow through an orifice).
 
   Eq. :eq:`eq:wagners` can be inverted to express head loss through a virtual
   link as a function of the demand flowing out of node :math:`i` to a virtual

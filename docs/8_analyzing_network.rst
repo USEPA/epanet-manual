@@ -53,7 +53,7 @@ Setting Analysis Options
   | *Option*                          | *Description*                     |
   +===================================+===================================+
   |                                   | Units in which nodal demands and  |
-  |   Flow Units                      | link flow rates are expressed.    |
+  | Flow Units                        | link flow rates are expressed.    |
   |                                   | Choosing units in gallons, cubic  |
   |                                   | feet, or acre-feet implies that   |
   |                                   | the units for all other network   |
@@ -104,6 +104,28 @@ Setting Analysis Options
   |                                   | of all link flows is less than    |
   |                                   | this number. Suggested value is   |
   |                                   | 0.001.                            |
+  +-----------------------------------+-----------------------------------+
+  | Head Error                        | Augments the ACCURACY option.     |
+  |                                   | Specifies the maximum head loss   |
+  |                                   | error any network link can have   |
+  |                                   | for hydraulic convergence to      |
+  |                                   | occur. The default value          |
+  |                                   | of 0 indicates that no head       |
+  |                                   | error limit applies. Units of     |
+  |                                   | this parameter are feet (US) or   |
+  |                                   | meters (SI).                      |
+  +-----------------------------------+-----------------------------------+
+  | Flow Change                       | Augments the ACCURACY option.     |
+  |                                   | Specifies the largest change in   |
+  |                                   | flow that any network element     |
+  |                                   | (link, emitter, or pressure-      |
+  |                                   | dependent demand) can have for    |
+  |                                   | hydraulic convergence to occur.   |
+  |                                   | The default value of 0 indicates  |
+  |                                   | that no flow change limit         |
+  |                                   | applies. It is specified based    |
+  |                                   | on the current project flow unit  |
+  |                                   | setting.                          |
   +-----------------------------------+-----------------------------------+
   | If Unbalanced                     | Action to take if a hydraulic     |
   |                                   | solution is not found within the  |

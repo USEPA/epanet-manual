@@ -514,7 +514,7 @@
 **Formats:**
 
   .. tabularcolumns:: |\X{2}{5}|\X{2}{5}|\X{1}{10}|
-   
+
   ===================== ============================== ========
   **UNITS**             **CFS/GPM/MGD/IMGD/AFD/**
                         **LPS/LPM/MLD/CMH/CMD**
@@ -526,6 +526,8 @@
   **SPECIFIC GRAVITY**  value
   **TRIALS**            value
   **ACCURACY**          value
+  **HEADERROR**         value
+  **FLOWERROR**         value
   **UNBALANCED**        **STOP/CONTINUE/CONTINUE**     n
   **PATTERN**           id
   **DEMAND MULTIPLIER** value
@@ -604,6 +606,23 @@
     sum of all flow changes from the previous solution divided by the
     total flow in all links is less than this number. The default is
     0.001.
+
+  HEADERROR
+    augments **ACCURACY** option. Sets the maximum head loss error
+    that any network link can have for hydraulic convergence to occur.
+    A link's head loss error is the difference between the head loss
+    found as a function of computed flow in the link (such as by the
+    Hazen-Williams equation for a pipe) and the difference in computed
+    heads for the link's end nodes. The units of this parameter are
+    feet (US) or meters (SI). The default value of 0 indicates that no
+    head error limit applies.
+
+  FLOWERROR
+    augments the **ACCURACY** option. Sets the largest change in flow
+    that any network element (link, emitter, or pressure-dependent
+    demand) can have for hydraulic convergence to occur. It is specified
+    in whatever flow units the project is using. The default value of 0
+    indicates that no flow change limit applies.
 
   UNBALANCED
     determines what happens if a hydraulic solution cannot

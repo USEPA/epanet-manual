@@ -53,7 +53,7 @@ Setting Analysis Options
   | *Option*                          | *Description*                     |
   +===================================+===================================+
   |                                   | Units in which nodal demands and  |
-  |   Flow Units                      | link flow rates are expressed.    |
+  | Flow Units                        | link flow rates are expressed.    |
   |                                   | Choosing units in gallons, cubic  |
   |                                   | feet, or acre-feet implies that   |
   |                                   | the units for all other network   |
@@ -105,6 +105,28 @@ Setting Analysis Options
   |                                   | this number. Suggested value is   |
   |                                   | 0.001.                            |
   +-----------------------------------+-----------------------------------+
+  | Head Error                        | Augments the ACCURACY option.     |
+  |                                   | Specifies the maximum head loss   |
+  |                                   | error any network link can have   |
+  |                                   | for hydraulic convergence to      |
+  |                                   | occur. The default value          |
+  |                                   | of 0 indicates that no head       |
+  |                                   | error limit applies. Units of     |
+  |                                   | this parameter are feet (US) or   |
+  |                                   | meters (SI).                      |
+  +-----------------------------------+-----------------------------------+
+  | Flow Change                       | Augments the ACCURACY option.     |
+  |                                   | Specifies the largest change in   |
+  |                                   | flow that any network element     |
+  |                                   | (link, emitter, or pressure-      |
+  |                                   | dependent demand) can have for    |
+  |                                   | hydraulic convergence to occur.   |
+  |                                   | The default value of 0 indicates  |
+  |                                   | that no flow change limit         |
+  |                                   | applies. It is specified based    |
+  |                                   | on the current project flow unit  |
+  |                                   | setting.                          |
+  +-----------------------------------+-----------------------------------+
   | If Unbalanced                     | Action to take if a hydraulic     |
   |                                   | solution is not found within the  |
   |                                   | maximum number of trials. Choices |
@@ -128,14 +150,36 @@ Setting Analysis Options
   |                                   | all demands, 0.5 halves them, and |
   |                                   | 1.0 leaves them as is.            |
   +-----------------------------------+-----------------------------------+
+  | Demand Model                      | Selects between demand or         |
+  |                                   | pressure driven analysis -- DDA   |
+  |                                   | or PDA respectively. DDA assumes  |
+  |                                   | demands are fixed at a given      |
+  |                                   | point in time, while PDA assumes  |
+  |                                   | demands are a function of         |
+  |                                   | pressure. The PDA option can be   |
+  |                                   | used to find a solution when      |
+  |                                   | negative pressures are present    |
+  |                                   | in a DDA.                         |
+  +-----------------------------------+-----------------------------------+
+  | Minimum Pressure                  | In a PDA, the pressure below      |
+  |                                   | which demand is assumed to be     |
+  |                                   | zero.                             |
+  +-----------------------------------+-----------------------------------+
+  | Required Pressure                 | In a PDA, the pressure required   |
+  |                                   | to deliver the full demand.       |
+  +-----------------------------------+-----------------------------------+
+  | Pressure Exponent                 | PDA assumes a pressure demand     |
+  |                                   | relation raised to an exponent.   |
+  |                                   | Standard value is 0.5.            |
+  +-----------------------------------+-----------------------------------+
   | Emitter Exponent                  | Power to which pressure is raised |
   |                                   | when computing the flow through   |
   |                                   | an emitter device. The textbook   |
   |                                   | value for nozzles and sprinklers  |
-  |                                   | is ½. This may not apply to pipe  |
-  |                                   | leakage. Consult the discussion   |
-  |                                   | of Emitters in Section 3.1 for    |
-  |                                   | more details.                     |
+  |                                   | is 0.5. This may not apply to     |
+  |                                   | pipe leakage. Consult the         |
+  |                                   | discussion of Emitters in         |
+  |                                   | Section 3.1 for more details.     |
   +-----------------------------------+-----------------------------------+
   | Status Report                     | Amount of status information to   |
   |                                   | report after an analysis is made. |
@@ -451,13 +495,20 @@ discussed below.
 
 **Negative Pressures Exist**
 
-   EPANET will issue a warning message when it encounters negative
-   pressures at junctions that have positive demands. This usually
-   indicates that there is some problem with the way the network has
-   been designed or operated. Negative pressures can occur when portions
-   of the network can only receive water through links that have been
-   closed off. In such cases an additional warning message about the
-   network being disconnected is also issued.
+   When performing a demand driven analysis (DDA), EPANET will issue a
+   warning message when it encounters negative pressures at junctions that
+   have positive demands. This usually indicates that there is some problem
+   with the way the network has been designed or operated. Negative pressures
+   can occur when portions of the network can only receive water through
+   links that have been closed off. In such cases an additional warning
+   message about the network being disconnected is also issued.
+
+   Alternatively, a pressure driven analysis (PDA) can be performed to
+   determine a hydraulic solution assuming a pressure-demand relationship
+   at junctions. The hydraulic solution found will have reduced or zero
+   demands and negative pressures will be largely eliminated. This is
+   considered a more "realistic" solution since large negative pressures
+   in a network are not physically realistic.
 
 
 **System Unbalanced**

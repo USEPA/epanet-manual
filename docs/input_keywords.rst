@@ -514,7 +514,7 @@
 **Formats:**
 
   .. tabularcolumns:: |\X{2}{5}|\X{2}{5}|\X{1}{10}|
-   
+
   ===================== ============================== ========
   **UNITS**             **CFS/GPM/MGD/IMGD/AFD/**
                         **LPS/LPM/MLD/CMH/CMD**
@@ -526,8 +526,14 @@
   **SPECIFIC GRAVITY**  value
   **TRIALS**            value
   **ACCURACY**          value
+  **HEADERROR**         value
+  **FLOWCHANGE**        value
   **UNBALANCED**        **STOP/CONTINUE/CONTINUE**     n
   **PATTERN**           id
+  **DEMAND MODEL**      **DDA/PDA**
+  **MINIMUM PRESSURE**  value
+  **REQUIRED PRESSURE** value
+  **PRESSURE EXPONENT** value
   **DEMAND MULTIPLIER** value
   **EMITTER EXPONENT**  value
   **TOLERANCE**         value
@@ -605,6 +611,23 @@
     total flow in all links is less than this number. The default is
     0.001.
 
+  HEADERROR
+    augments **ACCURACY** option. Sets the maximum head loss error
+    that any network link can have for hydraulic convergence to occur.
+    A link's head loss error is the difference between the head loss
+    found as a function of computed flow in the link (such as by the
+    Hazen-Williams equation for a pipe) and the difference in computed
+    heads for the link's end nodes. The units of this parameter are
+    feet (US) or meters (SI). The default value of 0 indicates that no
+    head error limit applies.
+
+  FLOWCHANGE
+    augments the **ACCURACY** option. Sets the largest change in flow
+    that any network element (link, emitter, or pressure-dependent
+    demand) can have for hydraulic convergence to occur. It is specified
+    in whatever flow units the project is using. The default value of 0
+    indicates that no flow change limit applies.
+
   UNBALANCED
     determines what happens if a hydraulic solution cannot
     be reached within the prescribed number of **TRIALS** at some
@@ -625,10 +648,37 @@
     is not used, then the global default demand pattern has a label of
     "1".
 
-    The **DEMAND MULTIPLIER** is used to adjust the values of baseline
-    demands for all junctions and all demand categories. For example, a
-    value of 2 doubles all baseline demands, while a value of 0.5 would
-    halve them. The default value is 1.0.
+  DEMAND MULTIPLIER
+    is used to adjust the values of baseline demands for all junctions
+    and all demand categories. For example, a value of 2 doubles all
+    baseline demands, while a value of 0.5 would halve them. The default
+    value is 1.0.
+
+  DEMAND MODEL
+    determines nodal demand model. Wither Demand Driven Analysis (**DDA**) or
+    Pressure Driven Analysis (**PDA**). DDA assumes a nodal demand at a given
+    point in time is a fixed value :math:`D`. This sometimes results in
+    hydraulic solutions with negative pressures (a physical impossibility).
+    PDA assumes the demand delivered, :math:`d`, is a function of nodal
+    pressure, :math:`p`, as follows:
+
+    .. math::
+       d = D \left[ \frac{p - P_{min}}{P_{req} - P_{min}} \right]^{Pexp}
+
+    where :math:`D` is the full demand required, :math:`Pmin` is the pressure
+    below which demand is zero, :math:`Preq` is the pressure required to
+    deliver the full required demand and :math:`Pexp` is an exponent. When
+    :math:`p < Pmin` demand is 0 and when :math:`p > Preq` demand equals
+    :math:`D`. The default value is **DDA**.
+
+  MINIMUM PRESSURE
+    value for :math:`Pmin`. Default value is 0.0.
+
+  REQUIRED PRESSURE
+    value for :math:`Preq`. Default value is 0.0.
+
+  PRESSURE EXPONENT
+    value for :math:`Pexp`. Default value is 0.5.
 
   EMITTER EXPONENT
     specifies the power to which the pressure at a

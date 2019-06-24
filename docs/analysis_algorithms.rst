@@ -48,7 +48,6 @@ Hydraulics
   power law of the form
 
   .. math::
-
      {h}_{ij} = {-\omega}^{2} ( {h}_{0} - r { ( {Q}_{ij}/{\omega} )}^{2 } )
 
   where :math:`h_{0}` is the shutoff head for the pump, :math:`\omega` is a
@@ -135,12 +134,24 @@ Hydraulics
 
      {Q}_{ij} = {Q}_{ij} - \frac{1}{g_{ij}} ( y_{ij} - {H}_{i} - {H}_{j} )
 
-  If the sum of absolute flow changes relative to the total flow in all
-  links is larger than some tolerance (e.g., 0.001), then Eqs
-  :eq:`eq:matrix_form` and :eq:`eq:flow_update` are solved once again.
-  The flow update formula :eq:`eq:flow_update` always results in flow
-  continuity around each node after the first iteration.
+  The flow update formula always results in flow continuity around each
+  node after the first iteration.
 
+  Iterations continue until some suitable convergence criterion based on
+  residual errors associated with :eq:`eq:pipe_headloss` and
+  :eq:`eq:node_continuity` is met. If convergence does not occur then
+  Eqs :eq:`eq:matrix_form` and :eq:`eq:flow_update` are solved again.
+
+  EPANET uses several different hydraulic convergence criteria. Versions 2.0
+  and earlier based accuracy on the absolute flow changes relative to the
+  total flow in all links. Gorev et al. (2011), however, observed that this
+  criterion did not guarantee convergence towards the exact solution and
+  proposed two new ones based on max head error and max flow change.
+  Gorev's criteria have been added to EPANET v2.2 as options that provide more
+  rigorous control over hydraulic convergence.
+
+
+.. _press_dependent_analysis:
 
 **Pressure Dependent Demand Model**
 
@@ -157,7 +168,7 @@ Hydraulics
        \left\{
          \begin{array}{l l}
            D_{i}                                                           & p_{i} \ge P_{f}     \\
-           D_{i} \left( \frac{p_{i} - P_{0}}{P_{f} - P_{0}} \right) ^{1/e} & P_{0} < p_i < P_{f} \\
+           D_{i} \left( \frac{p_{i} - P_{0}}{P_{f} - P_{0}} \right) ^{e}   & P_{0} < p_i < P_{f} \\
            0                                                               & p_{i} \le P_{0}
          \end{array}
        \right.
@@ -165,7 +176,7 @@ Hydraulics
   :math:`D_{i}` is the full normal demand at node :math:`i` when the pressure
   :math:`p_{i}` equals or exceeds :math:`P_{f}`, :math:`P_{0}` is the pressure
   below which the demand is 0, and :math:`e` is an exponent usually set equal
-  to 2 (to mimic flow through an orifice).
+  to 0.5 (to mimic flow through an orifice).
 
   Eq. :eq:`eq:wagners` can be inverted to express head loss through a virtual
   link as a function of the demand flowing out of node :math:`i` to a virtual
@@ -246,6 +257,17 @@ Hydraulics
 
   .. math::
      d_{i} = d_{i} - ( h_{di} - h_{i} + E_{i} + P_{0} ) / g_{di}
+
+
+  The following assumptions apply to the implementation of PDD in EPANET:
+
+  -  A global set of minimum :math:`P_{0}` and full :math:`P_{f}` (or nominal)
+     pressure limits apply to all nodes.
+
+  -  In extended period analysis, where the full demands change at
+     different time periods, the same pressure-dependent demand function
+     is applied to the current full demand (instead of changing :math:`P_{f}`
+     to accommodate changes in :math:`D_{f}` ).
 
 
 **EPANET Implementation**
@@ -380,8 +402,6 @@ Hydraulics
       described in item 6 above and :math:`m` taken as the converted value of
       the valve setting (see item 4 above).
 
-  .. YOU ARE HERE!
-
   12. Matrix coefficients for pressure reducing, pressure sustaining, and
       flow control valves (PRVs, PSVs, and FCVs) are computed after all
       other links have been analyzed. Status checks on PRVs and PSVs are
@@ -461,8 +481,6 @@ Hydraulics
       a. After a solution is found for the current time period, the time
          step for the next solution is the minimum of:
 
-
-
        -  the time until a new demand period begins,
 
        -  the shortest time for a tank to fill or drain,
@@ -510,14 +528,6 @@ Hydraulics
 
       c. A new set of iterations with Eqs. (D.3) and (D.4) are begun at the
          current set of flows.
-
-  18. A global set of minimum :math:`P_{0}` and full :math:`P_{f}` (or nominal)
-      pressure limits apply to all nodes.
-
-  19. In extended period analysis, where the full demands change at
-      different time periods, the same pressure-dependent demand function
-      is applied to the current full demand (instead of changing :math:`P_{f}`
-      to accommodate changes in :math:`D_{f}` ).
 
 
 Water Quality

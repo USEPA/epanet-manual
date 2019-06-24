@@ -139,6 +139,12 @@ Physical Components
     equivalent head of the pressure target. EPANET treats emitters as a
     property of a junction and not as a separate network component.
 
+    .. note::
+       The pressure-flow relation at a junction defined by an emitter
+       should not be confused with the pressure-demand relation when
+       performing a pressure dependent analysis (PDA). See Section:
+       :ref:`Pressure Dependent Demand Model <press_dependent_analysis>`
+       for more information on PDA.
 
 **Pipes**
 

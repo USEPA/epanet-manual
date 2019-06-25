@@ -655,7 +655,7 @@
     value is 1.0.
 
   DEMAND MODEL
-    determines nodal demand model. Wither Demand Driven Analysis (**DDA**) or
+    determines nodal demand model -- Demand Driven Analysis (**DDA**) or
     Pressure Driven Analysis (**PDA**). DDA assumes a nodal demand at a given
     point in time is a fixed value :math:`D`. This sometimes results in
     hydraulic solutions with negative pressures (a physical impossibility).

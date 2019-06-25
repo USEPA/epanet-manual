@@ -144,7 +144,7 @@ Physical Components
        should not be confused with the pressure-demand relation when
        performing a pressure dependent analysis (PDA). See Section:
        :ref:`Pressure Dependent Demand Model <press_dependent_analysis>`
-       for more information on PDA.
+       for more information.
 
 **Pipes**
 
@@ -242,7 +242,8 @@ Physical Components
 
 
 
-   Consult Appendix D for the actual equations used.
+   Consult :ref:`Chapter 13 <analysis_algorithms>` for the actual equations
+   used.
 
     **Table 3.1** Pipe Headloss Formulas for Full Flow (for headloss in
     feet and flow rate in cfs)

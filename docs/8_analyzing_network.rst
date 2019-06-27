@@ -105,7 +105,7 @@ Setting Analysis Options
   |                                   | this number. Suggested value is   |
   |                                   | 0.001.                            |
   +-----------------------------------+-----------------------------------+
-  | Head Error                        | Augments the ACCURACY option.     |
+  | Max. Head Error                   | Augments the ACCURACY option.     |
   |                                   | Specifies the maximum head loss   |
   |                                   | error any network link can have   |
   |                                   | for hydraulic convergence to      |

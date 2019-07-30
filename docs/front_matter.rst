@@ -4,17 +4,15 @@
   	\pagenumbering{roman}
 
 
-| EPA/600/R-00/057
-| September 2000
+| July 2019
 
 
-#####################
-EPANET 2 Users Manual
-#####################
+#############################
+Draft EPANET 2.2 Users Manual
+#############################
 
 
-| by Lewis A. Rossman
-| Water Supply and Water Resources Division
+| Water System Division
 | National Risk Management Research Laboratory
 
 

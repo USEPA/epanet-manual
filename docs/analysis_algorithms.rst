@@ -140,7 +140,7 @@ Hydraulics
   Iterations continue until some suitable convergence criterion based on
   residual errors associated with :eq:`eq:pipe_headloss` and
   :eq:`eq:node_continuity` is met. If convergence does not occur then
-  Eqs :eq:`eq:matrix_form` and :eq:`eq:flow_update` are solved again.
+  Eqs. :eq:`eq:matrix_form` and :eq:`eq:flow_update` are solved again.
 
   EPANET uses several different hydraulic convergence criteria. Versions 2.0
   and earlier based accuracy on the absolute flow changes relative to the
@@ -159,7 +159,7 @@ Hydraulics
   depends on the pressure head :math:`p_{i}` available at the node (where
   pressure head is hydraulic head :math:`h_{i}` minus elevation :math:`E_{i}`).
   There are several different forms of pressure dependency that have been
-  proposed. Here we use Wagner’s equation:
+  proposed. Here we use Wagner’s equation (Wagner et al., 1988):
 
   .. math::
      :label: eq:wagners
@@ -531,8 +531,8 @@ Hydraulics
         tank levels are adjusted based on the current flow solution, and link
         control rules are checked to determine which links change status.
 
-     c. A new set of iterations with Eqs. (D.3) and (D.4) are begun at the
-        current set of flows.
+     c. A new set of iterations with Eqs. :eq:`eq:matrix_form` and
+        :eq:`eq:flow_update` are begun at the current set of flows.
 
 
 Water Quality
@@ -776,7 +776,7 @@ Water Quality
 
 **System of Equations**
 
-  When applied to a network as a whole, Equations D.5-D.7 represent a
+  When applied to a network as a whole, Eqs. :eq:`eq:advec_trans` - :eq:`eq:tank_mixing` represent a
   coupled set of differential/algebraic equations with time-varying
   coefficients that must be solved for :math:`C_i` in each pipe :math:`i`
   and :math:`C_s` in each storage facility :math:`s`. This solution is

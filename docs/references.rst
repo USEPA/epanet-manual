@@ -76,3 +76,7 @@ September 8-10.
 Todini, E. 2003. "A more realistic approach to the extended period
 simulation of water distribution networks". *Advances in Water Supply
 Management: Proc. CCWI '03 Conference*, London, Sept. 15-17.
+
+Wagner, J. M., Shamir, U., and Marks, D. H. 1988. "Water distribution
+reliability: Simulation methods." *Jour. Water Resour. Plan. Manage*.,
+Vol. 114, No. 3, 253-275.

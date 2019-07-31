@@ -451,7 +451,7 @@ Hydraulics
      upstream node. For an active PRV from node i to j:
 
      .. math::
-        {p}_{ij} = 0
+        \frac{1}{p}_{ij} = 0
 
      .. math::
         {F}_{j} = {F}_{j} + {10}^{8} Hset

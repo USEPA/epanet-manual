@@ -278,8 +278,7 @@ Physical Components
 
     +-----------------+------------------+------------------+-----------------+
     |    *Material*   | *Hazen-Williams* | *Darcy-Weisbach* | *Manning's*     |
-    |                 | :math:`C`        | :math:`\epsilon` | :math:`n`       |
-    |                 |                  |                  |                 |
+    |                 | :math:`C`\       | :math:`\epsilon` | :math:`n` \\    |
     |                 | *(unitless)*     | *(ft x 10^-3)*   | *(unitless)*    |
     +=================+==================+==================+=================+
     |    Cast Iron    |    130 -- 140    |     0.85         |  0.012 -- 0.015 |
@@ -301,18 +300,7 @@ Physical Components
     |    Clay         |                  |                  |                 |
     +-----------------+------------------+------------------+-----------------+
 
-    +------------------------+------------+----------+----------+
-    | Header row, column 1   | Header 2   | Header 3 | Header 4 |
-    | (header rows optional) |            |          |          |
-    +========================+============+==========+==========+
-    | body row 1, column 1   | column 2   | column 3 | column 4 |
-    +------------------------+------------+----------+----------+
-    | body row 2             | Cells may span columns.          |
-    +------------------------+------------+---------------------+
-    | body row 3             | Cells may  | - Table cells       |
-    +------------------------+ span rows. | - contain           |
-    | body row 4             |            | - body elements.    |
-    +------------------------+------------+---------------------+
+
    Pipes can be set open or closed at preset times or when specific
    conditions exist, such as when tank levels fall below or above
    certain set points, or when nodal pressures fall below or above

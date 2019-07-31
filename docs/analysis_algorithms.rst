@@ -92,10 +92,22 @@ Hydraulics
      {A}_{ij} = -\frac{1}{g_{ij}}
 
   where :math:`g_{ij}` is the derivative of the headloss in the link
-  between nodes :math:`i` and :math:`j` with respect to flow. For pipes,
+  between nodes :math:`i` and :math:`j` with respect to flow. For pipes, when
+  resistance coefficient is not a function of flow rate,
 
   .. math::
      {g}_{ij} = nr {{ | Q_{ij} | }^{n - 1}} + 2m | Q_{ij} |
+
+  when resistance coefficient is a function of flow rate, specifically as
+  in Darcy-Weisbach head loss equation and when flow is turbulent,
+
+  .. math::
+     {g}_{ij} = nr {{ | Q_{ij} | }^{n - 1}} + \frac{\partial r}{\partial Q_{ij}}|Q_{ij}|^n + 2m | Q_{ij} |
+
+  Zero flows are a cause numerical instability in the GGA solver (Gorev et al., 2013).
+  When flow approaches zero, a linear relationship is assumed between head loss and
+  flow to prevent :math:`{g}_{ij}` from reaching zero. The value of :math:`{g}_{ij}`
+  is capped at a specific value when the flow is smaller than what is defined by the specific :math:`{g}`.
 
   while for pumps
 
@@ -147,7 +159,7 @@ Hydraulics
   total flow in all links. Gorev et al. (2013), however, observed that this
   criterion did not guarantee convergence towards the exact solution and
   proposed two new ones based on max head error and max flow change.
-  Gorev's criteria have been added to EPANET v2.2 as options that provide more
+  These two criteria have been added to EPANET v2.2 as options that provide more
   rigorous control over hydraulic convergence.
 
 
@@ -329,6 +341,12 @@ Hydraulics
 
      where :math:`\epsilon` = pipe roughness and :math:`d` = pipe diameter.
 
+  Based on friction factor equations described above and Darcy-Weisbach equation in Table 3.1,
+  resistance coefficient is not a function of flow and linear relationship exists between head loss
+  and flow when Re > 2000. If Re > 2000, resistance coefficient depends on pipe flow and the
+  sensitivity of resistance  coefficient to flow needs to be computed in order to calculate :math:`{g}_{ij}`
+  for the pipe.
+
   #. Zero-flows are a cause numerical instability in the GGA solver.
      Gorev (2013) proposed a method to handle zero-flows by substituting
      a linear approximation for the head loss function when flows are
@@ -451,7 +469,7 @@ Hydraulics
      upstream node. For an active PRV from node i to j:
 
      .. math::
-        \frac{1}{p}_{ij} = 0
+        \frac{1}{g_{ij}} = 0
 
      .. math::
         {F}_{j} = {F}_{j} + {10}^{8} Hset

@@ -104,7 +104,7 @@ Hydraulics
   .. math::
      {g}_{ij} = nr {{ | Q_{ij} | }^{n - 1}} + \frac{\partial r}{\partial Q_{ij}}|Q_{ij}|^n + 2m | Q_{ij} |
 
-  Zero flows can cause numerical instability in the GGA solver (Gorev et al., 2013).
+  Zero flows can cause numerical instability in the GGA solver (Gorev et al., 2013; Elhay an Simpson, 2011).
   When flow approaches zero, a linear relationship is assumed between head loss and
   flow to prevent :math:`{g}_{ij}` from reaching zero. The value of :math:`{g}_{ij}`
   is capped at a specific value when the flow is smaller than what is defined by the specific :math:`{g}`.
@@ -341,11 +341,11 @@ Hydraulics
 
      where :math:`\epsilon` = pipe roughness and :math:`d` = pipe diameter.
 
-  Based on friction factor equations described above and Darcy-Weisbach equation in Table 3.1,
-  resistance coefficient is not a function of flow and linear relationship exists between head loss
-  and flow when Re > 2000. If Re > 2000, resistance coefficient depends on pipe flow and the
-  sensitivity of resistance  coefficient to flow needs to be computed in order to calculate :math:`{g}_{ij}`
-  for the pipe.
+     Based on friction factor equations described above and Darcy-Weisbach equation in Table 3.1,
+     resistance coefficient is not a function of flow and linear relationship exists between head loss
+     and flow when Re > 2000. If Re > 2000, resistance coefficient depends on pipe flow and the
+     sensitivity of resistance  coefficient to flow needs to be computed in order to calculate :math:`{g}_{ij}`
+     for the pipe.
 
 
   #. The minor loss coefficient based on velocity head (:math:`K`) is converted

@@ -104,7 +104,7 @@ Hydraulics
   .. math::
      {g}_{ij} = nr {{ | Q_{ij} | }^{n - 1}} + \frac{\partial r}{\partial Q_{ij}}|Q_{ij}|^n + 2m | Q_{ij} |
 
-  Zero flows are a cause numerical instability in the GGA solver (Gorev et al., 2013).
+  Zero flows can cause numerical instability in the GGA solver (Gorev et al., 2013).
   When flow approaches zero, a linear relationship is assumed between head loss and
   flow to prevent :math:`{g}_{ij}` from reaching zero. The value of :math:`{g}_{ij}`
   is capped at a specific value when the flow is smaller than what is defined by the specific :math:`{g}`.
@@ -347,11 +347,6 @@ Hydraulics
   sensitivity of resistance  coefficient to flow needs to be computed in order to calculate :math:`{g}_{ij}`
   for the pipe.
 
-  #. Zero-flows are a cause numerical instability in the GGA solver.
-     Gorev (2013) proposed a method to handle zero-flows by substituting
-     a linear approximation for the head loss function when flows are
-     below a predefined threshold. The hydraulic solver has been updated
-     accordingly.
 
   #. The minor loss coefficient based on velocity head (:math:`K`) is converted
      to one based on flow (:math:`m`) with the following relation:

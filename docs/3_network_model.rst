@@ -278,7 +278,7 @@ Physical Components
 
     +-----------------+------------------+------------------+-----------------+
     |    *Material*   | *Hazen-Williams* | *Darcy-Weisbach* | *Manning's*     |
-    |                 | :math:`C`\       | :math:`\epsilon` | :math:`n` \\    |
+    |                 | :math:`C`\       | :math:`\epsilon`\| :math:`n` \     |
     |                 | *(unitless)*     | *(ft x 10^-3)*   | *(unitless)*    |
     +=================+==================+==================+=================+
     |    Cast Iron    |    130 -- 140    |     0.85         |  0.012 -- 0.015 |

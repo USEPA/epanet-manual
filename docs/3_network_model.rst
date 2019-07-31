@@ -277,10 +277,10 @@ Physical Components
     **Table 3.2** Roughness Coefficients for New Pipe
 
     +-----------------+------------------+------------------+-----------------+
-    |                 | *Hazen-Williams* | *Darcy-Weisbach* | *Manning's*     |
+    |    *Material*   | *Hazen-Williams* | *Darcy-Weisbach* | *Manning's*     |
     |                 | :math:`C`        | :math:`\epsilon` | :math:`n`       |
-    |     *Material*  |                  |                  |                 |
-    |     *Material*  | *(unitless)*     | *(ft x 10^-3)*   | *(unitless)*    |
+    |                 |                  |                 |
+    |                 | *(unitless)*     | *(ft x 10^-3)*   | *(unitless)*    |
     +=================+==================+==================+=================+
     |    Cast Iron    |    130 -- 140    |     0.85         |  0.012 -- 0.015 |
     +-----------------+------------------+------------------+-----------------+

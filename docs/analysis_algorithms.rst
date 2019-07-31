@@ -144,7 +144,7 @@ Hydraulics
 
   EPANET uses several different hydraulic convergence criteria. Versions 2.0
   and earlier based accuracy on the absolute flow changes relative to the
-  total flow in all links. Gorev et al. (2011), however, observed that this
+  total flow in all links. Gorev et al. (2013), however, observed that this
   criterion did not guarantee convergence towards the exact solution and
   proposed two new ones based on max head error and max flow change.
   Gorev's criteria have been added to EPANET v2.2 as options that provide more

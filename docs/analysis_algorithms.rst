@@ -104,7 +104,7 @@ Hydraulics
   .. math::
      {g}_{ij} = nr {{ | Q_{ij} | }^{n - 1}} + \frac{\partial r}{\partial Q_{ij}}|Q_{ij}|^n + 2m | Q_{ij} |
 
-  Zero flows can cause numerical instability in the GGA solver (Gorev et al., 2013; Elhay an Simpson, 2011).
+  Zero flows can cause numerical instability in the GGA solver (Gorev et al., 2013; Elhay and Simpson, 2011).
   When flow approaches zero, a linear relationship is assumed between head loss and
   flow to prevent :math:`{g}_{ij}` from reaching zero. The value of :math:`{g}_{ij}`
   is capped at a specific value when the flow is smaller than what is defined by the specific :math:`{g}`.

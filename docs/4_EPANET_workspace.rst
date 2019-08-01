@@ -371,34 +371,24 @@ Network Map
 Data Browser
 ~~~~~~~~~~~~
 
-   |image66|\ The Data Browser (shown below) is accessed from the Data
+   The Data Browser (shown below) is accessed from the Data
    tab on the Browser window. It gives access to the various objects, by
    category (Junctions, Pipes, etc.) that are contained in the network
    being analyzed. The buttons at the bottom are used to add, delete,
    and edit these objects.
 
-   Selects an object category
-
-   Lists items in the selected category
-
-   Add, Delete, and Edit buttons
-
+   |image66| 
 
 Map Browser
 ~~~~~~~~~~~
 
-   |image67|\ The Map Browser (shown below) is accessed from the Map tab
+   The Map Browser (shown below) is accessed from the Map tab
    of the Browser Window. It selects the parameters and time period that
    are viewed in color-coded fashion on the Network Map. It also
    contains controls for animating the map through time.
 
-   Selects a node variable for viewing Selects a link variable for
-   viewing
-
-   Selects a time period for viewing Animates the map display over time
-
-   Sets animation speed
-
+   |image67| 
+ 
    The animation control pushbuttons on the Map Browser work as follows:
 
    |image68|   \ Rewind (return to initial time)

@@ -401,10 +401,10 @@ Map Browser
 
    The animation control pushbuttons on the Map Browser work as follows:
 
-   |image68|\ Rewind (return to initial time) Animate back through time
-   Stop the animation
-
-   Animate forward in time
+   |image68|   \ Rewind (return to initial time)
+   |image68_2| \ Animate back through time
+   |image68_3| \ Stop the animation
+   |image68_4| \ Animate forward in time
 
 
 Property Editor

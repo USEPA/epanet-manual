@@ -49,7 +49,7 @@ Installing EPANET
 
     1. Open **Control Panel**.
 
-    2. Double-click on the **Add/Remove Programs** or *Uninstall a program* item.
+    2. Double-click on the **Add/Remove Programs** or **Uninstall a program** item.
 
     3. Select EPANET 2.2.0 beta from the list of programs that appears.
 

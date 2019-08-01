@@ -15,6 +15,9 @@ Clark, R.M. 1998. “Chlorine demand and Trihalomethane formation
 kinetics: a second-order model”, *Jour. Env. Eng*., Vol. 124, No. 1,
 pp. 16-24.
 
+Davis, M. J., Janke, R., and Taxon, T. N. 2018. "Mass imbalances in EPANET water-quality simulations", *Drinking Water Engineering and Science*, 
+Vol. 11, pp. 25-47.
+
 Dunlop, E.J. 1991. *WADI Users Manual*. Local Government Computer
 Services Board, Dublin, Ireland.
 

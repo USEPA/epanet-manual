@@ -863,7 +863,8 @@ Water Quality
   reversal has the order of its segments reversed and if any flow
   reversal occurs the network’s nodes are re-sorted topologically, from
   upstream to downstream. Sorting the nodes topologically allows the
-  method to conserve mass, even when very short pipes or zero-length pumps
+  method to conserve mass and reduce the potential mass balance error experined with EPANET 2.0 (Davis et al., 2018) 
+  even when very short pipes or zero-length pumps
   and valves are encountered. Initially each pipe in the network consists
   of a single segment whose quality equals the initial quality assigned to
   the upstream node.

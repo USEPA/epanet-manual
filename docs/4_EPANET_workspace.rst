@@ -379,16 +379,6 @@ Data Browser
 
    |image66| 
 
-   .. image:: media/image53.jpeg
-      :align: left
-     5                
-      |
-      Selects an object category 
-      | 
-      | Lists items in the selected category 
-      | 
-      | Add, Delete, and Edit buttons
-  
 
 Map Browser
 ~~~~~~~~~~~

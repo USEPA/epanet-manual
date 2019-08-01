@@ -384,15 +384,16 @@ Data Browser
 
    
    
-   Selects an object category
-
+      Selects an object category
+   
+      
    
    
-   Lists items in the selected category
+      Lists items in the selected category
 
 
 
-   Add, Delete, and Edit buttons
+      Add, Delete, and Edit buttons
   
 
 Map Browser

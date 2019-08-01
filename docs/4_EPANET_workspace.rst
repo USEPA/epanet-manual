@@ -382,7 +382,8 @@ Data Browser
    .. image:: media/image53.jpeg
       :align: left
    
-   Selects an object category 
+      |
+      | Selects an object category 
       | 
       | Lists items in the selected category 
       | 

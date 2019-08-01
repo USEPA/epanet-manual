@@ -379,7 +379,7 @@ Data Browser
 
    |image66| 
 
-   .. image:: media/image63.jpeg
+   .. image:: media/image53.jpeg
       :align: left
 
    Selects an object category

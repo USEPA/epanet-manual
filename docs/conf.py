@@ -26,7 +26,7 @@ author = 'Lewis Rossman, Hyoungmin Woo, Michael Tryby'
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '2.2'
+release = '2.2 Beta'
 
 
 # -- General configuration ---------------------------------------------------
@@ -140,8 +140,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'epanet-manual.tex', 'epanet-manual Documentation',
-     u'Lewis A. Rossman \n Hyoungmin Woo \n Michael Tryby', 'manual'),
+    (master_doc, 'epanet-manual.tex', 'EPANET USERS MANUAL',
+     u'Lewis A. Rossman, Hyoungmin Woo and Michael Tryby', 'manual'),
 ]
 
 numfig = True
@@ -152,7 +152,7 @@ math_numfig = True
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'epanet-manual', 'epanet-manual Documentation',
+    (master_doc, 'epanet-manual', 'EPANET USERS MANUAL',
      [u'Michael Tryby'], 1)
 ]
 
@@ -163,7 +163,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'epanet-manual', 'epanet-manual Documentation',
+    (master_doc, 'epanet-manual', 'EPANET USERS MANUAL',
      author, 'epanet-manual', 'One line description of project.',
      'Miscellaneous'),
 ]

@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'epanet-manual'
-copyright = '2019, see AUTHORS'
+copyright = '2019'
 author = 'Lewis Rossman, Hyoungmin Woo, Michael Tryby'
 
 # The short X.Y version

@@ -141,7 +141,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'epanet-manual.tex', 'epanet-manual Documentation',
-     [author], 'manual'),
+     u'Lewis A. Rossman', 'manual'),
 ]
 
 numfig = True
@@ -153,7 +153,7 @@ math_numfig = True
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (master_doc, 'epanet-manual', 'epanet-manual Documentation',
-     [author], 1)
+     [u'Michael Tryby'], 1)
 ]
 
 

@@ -29,8 +29,9 @@
 
 
 .. toctree::
+   :numbered:
    :hidden:
-   
+
    references
    back_matter
 

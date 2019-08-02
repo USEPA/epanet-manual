@@ -143,7 +143,7 @@ latex_documents = [
     (master_doc, 'epanet-manual.tex', 'EPANET USERS MANUAL',
      u'Lewis A. Rossman \\and Hyoungmin Woo \\and Michael Tryby', 'manual'),
 ]
-
+latex_appendices = ['A_units.rst','B_error_messages.rst','C_command_line_EPANET.rst']
 numfig = True
 math_numfig = True
 
@@ -153,7 +153,7 @@ math_numfig = True
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (master_doc, 'epanet-manual', 'EPANET USERS MANUAL',
-     [u'Michael Tryby'], 1)
+     [u'Lewis A. Rossman \\and Hyoungmin Woo \\and Michael Tryby'], 1)
 ]
 
 
@@ -164,7 +164,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'epanet-manual', 'EPANET USERS MANUAL',
-     author, 'epanet-manual', 'One line description of project.',
+     u'Lewis A. Rossman \\and Hyoungmin Woo \\and Michael Tryby', 'epanet-manual', 'One line description of project.',
      'Miscellaneous'),
 ]
 

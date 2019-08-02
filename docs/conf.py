@@ -141,7 +141,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'epanet-manual.tex', 'epanet-manual Documentation',
-     u'Lewis A. Rossman \\ Hyoungmin Woo \\ Michael Tryby', 'manual'),
+     u'Lewis A. Rossman \n Hyoungmin Woo \n Michael Tryby', 'manual'),
 ]
 
 numfig = True

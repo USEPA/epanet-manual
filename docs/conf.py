@@ -21,7 +21,7 @@
 
 project = 'epanet-manual'
 copyright = '2019, see AUTHORS'
-author = ['Lewis A. Rossman', 'Hyoungmin Woo', 'Michael Tryby']
+author = 'Lewis Rossman, Hyoungmin Woo, Michael Tryby'
 
 # The short X.Y version
 version = ''
@@ -141,7 +141,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'epanet-manual.tex', 'epanet-manual Documentation',
-     [author], 'manual'),
+     'see AUTHORS', 'manual'),
 ]
 
 numfig = True

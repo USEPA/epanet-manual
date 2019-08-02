@@ -29,6 +29,7 @@
 
 
 .. toctree::
+   :numbered:
    :hidden:
 
    references

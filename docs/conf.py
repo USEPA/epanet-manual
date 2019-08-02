@@ -140,7 +140,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    ('latextindex', 'epanet-manual.tex', 'EPANET USERS MANUAL',
+    ('latexindex', 'epanet-manual.tex', 'EPANET USERS MANUAL',
      author, 'manual'),
 ]
 latex_appendices = ['A_units', 'B_error_messages', 'C_command_line_EPANET']

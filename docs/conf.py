@@ -19,14 +19,14 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'EPANET USERS MANUAL'
+project = 'epanet-manual'
 copyright = '2019, see AUTHORS'
-author = 'see AUTHORS'
+author = ['Lewis A. Rossman', 'Hyoungmin Woo', 'Michael Tryby']
 
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '2.2 Beta'
+release = '2.2'
 
 
 # -- General configuration ---------------------------------------------------
@@ -141,7 +141,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'epanet-manual.tex', 'epanet-manual Documentation',
-     'see AUTHORS', 'manual'),
+     author, 'manual'),
 ]
 
 numfig = True
@@ -153,7 +153,7 @@ math_numfig = True
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (master_doc, 'epanet-manual', 'epanet-manual Documentation',
-     ['Lew Rossman', 'Hyoungmin Woo', 'Michael Tryby'], 1)
+     [author], 1)
 ]
 
 

@@ -19,14 +19,14 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'epanet-manual'
+project = 'EPANET USERS MANUAL'
 copyright = '2019, see AUTHORS'
 author = 'see AUTHORS'
 
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '2.2'
+release = '2.2 Beta'
 
 
 # -- General configuration ---------------------------------------------------
@@ -153,7 +153,7 @@ math_numfig = True
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (master_doc, 'epanet-manual', 'epanet-manual Documentation',
-     [author], 1)
+     ['Lew Rossman', 'Hyoungmin Woo', 'Michael Tryby'], 1)
 ]
 
 

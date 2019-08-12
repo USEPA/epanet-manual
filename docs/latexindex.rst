@@ -26,13 +26,8 @@
    11_importing_exporting
    12_questions
    analysis_algorithms
-
-
-.. toctree:: 
-   :hidden:
-
    references
-   back_matter
+
 
 
 ..

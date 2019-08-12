@@ -22,8 +22,8 @@ want to review the first two sections of Chapter 3 first.*
 Installing EPANET
 ~~~~~~~~~~~~~~~~~
 
-   EPANET Version 2.2 Beta is designed to run under the Windows 95/98/NT/2000/XP/7/8/10
-   operating system of an IBM/Intel-compatible personal computer. It is
+   EPANET Version 2.2 Beta is designed to run under the Windows 7/8/10
+   operating system of an Intel-compatible personal computer. It is
    distributed as a single installer package file, **en2setup-2.2.0-beta-win32.msi**.
    To install EPANET:
 

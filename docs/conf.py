@@ -143,7 +143,9 @@ latex_documents = [
     ('latexindex', 'epanet-manual.tex', 'EPANET USERS MANUAL',
      author, 'manual'),
 ]
-latex_appendices = ['A_units', 'B_error_messages', 'C_command_line_EPANET']
+
+#latex_appendices = ['A_units', 'B_error_messages', 'C_command_line_EPANET']
+
 numfig = True
 math_numfig = True
 

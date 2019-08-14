@@ -1,10 +1,12 @@
 .. raw:: latex
 
     \clearpage
-    
 
-8. ANALYZING A NETWORK
-======================
+
+.. _analyzing_network:
+
+Analyzing a Network
+===================
 
 *After a network has been suitably described, its hydraulic and water
 quality behavior can be analyzed. This chapter describes how to
@@ -16,7 +18,7 @@ analysis.*
 -------
 
 
-   
+
 Setting Analysis Options
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -41,8 +43,8 @@ Setting Analysis Options
   can move to the next or previous category by simply hitting the
   **Page Down** or **Page Up** keys, respectively.
 
-Hydraulic Options
-------------------
+
+**Hydraulic Options**
 
    Hydraulic options control how the hydraulic computations are carried
    out. They consist of the following items:
@@ -51,7 +53,7 @@ Hydraulic Options
   | *Option*                          | *Description*                     |
   +===================================+===================================+
   |                                   | Units in which nodal demands and  |
-  |   Flow Units                      | link flow rates are expressed.    |
+  | Flow Units                        | link flow rates are expressed.    |
   |                                   | Choosing units in gallons, cubic  |
   |                                   | feet, or acre-feet implies that   |
   |                                   | the units for all other network   |
@@ -68,11 +70,9 @@ Hydraulic Options
   |                                   | as a function of flow rate in a   |
   |                                   | pipe. Choices are:                |
   +-----------------------------------+-----------------------------------+
-  |                                   | •         Hazen-Williams          |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         Darcy-Weisbach          |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         Chezy-Manning           |
+  |                                   | - Hazen-Williams                  |
+  |                                   | - Darcy-Weisbach                  |
+  |                                   | - Chezy-Manning                   |
   +-----------------------------------+-----------------------------------+
   |                                   | Because each formula measures     |
   |                                   | pipe roughness differently,       |
@@ -105,6 +105,28 @@ Hydraulic Options
   |                                   | this number. Suggested value is   |
   |                                   | 0.001.                            |
   +-----------------------------------+-----------------------------------+
+  | Max. Head Error                   | Augments the ACCURACY option.     |
+  |                                   | Specifies the maximum head loss   |
+  |                                   | error any network link can have   |
+  |                                   | for hydraulic convergence to      |
+  |                                   | occur. The default value          |
+  |                                   | of 0 indicates that no head       |
+  |                                   | error limit applies. Units of     |
+  |                                   | this parameter are feet (US) or   |
+  |                                   | meters (SI).                      |
+  +-----------------------------------+-----------------------------------+
+  | Flow Change                       | Augments the ACCURACY option.     |
+  |                                   | Specifies the largest change in   |
+  |                                   | flow that any network element     |
+  |                                   | (link, emitter, or pressure-      |
+  |                                   | dependent demand) can have for    |
+  |                                   | hydraulic convergence to occur.   |
+  |                                   | The default value of 0 indicates  |
+  |                                   | that no flow change limit         |
+  |                                   | applies. It is specified based    |
+  |                                   | on the current project flow unit  |
+  |                                   | setting.                          |
+  +-----------------------------------+-----------------------------------+
   | If Unbalanced                     | Action to take if a hydraulic     |
   |                                   | solution is not found within the  |
   |                                   | maximum number of trials. Choices |
@@ -128,33 +150,44 @@ Hydraulic Options
   |                                   | all demands, 0.5 halves them, and |
   |                                   | 1.0 leaves them as is.            |
   +-----------------------------------+-----------------------------------+
+  | Demand Model                      | Selects between demand or         |
+  |                                   | pressure driven analysis -- DDA   |
+  |                                   | or PDA respectively. DDA assumes  |
+  |                                   | demands are fixed at a given      |
+  |                                   | point in time, while PDA assumes  |
+  |                                   | demands are a function of         |
+  |                                   | pressure. The PDA option can be   |
+  |                                   | used to find a solution when      |
+  |                                   | negative pressures are present    |
+  |                                   | in a DDA.                         |
+  +-----------------------------------+-----------------------------------+
+  | Minimum Pressure                  | In a PDA, the pressure below      |
+  |                                   | which demand is assumed to be     |
+  |                                   | zero.                             |
+  +-----------------------------------+-----------------------------------+
+  | Required Pressure                 | In a PDA, the pressure required   |
+  |                                   | to deliver the full demand.       |
+  +-----------------------------------+-----------------------------------+
+  | Pressure Exponent                 | PDA assumes a pressure demand     |
+  |                                   | relation raised to an exponent.   |
+  |                                   | Standard value is 0.5.            |
+  +-----------------------------------+-----------------------------------+
   | Emitter Exponent                  | Power to which pressure is raised |
   |                                   | when computing the flow through   |
   |                                   | an emitter device. The textbook   |
   |                                   | value for nozzles and sprinklers  |
-  |                                   | is ½. This may not apply to pipe  |
-  |                                   | leakage. Consult the discussion   |
-  |                                   | of Emitters in Section 3.1 for    |
-  |                                   | more details.                     |
+  |                                   | is 0.5. This may not apply to     |
+  |                                   | pipe leakage. Consult the         |
+  |                                   | discussion of Emitters in         |
+  |                                   | Section 3.1 for more details.     |
   +-----------------------------------+-----------------------------------+
   | Status Report                     | Amount of status information to   |
   |                                   | report after an analysis is made. |
-  +-----------------------------------+-----------------------------------+
   |                                   | Choices are:                      |
   +-----------------------------------+-----------------------------------+
-  |                                   | •         NONE (no status         |
-  |                                   | reporting)                        |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         YES (normal status      |
-  |                                   | reporting – lists all changes in  |
-  |                                   | link status throughout the        |
-  |                                   | simulation )                      |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         FULL (full reporting –  |
-  |                                   | normal reporting plus the         |
-  |                                   | convergence error from each trial |
-  |                                   | of the hydraulic analysis made in |
-  |                                   | each time period)                 |
+  |                                   | - NONE (no reporting)             |
+  |                                   | - YES  (link status changes)      |
+  |                                   | - FULL (normal plus convergence)  |
   +-----------------------------------+-----------------------------------+
   |                                   | Full status reporting is only     |
   |                                   | useful for debugging purposes.    |
@@ -163,8 +196,9 @@ Hydraulic Options
    **Note**: Choices for Hydraulic Options can also be set from the
    **Project >> Defaults** menu and saved for use with all future projects (see Section 5.2).
 
-Water Quality Options
------------------------
+
+
+**Water Quality Options**
 
    Water Quality Options control how the water quality analysis is
    carried out. They consist of the following:
@@ -175,18 +209,10 @@ Water Quality Options
   | Parameter                         | Type of water quality parameter   |
   |                                   | being modeled. Choices include:   |
   +-----------------------------------+-----------------------------------+
-  |                                   | •         NONE (no quality        |
-  |                                   | analysis),                        |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         CHEMICAL (compute       |
-  |                                   | chemical concentration),          |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         AGE (compute water      |
-  |                                   | age),                             |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         TRACE (trace the        |
-  |                                   | percent of flow originating from  |
-  |                                   | a specific node).                 |
+  |                                   | - NONE (no quality analysis)      |
+  |                                   | - CHEMICAL (compute concentration)|
+  |                                   | - AGE (estimate water age)        |
+  |                                   | - TRACE (percent flow from node)  |
   +-----------------------------------+-----------------------------------+
   |                                   | In lieu of CHEMICAL, you can      |
   |                                   | enter the actual name of the      |
@@ -195,7 +221,7 @@ Water Quality Options
   +-----------------------------------+-----------------------------------+
   | Mass Units                        | Mass units used to express        |
   |                                   | concentration. Choices are mg/L   |
-  |                                   | or μg/L. Units for Age and Trace  |
+  |                                   | ug/L. Units for Age and Trace     |
   |                                   | analyses are fixed at hours and   |
   |                                   | percent, respectively.            |
   +-----------------------------------+-----------------------------------+
@@ -232,9 +258,8 @@ Water Quality Options
    computational efficiency. Some experimentation with this setting
    might be called for.
 
-   
-Reaction Options
------------------
+
+**Reaction Options**
 
    Reaction Options set the types of reactions that apply to a water
    quality analysis. They include the following:
@@ -266,7 +291,7 @@ Reaction Options
   |                                   | this option is ignored.           |
   +-----------------------------------+-----------------------------------+
   | Global Bulk Coefficient           | Default bulk reaction rate        |
-  |                                   | coefficient (K:sub:`b`) assigned  |
+  |                                   | coefficient :math:`K_b` assigned  |
   |                                   | to all pipes. This global         |
   |                                   | coefficient can be overridden by  |
   |                                   | editing this property for         |
@@ -279,7 +304,7 @@ Reaction Options
   |                                   | the bulk reaction order.          |
   +-----------------------------------+-----------------------------------+
   | Global Wall Coefficient           | Wall reaction rate coefficient    |
-  |                                   | (K:sub:`w`) assigned to all       |
+  |                                   | :math:`K_w` assigned to all       |
   |                                   | pipes. Can be overridden by       |
   |                                   | editing this property for         |
   |                                   | specific pipes. Use a positive    |
@@ -309,9 +334,8 @@ Reaction Options
   |                                   | Set to zero if not applicable.    |
   +-----------------------------------+-----------------------------------+
 
-   
-Times Options
------------------
+
+**Times Options**
 
    Times options set values for the various time steps used in an
    extended period simulation. These are listed below (times can be
@@ -366,21 +390,11 @@ Times Options
   |                                   | an extended period simulation.    |
   |                                   | Choices are:                      |
   +-----------------------------------+-----------------------------------+
-  |                                   | •         NONE (results reported  |
-  |                                   | at each reporting time step)      |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         AVERAGE (time-averaged  |
-  |                                   | results reported)                 |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         MINIMUM (minimum value  |
-  |                                   | results reported)                 |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         MAXIMUM (maximum value  |
-  |                                   | results reported)                 |
-  +-----------------------------------+-----------------------------------+
-  |                                   | •         RANGE (difference       |
-  |                                   | between maximum and minimum       |
-  |                                   | results reported)                 |
+  |                                   | - NONE (current time step results)|
+  |                                   | - AVERAGE (time-averaged results) |
+  |                                   | - MINIMUM (minimum value results) |
+  |                                   | - MAXIMUM (maximum value results) |
+  |                                   | - RANGE (diff between min and max)|
   +-----------------------------------+-----------------------------------+
   |                                   | Statistical processing is applied |
   |                                   | to all node and link results      |
@@ -395,8 +409,7 @@ Times Options
    a non-zero Total Duration be specified.
 
 
-Energy Options
------------------
+**Energy Options**
 
    Energy Analysis Options provide default values used to compute
    pumping energy and cost when no specific energy parameters are
@@ -435,7 +448,7 @@ Running an Analysis
 
     3. Click **OK** when the analysis ends.
 
-    
+
 
   If the analysis runs successfully the |image114| icon will appear in
   the Run Status section of the Status Bar at the bottom of the EPANET
@@ -445,7 +458,7 @@ Running an Analysis
   faucet indicating that the current computed results no longer apply
   to the modified network.
 
-  
+
 Troubleshooting Results
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -454,9 +467,8 @@ are encountered in running a hydraulic/water quality analysis (see
 Appendix B for a complete listing). The most common problems are
 discussed below.
 
-Pumps Cannot Deliver Flow or Head
------------------------------------
 
+**Pumps Cannot Deliver Flow or Head**
 
    EPANET will issue a warning message when a pump is asked to operate
    outside the range of its pump curve. If the pump is required to
@@ -464,9 +476,8 @@ Pumps Cannot Deliver Flow or Head
    down. This might lead to portions of the network becoming
    disconnected from any source of water.
 
-Network is Disconnected
---------------------------------
 
+**Network is Disconnected**
 
    EPANET classifies a network as being disconnected if there is no way
    to provide water to all nodes that have demands. This can occur if
@@ -481,21 +492,26 @@ Network is Disconnected
    it is possible for nodes to become disconnected as links change
    status over time.
 
-Negative Pressures Exist
---------------------------------
+
+**Negative Pressures Exist**
+
+   When performing a demand driven analysis (DDA), EPANET will issue a
+   warning message when it encounters negative pressures at junctions that
+   have positive demands. This usually indicates that there is some problem
+   with the way the network has been designed or operated. Negative pressures
+   can occur when portions of the network can only receive water through
+   links that have been closed off. In such cases an additional warning
+   message about the network being disconnected is also issued.
+
+   Alternatively, a pressure driven analysis (PDA) can be performed to
+   determine a hydraulic solution assuming a pressure-demand relationship
+   at junctions. The hydraulic solution found will have reduced or zero
+   demands and negative pressures will be largely eliminated. This is
+   considered a more "realistic" solution since large negative pressures
+   in a network are not physically realistic.
 
 
-   EPANET will issue a warning message when it encounters negative
-   pressures at junctions that have positive demands. This usually
-   indicates that there is some problem with the way the network has
-   been designed or operated. Negative pressures can occur when portions
-   of the network can only receive water through links that have been
-   closed off. In such cases an additional warning message about the
-   network being disconnected is also issued.
-
-System Unbalanced
---------------------------------
-  
+**System Unbalanced**
 
    A System Unbalanced condition can occur when EPANET cannot converge
    to a hydraulic solution in some time period within its allowed
@@ -525,8 +541,8 @@ System Unbalanced
    as errors in flows into or out of storage tanks, this might affect
    the accuracy of results in all future periods as well.
 
-Hydraulic Equations Unsolvable
---------------------------------
+
+**Hydraulic Equations Unsolvable**
 
    Error 110 is issued if at some point in an analysis the set of
    equations that model flow and energy balance in the network cannot be
@@ -536,168 +552,7 @@ Hydraulic Equations Unsolvable
    disconnected. The equations might also be unsolvable if unrealistic
    numbers were used for certain network properties.
 
-..  |image0| image:: media/image1.jpeg
-..  |image1| image:: media/image2.png
-..  |image2| image:: media/image3.png
-..  |image3| image:: media/image4.png
-..  |image4| image:: media/image5.png
-..  |image5| image:: media/image6.png
-..  |image6| image:: media/image7.png
-..  |image7| image:: media/image8.png
-..  |image8| image:: media/image9.png
-..  |image9| image:: media/image10.png
-..  |image10| image:: media/image11.png
-..  |image11| image:: media/image12.png
-..  |image12| image:: media/image13.png
-..  |image13| image:: media/image12.png
-..  |image14| image:: media/image14.jpeg
-..  |image15| image:: media/image15.png
-..  |image16| image:: media/image16.jpeg
-..  |image17| image:: media/image17.png
-..  |image18| image:: media/image18.png
-..  |image19| image:: media/image19.png
-..  |image20| image:: media/image20.png
-..  |image21| image:: media/image21.png
-..  |image22| image:: media/image16.jpeg
-..  |image23| image:: media/image22.png
-..  |image24| image:: media/image18.png
-..  |image25| image:: media/image23.png
-..  |image26| image:: media/image24.png
-..  |image27| image:: media/image25.png
-..  |image28| image:: media/image26.png
-..  |image29| image:: media/image27.png
-..  |image30| image:: media/image28.png
-..  |image31| image:: media/image29.png
-    :width: 250pt
-    :align: middle
 
-..  |image31-2| image:: media/image29-2.png
-    :width: 250pt
-    :align: middle
-    
-..  |image32| image:: media/image30-2.png
-    :width: 250pt
-    :align: middle
-    
-..  |image32-2| image:: media/image30.png
-    :width: 250pt
-    :align: middle
-    
-..  |image33| image:: media/image31.png
-..  |image34| image:: media/image32.png
-..  |image35| image:: media/image33.png
-..  |image36| image:: media/image34.png
-..  |image36-2| image:: media/image36-2.png
-..  |image37| image:: media/image35.png
-..  |image38| image:: media/image36.png
-..  |image39| image:: media/image37.png
-..  |image40| image:: media/image38.png
-..  |image41| image:: media/image39.png
-..  |image42| image:: media/image40.png
-..  |image43| image:: media/image41.png
-..  |image44| image:: media/image42.png
-..  |image45| image:: media/image43.png
-..  |image46| image:: media/image44.png
-..  |image47| image:: media/image45.png
-..  |image48| image:: media/image18.png
-..  |image49| image:: media/image25.png
-..  |image50| image:: media/image19.png
-..  |image51| image:: media/image46.png
-..  |image52| image:: media/image12.png
-..  |image53| image:: media/image13.png
-..  |image54| image:: media/image47.png
-..  |image55| image:: media/image48.png
-..  |image56| image:: media/image49.png
-..  |image57| image:: media/image50.png
-..  |image58| image:: media/image51.png
-..  |image59| image:: media/image6.png
-..  |image60| image:: media/image5.png
-..  |image61| image:: media/image7.png
-..  |image62| image:: media/image9.png
-..  |image63| image:: media/image10.png
-..  |image64| image:: media/image52.png
-..  |image65| image:: media/image11.png
-..  |image66| image:: media/image53.jpeg
-..  |image67| image:: media/image54.jpeg
-..  |image68| image:: media/image55.png
-..  |image69| image:: media/image57.png
-..  |image70| image:: media/image58.png
-..  |image71| image:: media/image59.png
-..  |image72| image:: media/image38.png
-..  |image73| image:: media/image39.png
-..  |image74| image:: media/image40.png
-..  |image75| image:: media/image2.png
-..  |image76| image:: media/image60.png
-..  |image77| image:: media/image61.png
-..  |image78| image:: media/image6.png
-..  |image79| image:: media/image5.png
-..  |image80| image:: media/image7.png
-..  |image81| image:: media/image16.jpeg
-..  |image82| image:: media/image9.png
-..  |image83| image:: media/image10.png
-..  |image84| image:: media/image52.png
-..  |image85| image:: media/image11.png
-..  |image86| image:: media/image12.png
-..  |image87| image:: media/image14.jpeg
-..  |image88| image:: media/image14.jpeg
-..  |image89| image:: media/image17.png
-..  |image90| image:: media/image22.png
-..  |image91| image:: media/image62.png
-..  |image92| image:: media/image63.png
-..  |image93| image:: media/image64.png
-..  |image94| image:: media/image13.png
-..  |image95| image:: media/image65.png
-..  |image96| image:: media/image44.png
-..  |image97| image:: media/image47.png
-..  |image98| image:: media/image44.png
-..  |image99| image:: media/image66.png
-..  |image100| image:: media/image67.png
-..  |image101| image:: media/image68.png
-..  |image102| image:: media/image49.png
-..  |image103| image:: media/image50.png
-..  |image104| image:: media/image48.png
-..  |image105| image:: media/image42.png
-..  |image106| image:: media/image42.png
-..  |image107| image:: media/image69.jpeg
-..  |image108| image:: media/image70.png
-..  |image109| image:: media/image71.png
-..  |image110| image:: media/image46.png
-..  |image111| image:: media/image72.png
-..  |image112| image:: media/image14.jpeg
-..  |image113| image:: media/image18.png
-..  |image114| image:: media/image73.png
-..  |image115| image:: media/image74.png
-..  |image116| image:: media/image45.png
-..  |image117| image:: media/image25.png
-..  |image118| image:: media/image75.png
-..  |image119| image:: media/image76.png
-..  |image120| image:: media/image77.png
-..  |image121| image:: media/image78.png
-..  |image122| image:: media/image79.png
-..  |image123| image:: media/image80.png
-..  |image124| image:: media/image46.png
-..  |image125| image:: media/image81.png
-..  |image126| image:: media/image82.png
-..  |image127| image:: media/image19.png
-..  |image128| image:: media/image83.png
-..  |image129| image:: media/image84.png
-..  |image130| image:: media/image85.png
-..  |image131| image:: media/image86.png
-..  |image132| image:: media/image46.png
-..  |image133| image:: media/image87.png
-..  |image134| image:: media/image88.png
-..  |image135| image:: media/image46.png
-..  |image136| image:: media/image89.png
-..  |image137| image:: media/image90.png
-..  |image138| image:: media/image46.png
-..  |image139| image:: media/image73.png
-..  |image140| image:: media/image91.png
-..  |image141| image:: media/image41.png
-..  |image142| image:: media/image43.png
-..  |image143| image:: media/image92.png
-..  |image144| image:: media/image93.png
-..  |image145| image:: media/image94.png
-..  |image146| image:: media/image95.png
-..  |image147| image:: media/image96.png
-..  |image148| image:: media/image98.png
 
+
+   .. include:: image_subdefs.rst

@@ -1,11 +1,14 @@
 .. raw:: latex
 
     \clearpage
-    
--------
+  	\pagenumbering{arabic}
+    \setcounter{page}{1}
 
-1. INTRODUCTION
-===============
+
+.. _introduction:
+
+Introduction
+============
 
 
 What is EPANET
@@ -76,6 +79,8 @@ Hydraulic Modeling Capabilities
 
     - models pressure-dependent flow issuing from emitters (sprinkler
       heads)
+
+    - models pressure dependent demand at nodes
 
     - can base system operation on both simple tank level or timer controls
       and on complex rule-based controls.

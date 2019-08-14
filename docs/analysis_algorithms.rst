@@ -92,10 +92,22 @@ Hydraulics
      {A}_{ij} = -\frac{1}{g_{ij}}
 
   where :math:`g_{ij}` is the derivative of the headloss in the link
-  between nodes :math:`i` and :math:`j` with respect to flow. For pipes,
+  between nodes :math:`i` and :math:`j` with respect to flow. For pipes, when
+  resistance coefficient is not a function of flow rate,
 
   .. math::
      {g}_{ij} = nr {{ | Q_{ij} | }^{n - 1}} + 2m | Q_{ij} |
+
+  when resistance coefficient is a function of flow rate, specifically as
+  in Darcy-Weisbach head loss equation and when flow is turbulent,
+
+  .. math::
+     {g}_{ij} = nr {{ | Q_{ij} | }^{n - 1}} + \frac{\partial r}{\partial Q_{ij}}|Q_{ij}|^n + 2m | Q_{ij} |
+
+  Zero flows can cause numerical instability in the GGA solver (Gorev et al., 2013; Elhay and Simpson, 2011).
+  When flow approaches zero, a linear relationship is assumed between head loss and
+  flow to prevent :math:`{g}_{ij}` from reaching zero. The value of :math:`{g}_{ij}`
+  is capped at a specific value when the flow is smaller than what is defined by the specific :math:`{g}`.
 
   while for pumps
 
@@ -140,14 +152,14 @@ Hydraulics
   Iterations continue until some suitable convergence criterion based on
   residual errors associated with :eq:`eq:pipe_headloss` and
   :eq:`eq:node_continuity` is met. If convergence does not occur then
-  Eqs :eq:`eq:matrix_form` and :eq:`eq:flow_update` are solved again.
+  Eqs. :eq:`eq:matrix_form` and :eq:`eq:flow_update` are solved again.
 
   EPANET uses several different hydraulic convergence criteria. Versions 2.0
   and earlier based accuracy on the absolute flow changes relative to the
-  total flow in all links. Gorev et al. (2011), however, observed that this
+  total flow in all links. Gorev et al. (2013), however, observed that this
   criterion did not guarantee convergence towards the exact solution and
   proposed two new ones based on max head error and max flow change.
-  Gorev's criteria have been added to EPANET v2.2 as options that provide more
+  These two criteria have been added to EPANET v2.2 as options that provide more
   rigorous control over hydraulic convergence.
 
 
@@ -159,7 +171,7 @@ Hydraulics
   depends on the pressure head :math:`p_{i}` available at the node (where
   pressure head is hydraulic head :math:`h_{i}` minus elevation :math:`E_{i}`).
   There are several different forms of pressure dependency that have been
-  proposed. Here we use Wagner’s equation:
+  proposed. Here we use Wagner’s equation (Wagner et al., 1988):
 
   .. math::
      :label: eq:wagners
@@ -329,11 +341,12 @@ Hydraulics
 
      where :math:`\epsilon` = pipe roughness and :math:`d` = pipe diameter.
 
-  #. Zero-flows are a cause numerical instability in the GGA solver.
-     Gorev (2013) proposed a method to handle zero-flows by substituting
-     a linear approximation for the head loss function when flows are
-     below a predefined threshold. The hydraulic solver has been updated
-     accordingly.
+     Based on friction factor equations described above and Darcy-Weisbach equation in Table 3.1,
+     resistance coefficient is not a function of flow and linear relationship exists between head loss
+     and flow when Re > 2000. If Re > 2000, resistance coefficient depends on pipe flow and the
+     sensitivity of resistance  coefficient to flow needs to be computed in order to calculate :math:`{g}_{ij}`
+     for the pipe.
+
 
   #. The minor loss coefficient based on velocity head (:math:`K`) is converted
      to one based on flow (:math:`m`) with the following relation:
@@ -451,7 +464,7 @@ Hydraulics
      upstream node. For an active PRV from node i to j:
 
      .. math::
-        {p}_{ij} = 0
+        \frac{1}{g_{ij}} = 0
 
      .. math::
         {F}_{j} = {F}_{j} + {10}^{8} Hset
@@ -531,8 +544,8 @@ Hydraulics
         tank levels are adjusted based on the current flow solution, and link
         control rules are checked to determine which links change status.
 
-     c. A new set of iterations with Eqs. (D.3) and (D.4) are begun at the
-        current set of flows.
+     c. A new set of iterations with Eqs. :eq:`eq:matrix_form` and
+        :eq:`eq:flow_update` are begun at the current set of flows.
 
 
 Water Quality
@@ -776,7 +789,7 @@ Water Quality
 
 **System of Equations**
 
-  When applied to a network as a whole, Equations D.5-D.7 represent a
+  When applied to a network as a whole, Eqs. :eq:`eq:advec_trans` - :eq:`eq:tank_mixing` represent a
   coupled set of differential/algebraic equations with time-varying
   coefficients that must be solved for :math:`C_i` in each pipe :math:`i`
   and :math:`C_s` in each storage facility :math:`s`. This solution is
@@ -850,7 +863,8 @@ Water Quality
   reversal has the order of its segments reversed and if any flow
   reversal occurs the network’s nodes are re-sorted topologically, from
   upstream to downstream. Sorting the nodes topologically allows the
-  method to conserve mass, even when very short pipes or zero-length pumps
+  method to conserve mass and reduce the potential mass balance error experined with EPANET 2.0 (Davis et al., 2018) 
+  even when very short pipes or zero-length pumps
   and valves are encountered. Initially each pipe in the network consists
   of a single segment whose quality equals the initial quality assigned to
   the upstream node.

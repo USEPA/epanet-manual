@@ -28,7 +28,7 @@
    analysis_algorithms
 
 
-.. toctree::
+.. toctree:: 
    :hidden:
 
    references

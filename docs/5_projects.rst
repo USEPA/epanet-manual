@@ -165,8 +165,8 @@ Project Defaults
    **Default Hydraulic Options**
 
    The third page of the Defaults dialog form is used to assign default
-   hydraulic analysis options. It contains the same set of hydraulic
-   options as the project's Hydraulic Options accessed from the Browser
+   hydraulic analysis options. It contains a sub-set of the project's Hydraulic 
+   Options that can also be accessed from the Browser
    (see Section 8.1). They are repeated on the Project Defaults dialog
    so that they can be saved for use with future projects as well as
    with the current one. The most important Hydraulic Options to check

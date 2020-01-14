@@ -22,14 +22,14 @@ want to review the first two sections of Chapter 3 first.*
 Installing EPANET
 ~~~~~~~~~~~~~~~~~
 
-   EPANET Version 2.2 Beta is designed to run under the Windows 7/8/10
+   EPANET Version 2.2 is designed to run under the Windows 7/8/10
    operating system of an Intel-compatible personal computer. It is
-   distributed as a single installer package file, **en2setup-2.2.0-beta-win32.msi**.
+   distributed as a single installer package file, **EPANET-2.2.0-win32.msi**.
    To install EPANET:
 
     1. Select **Run** from the Windows Start menu.
 
-    2. Enter the full path and name of the **en2setup-2.2.0-beta-win32.msi** file or click
+    2. Enter the full path and name of the **EPANET-2.2.0-win32.msi** file or click
        the **Browse** button to locate it on your computer.
 
     3. Click the **OK** button type to begin the setup process.
@@ -38,9 +38,9 @@ Installing EPANET
 
    The setup program will ask you to choose a folder (directory) where
    the EPANET files will be placed. The default folder is **c:\\Program
-   Files (x86)\\EPANET 2.2.0 beta**. After the files are installed your Start Menu will
-   have a new item named EPANET 2.2.0 beta. To launch EPANET simply select this
-   item off of the Start Menu, then select EPANET 2.2 beta from the submenu that
+   Files (x86)\\EPANET 2.2.0 **. After the files are installed your Start Menu will
+   have a new item named EPANET 2.2.0. To launch EPANET simply select this
+   item off of the Start Menu, then select EPANET 2.2.0 from the submenu that
    appears. (The name of the executable file that runs EPANET under
    Windows is **epanet2w.exe**.)
 
@@ -51,7 +51,7 @@ Installing EPANET
 
     2. Double-click on the **Add/Remove Programs** or **Uninstall a program** item.
 
-    3. Select EPANET 2.2.0 beta from the list of programs that appears.
+    3. Select EPANET 2.2.0 from the list of programs that appears.
 
     4. Click the **Add/Remove** button or right click and select **uninstall**.
 

@@ -143,7 +143,7 @@ node?**
   node. Specify a time pattern ID in the Time Pattern field if you wish
   to vary the boosting level with time.
 
-**How would I model THM growth in a network?**
+**How would I model trihalomethanes (THM) growth in a network?**
 
   THM growth can be modeled using first-order saturation kinetics.
   Select Options – Reactions from the Data Browser. Set the bulk

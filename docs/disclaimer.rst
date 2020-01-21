@@ -1,39 +1,6 @@
-..
-    Testing comments
-..
+.. raw:: latex
 
-
-.. include:: front_matter.rst
-
-
-
-.. toctree::
-   :numbered:
-   :maxdepth: 2
-   :caption: Table of Contents
-   :hidden:
-
-   1_introduction
-   2_quickstart
-   3_network_model
-   4_EPANET_workspace
-   5_projects
-   6_objects
-   7_map
-   8_analyzing_network
-   9_viewing_results
-   10_printing_copying
-   11_importing_exporting
-   12_questions
-   analysis_algorithms
-
-
-.. toctree:: 
-   :hidden:
-
-   references
-   back_matter
-
+    \clearpage
 
 Disclaimer
 ======================================
@@ -49,10 +16,4 @@ Execution of any EPANET installation program, and modification to system configu
 
 EPANET installation programs have been extensively tested and verified. However, as for all complex software, these programs may not be completely free of errors and may not be applicable for all cases. In no event will the U.S. EPA be liable for direct, indirect, special, incidental, or consequential damages arising out of the use of the programs and/or associated documentation.
 
-..
-    Contents
-    ==================
 
-    * :ref:`genindex`
-    * :ref:`modindex`
-    * :ref:`search`

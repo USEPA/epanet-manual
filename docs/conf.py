@@ -19,14 +19,14 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'epanet-manual'
-copyright = '2019'
-author = u'Lewis Rossman \\and Hyoungmin Woo \\and Michael Tryby'
+project = 'EPANET'
+copyright = '2020'
+author = u'Lewis Rossman \\and Hyoungmin Woo \\and Michael Tryby \\and Feng Shang \\and Terranna Haxton'
 
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '2.2 Beta'
+release = '2.2'
 
 
 # -- General configuration ---------------------------------------------------
@@ -113,7 +113,7 @@ html_context = {
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'epanet-manualdoc'
+htmlhelp_basename = 'EPANETdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -140,7 +140,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    ('latexindex', 'epanet-manual.tex', 'EPANET USERS MANUAL',
+    ('index_latex', 'EPANET.tex', 'EPANET USERS MANUAL',
      author, 'manual'),
 ]
 
@@ -154,7 +154,7 @@ math_numfig = True
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'epanet-manual', 'EPANET USERS MANUAL',
+    (master_doc, 'EPANET', 'EPANET USERS MANUAL',
      [author], 1)
 ]
 
@@ -165,8 +165,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'epanet-manual', 'EPANET USERS MANUAL',
-     author, 'epanet-manual', 'One line description of project.',
+    (master_doc, 'EPANET', 'EPANET USERS MANUAL',
+     author, 'EPANET', 'One line description of project.',
      'Miscellaneous'),
 ]
 

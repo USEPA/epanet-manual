@@ -144,8 +144,8 @@ Physical Components
     .. note::
        The pressure-flow relation at a junction defined by an emitter
        should not be confused with the pressure-demand relation when
-       performing a pressure dependent analysis (PDA). See Section:
-       :ref:`Pressure Dependent Demand Model <press_dependent_analysis>`
+       performing a pressure driven analysis (PDA). See Section:
+       :ref:`Pressure Drive Demand Model <press_dependent_analysis>`
        for more information.
 
 **Pipes**

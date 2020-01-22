@@ -397,7 +397,7 @@ Running an Extended Period Analysis
       network map at different points in time. Try doing this with Pressure
       selected as the node parameter and Flow as the link parameter.
 
-    - The VCR-style buttons in the Browser can
+    - The buttons in the Browser can
       animate the map through time. Click the Forward button |image25|  to start the
       animation and the Stop button |image26|  to stop it.
 

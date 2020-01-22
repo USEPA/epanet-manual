@@ -165,9 +165,7 @@ Exporting the Network Map
    Autodesk's DXF (Drawing Exchange Format) format, the Windows enhanced
    metafile (EMF) format, or EPANET's own ASCII text (map) format. The
    DXF format is readable by many Computer Aided Design (CAD) programs.
-   Metafiles can be inserted into word
-
-   processing documents and loaded into drawing programs for re-scaling
+   Metafiles can be inserted into word processing documents and loaded into drawing programs for re-scaling
    and editing. Both formats are vector-based and will not loose
    resolution when they are displayed at different scales.
 

@@ -4,47 +4,6 @@
   	\pagenumbering{roman}
 
 
-| February 2020
-
-
-#############################
-EPANET 2.2 Users Manual
-#############################
-
-
-| WATER INFRASTRUCTURE DIVISION
-| CENTER FOR ENVIRONMENTAL SOLUTIONS AND EMERGENCY RESPONSE
-| OFFICE OF RESEARCH AND DEVELOPMENT
-| U.S. ENVIRONMENTAL PROTECTION AGENCY 
-| CINCINNATI, OH 45268 
-
-
-
-**DISCLAIMER**
-
-This User Manual is an updated version of the EPANET 2 User Manual
-(EPA/600/R-00/057) written by Lewis Rossman in 2000.  The EPANET 2 software
-was developed by the U.S. Environmental Protection Agency (EPA).
-Version 2.2 includes contributions from EPA and from other individuals outside
-the United States Government. No warranty expressed or implied is made regarding
-the functionality of the software, nor shall the act of release or distribution
-constitute any such warranty. The software is released on condition that neither
-the EPA nor the U.S. Government shall be held liable for any damages resulting
-from its authorized or unauthorized use. The EPA has relinquished control of
-the information and no longer has responsibility to protect the integrity,
-confidentiality or availability of the information.  Any reference to specific
-commercial products, processes, or services by service mark, trademark,
-manufacturer, or otherwise, does not constitute or imply their endorsement,
-recommendation or favoring by the EPA. The EPA seal and logo shall not be
-used in any manner to imply endorsement of any commercial product or activity
-by the EPA or the United States Government.
-
-
------------------------
-
-
-**About This Manual**
-
 :ref:`Chapter 1 <introduction>` of this manual describes what EPANET is and its
 capabilities.
 

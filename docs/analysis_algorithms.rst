@@ -22,10 +22,10 @@ Hydraulics
   approach is simpler, it was chosen for use in EPANET.
 
   Todini (2003) describes how the Gradient Method can be extended to simulate
-  pressure dependent demands (PDD). The latest version of EPANET has been
+  pressure driven demands (PDD). The latest version of EPANET has been
   updated to include these capabilities. A water distribution pipe network
-  can now be analyzed two ways, 1) assuming fixed demands, and 2) assuming
-  pressure dependent demands. The subsections that follow provide a technical
+  can now be analyzed two ways, 1) assuming demand, and 2) assuming
+  pressure driven demands. The subsections that follow provide a technical
   description for these two demand models.
 
 
@@ -165,7 +165,7 @@ Hydraulics
 
 .. _press_dependent_analysis:
 
-**Pressure Dependent Demand Model**
+**Pressure Driven Demand Model**
 
   Now consider the case where the demand at a node :math:`i`, :math:`d_{i}`,
   depends on the pressure head :math:`p_{i}` available at the node (where
@@ -202,7 +202,7 @@ Hydraulics
   where :math:`E_{i}` is the node’s elevation and
   :math:`R_{di} = (P_{f} - P_{0})/D_{i}^{e}` is the link’s resistance
   coefficient. This expression can be folded into the GGA matrix equations,
-  where the pressure dependent demands :math:`d_{i}` are treated as the
+  where the pressure driven demands :math:`d_{i}` are treated as the
   unknown flows in the virtual links that honor constraints in Eq.
   :eq:`eq:wagners`.
 

@@ -646,7 +646,8 @@ Viewing Special Reports
    on when network objects change status and a final mass balance accounting 
    for water quality analysis are also written to this report
    if the Status Report option in the project's Hydraulics Options was
-   set to Yes or Full. To view a status report on the most recently
+   set to Yes or Full. For pressure deriven analysis, node demand deficiency will also be reported in the status report.
+   To view a status report on the most recently
    completed analysis select **Report >> Status** from the main menu.
 
       |image133|

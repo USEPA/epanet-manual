@@ -4,9 +4,6 @@
   	\pagenumbering{roman}
 
 
-About EPANET 2.2 Users Manual
-======================================
-
 :ref:`Chapter 1 <introduction>` of this manual describes what EPANET is and its
 capabilities.
 

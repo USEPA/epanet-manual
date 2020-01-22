@@ -145,7 +145,7 @@ latex_documents = [
 ]
 
 #latex_appendices = ['A_units', 'B_error_messages', 'C_command_line_EPANET']
-
+latex_appendices = ['back_matter']
 numfig = True
 math_numfig = True
 

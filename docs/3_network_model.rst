@@ -542,11 +542,11 @@ Non-Physical Components
 
       Three-Point Pump Curve:
 
-      |image32|
+      |image31-2|
 
       Multi-Point Pump Curve:
 
-      |image31-2|
+      |image32|
 
       Variable-Speed Pump Curve:
 

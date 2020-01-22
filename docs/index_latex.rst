@@ -6,7 +6,7 @@ EPANET documentation
 
    disclaimer
    acronyms
-   acknowledgments
+   Acknowledgments
    front_matter
    1_introduction
    2_quickstart

@@ -3,9 +3,11 @@
     \clearpage
 
 
-9. VIEWING RESULTS
-==================
-    
+.. _viewing_results:
+
+Viewing Results
+===============
+
 *This chapter describes the different ways in which the results of an
 analysis as well as the basic network input data can be viewed. These
 include different map views, graphs, tables, and special reports.*
@@ -47,9 +49,7 @@ Viewing Results on the Map
      a DXF file or Windows metafile.
 
 
-
-Submitting a Map Query
-----------------------
+**Submitting a Map Query**
 
   A Map Query identifies nodes or links on the network map that meet a
   specific criterion (e.g., nodes with pressure less than 20 psi, links
@@ -89,7 +89,7 @@ Submitting a Map Query
   After the Query box is closed the map will revert back to its
   original display.
 
-   
+
 Viewing Results with a Graph
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -186,7 +186,7 @@ Viewing Results with a Graph
 
     **Figure 9.2** Examples of Different Types of Graphs
 
-    
+
       |image123|
 
     **Figure 9.3** Graph Selection Dialog
@@ -245,7 +245,7 @@ Viewing Results with a Graph
     4. For a Contour plot use the resulting Contour Options dialog to
        customize the plot.
 
-    
+
 
     **Note**: A Time Series, Profile, or Frequency plot can be zoomed by
     holding down the **Ctrl** key while drawing a zoom rectangle with the
@@ -261,13 +261,9 @@ Viewing Results with a Graph
        categories of options:
 
        -  General
-
        -  Horizontal Axis
-
        -  Vertical Axis
-
        -  Legend
-
        -  Series
 
     2. Check the **Default** box if you wish to use the current settings as
@@ -275,13 +271,13 @@ Viewing Results with a Graph
 
     3. Select **OK** to accept your selections.
 
-    
+
 
    The items contained on each page of the Graph Options dialog are as
    follows:
 
-General Page
-------------
+
+**General Page**
 
   +-----------------------------------+-----------------------------------+
   | *Option*                          | *Description*                     |
@@ -310,8 +306,8 @@ General Page
 
    **Figure 9.4** Graph Options Dialog
 
-   Horizontal and Vertical Axis Pages
 
+**Horizontal and Vertical Axis Pages**
 
   +-----------------------------------+-----------------------------------+
   | *Option*                          | *Description*                     |
@@ -340,10 +336,7 @@ General Page
   +-----------------------------------+-----------------------------------+
 
 
-
-   Legend Page
-
-
+**Legend Page**
 
   +-----------------------------------+-----------------------------------+
   | *Option*                          | *Description*                     |
@@ -364,9 +357,7 @@ General Page
   +-----------------------------------+-----------------------------------+
 
 
-   
-Series Page
------------
+**Series Page**
 
    The Series page (see Figure 9.4) of the Graph Options dialog controls
    how individual data series (or curves) are displayed on a graph. To
@@ -383,11 +374,8 @@ Series Page
        choices are:
 
        -  Lines
-
        -  Markers
-
        -  Patterns
-
        -  Labels
 
        (Not all properties are available for some types of graphs.)
@@ -511,6 +499,7 @@ Series Page
     |                       |                       |    contour plot       |
     +-----------------------+-----------------------+-----------------------+
 
+
 Viewing Results with a Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -553,8 +542,8 @@ Viewing Results with a Table
 
      **Figure 9.7** Table Selection Dialog
 
-Type Page
-----------
+
+**Type Page**
 
    The Type page of the Table Options dialog is used to select the type
    of table to create. The choices are:
@@ -571,8 +560,8 @@ Type Page
    Data fields are available for selecting the time period or node/link
    to which the table applies.
 
-Columns Page
--------------
+
+**Columns Page**
 
    The Columns page of the Table Options dialog form (Figure 9.8)
    selects the parameters that are displayed in the table’s columns.
@@ -593,8 +582,8 @@ Columns Page
 
      **Figure 9.8** Columns Page of the Table Selection Dialog
 
-Filters Page
--------------
+
+**Filters Page**
 
    The Filters page of the Table Options dialog form (Figure 9.9) is
    used to define conditions for selecting items to appear in a table.
@@ -627,6 +616,7 @@ Filters Page
     -  Use the Columns and Filters pages of the Table Selection dialog form
        to modify your table.
 
+
 Viewing Special Reports
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -648,22 +638,24 @@ Viewing Special Reports
    All of these reports can be printed, copied to a file, or copied to
    the Windows clipboard (the Full Report can only be saved to file.)
 
-Status Report
---------------
+
+**Status Report**
 
    EPANET writes all error and warning messages generated during an
    analysis to a Status Report (see Figure 9.10). Additional information
-   on when network objects change status is also written to this report
+   on when network objects change status and a final mass balance accounting 
+   for water quality analysis are also written to this report
    if the Status Report option in the project's Hydraulics Options was
-   set to Yes or Full. To view a status report on the most recently
+   set to Yes or Full. For pressure driven analysis, node demand deficiency will also be reported in the status report.
+   To view a status report on the most recently
    completed analysis select **Report >> Status** from the main menu.
 
       |image133|
 
      **Figure 9.10** Excerpt from a Status Report
 
-Energy Report
---------------
+
+**Energy Report**
 
    EPANET can generate an Energy Report that displays statistics about
    the energy consumed by each pump and the cost of this energy usage
@@ -677,8 +669,8 @@ Energy Report
 
      **Figure 9.11** Example Energy Report
 
-Calibration Report
--------------------
+
+**Calibration Report**
 
    A Calibration Report can show how well EPANET's simulated results
    match measurements taken from the system being modeled. To create a
@@ -709,8 +701,8 @@ Calibration Report
    three tabbed pages: Statistics, Correlation Plot, and Mean
    Comparisons.
 
-Statistics Page
-----------------
+
+   *Statistics Page*
 
    The Statistics page of a Calibration Report lists various error
    statistics between simulated and observed values at each measurement
@@ -748,7 +740,8 @@ Statistics Page
    the correlation between means (correlation coefficient between the
    mean observed value and mean simulated value at each location).
 
-   **Correlation Plot Page**
+
+   *Correlation Plot Page*
 
    The Correlation Plot page of a Calibration Report displays a scatter
    plot of the observed and simulated values for each measurement made
@@ -757,13 +750,15 @@ Statistics Page
    the plot the closer is the match between observed and simulated
    values.
 
-   **Mean Comparisons Page**
+
+   *Mean Comparisons Page*
 
    The Mean Comparisons page of a Calibration Report presents a bar
    chart that compares the mean observed and mean simulated value for a
    calibration parameter at each location where measurements were taken.
 
-   **Reaction Report**
+
+**Reaction Report**
 
    A Reaction Report, available when modeling the fate of a reactive
    water quality constituent, graphically depicts the overall average
@@ -775,7 +770,6 @@ Statistics Page
     -  the pipe wall
 
     -  within storage tanks.
-
 
 
    A pie chart shows what percent of the overall reaction rate is
@@ -796,7 +790,8 @@ Statistics Page
    |image138| on the Standard Toolbar, or by right-clicking anywhere on
    the chart.
 
-   **Full Report**
+
+**Full Report**
 
    When the |image139| icon appears in the Run Status section of the
    Status Bar, a report of computed results for all nodes, links and
@@ -815,7 +810,6 @@ Statistics Page
        each node (demand, head, pressure, and quality) and for each link
        (flow, velocity, headloss, and status).
 
-..
 
    This feature is useful mainly for documenting the final results of a
    network analysis on small to moderately sized networks (full report
@@ -824,168 +818,7 @@ Statistics Page
    described in this chapter are available for viewing computed results
    on a more selective basis.
 
-..  |image0| image:: media/image1.jpeg
-..  |image1| image:: media/image2.png
-..  |image2| image:: media/image3.png
-..  |image3| image:: media/image4.png
-..  |image4| image:: media/image5.png
-..  |image5| image:: media/image6.png
-..  |image6| image:: media/image7.png
-..  |image7| image:: media/image8.png
-..  |image8| image:: media/image9.png
-..  |image9| image:: media/image10.png
-..  |image10| image:: media/image11.png
-..  |image11| image:: media/image12.png
-..  |image12| image:: media/image13.png
-..  |image13| image:: media/image12.png
-..  |image14| image:: media/image14.jpeg
-..  |image15| image:: media/image15.png
-..  |image16| image:: media/image16.jpeg
-..  |image17| image:: media/image17.png
-..  |image18| image:: media/image18.png
-..  |image19| image:: media/image19.png
-..  |image20| image:: media/image20.png
-..  |image21| image:: media/image21.png
-..  |image22| image:: media/image16.jpeg
-..  |image23| image:: media/image22.png
-..  |image24| image:: media/image18.png
-..  |image25| image:: media/image23.png
-..  |image26| image:: media/image24.png
-..  |image27| image:: media/image25.png
-..  |image28| image:: media/image26.png
-..  |image29| image:: media/image27.png
-..  |image30| image:: media/image28.png
-..  |image31| image:: media/image29.png
-    :width: 250pt
-    :align: middle
 
-..  |image31-2| image:: media/image29-2.png
-    :width: 250pt
-    :align: middle
-    
-..  |image32| image:: media/image30-2.png
-    :width: 250pt
-    :align: middle
-    
-..  |image32-2| image:: media/image30.png
-    :width: 250pt
-    :align: middle
-    
-..  |image33| image:: media/image31.png
-..  |image34| image:: media/image32.png
-..  |image35| image:: media/image33.png
-..  |image36| image:: media/image34.png
-..  |image36-2| image:: media/image36-2.png
-..  |image37| image:: media/image35.png
-..  |image38| image:: media/image36.png
-..  |image39| image:: media/image37.png
-..  |image40| image:: media/image38.png
-..  |image41| image:: media/image39.png
-..  |image42| image:: media/image40.png
-..  |image43| image:: media/image41.png
-..  |image44| image:: media/image42.png
-..  |image45| image:: media/image43.png
-..  |image46| image:: media/image44.png
-..  |image47| image:: media/image45.png
-..  |image48| image:: media/image18.png
-..  |image49| image:: media/image25.png
-..  |image50| image:: media/image19.png
-..  |image51| image:: media/image46.png
-..  |image52| image:: media/image12.png
-..  |image53| image:: media/image13.png
-..  |image54| image:: media/image47.png
-..  |image55| image:: media/image48.png
-..  |image56| image:: media/image49.png
-..  |image57| image:: media/image50.png
-..  |image58| image:: media/image51.png
-..  |image59| image:: media/image6.png
-..  |image60| image:: media/image5.png
-..  |image61| image:: media/image7.png
-..  |image62| image:: media/image9.png
-..  |image63| image:: media/image10.png
-..  |image64| image:: media/image52.png
-..  |image65| image:: media/image11.png
-..  |image66| image:: media/image53.jpeg
-..  |image67| image:: media/image54.jpeg
-..  |image68| image:: media/image55.png
-..  |image69| image:: media/image57.png
-..  |image70| image:: media/image58.png
-..  |image71| image:: media/image59.png
-..  |image72| image:: media/image38.png
-..  |image73| image:: media/image39.png
-..  |image74| image:: media/image40.png
-..  |image75| image:: media/image2.png
-..  |image76| image:: media/image60.png
-..  |image77| image:: media/image61.png
-..  |image78| image:: media/image6.png
-..  |image79| image:: media/image5.png
-..  |image80| image:: media/image7.png
-..  |image81| image:: media/image16.jpeg
-..  |image82| image:: media/image9.png
-..  |image83| image:: media/image10.png
-..  |image84| image:: media/image52.png
-..  |image85| image:: media/image11.png
-..  |image86| image:: media/image12.png
-..  |image87| image:: media/image14.jpeg
-..  |image88| image:: media/image14.jpeg
-..  |image89| image:: media/image17.png
-..  |image90| image:: media/image22.png
-..  |image91| image:: media/image62.png
-..  |image92| image:: media/image63.png
-..  |image93| image:: media/image64.png
-..  |image94| image:: media/image13.png
-..  |image95| image:: media/image65.png
-..  |image96| image:: media/image44.png
-..  |image97| image:: media/image47.png
-..  |image98| image:: media/image44.png
-..  |image99| image:: media/image66.png
-..  |image100| image:: media/image67.png
-..  |image101| image:: media/image68.png
-..  |image102| image:: media/image49.png
-..  |image103| image:: media/image50.png
-..  |image104| image:: media/image48.png
-..  |image105| image:: media/image42.png
-..  |image106| image:: media/image42.png
-..  |image107| image:: media/image69.jpeg
-..  |image108| image:: media/image70.png
-..  |image109| image:: media/image71.png
-..  |image110| image:: media/image46.png
-..  |image111| image:: media/image72.png
-..  |image112| image:: media/image14.jpeg
-..  |image113| image:: media/image18.png
-..  |image114| image:: media/image73.png
-..  |image115| image:: media/image74.png
-..  |image116| image:: media/image45.png
-..  |image117| image:: media/image25.png
-..  |image118| image:: media/image75.png
-..  |image119| image:: media/image76.png
-..  |image120| image:: media/image77.png
-..  |image121| image:: media/image78.png
-..  |image122| image:: media/image79.png
-..  |image123| image:: media/image80.png
-..  |image124| image:: media/image46.png
-..  |image125| image:: media/image81.png
-..  |image126| image:: media/image82.png
-..  |image127| image:: media/image19.png
-..  |image128| image:: media/image83.png
-..  |image129| image:: media/image84.png
-..  |image130| image:: media/image85.png
-..  |image131| image:: media/image86.png
-..  |image132| image:: media/image46.png
-..  |image133| image:: media/image87.png
-..  |image134| image:: media/image88.png
-..  |image135| image:: media/image46.png
-..  |image136| image:: media/image89.png
-..  |image137| image:: media/image90.png
-..  |image138| image:: media/image46.png
-..  |image139| image:: media/image73.png
-..  |image140| image:: media/image91.png
-..  |image141| image:: media/image41.png
-..  |image142| image:: media/image43.png
-..  |image143| image:: media/image92.png
-..  |image144| image:: media/image93.png
-..  |image145| image:: media/image94.png
-..  |image146| image:: media/image95.png
-..  |image147| image:: media/image96.png
-..  |image148| image:: media/image98.png
 
+
+   .. include:: image_subdefs.rst

@@ -3,8 +3,12 @@
     \clearpage
 
 
-B. ERROR MESSAGES
+.. _error_messages:
+
+B. Error Messages
 =================
+
+.. tabularcolumns:: |\X{1}{10}|\X{7}{10}|
 
 +-----------------------------------+-----------------------------------+
 |    ID                             |    Explanation                    |

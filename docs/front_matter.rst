@@ -3,6 +3,8 @@
     \clearpage
   	\pagenumbering{roman}
 
+About EPANET User Manual
+======================================
 
 :ref:`Chapter 1 <introduction>` of this manual describes what EPANET is and its
 capabilities.

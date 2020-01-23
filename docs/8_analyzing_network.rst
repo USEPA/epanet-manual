@@ -1,4 +1,4 @@
-.. raw:: latex
+﻿.. raw:: latex
 
     \clearpage
 
@@ -74,7 +74,7 @@ Setting Analysis Options
   |                                   | - Darcy-Weisbach                  |
   |                                   | - Chezy-Manning                   |
   +-----------------------------------+-----------------------------------+
-  |                                   | Because each formula measures     |
+  |                                   | Because each formula measures     |
   |                                   | pipe roughness differently,       |
   |                                   | switching formulas might require  |
   |                                   | that all pipe roughness           |
@@ -105,28 +105,6 @@ Setting Analysis Options
   |                                   | this number. Suggested value is   |
   |                                   | 0.001.                            |
   +-----------------------------------+-----------------------------------+
-  | Max Head Error                    | Augments the ACCURACY option.     |
-  |                                   | Specifies the maximum head loss   |
-  |                                   | error any network link can have   |
-  |                                   | for hydraulic convergence to      |
-  |                                   | occur. The default value          |
-  |                                   | of 0 indicates that no head       |
-  |                                   | error limit applies. Units of     |
-  |                                   | this parameter are feet (US) or   |
-  |                                   | meters (SI).                      |
-  +-----------------------------------+-----------------------------------+
-  | Flow Change                       | Augments the ACCURACY option.     |
-  |                                   | Specifies the largest change in   |
-  |                                   | flow that any network element     |
-  |                                   | (link, emitter, or pressure-      |
-  |                                   | dependent demand) can have for    |
-  |                                   | hydraulic convergence to occur.   |
-  |                                   | The default value of 0 indicates  |
-  |                                   | that no flow change limit         |
-  |                                   | applies. It is specified based    |
-  |                                   | on the current project flow unit  |
-  |                                   | setting.                          |
-  +-----------------------------------+-----------------------------------+
   | If Unbalanced                     | Action to take if a hydraulic     |
   |                                   | solution is not found within the  |
   |                                   | maximum number of trials. Choices |
@@ -146,13 +124,55 @@ Setting Analysis Options
   | Demand Multiplier                 | Global multiplier applied to all  |
   |                                   | demands to make total system      |
   |                                   | consumption vary up or down by a  |
-  |                                   | fixed amount. E.g., 2.0 doubles   |
+  |                                   | fixed amount (e.g., 2.0 doubles   |
   |                                   | all demands, 0.5 halves them, and |
-  |                                   | 1.0 leaves them as is.            |
+  |                                   | 1.0 leaves them as is).           |
+  +-----------------------------------+-----------------------------------+
+  | Emitter Exponent                  | Power to which pressure is raised |
+  |                                   | when computing the flow through   |
+  |                                   | an emitter device. The textbook   |
+  |                                   | value for nozzles and sprinklers  |
+  |                                   | is 0.5. This may not apply to     |
+  |                                   | pipe leakage. Consult the         |
+  |                                   | discussion of Emitters in         |
+  |                                   | Section 3.1 for more details.     |
+  +-----------------------------------+-----------------------------------+
+  | Status Report                     | Amount of status information to   |
+  |                                   | report after an analysis is made. |
+  |                                   | Choices are:                      |
+  +-----------------------------------+-----------------------------------+
+  |                                   | - NONE (no reporting)             |
+  |                                   | - YES  (link status changes)      |
+  |                                   | - FULL (normal plus convergence)  |
+  +-----------------------------------+-----------------------------------+
+  |                                   | Full status reporting is only     |
+  |                                   | useful for debugging purposes.    |
+  +-----------------------------------+-----------------------------------+
+  | Max. Head Error                   | Augments the ACCURACY option.     |
+  |                                   | Specifies the maximum head loss   |
+  |                                   | error any network link can have   |
+  |                                   | for hydraulic convergence to      |
+  |                                   | occur. The default value          |
+  |                                   | of 0 indicates that no head       |
+  |                                   | error limit applies. Units of     |
+  |                                   | this parameter are feet (US) or   |
+  |                                   | meters (SI).                      |
+  +-----------------------------------+-----------------------------------+
+  | Max. Flow Change                  | Augments the ACCURACY option.     |
+  |                                   | Specifies the largest change in   |
+  |                                   | flow that any network element     |
+  |                                   | (link, emitter, or pressure-      |
+  |                                   | dependent demand) can have for    |
+  |                                   | hydraulic convergence to occur.   |
+  |                                   | The default value of 0 indicates  |
+  |                                   | that no flow change limit         |
+  |                                   | applies. It is specified based    |
+  |                                   | on the current project flow unit  |
+  |                                   | setting.                          |
   +-----------------------------------+-----------------------------------+
   | Demand Model                      | Selects between demand or         |
   |                                   | pressure driven analysis -- DDA   |
-  |                                   | or PDA respectively. DDA assumes  |
+  |                                   | or PDA, respectively. DDA assumes |
   |                                   | demands are fixed at a given      |
   |                                   | point in time, while PDA assumes  |
   |                                   | demands are a function of         |
@@ -172,27 +192,80 @@ Setting Analysis Options
   |                                   | relation raised to an exponent.   |
   |                                   | Standard value is 0.5.            |
   +-----------------------------------+-----------------------------------+
-  | Emitter Exponent                  | Power to which pressure is raised |
-  |                                   | when computing the flow through   |
-  |                                   | an emitter device. The textbook   |
-  |                                   | value for nozzles and sprinklers  |
-  |                                   | is 0.5. This may not apply to     |
-  |                                   | pipe leakage. Consult the         |
-  |                                   | discussion of Emitters in         |
-  |                                   | Section 3.1 for more details.     |
+  | CHECKFREQ                         | This sets the number of solution  |
+  |                                   | trials that pass during hydraulic |
+  |                                   | balancing before the status of    |
+  |                                   | pumps, check valves, flow control |
+  |                                   | valves and pipes connected to     |
+  |                                   | tanks are once again updated. The |
+  |                                   | default value is 2, meaning that  |
+  |                                   | status checks are made every      |
+  |                                   | other trial. A value equal to the |
+  |                                   | maximum number of trials would    |
+  |                                   | mean that status checks are made  |
+  |                                   | only after a system has           |
+  |                                   | converged. (Whenever a status     |
+  |                                   | change occurs the trials must     |
+  |                                   | continue since the current        |
+  |                                   | solution may not be balanced.)    |
+  |                                   | The frequency of status checks on |
+  |                                   | pressure reducing and pressure    |
+  |                                   | sustaining valves (PRVs and PSVs) |
+  |                                   | is determined by the DAMPLIMIT    |
+  |                                   | option (see below).               |
   +-----------------------------------+-----------------------------------+
-  | Status Report                     | Amount of status information to   |
-  |                                   | report after an analysis is made. |
-  |                                   | Choices are:                      |
+  | MAXCHECK                          | This is the number of solution    |
+  |                                   | trials after which periodic       |
+  |                                   | status checks on pumps, check     |
+  |                                   | valves, flow control valves and   |
+  |                                   | pipes connected to tanks are      |
+  |                                   | discontinued. Instead, a status   |
+  |                                   | check is made only after          |
+  |                                   | convergence is achieved. The      |
+  |                                   | default value is 10, meaning that |
+  |                                   | after 10 trials, instead of       |
+  |                                   | checking status every CHECKFREQ   |
+  |                                   | trials, status is checked only at |
+  |                                   | convergence.                      |
   +-----------------------------------+-----------------------------------+
-  |                                   | - NONE (no reporting)             |
-  |                                   | - YES  (link status changes)      |
-  |                                   | - FULL (normal plus convergence)  |
+  | DAMPLIMIT                         | This is the accuracy value at     |
+  |                                   | which solution damping and status |
+  |                                   | checks on PRVs and PSVs should    |
+  |                                   | begin. Damping limits all flow    |
+  |                                   | changes to 60% of what they would |
+  |                                   | otherwise be as future trials     |
+  |                                   | unfold. The default is 0 which    |
+  |                                   | indicates that no damping should  |
+  |                                   | be used and that status checks on |
+  |                                   | control valves are made at every  |
+  |                                   | iteration. Damping might be       |
+  |                                   | needed on networks that have      |
+  |                                   | trouble converging, in which case |
+  |                                   | a limit of 0.01 is suggested.     |
   +-----------------------------------+-----------------------------------+
-  |                                   | Full status reporting is only     |
-  |                                   | useful for debugging purposes.    |
-  +-----------------------------------+-----------------------------------+
+ 
+  Below are some typical values that might be used for the status checking parameters:
 
+  +-------------+-------------+-------------+-----------------------------+
+  | *CHECKFREQ* | *MAXCHECK*  | *DAMPLIMIT* | *Remarks*                   |
+  +=============+=============+=============+=============================+
+  |      2      |     10      |      0      | Frequent status checking;   |
+  |             |             |             | tends to produce solutions  |
+  |             |             |             | in the least number of      |
+  |             |             |             | iterations.                 |
+  +-------------+-------------+-------------+-----------------------------+
+  |     10      |    100      |    0.01     | Less frequent status        |
+  |             |             |             | checking; might be needed   |
+  |             |             |             | for networks that have      |
+  |             |             |             | difficult in converging.    |
+  +-------------+-------------+-------------+-----------------------------+
+  | Max. Trials | Max. Trials | Convergence | Status checks made only     |
+  |             |             | Accuracy    | after convergence is        |
+  |             |             |             | achieved; might produce     |
+  |             |             |             | convergence when other      |
+  |             |             |             | settings fail.              |
+  +-------------+-------------+-------------+-----------------------------+
+ 
    **Note**: Choices for Hydraulic Options can also be set from the
    **Project >> Defaults** menu and saved for use with all future projects (see Section 5.2).
 
@@ -209,12 +282,12 @@ Setting Analysis Options
   | Parameter                         | Type of water quality parameter   |
   |                                   | being modeled. Choices include:   |
   +-----------------------------------+-----------------------------------+
-  |                                   | - NONE (no quality analysis)      |
-  |                                   | - CHEMICAL (compute concentration)|
-  |                                   | - AGE (estimate water age)        |
-  |                                   | - TRACE (percent flow from node)  |
+  |                                   | - NONE (no quality analysis)      |
+  |                                   | - CHEMICAL (compute concentration)|
+  |                                   | - AGE (estimate water age)        |
+  |                                   | - TRACE (percent flow from node)  |
   +-----------------------------------+-----------------------------------+
-  |                                   | In lieu of CHEMICAL, you can      |
+  |                                   | In lieu of CHEMICAL, you can      |
   |                                   | enter the actual name of the      |
   |                                   | chemical being modeled (e.g.,     |
   |                                   | Chlorine).                        |
@@ -390,13 +463,13 @@ Setting Analysis Options
   |                                   | an extended period simulation.    |
   |                                   | Choices are:                      |
   +-----------------------------------+-----------------------------------+
-  |                                   | - NONE (current time step results)|
-  |                                   | - AVERAGE (time-averaged results) |
-  |                                   | - MINIMUM (minimum value results) |
-  |                                   | - MAXIMUM (maximum value results) |
-  |                                   | - RANGE (diff between min and max)|
+  |                                   | - NONE (current time step results)|
+  |                                   | - AVERAGE (time-averaged results) |
+  |                                   | - MINIMUM (minimum value results) |
+  |                                   | - MAXIMUM (maximum value results) |
+  |                                   | - RANGE (diff between min and max)|
   +-----------------------------------+-----------------------------------+
-  |                                   | Statistical processing is applied |
+  |                                   | Statistical processing is applied |
   |                                   | to all node and link results      |
   |                                   | obtained between the Report Start |
   |                                   | Time and the Total Duration.      |

@@ -19,9 +19,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'epanet-manual'
-copyright = '2019, see AUTHORS'
-author = 'see AUTHORS'
+project = 'EPANET'
+copyright = '2020'
+author = u'Lewis Rossman \\and Hyoungmin Woo \\and Michael Tryby \\and Feng Shang \\and Terranna Haxton'
 
 # The short X.Y version
 version = ''
@@ -69,7 +69,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path .
-exclude_patterns = []
+exclude_patterns = ['A_units.rst', 'B_error_messages.rst', 'C_command_line_EPANET.rst']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -113,7 +113,7 @@ html_context = {
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'epanet-manualdoc'
+htmlhelp_basename = 'EPANETdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -140,9 +140,11 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'epanet-manual.tex', 'epanet-manual Documentation',
-     'see AUTHORS', 'manual'),
+    ('index_latex', 'EPANET.tex', 'EPANET USERS MANUAL',
+     author, 'manual'),
 ]
+
+#latex_appendices = ['A_units', 'B_error_messages', 'C_command_line_EPANET']
 
 numfig = True
 math_numfig = True
@@ -152,7 +154,7 @@ math_numfig = True
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'epanet-manual', 'epanet-manual Documentation',
+    (master_doc, 'EPANET', 'EPANET USERS MANUAL',
      [author], 1)
 ]
 
@@ -163,8 +165,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'epanet-manual', 'epanet-manual Documentation',
-     author, 'epanet-manual', 'One line description of project.',
+    (master_doc, 'EPANET', 'EPANET USERS MANUAL',
+     author, 'EPANET', 'One line description of project.',
      'Miscellaneous'),
 ]
 

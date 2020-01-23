@@ -22,10 +22,10 @@ Hydraulics
   approach is simpler, it was chosen for use in EPANET.
 
   Todini (2003) describes how the Gradient Method can be extended to simulate
-  pressure dependent demands (PDD). The latest version of EPANET has been
+  pressure driven demands (PDD). The latest version of EPANET has been
   updated to include these capabilities. A water distribution pipe network
-  can now be analyzed two ways, 1) assuming fixed demands, and 2) assuming
-  pressure dependent demands. The subsections that follow provide a technical
+  can now be analyzed two ways, 1) assuming demand, and 2) assuming
+  pressure driven demands. The subsections that follow provide a technical
   description for these two demand models.
 
 
@@ -92,10 +92,22 @@ Hydraulics
      {A}_{ij} = -\frac{1}{g_{ij}}
 
   where :math:`g_{ij}` is the derivative of the headloss in the link
-  between nodes :math:`i` and :math:`j` with respect to flow. For pipes,
+  between nodes :math:`i` and :math:`j` with respect to flow. For pipes, when
+  resistance coefficient is not a function of flow rate,
 
   .. math::
      {g}_{ij} = nr {{ | Q_{ij} | }^{n - 1}} + 2m | Q_{ij} |
+
+  when resistance coefficient is a function of flow rate, specifically as
+  in Darcy-Weisbach head loss equation and when flow is turbulent,
+
+  .. math::
+     {g}_{ij} = nr {{ | Q_{ij} | }^{n - 1}} + \frac{\partial r}{\partial Q_{ij}}|Q_{ij}|^n + 2m | Q_{ij} |
+
+  Zero flows can cause numerical instability in the GGA solver (Gorev et al., 2013; Elhay and Simpson, 2011).
+  When flow approaches zero, a linear relationship is assumed between head loss and
+  flow to prevent :math:`{g}_{ij}` from reaching zero. The value of :math:`{g}_{ij}`
+  is capped at a specific value when the flow is smaller than what is defined by the specific :math:`{g}`.
 
   while for pumps
 
@@ -140,26 +152,26 @@ Hydraulics
   Iterations continue until some suitable convergence criterion based on
   residual errors associated with :eq:`eq:pipe_headloss` and
   :eq:`eq:node_continuity` is met. If convergence does not occur then
-  Eqs :eq:`eq:matrix_form` and :eq:`eq:flow_update` are solved again.
+  Eqs. :eq:`eq:matrix_form` and :eq:`eq:flow_update` are solved again.
 
   EPANET uses several different hydraulic convergence criteria. Versions 2.0
   and earlier based accuracy on the absolute flow changes relative to the
-  total flow in all links. Gorev et al. (2011), however, observed that this
+  total flow in all links. Gorev et al. (2013), however, observed that this
   criterion did not guarantee convergence towards the exact solution and
   proposed two new ones based on max head error and max flow change.
-  Gorev's criteria have been added to EPANET v2.2 as options that provide more
+  These two criteria have been added to EPANET v2.2 as options that provide more
   rigorous control over hydraulic convergence.
 
 
 .. _press_dependent_analysis:
 
-**Pressure Dependent Demand Model**
+**Pressure Driven Demand Model**
 
   Now consider the case where the demand at a node :math:`i`, :math:`d_{i}`,
   depends on the pressure head :math:`p_{i}` available at the node (where
   pressure head is hydraulic head :math:`h_{i}` minus elevation :math:`E_{i}`).
   There are several different forms of pressure dependency that have been
-  proposed. Here we use Wagner’s equation:
+  proposed. Here we use Wagner’s equation (Wagner et al., 1988):
 
   .. math::
      :label: eq:wagners
@@ -190,7 +202,7 @@ Hydraulics
   where :math:`E_{i}` is the node’s elevation and
   :math:`R_{di} = (P_{f} - P_{0})/D_{i}^{e}` is the link’s resistance
   coefficient. This expression can be folded into the GGA matrix equations,
-  where the pressure dependent demands :math:`d_{i}` are treated as the
+  where the pressure driven demands :math:`d_{i}` are treated as the
   unknown flows in the virtual links that honor constraints in Eq.
   :eq:`eq:wagners`.
 
@@ -275,20 +287,20 @@ Hydraulics
   EPANET implements the fixed demand and PDD models for hydraulics using the
   procedure outlined in this section.
 
-  1. The linear system of equations :eq:`eq:matrix_form` is solved using
-     a sparse matrix method based on node re-ordering (George and Liu, 1981).
-     After re-ordering the nodes to minimize the amount of fill-in for matrix
-     :math:`A`, a symbolic factorization is carried out so that only the
-     non-zero elements of A need be stored and operated on in memory. For
-     extended period simulation this re-ordering and factorization is only
+  #. The linear system of equations :eq:`eq:matrix_form` is solved using
+     a sparse matrix method based on multiple minimum-degree node re-ordering
+     (Liu 1985). After re-ordering the nodes to minimize the amount of fill-
+     in for matrix :math:`A`, a symbolic factorization is carried out so that
+     only the non-zero elements of A need be stored and operated on in memory.
+     For extended period simulation this re-ordering and factorization is only
      carried out once at the start of the analysis.
 
-  2. For the very first iteration, the flow in a pipe is chosen equal to
+  #. For the very first iteration, the flow in a pipe is chosen equal to
      the flow corresponding to a velocity of 1 ft/sec, while the flow
      through a pump equals the design flow specified for the pump. (All
      computations are made with head in feet and flow in cfs).
 
-  3. The resistance coefficient for a pipe (:math:`r`) is computed as described
+  #. The resistance coefficient for a pipe (:math:`r`) is computed as described
      in Table 3.1. For the Darcy-Weisbach headloss equation, the friction
      factor :math:`f` is computed by different equations depending on the flow’s
      Reynolds Number (:math:`Re`):
@@ -303,7 +315,7 @@ Hydraulics
      Re > 4,000 (Bhave, 1991):
 
      .. math::
-        f = \frac{0.25}{{ [ Ln ( \frac{\epsilon}{3.7d} + \frac{5.74}{{Re}^{0.9} }) ] }^{2}}
+        f = \frac{0.25}{{ \left[ \ln \left( \frac{\epsilon}{3.7d} + \frac{5.74}{{Re}^{0.9} } \right) \right] }^{2}}
 
 
      Cubic Interpolation From Moody Diagram for :math:`2,000 < Re < 4,000`
@@ -315,7 +327,6 @@ Hydraulics
            R = \frac{Re}{2000}
         \end{gathered}
 
-
      .. math::
         \begin{gathered}
            X1 = 7FA - FB \\
@@ -325,20 +336,27 @@ Hydraulics
            FA = { ( Y3 )}^{-2} \\
            FB = FA ( 2 - \frac{0.00514215}  {( Y2 )  ( Y3 ) } ) \\
            Y2 = \frac{\epsilon} {3.7d} + \frac{5.74}{{Re}^{0.9}} \\
-           Y3 = -0.86859 Ln ( \frac{\epsilon}{3.7d} + \frac{5.74}{{4000}^{0.9}} )
+           Y3 = -0.86859 \ln \left( \frac{\epsilon}{3.7d} + \frac{5.74}{{4000}^{0.9}} \right)
         \end{gathered}
 
-  where :math:`\epsilon` = pipe roughness and :math:`d` = pipe diameter.
+     where :math:`\epsilon` = pipe roughness and :math:`d` = pipe diameter.
 
-  4. The minor loss coefficient based on velocity head (:math:`K`) is converted
+     Based on friction factor equations described above and Darcy-Weisbach equation in Table 3.1,
+     resistance coefficient is not a function of flow and linear relationship exists between head loss
+     and flow when Re > 2000. If Re > 2000, resistance coefficient depends on pipe flow and the
+     sensitivity of resistance  coefficient to flow needs to be computed in order to calculate :math:`{g}_{ij}`
+     for the pipe.
+
+
+  #. The minor loss coefficient based on velocity head (:math:`K`) is converted
      to one based on flow (:math:`m`) with the following relation:
 
      .. math::
 
-        m = \frac{ 0.02517K} {{ d}^{4 } }
+        m = \frac{ 0.02517K} {d^{4}}
 
 
-  5. Emitters at junctions are modeled as a fictitious pipe between the
+  #. Emitters at junctions are modeled as a fictitious pipe between the
      junction and a fictitious reservoir. The pipe’s headloss parameters
      are :math:`n = (1/\gamma)`, :math:`r = (1/C)^n`, and :math:`m = 0` where
      :math:`C` is the emitter’s discharge coefficient and :math:`\gamma` is its
@@ -346,20 +364,20 @@ Hydraulics
      the junction. The computed flow through the fictitious pipe becomes the
      flow associated with the emitter.
 
-  6. Open valves are assigned an :math:`r`- value by assuming the open valve acts
+  #. Open valves are assigned an :math:`r`- value by assuming the open valve acts
      as a smooth pipe (:math:`f = 0.02`) whose length is twice the valve
      diameter. Closed links are assumed to obey a linear headloss relation with
      a large resistance factor, i.e., :math:`h = 10^{8} Q`, so that :math:`p =
      10^{-8}` and :math:`y = Q`. For links where :math:`(r + m)Q <
      10^{-7}`, :math:`p = 10^{7}` and :math:`y = Q/n`.
 
-  7. Status checks on pumps, check valves (CVs), flow control valves, and
+  #. Status checks on pumps, check valves (CVs), flow control valves, and
      pipes connected to full/empty tanks are made after every other
      iteration, up until the 10th iteration. After this, status checks are
      made only after convergence is achieved. Status checks on pressure
      control valves (PRVs and PSVs) are made after each iteration.
 
-  8. During status checks, pumps are closed if the head gain is greater
+  #. During status checks, pumps are closed if the head gain is greater
      than the shutoff head (to prevent reverse flow). Similarly, check
      valves are closed if the headloss through them is negative (see
      below). When these conditions are not present, the link is re-opened.
@@ -369,7 +387,7 @@ Hydraulics
      are re- opened at the next status check if such conditions no longer
      hold.
 
-  9. Simply checking if :math:`h < 0` to determine if a check valve should be
+  #. Simply checking if :math:`h < 0` to determine if a check valve should be
      closed or open was found to cause cycling between these two states in
      some networks due to limits on numerical precision. The following
      procedure was devised to provide a more robust test of the status of
@@ -386,30 +404,30 @@ Hydraulics
           if *Q* < -Qtol then   status = CLOSED
           else                  status = unchanged
 
-      where Htol = 0.0005 ft and Qtol = 0.001 cfs.
+     where Htol = 0.0005 ft and Qtol = 0.001 cfs.
 
-  10. If the status check closes an open pump, pipe, or CV, its flow is
-      set to :math:`10^{-6}` cfs. If a pump is re-opened, its flow is
-      computed by applying the current head gain to its characteristic
-      curve. If a pipe or CV is re- opened, its flow is determined by
-      solving Eq. :eq:`eq:pipe_headloss` for :math:`Q` under the current
-      headloss :math:`h`, ignoring any minor losses.
+  #. If the status check closes an open pump, pipe, or CV, its flow is
+     set to :math:`10^{-6}` cfs. If a pump is re-opened, its flow is
+     computed by applying the current head gain to its characteristic
+     curve. If a pipe or CV is re- opened, its flow is determined by
+     solving Eq. :eq:`eq:pipe_headloss` for :math:`Q` under the current
+     headloss :math:`h`, ignoring any minor losses.
 
-  11. Matrix coefficients for pressure breaker valves (PBVs) are set to
-      the following: :math:`p = 10^{8}` and :math:`y = 10^{8} Hset`,
-      where :math:`Hset` is the pressure drop setting for the valve (in feet).
-      Throttle control valves (TCVs) are treated as pipes with :math:`r` as
-      described in item 6 above and :math:`m` taken as the converted value of
-      the valve setting (see item 4 above).
+  #. Matrix coefficients for pressure breaker valves (PBVs) are set to
+     the following: :math:`p = 10^{8}` and :math:`y = 10^{8} Hset`,
+     where :math:`Hset` is the pressure drop setting for the valve (in feet).
+     Throttle control valves (TCVs) are treated as pipes with :math:`r` as
+     described in item 6 above and :math:`m` taken as the converted value of
+     the valve setting (see item 4 above).
 
-  12. Matrix coefficients for pressure reducing, pressure sustaining, and
-      flow control valves (PRVs, PSVs, and FCVs) are computed after all
-      other links have been analyzed. Status checks on PRVs and PSVs are
-      made as described in item 7 above. These valves can either be
-      completely open, completely closed, or active at their pressure or
-      flow setting.
+  #. Matrix coefficients for pressure reducing, pressure sustaining, and
+     flow control valves (PRVs, PSVs, and FCVs) are computed after all
+     other links have been analyzed. Status checks on PRVs and PSVs are
+     made as described in item 7 above. These valves can either be
+     completely open, completely closed, or active at their pressure or
+     flow setting.
 
-  13. The logic used to test the status of a PRV is as follows:
+  #. The logic used to test the status of a PRV is as follows:
 
         ::
 
@@ -441,45 +459,45 @@ Hydraulics
         when testing against Hset, the i and j subscripts are switched as are
         the > and < operators.
 
-  14. Flow through an active PRV is maintained to force continuity at its
-      downstream node while flow through a PSV does the same at its
-      upstream node. For an active PRV from node i to j:
+  #. Flow through an active PRV is maintained to force continuity at its
+     downstream node while flow through a PSV does the same at its
+     upstream node. For an active PRV from node i to j:
 
-      .. math::
-         {p}_{ij} = 0
+     .. math::
+        \frac{1}{g_{ij}} = 0
 
-      .. math::
-         {F}_{j} = {F}_{j} + {10}^{8} Hset
+     .. math::
+        {F}_{j} = {F}_{j} + {10}^{8} Hset
 
-      .. math::
-         {A}_{jj} = {A}_{jj} + {10}^{8}
+     .. math::
+        {A}_{jj} = {A}_{jj} + {10}^{8}
 
-      This forces the head at the downstream node to be at the valve
-      setting Hset. An equivalent assignment of coefficients is made for an
-      active PSV except the subscript for F and A is the upstream node i.
-      Coefficients for open/closed PRVs and PSVs are handled in the same
-      way as for pipes.
+     This forces the head at the downstream node to be at the valve
+     setting Hset. An equivalent assignment of coefficients is made for an
+     active PSV except the subscript for F and A is the upstream node i.
+     Coefficients for open/closed PRVs and PSVs are handled in the same
+     way as for pipes.
 
-  15. For an active FCV from node i to j with flow setting Qset, Qset is
-      added to the flow leaving node i and entering node j, and is
-      subtracted from *F\ i* and added to *F\ j*. If the head at node i is
-      less than that at node j, then the valve cannot deliver the flow and
-      it is treated as an open pipe.
+  #. For an active FCV from node i to j with flow setting Qset, Qset is
+     added to the flow leaving node i and entering node j, and is
+     subtracted from *F\ i* and added to *F\ j*. If the head at node i is
+     less than that at node j, then the valve cannot deliver the flow and
+     it is treated as an open pipe.
 
-  16. After initial convergence is achieved (flow convergence plus no
-      change in status for PRVs and PSVs), another status check on pumps,
-      CVs, FCVs, and links to tanks is made. Also, the status of links
-      controlled by pressure switches (e.g., a pump controlled by the
-      pressure at a junction node) is checked. If any status change
-      occurs, the iterations must continue for at least two more
-      iterations (i.e., a convergence check is skipped on the very next
-      iteration). Otherwise, a final solution has been obtained.
+  #. After initial convergence is achieved (flow convergence plus no
+     change in status for PRVs and PSVs), another status check on pumps,
+     CVs, FCVs, and links to tanks is made. Also, the status of links
+     controlled by pressure switches (e.g., a pump controlled by the
+     pressure at a junction node) is checked. If any status change
+     occurs, the iterations must continue for at least two more
+     iterations (i.e., a convergence check is skipped on the very next
+     iteration). Otherwise, a final solution has been obtained.
 
-  17. For extended period simulation (EPS), the following procedure is
-      implemented:
+  #. For extended period simulation (EPS), the following procedure is
+     implemented:
 
-      a. After a solution is found for the current time period, the time
-         step for the next solution is the minimum of:
+     a. After a solution is found for the current time period, the time
+        step for the next solution is the minimum of:
 
        -  the time until a new demand period begins,
 
@@ -522,12 +540,12 @@ Hydraulics
           the next rule time step is taken unless the normal hydraulic time
           step has elapsed.
 
-      b. Time is advanced by the computed time step, new demands are found,
-         tank levels are adjusted based on the current flow solution, and link
-         control rules are checked to determine which links change status.
+     b. Time is advanced by the computed time step, new demands are found,
+        tank levels are adjusted based on the current flow solution, and link
+        control rules are checked to determine which links change status.
 
-      c. A new set of iterations with Eqs. (D.3) and (D.4) are begun at the
-         current set of flows.
+     c. A new set of iterations with Eqs. :eq:`eq:matrix_form` and
+        :eq:`eq:flow_update` are begun at the current set of flows.
 
 
 Water Quality
@@ -699,7 +717,7 @@ Water Quality
        :math:`C_L` used with Michaelis-Menton kinetics.
 
 
-    -  *Zero-Order growth* (:math:`C_L = 0, K_b = 1, n = 0`)
+    - *Zero-Order growth* (:math:`C_L = 0, K_b = 1, n = 0`)
 
        .. math::
           R = 1.0
@@ -771,7 +789,7 @@ Water Quality
 
 **System of Equations**
 
-  When applied to a network as a whole, Equations D.5-D.7 represent a
+  When applied to a network as a whole, Eqs. :eq:`eq:advec_trans` - :eq:`eq:tank_mixing` represent a
   coupled set of differential/algebraic equations with time-varying
   coefficients that must be solved for :math:`C_i` in each pipe :math:`i`
   and :math:`C_s` in each storage facility :math:`s`. This solution is
@@ -807,30 +825,30 @@ Water Quality
 
   The following steps occur within each such time step:
 
-  1. The water quality in each segment is updated to reflect any reaction
+  #. The water quality in each segment is updated to reflect any reaction
      that may have occurred over the time step.
 
-  2. For each node in topological order (from upstream to downstream):
+  #. For each node in topological order (from upstream to downstream):
 
-     - If the node is a junction or tank, the water from the leading
-       segments of the links with flow into it, if not zero, is blended
-       together to compute a new water quality value. The volume
-       contributed from each segment equals the product of its link’s
-       flow rate and the time step. If this volume exceeds that of the
-       segment, then the segment is destroyed and the next one in line
-       behind it begins to contribute its volume.
+     a. If the node is a junction or tank, the water from the leading
+        segments of the links with flow into it, if not zero, is blended
+        together to compute a new water quality value. The volume
+        contributed from each segment equals the product of its link’s
+        flow rate and the time step. If this volume exceeds that of the
+        segment, then the segment is destroyed and the next one in line
+        behind it begins to contribute its volume.
 
-     - If the node is a junction its new quality is computed as its total
-       mass inflow divided by its total inflow volume. If it is a tank,
-       its quality is updated depending on the method used to model
-       mixing in the tank (see below).
+     b. If the node is a junction its new quality is computed as its total
+        mass inflow divided by its total inflow volume. If it is a tank,
+        its quality is updated depending on the method used to model
+        mixing in the tank (see below).
 
-     - The node’s concentration is adjusted by any contributions made by
-       external water quality sources.
+     c. The node’s concentration is adjusted by any contributions made by
+        external water quality sources.
 
-     - A new segment is created in each link with flow out of the node.
-       Its volume equals the product of the link flow and the time step
-       and its quality equals the new quality value computed for the node.
+     d. A new segment is created in each link with flow out of the node.
+        Its volume equals the product of the link flow and the time step
+        and its quality equals the new quality value computed for the node.
 
   To cut down on the number of segments, new ones are only created if
   the new node quality differs by a user-specified tolerance from that of
@@ -845,7 +863,8 @@ Water Quality
   reversal has the order of its segments reversed and if any flow
   reversal occurs the network’s nodes are re-sorted topologically, from
   upstream to downstream. Sorting the nodes topologically allows the
-  method to conserve mass, even when very short pipes or zero-length pumps
+  method to conserve mass and reduce the potential mass balance error experienced with EPANET 2.0 (Davis et al., 2018) 
+  even when very short pipes or zero-length pumps
   and valves are encountered. Initially each pipe in the network consists
   of a single segment whose quality equals the initial quality assigned to
   the upstream node.

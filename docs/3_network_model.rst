@@ -60,6 +60,8 @@ Physical Components
 
       -  have negative demands indicating that water is entering the network
 
+      -  have pressure dependent demand
+
       -  be water quality sources where constituents enter the network
 
       -  contain emitters (or sprinklers) which make the outflow rate depend
@@ -142,9 +144,9 @@ Physical Components
     .. note::
        The pressure-flow relation at a junction defined by an emitter
        should not be confused with the pressure-demand relation when
-       performing a pressure dependent analysis (PDA). See Section:
-       :ref:`Pressure Dependent Demand Model <press_dependent_analysis>`
-       for more information on PDA.
+       performing a pressure driven analysis (PDA). See Section:
+       :ref:`Pressure Drive Demand Model <press_dependent_analysis>`
+       for more information.
 
 **Pipes**
 
@@ -242,7 +244,8 @@ Physical Components
 
 
 
-   Consult Appendix D for the actual equations used.
+   Consult :ref:`Chapter 13 <analysis_algorithms>` for the actual equations
+   used.
 
     **Table 3.1** Pipe Headloss Formulas for Full Flow (for headloss in
     feet and flow rate in cfs)
@@ -273,29 +276,29 @@ Physical Components
 
     **Table 3.2** Roughness Coefficients for New Pipe
 
-    +-----------------+-----------------+------------------+-----------------+
-    | *Material*      | *Hazen-Williams*| *Darcy-Weisbach* | *Manning's*     |
-    |                 | :math:`C`       | :math:`\epsilon` | :math:`n`       |
-    |                 | *(unitless)*    | *(ft x 10^-3)*   | *(unitless)*    |
-    +=================+=================+==================+=================+
-    |    Cast Iron    |    130 -- 140   |     0.85         |  0.012 -- 0.015 |
-    +-----------------+-----------------+------------------+-----------------+
-    |    Concrete or  |    120 -- 140   |     1.0 -- 10    |  0.012 -- 0.017 |
-    |    Concrete     |                 |                  |                 |
-    |    Lined        |                 |                  |                 |
-    +-----------------+-----------------+------------------+-----------------+
-    |    Galvanized   |    120          |     0.5          |  0.015 -- 0.017 |
-    |    Iron         |                 |                  |                 |
-    +-----------------+-----------------+------------------+-----------------+
-    |    Plastic      |    140 -- 150   |     0.005        |  0.011 -- 0.015 |
-    |                 |                 |                  |                 |
-    +-----------------+-----------------+------------------+-----------------+
-    |    Steel        |    140 -- 150   |     0.15         |  0.015 -- 0.017 |
-    |                 |                 |                  |                 |
-    +-----------------+-----------------+------------------+-----------------+
-    |    Vitrified    |    110          |                  |  0.013 -- 0.015 |
-    |    Clay         |                 |                  |                 |
-    +-----------------+-----------------+------------------+-----------------+
+    +-----------------+------------------+------------------------+-----------------+
+    |    *Material*   | *Hazen-Williams* | *Darcy-Weisbach*       | *Manning's*     |
+    |                 | :math:`C`        | :math:`\epsilon`       | :math:`n`       |
+    |                 | *(unitless)*     | (ft x :math:`10^{-3}`) | *(unitless)*    |
+    +=================+==================+========================+=================+
+    |    Cast Iron    |    130 -- 140    |     0.85               |  0.012 -- 0.015 |
+    +-----------------+------------------+------------------------+-----------------+
+    |    Concrete or  |    120 -- 140    |     1.0 -- 10          |  0.012 -- 0.017 |
+    |    Concrete     |                  |                        |                 |
+    |    Lined        |                  |                        |                 |
+    +-----------------+------------------+------------------------+-----------------+
+    |    Galvanized   |    120           |     0.5                |  0.015 -- 0.017 |
+    |    Iron         |                  |                        |                 |
+    +-----------------+------------------+------------------------+-----------------+
+    |    Plastic      |    140 -- 150    |     0.005              |  0.011 -- 0.015 |
+    |                 |                  |                        |                 |
+    +-----------------+------------------+------------------------+-----------------+
+    |    Steel        |    140 -- 150    |     0.15               |  0.015 -- 0.017 |
+    |                 |                  |                        |                 |
+    +-----------------+------------------+------------------------+-----------------+
+    |    Vitrified    |    110           |                        |  0.013 -- 0.015 |
+    |    Clay         |                  |                        |                 |
+    +-----------------+------------------+------------------------+-----------------+
 
 
    Pipes can be set open or closed at preset times or when specific
@@ -539,11 +542,11 @@ Non-Physical Components
 
       Three-Point Pump Curve:
 
-      |image32|
+      |image31-2|
 
       Multi-Point Pump Curve:
 
-      |image31-2|
+      |image32|
 
       Variable-Speed Pump Curve:
 

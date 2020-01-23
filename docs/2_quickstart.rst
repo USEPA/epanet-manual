@@ -22,14 +22,14 @@ want to review the first two sections of Chapter 3 first.*
 Installing EPANET
 ~~~~~~~~~~~~~~~~~
 
-   EPANET Version 2 is designed to run under the Windows 95/98/NT
-   operating system of an IBM/Intel-compatible personal computer. It is
-   distributed as a single file, **en2setup.exe**, which contains a
-   self-extracting setup program. To install EPANET:
+   EPANET Version 2.2 is designed to run under the Windows 7/8/10
+   operating system of an Intel-compatible personal computer. It is
+   distributed as a single installer package file, **EPANET-2.2.0-win32.msi**.
+   To install EPANET:
 
     1. Select **Run** from the Windows Start menu.
 
-    2. Enter the full path and name of the **en2setup.exe** file or click
+    2. Enter the full path and name of the **EPANET-2.2.0-win32.msi** file or click
        the **Browse** button to locate it on your computer.
 
     3. Click the **OK** button type to begin the setup process.
@@ -37,25 +37,23 @@ Installing EPANET
 
 
    The setup program will ask you to choose a folder (directory) where
-   the EPANET files will be placed. The default folder is **c:\Program
-   Files\EPANET2**. After the files are installed your Start Menu will
-   have a new item named EPANET 2.0. To launch EPANET simply select this
-   item off of the Start Menu, then select EPANET 2.0 from the submenu that
+   the EPANET files will be placed. The default folder is **c:\\Program
+   Files (x86)\\EPANET 2.2.0 **. After the files are installed your Start Menu will
+   have a new item named EPANET 2.2.0. To launch EPANET simply select this
+   item off of the Start Menu, then select EPANET 2.2.0 from the submenu that
    appears. (The name of the executable file that runs EPANET under
    Windows is **epanet2w.exe**.)
 
    Should you wish to remove EPANET from your computer, you can use the
    following procedure:
 
-    1. Select **Settings** from the Windows Start menu.
+    1. Open **Control Panel**.
 
-    2. Select **Control Panel** from the Settings menu.
+    2. Double-click on the **Add/Remove Programs** or **Uninstall a program** item.
 
-    3. Double-click on the **Add/Remove Programs** item.
+    3. Select EPANET 2.2.0 from the list of programs that appears.
 
-    4. Select EPANET 2.0 from the list of programs that appears.
-
-    5. Click the **Add/Remove** button.
+    4. Click the **Add/Remove** button or right click and select **uninstall**.
 
 
 Example Network
@@ -399,7 +397,7 @@ Running an Extended Period Analysis
       network map at different points in time. Try doing this with Pressure
       selected as the node parameter and Flow as the link parameter.
 
-    - The VCR-style buttons in the Browser can
+    - The buttons in the Browser can
       animate the map through time. Click the Forward button |image25|  to start the
       animation and the Stop button |image26|  to stop it.
 

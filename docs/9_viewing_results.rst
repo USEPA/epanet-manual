@@ -643,9 +643,11 @@ Viewing Special Reports
 
    EPANET writes all error and warning messages generated during an
    analysis to a Status Report (see Figure 9.10). Additional information
-   on when network objects change status is also written to this report
+   on when network objects change status and a final mass balance accounting 
+   for water quality analysis are also written to this report
    if the Status Report option in the project's Hydraulics Options was
-   set to Yes or Full. To view a status report on the most recently
+   set to Yes or Full. For pressure driven analysis, node demand deficiency will also be reported in the status report.
+   To view a status report on the most recently
    completed analysis select **Report >> Status** from the main menu.
 
       |image133|

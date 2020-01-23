@@ -1,11 +1,5 @@
-.. raw:: latex
-
-    \clearpage
-  	\pagenumbering{roman}
-
-About EPANET User Manual
+EPANET 2.2 User Manual Overview
 ======================================
-
 :ref:`Chapter 1 <introduction>` of this manual describes what EPANET is and its
 capabilities.
 

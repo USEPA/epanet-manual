@@ -60,7 +60,7 @@ Physical Components
 
       -  have negative demands indicating that water is entering the network
 
-      -  have pressure dependent demand
+      -  have pressure driven demand
 
       -  be water quality sources where constituents enter the network
 
@@ -145,7 +145,7 @@ Physical Components
        The pressure-flow relation at a junction defined by an emitter
        should not be confused with the pressure-demand relation when
        performing a pressure driven analysis (PDA). See Section:
-       :ref:`Pressure Drive Demand Model <press_dependent_analysis>`
+       :ref:`Pressure Drive Demand Model <press_driven_analysis>`
        for more information.
 
 **Pipes**

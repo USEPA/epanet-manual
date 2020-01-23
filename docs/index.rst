@@ -1,7 +1,3 @@
-..
-    Testing comments
-..
-
 
 .. include:: front_matter.rst
 
@@ -26,19 +22,10 @@
    11_importing_exporting
    12_questions
    analysis_algorithms
-
-
+   references
+   
 .. toctree:: 
    :hidden:
+   :caption: APPENDIX
 
-   references
    back_matter
-
-
-..
-    Contents
-    ==================
-
-    * :ref:`genindex`
-    * :ref:`modindex`
-    * :ref:`search`

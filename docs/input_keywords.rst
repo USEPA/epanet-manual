@@ -623,7 +623,7 @@
 
   FLOWCHANGE
     augments the **ACCURACY** option. Sets the largest change in flow
-    that any network element (link, emitter, or pressure-dependent
+    that any network element (link, emitter, or pressure driven
     demand) can have for hydraulic convergence to occur. It is specified
     in whatever flow units the project is using. The default value of 0
     indicates that no flow change limit applies.

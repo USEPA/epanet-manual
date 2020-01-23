@@ -1,14 +1,9 @@
-
-
-
 .. _units:
 
 A. Units of Measurement
 =======================
 
 
-
-UNITS
 ~~~~~
 
 **Note**: US Customary units apply when CFS, GPM, AFD, or MGD is

@@ -2,10 +2,6 @@
 
     \clearpage
 
-
-Appendix
-========
-
 .. include:: A_units.rst
 
 

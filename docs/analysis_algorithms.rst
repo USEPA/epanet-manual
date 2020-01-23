@@ -163,7 +163,7 @@ Hydraulics
   rigorous control over hydraulic convergence.
 
 
-.. _press_dependent_analysis:
+.. _press_driven_analysis:
 
 **Pressure Driven Demand Model**
 
@@ -277,7 +277,7 @@ Hydraulics
      pressure limits apply to all nodes.
 
   -  In extended period analysis, where the full demands change at
-     different time periods, the same pressure-dependent demand function
+     different time periods, the same pressure driven demand function
      is applied to the current full demand (instead of changing :math:`P_{f}`
      to accommodate changes in :math:`D_{f}` ).
 

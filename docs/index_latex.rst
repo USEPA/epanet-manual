@@ -6,8 +6,7 @@ EPANET documentation
 
    disclaimer
    acronyms
-   acknowledgments
-   front_matter
+   Acknowledgments
    1_introduction
    2_quickstart
    3_network_model
@@ -22,5 +21,4 @@ EPANET documentation
    12_questions
    analysis_algorithms
    references
-   back_matter
    

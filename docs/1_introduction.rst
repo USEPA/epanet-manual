@@ -77,10 +77,10 @@ Hydraulic Modeling Capabilities
     - considers multiple demand categories at nodes, each with its own
       pattern of time variation
 
-    - models pressure-dependent flow issuing from emitters (sprinkler
+    - models pressure driven flow issuing from emitters (sprinkler
       heads)
 
-    - models pressure dependent demand at nodes
+    - models pressure driven demand at nodes
 
     - can base system operation on both simple tank level or timer controls
       and on complex rule-based controls.

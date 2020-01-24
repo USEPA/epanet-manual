@@ -113,7 +113,7 @@ Project Defaults
 
    **Default ID Labels**
 
-   The ID Labels page of the Defaults dialog form is shown in Figure 5.1
+   The ID Labels page of the Defaults dialog form is shown in :numref:`id_labels_page_defaults` 
    below. It is used to determine how EPANET will assign default ID
    labels to network components when they are first created. For each
    type of object one can enter a label prefix or leave the field blank
@@ -125,9 +125,14 @@ Project Defaults
    created, the Property Editor can be used to modify its ID label if
    need be.
 
-   |image75|
-
-   **Figure 5.1** ID Labels Page of Project Defaults Dialog
+   .. _id_labels_page_defaults:
+   .. figure:: media/image2.jpeg
+      :alt: ID Labels Page of Project Defaults Dialog
+   
+      ID Labels Page of Project Defaults Dialog
+   ..
+   
+   
 
 
    **Default Node/Link Properties**

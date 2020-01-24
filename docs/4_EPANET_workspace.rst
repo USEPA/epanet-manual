@@ -20,15 +20,18 @@ Property Editor. It also shows how to set program preferences.*
 Overview
 ~~~~~~~~
 
-   The basic EPANET workspace is pictured below. It consists of the
+   The basic EPANET workspace is pictured in :numref:`fig-EPANET_Workspace` below. It consists of the
    following user interface elements: a Menu Bar, two Toolbars, a Status
    Bar, the Network Map window, a Browser window, and a Property Editor
    window. A description of each of these elements is provided in the
    sections that follow.
 
-
-   |image39|
-
+   .. _fig-EPANET_Workspace:
+   .. figure:: media/image37.png
+      :alt: EPANET Workspace
+   
+      EPANET_Workspace
+   ..
 
 Menu Bar
 ~~~~~~~~
@@ -54,8 +57,11 @@ Menu Bar
 **File Menu**
 
    The File Menu contains commands for opening and saving data files and
-   for printing:
+   for printing.  The commands for the File Menu are shown in :numref:`table-File_Menu_Commands` below.
 
+.. _table-File_Menu_Commands:
+.. table:: File Menu Commands
+   
   +---------------+------------------------------------------------------+
   | *Command*     | *Description*                                        |
   +===============+======================================================+
@@ -81,11 +87,14 @@ Menu Bar
   +---------------+------------------------------------------------------+
   | Exit          | Exits EPANET                                         |
   +---------------+------------------------------------------------------+
-
+..
 
 **Edit Menu**
 
-   The Edit Menu contains commands for editing and copying.
+   The Edit Menu contains commands for editing and copying.  The commands for the Edit Menu are shown in :numref:`table-Edit_Menu_Commands` below.
+   
+.. _table-Edit_Menu_Commands:
+.. table:: Edit Menu Commands  
 
   +-----------------------------------+-----------------------------------+
   | *Command*                         | *Description*                     |
@@ -110,11 +119,14 @@ Menu Bar
   |                                   | objects that fall within the      |
   |                                   | outlined region of the map        |
   +-----------------------------------+-----------------------------------+
-
+..
 
 **View Menu**
 
-   The View Menu controls how the network map is viewed.
+   The View Menu controls how the network map is viewed.  The controls for the View Menu are shown in :numref:`table-View_Menu_Controls` below.
+   
+.. _table-View_Menu_Controls:
+.. table:: View Menu Controls     
 
   +--------------+-----------------------------------------------------------+
   | *Command*    | *Description*                                             |
@@ -143,9 +155,14 @@ Menu Bar
   +--------------+-----------------------------------------------------------+
   | Options      | Sets map appearance options                               |
   +--------------+-----------------------------------------------------------+
-
+..
 
 **Project Menu**
+
+   The Project Menu includes commands related to the current project being analyzed.  The commands for the Project Menu are shown in :numref:`table-Project_Menu_Commands` below.
+      
+.. _table-Project_Menu_Commands:
+.. table:: Project Menu Commmands     
 
   +-----------------------------------+-----------------------------------+
   | *Command*                         | *Description*                     |
@@ -163,12 +180,15 @@ Menu Bar
   +-----------------------------------+-----------------------------------+
   | Run Analysis                      | Runs a simulation                 |
   +-----------------------------------+-----------------------------------+
-
+..
 
 **Report Menu**
 
    The Report menu has commands used to report analysis results in
-   different formats.
+   different formats. The commands for the Report Menu are shown in :numref:`table-Report_Menu_Commands` below.
+      
+.. _table-Report_Menu_Commands:
+.. table:: Report Menu Commmands     
 
   +-----------------------------------+-----------------------------------+
   | *Command*                         | *Description*                     |
@@ -200,11 +220,14 @@ Menu Bar
   | Options                           | Controls the display style of a   |
   |                                   | report, graph, or table           |
   +-----------------------------------+-----------------------------------+
-
+..
 
 **Window Menu**
 
-   The Window Menu contains the following commands:
+   The Window Menu contains the following commands shown in :numref:`table-Window_Menu_Commands` below.
+      
+.. _table-Window_Menu_Commands:
+.. table:: Window Menu Commmands     
 
   +-------------+-------------------------------------------------------------+
   | *Command*   | *Description*                                               |
@@ -215,12 +238,16 @@ Menu Bar
   +-------------+-------------------------------------------------------------+
   | Window List | Lists all open windows; selected window currently has focus |
   +-------------+-------------------------------------------------------------+
-
+..
 
 
 **Help Menu**
 
-   The Help Menu contains commands for getting help in using EPANET:
+   The Help Menu contains commands for getting help in using EPANET. The Help Menu contains the following commands shown in :numref:`table-Help_Menu_Commands` below. 
+   Context-sensitive Help is also available by pressing the F1 key.
+      
+.. _table-Help_Menu_Commands:
+.. table:: Help Menu Commmands       
 
   +-------------+----------------------------------------------------------+
   | *Command*   | *Description*                                            |
@@ -233,11 +260,8 @@ Menu Bar
   +-------------+----------------------------------------------------------+
   | About       | Lists information about the version of EPANET being used |
   +-------------+----------------------------------------------------------+
-
-
-   Context-sensitive Help is also available by pressing the F1 key.
-
-
+..
+   
 Toolbars
 ~~~~~~~~
 
@@ -400,6 +424,7 @@ Map Browser
    
    |image68_4| \ Animate forward in time
 
+.. _prop_ed:
 
 Property Editor
 ~~~~~~~~~~~~~~~

@@ -113,7 +113,7 @@ Project Defaults
 
    **Default ID Labels**
 
-   The ID Labels page of the Defaults dialog form is shown in :numref:`id_labels_page_defaults` 
+   The ID Labels page of the Defaults dialog form is shown in :numref:`fig-id_labels_page_defaults`
    below. It is used to determine how EPANET will assign default ID
    labels to network components when they are first created. For each
    type of object one can enter a label prefix or leave the field blank
@@ -125,20 +125,17 @@ Project Defaults
    created, the Property Editor can be used to modify its ID label if
    need be.
 
-   .. _id_labels_page_defaults:
-   .. figure:: media/image2.jpeg
+   .. _fig-id_labels_page_defaults:
+   .. figure:: media/image2.png
       :alt: ID Labels Page of Project Defaults Dialog
    
       ID Labels Page of Project Defaults Dialog
    ..
-   
-   
-
+    
 
    **Default Node/Link Properties**
 
-   The Properties page of the Defaults dialog form is shown in Figure
-   5.2. It sets default property values for newly created nodes and
+   The Properties page of the Defaults dialog form is shown in :numref:`fig-Properties_Page_of_the_Project_Defaults_Dialog`. It sets default property values for newly created nodes and
    links. These properties include:
 
     -  Elevation for nodes
@@ -162,9 +159,12 @@ Project Defaults
    network map. A node or link created with these default properties can
    always be modified later on using the Property Editor.
 
-   |image76|
-
-   **Figure 5.2** Properties Page of the Project Defaults Dialog
+   .. _fig-Properties_Page_of_the_Project_Defaults_Dialog:
+   .. figure:: media/image60.png
+      :alt: Properties Page of the Project Defaults Dialog
+   
+      Properties Page of the Project Defaults Dialog
+   ..
 
 
    **Default Hydraulic Options**
@@ -243,7 +243,7 @@ Calibration Data
 
       1. Select **Project >> Calibration Data** from the Menu Bar.
 
-      2. In the Calibration Data dialog form shown in Figure 5.3, click in
+      2. In the Calibration Data dialog form shown in :numref:`fig-Calibration_Data_Dialog`, click in
          the box next to the parameter you wish to register data for.
 
       3. Either type in the name of a Calibration File for this parameter or
@@ -259,10 +259,14 @@ Calibration Data
 
 ..
 
-   |image77|
+   .. _fig-Calibration_Data_Dialog:
+   .. figure:: media/image60.png
+      :alt: Calibration Data Dialog
+   
+      Calibration Data Dialog
+   ..
 
-   **Figure 5.3** Calibration Data Dialog
-
+   
 Project Summary
 ~~~~~~~~~~~~~~~
 

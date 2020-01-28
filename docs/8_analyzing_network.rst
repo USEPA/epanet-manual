@@ -1,4 +1,4 @@
-.. raw:: latex
+﻿.. raw:: latex
 
     \clearpage
 
@@ -74,7 +74,7 @@ Setting Analysis Options
   |                                   | - Darcy-Weisbach                  |
   |                                   | - Chezy-Manning                   |
   +-----------------------------------+-----------------------------------+
-  |                                   | Because each formula measures     |
+  |                                   | Because each formula measures     |
   |                                   | pipe roughness differently,       |
   |                                   | switching formulas might require  |
   |                                   | that all pipe roughness           |
@@ -139,13 +139,13 @@ Setting Analysis Options
   +-----------------------------------+-----------------------------------+
   | Status Report                     | Amount of status information to   |
   |                                   | report after an analysis is made. |
-  |                                   | Choices are:                      |
+  |                                   | Choices are:                      |
   +-----------------------------------+-----------------------------------+
   |                                   | - NONE (no reporting)             |
   |                                   | - YES  (link status changes)      |
   |                                   | - FULL (normal plus convergence)  |
   +-----------------------------------+-----------------------------------+
-  |                                   | Full status reporting is only     |
+  |                                   | Full status reporting is only     |
   |                                   | useful for debugging purposes.    |
   +-----------------------------------+-----------------------------------+
   | Max. Head Error                   | Augments the ACCURACY option.     |
@@ -282,12 +282,12 @@ Setting Analysis Options
   | Parameter                         | Type of water quality parameter   |
   |                                   | being modeled. Choices include:   |
   +-----------------------------------+-----------------------------------+
-  |                                   | - NONE (no quality analysis)      |
-  |                                   | - CHEMICAL (compute concentration)|
-  |                                   | - AGE (estimate water age)        |
-  |                                   | - TRACE (percent flow from node)  |
+  |                                   | - NONE (no quality analysis)      |
+  |                                   | - CHEMICAL (compute concentration)|
+  |                                   | - AGE (estimate water age)        |
+  |                                   | - TRACE (percent flow from node)  |
   +-----------------------------------+-----------------------------------+
-  |                                   | In lieu of CHEMICAL, you can      |
+  |                                   | In lieu of CHEMICAL, you can      |
   |                                   | enter the actual name of the      |
   |                                   | chemical being modeled (e.g.,     |
   |                                   | Chlorine).                        |
@@ -463,13 +463,13 @@ Setting Analysis Options
   |                                   | an extended period simulation.    |
   |                                   | Choices are:                      |
   +-----------------------------------+-----------------------------------+
-  |                                   | - NONE (current time step results)|
-  |                                   | - AVERAGE (time-averaged results) |
-  |                                   | - MINIMUM (minimum value results) |
-  |                                   | - MAXIMUM (maximum value results) |
-  |                                   | - RANGE (diff between min and max)|
+  |                                   | - NONE (current time step results)|
+  |                                   | - AVERAGE (time-averaged results) |
+  |                                   | - MINIMUM (minimum value results) |
+  |                                   | - MAXIMUM (maximum value results) |
+  |                                   | - RANGE (diff between min and max)|
   +-----------------------------------+-----------------------------------+
-  |                                   | Statistical processing is applied |
+  |                                   | Statistical processing is applied |
   |                                   | to all node and link results      |
   |                                   | obtained between the Report Start |
   |                                   | Time and the Total Duration.      |

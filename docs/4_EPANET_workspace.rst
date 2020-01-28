@@ -16,6 +16,7 @@ Property Editor. It also shows how to set program preferences.*
 
 -------
 
+.. _sec-overview:
 
 Overview
 ~~~~~~~~
@@ -29,6 +30,8 @@ Overview
 
    |image39|
 
+
+.. _sec-menubar:
 
 Menu Bar
 ~~~~~~~~
@@ -237,6 +240,7 @@ Menu Bar
 
    Context-sensitive Help is also available by pressing the F1 key.
 
+.. _sec-toolbars:
 
 Toolbars
 ~~~~~~~~
@@ -320,6 +324,7 @@ Toolbars
    |image65| Adds a label to the map
 
 
+.. _sec-stats_bar:
 
 Status Bar
 ~~~~~~~~~~
@@ -348,6 +353,8 @@ Status Bar
      position of the mouse pointer.
 
 
+.. _sec-network_map:
+
 Network Map
 ~~~~~~~~~~~
 
@@ -367,6 +374,7 @@ Network Map
    property values displayed. The map can be printed, copied onto the
    Windows clipboard, or exported as a DXF file or Windows metafile.
 
+.. _sec-data_browser:
 
 Data Browser
 ~~~~~~~~~~~~
@@ -379,6 +387,7 @@ Data Browser
 
    |image66| 
 
+.. _sec-map_browser:
 
 Map Browser
 ~~~~~~~~~~~
@@ -400,6 +409,7 @@ Map Browser
    
    |image68_4| \ Animate forward in time
 
+.. _sec-prop_ed:
 
 Property Editor
 ~~~~~~~~~~~~~~~
@@ -451,6 +461,7 @@ Property Editor
 
       |image69|
 
+.. _sec-prog_pref:
 
 Program Preferences
 ~~~~~~~~~~~~~~~~~~~~

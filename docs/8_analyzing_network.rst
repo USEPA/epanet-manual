@@ -17,7 +17,7 @@ analysis.*
 
 -------
 
-
+.. _sec-analysis_ops:
 
 Setting Analysis Options
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -47,10 +47,13 @@ Setting Analysis Options
 **Hydraulic Options**
 
    Hydraulic options control how the hydraulic computations are carried
-   out. They consist of the following items:
+   out. They consist of the following items (:numref:`table-hyd_ops`):
+
+.. _table-hyd_ops:
+.. table:: Hydraulic Options for Hydraulic Analysis	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   |                                   | Units in which nodal demands and  |
   | Flow Units                        | link flow rates are expressed.    |
@@ -69,11 +72,11 @@ Setting Analysis Options
   | Headloss Formula                  | Formula used to compute headloss  |
   |                                   | as a function of flow rate in a   |
   |                                   | pipe. Choices are:                |
-  +-----------------------------------+-----------------------------------+
+  |                                   |                                   |
   |                                   | - Hazen-Williams                  |
   |                                   | - Darcy-Weisbach                  |
   |                                   | - Chezy-Manning                   |
-  +-----------------------------------+-----------------------------------+
+  |                                   |                                   |
   |                                   | Because each formula measures     |
   |                                   | pipe roughness differently,       |
   |                                   | switching formulas might require  |
@@ -140,11 +143,11 @@ Setting Analysis Options
   | Status Report                     | Amount of status information to   |
   |                                   | report after an analysis is made. |
   |                                   | Choices are:                      |
-  +-----------------------------------+-----------------------------------+
+  |                                   |                                   |
   |                                   | - NONE (no reporting)             |
   |                                   | - YES  (link status changes)      |
   |                                   | - FULL (normal plus convergence)  |
-  +-----------------------------------+-----------------------------------+
+  |                                   |                                   |
   |                                   | Full status reporting is only     |
   |                                   | useful for debugging purposes.    |
   +-----------------------------------+-----------------------------------+
@@ -244,10 +247,15 @@ Setting Analysis Options
   |                                   | a limit of 0.01 is suggested.     |
   +-----------------------------------+-----------------------------------+
  
-  Below are some typical values that might be used for the status checking parameters:
+..
+ 
+  Below are some typical values that might be used for the status checking parameters (:numref:`table-status_check_typ_values`):
+  
+.. _table-status_check_typ_values:
+.. table:: Typical Values for Status Checking Parameters	
 
   +-------------+-------------+-------------+-----------------------------+
-  | *CHECKFREQ* | *MAXCHECK*  | *DAMPLIMIT* | *Remarks*                   |
+  | *CHECKFREQ* | *MAXCHECK*  | *DAMPLIMIT* | *REMARKS*                   |
   +=============+=============+=============+=============================+
   |      2      |     10      |      0      | Frequent status checking;   |
   |             |             |             | tends to produce solutions  |
@@ -266,27 +274,30 @@ Setting Analysis Options
   |             |             |             | settings fail.              |
   +-------------+-------------+-------------+-----------------------------+
  
-   **Note**: Choices for Hydraulic Options can also be set from the
-   **Project >> Defaults** menu and saved for use with all future projects (see Section 5.2).
-
+.. 
+   
+   **Note**: Choices for Hydraulic Options can also be set from the **Project >> Defaults** menu and saved for use with all future projects (see :numref:`sec-proj_defaults`).
 
 
 **Water Quality Options**
 
    Water Quality Options control how the water quality analysis is
-   carried out. They consist of the following:
+   carried out. They consist of the following (:numref:`table-wq_ops`):
+
+.. _table-wq_ops:
+.. table:: Water Quality Options for Water Quality Analysis	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Parameter                         | Type of water quality parameter   |
   |                                   | being modeled. Choices include:   |
-  +-----------------------------------+-----------------------------------+
+  |                                   |                                   |
   |                                   | - NONE (no quality analysis)      |
   |                                   | - CHEMICAL (compute concentration)|
   |                                   | - AGE (estimate water age)        |
   |                                   | - TRACE (percent flow from node)  |
-  +-----------------------------------+-----------------------------------+
+  |                                   |                                   |
   |                                   | In lieu of CHEMICAL, you can      |
   |                                   | enter the actual name of the      |
   |                                   | chemical being modeled (e.g.,     |
@@ -322,6 +333,8 @@ Setting Analysis Options
   |                                   | tracing.                          |
   +-----------------------------------+-----------------------------------+
 
+..
+
    **Note**: The Quality Tolerance determines when the quality of one
    parcel of water is essentially the same as another parcel. For
    chemical analysis this might be the detection limit of the procedure
@@ -335,11 +348,13 @@ Setting Analysis Options
 **Reaction Options**
 
    Reaction Options set the types of reactions that apply to a water
-   quality analysis. They include the following:
+   quality analysis. They include the following (:numref:`table-rxn_ops`):
 
+.. _table-rxn_ops:
+.. table:: Reaction Options for Water Quality Analysis	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Bulk Reaction Order               | Power to which concentration is   |
   |                                   | raised when computing a bulk flow |
@@ -396,27 +411,33 @@ Setting Analysis Options
   |                                   | proportional to the difference    |
   |                                   | between the current concentration |
   |                                   | and this value. See discussion of |
-  |                                   | Bulk Reactions in Section 3.4 for |
-  |                                   | more details. Set to zero if not  |
-  |                                   | applicable.                       |
+  |                                   | Bulk Reactions in                 |
+  |                                   | :numref:`sec-wq_sim_model`        |
+  |                                   | for more details. Set to zero if  |
+  |                                   | not applicable.                   |
   +-----------------------------------+-----------------------------------+
   | Wall Coefficient Correlation      | Factor correlating wall reaction  |
   |                                   | coefficient to pipe roughness.    |
   |                                   | See discussion of Wall Reactions  |
-  |                                   | in Section 3.4 for more details.  |
-  |                                   | Set to zero if not applicable.    |
+  |                                   | in                                |
+  |                                   | :numref:`sec-wq_sim_model`        |
+  |                                   | for more details. Set to zero if  | 
+  |                                   | not applicable.                   |
   +-----------------------------------+-----------------------------------+
 
+..
 
 **Times Options**
 
    Times options set values for the various time steps used in an
-   extended period simulation. These are listed below (times can be
+   extended period simulation. These are listed below in :numref:`table-time_ops` (times can be
    entered as decimal hours or in hours:minutes notation):
 
+.. _table-time_ops:
+.. table:: Times Options for Hydraulic and Water Quality Analysis 	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Total Duration                    | Total length of a simulation in   |
   |                                   | hours. Use 0 to run a single      |
@@ -462,18 +483,20 @@ Setting Analysis Options
   |                                   | used to summarize the results of  |
   |                                   | an extended period simulation.    |
   |                                   | Choices are:                      |
-  +-----------------------------------+-----------------------------------+
+  |                                   |                                   |
   |                                   | - NONE (current time step results)|
   |                                   | - AVERAGE (time-averaged results) |
   |                                   | - MINIMUM (minimum value results) |
   |                                   | - MAXIMUM (maximum value results) |
   |                                   | - RANGE (diff between min and max)|
-  +-----------------------------------+-----------------------------------+
+  |                                   |                                   |
   |                                   | Statistical processing is applied |
   |                                   | to all node and link results      |
   |                                   | obtained between the Report Start |
   |                                   | Time and the Total Duration.      |
   +-----------------------------------+-----------------------------------+
+
+..
 
    **Note:** To run a single-period hydraulic analyses (also called a
    snapshot analysis) enter 0 for Total Duration. In this case entries
@@ -486,11 +509,13 @@ Setting Analysis Options
 
    Energy Analysis Options provide default values used to compute
    pumping energy and cost when no specific energy parameters are
-   assigned to a given pump. They consist of the following:
+   assigned to a given pump. They consist of the following (:numref:`table-energy_ops`):
 
+.. _table-energy_ops:
+.. table:: Energy Options for Hydraulic Analysis	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Pump Efficiency (%)               | Default pump efficiency.          |
   +-----------------------------------+-----------------------------------+
@@ -507,6 +532,9 @@ Setting Analysis Options
   |                                   | maximum kilowatt usage.           |
   +-----------------------------------+-----------------------------------+
 
+..
+
+.. _sec-run_analysis:
 
 Running an Analysis
 ~~~~~~~~~~~~~~~~~~~
@@ -531,13 +559,14 @@ Running an Analysis
   faucet indicating that the current computed results no longer apply
   to the modified network.
 
+.. _sec-troubleshooting:
 
 Troubleshooting Results
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 EPANET will issue specific Error and Warning messages when problems
-are encountered in running a hydraulic/water quality analysis (see
-Appendix B for a complete listing). The most common problems are
+are encountered in running a hydraulic/water quality analysis (see Appendix
+:ref:`error_messages` for a complete listing). The most common problems are
 discussed below.
 
 

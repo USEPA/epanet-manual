@@ -8,6 +8,12 @@
 Analysis Algorithms
 ===================
 
+*EPANET uses a variety of algorithms for the hydraulic and water quality analysis. This chapter describes the two different demand models used for hydraulics analysis and the algorithms for the water quality analysis.*
+
+-------
+
+.. _sec-analysis_alg_hyd:
+
 Hydraulics
 ~~~~~~~~~~
 
@@ -341,7 +347,7 @@ Hydraulics
 
      where :math:`\epsilon` = pipe roughness and :math:`d` = pipe diameter.
 
-     Based on friction factor equations described above and Darcy-Weisbach equation in Table 3.1,
+     Based on friction factor equations described above and Darcy-Weisbach equation in :numref:`table-pipe_headloss_formulas`,
      resistance coefficient is not a function of flow and linear relationship exists between head loss
      and flow when Re > 2000. If Re > 2000, resistance coefficient depends on pipe flow and the
      sensitivity of resistance  coefficient to flow needs to be computed in order to calculate :math:`{g}_{ij}`
@@ -453,9 +459,7 @@ Hydraulics
         head, Hj is its downstream head, Hset is its pressure setting
         converted to head, Hml is the minor loss when the valve is open (=
         mQ\ :sup:`2`), and Htol and Qtol are the same values used for check
-        valves in
-
-        item 9 above. A similar set of tests is used for PSVs, except that
+        valves in item 9 above. A similar set of tests is used for PSVs, except that
         when testing against Hset, the i and j subscripts are switched as are
         the > and < operators.
 
@@ -499,18 +503,18 @@ Hydraulics
      a. After a solution is found for the current time period, the time
         step for the next solution is the minimum of:
 
-       -  the time until a new demand period begins,
+       -  The time until a new demand period begins
 
-       -  the shortest time for a tank to fill or drain,
+       -  The shortest time for a tank to fill or drain,
 
-       -  the shortest time until a tank level reaches a point that
+       -  The shortest time until a tank level reaches a point that
           triggers a change in status for some link (e.g., opens or
-          closes a pump) as stipulated in a simple control,
+          closes a pump) as stipulated in a simple control
 
-       -  the next time until a simple timer control on a link kicks in,
+       -  The next time until a simple timer control on a link kicks in
 
-       -  the next time at which a rule-based control causes a status
-          change somewhere in the network.
+       -  The next time at which a rule-based control causes a status
+          change somewhere in the network
 
        In computing the times based on tank levels, the latter are assumed
        to change in a linear fashion based on the current flow solution. The
@@ -547,6 +551,8 @@ Hydraulics
      c. A new set of iterations with Eqs. :eq:`eq:matrix_form` and
         :eq:`eq:flow_update` are begun at the current set of flows.
 
+
+.. _sec-analysis_alg_WQ:
 
 Water Quality
 ~~~~~~~~~~~~~
@@ -795,17 +801,17 @@ Water Quality
   and :math:`C_s` in each storage facility :math:`s`. This solution is
   subject to the following set of externally imposed conditions:
 
-  - initial conditions that specify :math:`C_i` for all :math:`x` in each
+  - Initial conditions that specify :math:`C_i` for all :math:`x` in each
     pipe :math:`i` and :math:`C_s` in each storage facility :math:`s` at
-    time 0,
+    time 0
 
-  - boundary conditions that specify values for :math:`C_k,ext` and
+  - Boundary conditions that specify values for :math:`C_k,ext` and
     :math:`Q_k,ext` for all time :math:`t` at each node :math:`k` which
     has external mass inputs
 
-  - hydraulic conditions which specify the volume :math:`V_s` in each
+  - Hydraulic conditions which specify the volume :math:`V_s` in each
     storage facility :math:`s` and the flow :math:`Q_i` in each link
-    :math:`i` at all times :math:`t`.
+    :math:`i` at all times :math:`t`
 
 
 **Lagrangian Transport Algorithm**
@@ -821,7 +827,7 @@ Water Quality
   loss in size of the most downstream segment occurs as water leaves
   the link; therefore, the total volume of all the segments within a pipe
   does not change and the size of the segments between these leading and
-  trailing segments remains unchanged. (See Figure D.1).
+  trailing segments remains unchanged (see :numref:`fig-transport`).
 
   The following steps occur within each such time step:
 
@@ -869,11 +875,13 @@ Water Quality
   of a single segment whose quality equals the initial quality assigned to
   the upstream node.
 
-  .. image:: media/transport.png
-     :align: center
-
-  **Figure D.1** Behavior of Segments in the Lagrangian Solution Method
-
+   .. _fig-transport:
+   .. figure:: media/transport.png
+      :alt: Behavior of Segments in the Lagrangian Solution Method
+      :align: center
+	  
+      Behavior of segments in the Lagrangian solution method.
+   ..
 
 
 .. include:: image_subdefs.rst

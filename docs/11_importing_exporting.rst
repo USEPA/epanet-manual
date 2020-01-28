@@ -14,6 +14,7 @@ as the network map and the entire project database.*
 
 -------
 
+.. _sec-prj_scenarios:
 
 Project Scenarios
 ~~~~~~~~~~~~~~~~~
@@ -42,6 +43,7 @@ Project Scenarios
   files are saved as ASCII text and can be created or modified outside
   of EPANET using a text editor or spreadsheet program.
 
+.. _sec-export_scenario:
 
 Exporting a Scenario
 ~~~~~~~~~~~~~~~~~~~~
@@ -50,7 +52,7 @@ Exporting a Scenario
 
     1. Select **File >> Export >> Scenario** from the main menu.
 
-    2. In the Export Data dialog form that appears (see Figure 11.1) select
+    2. In the Export Data dialog form that appears (see :numref:`fig-export_data`) select
        the types of data that you wish to save.
 
     3. Enter an optional description of the scenario you are saving in the
@@ -63,15 +65,17 @@ Exporting a Scenario
 
     6. Click **OK** to complete the export.
 
-
-
-      |image144|
-
-      **Figure 11.1** Export Data Dialog
+   .. _fig-export_data:
+   .. figure:: media/image93.png
+      :alt: Export Data Dialog in EPANET
+     
+      Export data dialog.
+   ..
 
    The exported scenario can be imported back into the project at a
    later time as described in the next section.
 
+.. _sec-import_scenario:
 
 Importing a Scenario
 ~~~~~~~~~~~~~~~~~~~~
@@ -91,6 +95,7 @@ Importing a Scenario
    The data contained in the scenario file will replace any existing of
    the same kind in the current project.
 
+.. _sec-import_partial_net:
 
 Importing a Partial Network
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -138,11 +143,12 @@ Importing a Partial Network
 
    In addition to this partial representation, a complete specification
    of the network can be placed in a file using the format described in
-   Appendix C. This is the same format EPANET uses when a project is
-   exported to a text file (see Section 11.7 below). In this case the
+   Appendix :ref:`command_line`. This is the same format EPANET uses when a project is
+   exported to a text file (see :numref:`sec-export_text_file` below). In this case the
    file would also contain information on node and link properties, such
    as elevations, demands, diameters, roughness, etc.
 
+.. _sec-import_network_map:
 
 Importing a Network Map
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -157,6 +163,8 @@ Importing a Network Map
     3. Click **OK** to replace the current network map with the one
        described in the file.
 
+
+.. _sec-export_network_map:
 
 Exporting the Network Map
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -174,7 +182,7 @@ Exporting the Network Map
 
     1. Select **File >> Export >> Map** from the main menu.
 
-    2. In the Map Export dialog form that appears (see Figure 11.2) select
+    2. In the Map Export dialog form that appears (see :numref:`fig-map_export`) select
        the format that you want the map saved in.
 
     3. If you select DXF format, you have a choice of how junctions will be
@@ -185,10 +193,15 @@ Exporting the Network Map
     4. After choosing a format, click OK and enter a name for the file in
        the Save As dialog form that appears.
 
-      |image145|
+ 
+   .. _fig-map_export:
+   .. figure:: media/image94.png
+      :alt: Map Export Dialog in EPANET
+   
+      Map export dialog.
+   ..
 
-      **Figure 11.2** Map Export Dialog
-
+.. _sec-export_text_file:
 
 Exporting to a Text File
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -211,7 +224,7 @@ Exporting to a Text File
    **File >> Import >> Network** commands. Complete network descriptions
    using this input format can also be created outside of EPANET using
    any text editor or spreadsheet program. A complete specification of
-   the .INP file format is given in Appendix C.
+   the .INP file format is given in Appendix :ref:`command_line`.
 
    It is a good idea to save an archive version of your database in this
    format so you have access to a human readable version of your data.

@@ -17,6 +17,7 @@ measurements) with the project to use for model evaluation.*
 -------
 
 
+.. _sec-open_save_prj:
 
 Opening and Saving Project Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -75,6 +76,8 @@ Opening and Saving Project Files
    **Note:** Projects are always saved as binary .NET files. To save a
    project's data as readable ASCII text, use the **Export >> Network**
    command from the **File** menu.
+
+.. _sec-proj_defaults:
 
 Project Defaults
 ~~~~~~~~~~~~~~~~
@@ -179,6 +182,8 @@ Project Defaults
    vary demands in an extended period simulation for all junctions not
    assigned any pattern.
 
+.. _sec-cal_data:
+
 Calibration Data
 ~~~~~~~~~~~~~~~~
 
@@ -257,6 +262,8 @@ Calibration Data
    |image77|
 
    **Figure 5.3** Calibration Data Dialog
+
+.. _sec-prj_sum:
 
 Project Summary
 ~~~~~~~~~~~~~~~

@@ -104,6 +104,8 @@ Viewing Results with a Graph
   metafile. :numref:`table-type_plots` lists the types of graphs that can be used to view values
   for a selected parameter. 
 
+.. tabularcolumns:: |p{4cm}|p{6cm}|p{4cm}|
+
 .. _table-type_plots:
 .. table:: Types of Graphs Available to View Results	
 
@@ -205,6 +207,8 @@ Viewing Results with a Graph
   ..
   
   :numref:`table-graph_select_ops` lists the choices available in the Graph Selection dialog.
+
+.. tabularcolumns:: |p{3cm}|p{11cm}|
 
 .. _table-graph_select_ops:
 .. table:: Graph Selection Dialog Options	

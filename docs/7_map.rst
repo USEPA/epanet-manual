@@ -297,7 +297,7 @@ Map Legends
    
       Example map legend.
    ..
- 
+   
    There are three types of map legends that can be
    displayed. The Node and Link Legends associate a color with a range
    of values for the current parameter being viewed on the map (see :numref:`fig-ex_map_legend`). The Time

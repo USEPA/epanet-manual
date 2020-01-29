@@ -556,7 +556,7 @@ Program Preferences
   Menu screen for the General Tab is shown in :numref:`fig-Preferences_General` below.
 	
    .. _fig-Preferences_General:
-   .. figure:: media/Preferences_General_Tab.png
+   .. figure:: media/preferences_general_tab.png
       :alt: Preferences - General Tab
    
       Preferences - general tab.

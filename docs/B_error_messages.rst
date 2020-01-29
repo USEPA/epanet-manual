@@ -5,10 +5,12 @@
 
 .. _error_messages:
 
-B. Error Messages
+Error Messages
 =================
 
 :numref:`table-errors` list EPANET error codes and their explanation.
+
+.. tabularcolumns:: |p{2cm}|p{13cm}|
 
 .. _table-errors:
 .. table:: EPANET Error Codes	

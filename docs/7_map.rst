@@ -607,7 +607,6 @@ Map Display Options
    The Background page of the Map Options dialog offers a selection of
    colors used to paint the map’s background with.
 
-
-
-
    .. include:: image_subdefs.rst
+
+

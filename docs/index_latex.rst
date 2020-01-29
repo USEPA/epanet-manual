@@ -3,10 +3,7 @@ EPANET documentation
 
 .. toctree::
    :maxdepth: 2
-
-   disclaimer
-   acronyms
-   Acknowledgments
+   
    front_matter
    1_introduction
    2_quickstart

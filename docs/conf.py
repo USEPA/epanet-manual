@@ -164,8 +164,6 @@ latex_elements = {
             \vspace*{1mm} %%% * is used to give space from top
             \textbf{\Large {Terranna Haxton}}
         \end{titlepage}
-
-
         \setcounter{page}{1}
         \pagenumbering{roman}
         \tableofcontents

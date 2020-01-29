@@ -250,6 +250,8 @@ Viewing Results with a Graph
   :numref:`table-graph_select_buttons` lists the other buttons on the 
   **Graph Selection** dialog form and how they are used.
 
+.. tabularcolumns:: |p{3.5cm}|p{12cm}|
+
 .. _table-graph_select_buttons:
 .. table:: Graph Selection Buttons and Purpose	
 
@@ -326,6 +328,8 @@ Viewing Results with a Graph
 
   :numref:`table-graph_ops_general` lists the options on the General tab.
 
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
+
 .. _table-graph_ops_general:
 .. table:: Graph Options General Tab	
 
@@ -354,6 +358,8 @@ Viewing Results with a Graph
 ..
   
   :numref:`table-graph_ops_horizontal` lists the options on the Horizontal and Vertical Axis tabs.
+
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
 
 .. _table-graph_ops_horizontal:
 .. table:: Graph Options Horizontal and Vertical Axis Tabs	
@@ -387,6 +393,8 @@ Viewing Results with a Graph
 ..
   
   :numref:`table-graph_ops_legend` lists the options on the Legend tab.
+
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
 
 .. _table-graph_ops_legend:
 .. table:: Graph Options Legend Tab	
@@ -433,6 +441,8 @@ Viewing Results with a Graph
        (Not all properties are available for some types of graphs.)
 
    The data series properties that can be modified on the Series tab are listed in :numref:`table-graph_ops_series`.
+
+.. tabularcolumns:: |p{2cm}|p{3.5cm}|p{10cm}|
 
 .. _table-graph_ops_series:
 .. table:: Graph Options Series Tab	
@@ -512,6 +522,8 @@ Viewing Results with a Graph
    
      Contour plot options dialog.
   ..
+
+.. tabularcolumns:: |p{2cm}|p{3.5cm}|p{10cm}|
 
 .. _table-contour_plot_ops:
 .. table:: Contour Plot Options Dialog	

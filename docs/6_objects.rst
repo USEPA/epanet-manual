@@ -197,185 +197,193 @@ Editing Visual Objects
    all properties are summarized in Appendix :ref:`units`.
  
    The junction properties are provided in :numref:`table-junc_prop`. 
-   
+
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
+
 .. _table-junc_prop:
 .. table:: Junction Properties	
 
-    +-----------------------------------+---------------------------------------+
-    | *PROPERTY*                        | *DESCRIPTION*                         |
-    +===================================+=======================================+
-    | Junction ID                       | A unique label used to identify       |
-    |                                   | the junction. It can consist of a     |
-    |                                   | combination of up to 15 numerals      |
-    |                                   | or characters. It cannot be the       |
-    |                                   | same as the ID for any other          |
-    |                                   | node. This is a required              |
-    |                                   | property.                             |
-    +-----------------------------------+---------------------------------------+
-    | X-Coordinate                      | The horizontal location of the        |
-    |                                   | junction on the map, measured in      |
-    |                                   | the map's distance units. If left     |
-    |                                   | blank the junction will not           |
-    |                                   | appear on the network map.            |
-    +-----------------------------------+---------------------------------------+
-    | Y-Coordinate                      | The vertical location of the          |
-    |                                   | junction on the map, measured in      |
-    |                                   | the map's distance units. If left     |
-    |                                   | blank the junction will not           |
-    |                                   | appear on the network map.            |
-    +-----------------------------------+---------------------------------------+
-    | Description                       | An optional text string that          |
-    |                                   | describes other significant           |
-    |                                   | information about the junction.       |
-    +-----------------------------------+---------------------------------------+
-    | Tag                               | An optional text string (with no      |
-    |                                   | spaces) used to assign the            |
-    |                                   | junction to a category, such as a     |
-    |                                   | pressure zone.                        |
-    +-----------------------------------+---------------------------------------+
-    | Elevation                         | The elevation in feet (meters)        |
-    |                                   | above some common reference of        |
-    |                                   | the junction. This is a required      |
-    |                                   | property. Elevation is used only      |
-    |                                   | to compute pressure at the            |
-    |                                   | junction. It does not affect any      |
-    |                                   | other computed quantity.              |
-    +-----------------------------------+---------------------------------------+
-    | Base Demand                       | The average or nominal demand for     |
-    |                                   | water by the main category of         |
-    |                                   | consumer at the junction, as          |
-    |                                   | measured in the current flow          |
-    |                                   | units. A negative value is used       |
-    |                                   | to indicate an external source of     |
-    |                                   | flow into the junction. If left       |
-    |                                   | blank then demand is assumed to       |
-    |                                   | be zero.                              |
-    +-----------------------------------+---------------------------------------+
-    | Demand Pattern                    | The ID label of the time pattern      |
-    |                                   | used to characterize time             |
-    |                                   | variation in demand for the main      |
-    |                                   | category of consumer at the           |
-    |                                   | junction. The pattern provides        |
-    |                                   | multipliers that are applied to       |
-    |                                   | the Base Demand to determine          |
-    |                                   | actual demand in a given time         |
-    |                                   | period. If left blank then the        |
-    |                                   | **Default Time Pattern** assigned     |
-    |                                   | in the Hydraulic Options (see         |
-    |                                   | :numref:`sec-analysis_ops`)           |
-    |                                   | will be used.                         |
-    +-----------------------------------+---------------------------------------+
-    | Demand Categories                 | Number of different categories of     |
-    |                                   | water users defined for the           |
-    |                                   | junction. Click the ellipsis          |
-    |                                   | button (or hit the Enter key) to      |
-    |                                   | bring up a special Demands Editor     |
-    |                                   | which will let you assign base        |
-    |                                   | demands and time patterns to          |
-    |                                   | multiple categories of users at       |
-    |                                   | the junction. Ignore if only a        |
-    |                                   | single demand category will           |
-    |                                   | suffice.                              |
-    +-----------------------------------+---------------------------------------+
-    | Emitter Coefficient               | Discharge coefficient for emitter     |
-    |                                   | (sprinkler or nozzle) placed at       |
-    |                                   | junction. The coefficient             |
-    |                                   | represents the flow (in current       |
-    |                                   | flow units) that occurs at a          |
-    |                                   | pressure drop of 1 psi (or            |
-    |                                   | meter). Leave blank if no emitter     |
-    |                                   | is present. See the Emitters          |
-    |                                   | topic in                              |
-    |                                   | :numref:`sec-physical_comps`          |
-    |                                   | for more details.                     |
-    +-----------------------------------+---------------------------------------+
-    | Initial Quality                   | Water quality level at the            |
-    |                                   | junction at the start of the          |
-    |                                   | simulation period. Can be left        |
-    |                                   | blank if no water quality             |
-    |                                   | analysis is being made or if the      |
-    |                                   | level is zero.                        |
-    +-----------------------------------+---------------------------------------+
-    | Source Quality                    | Quality of any water entering the     |
-    |                                   | network at this location. Click       |
-    |                                   | the ellipsis button (or hit the       |
-    |                                   | Enter key) to bring up the Source     |
-    |                                   | Quality Editor (see                   |
-    |                                   | :numref:`sec-ed_nonvisual_objs`       |
-    |                                   | below).                               |
-    +-----------------------------------+---------------------------------------+
+    +------------------------------+-----------------------------------------+
+    | *PROPERTY*                   | *DESCRIPTION*                           |
+    +==============================+=========================================+
+    | Junction ID                  | A unique label used to identify         |
+    |                              | the junction. It can consist of a       |
+    |                              | combination of up to 15 numerals        |
+    |                              | or characters. It cannot be the         |
+    |                              | same as the ID for any other            |
+    |                              | node. This is a required                |
+    |                              | property.                               |
+    +------------------------------+-----------------------------------------+
+    | X-Coordinate                 | The horizontal location of the          |
+    |                              | junction on the map, measured in        |
+    |                              | the map's distance units. If left       |
+    |                              | blank the junction will not             |
+    |                              | appear on the network map.              |
+    +------------------------------+-----------------------------------------+
+    | Y-Coordinate                 | The vertical location of the            |
+    |                              | junction on the map, measured in        |
+    |                              | the map's distance units. If left       |
+    |                              | blank the junction will not             |
+    |                              | appear on the network map.              |
+    +------------------------------+-----------------------------------------+
+    | Description                  | An optional text string that            |
+    |                              | describes other significant             |
+    |                              | information about the junction.         |
+    +------------------------------+-----------------------------------------+
+    | Tag                          | An optional text string (with no        |
+    |                              | spaces) used to assign the              |
+    |                              | junction to a category, such as a       |
+    |                              | pressure zone.                          |
+    +------------------------------+-----------------------------------------+
+    | Elevation                    | The elevation in feet (meters)          |
+    |                              | above some common reference of          |
+    |                              | the junction. This is a required        |
+    |                              | property. Elevation is used only        |
+    |                              | to compute pressure at the              |
+    |                              | junction. It does not affect any        |
+    |                              | other computed quantity.                |
+    +------------------------------+-----------------------------------------+
+    | Base Demand                  | The average or nominal demand for       |
+    |                              | water by the main category of           |
+    |                              | consumer at the junction, as            |  
+    |                              | measured in the current flow            |
+    |                              | units. A negative value is used         |
+    |                              | to indicate an external source of       |
+    |                              | flow into the junction. If left         |
+    |                              | blank then demand is assumed to         |
+    |                              | be zero.                                |
+    +------------------------------+-----------------------------------------+
+    | Demand Pattern               | The ID label of the time pattern        |
+    |                              | used to characterize time               |
+    |                              | variation in demand for the main        |
+    |                              | category of consumer at the             |
+    |                              | junction. The pattern provides          |
+    |                              | multipliers that are applied to         |
+    |                              | the Base Demand to determine            |
+    |                              | actual demand in a given time           |
+    |                              | period. If left blank then the          |
+    |                              | **Default Time Pattern** assigned       |
+    |                              | in the Hydraulic Options (see           |
+    |                              | :numref:`sec-analysis_ops`)             |
+    |                              | will be used.                           |
+    +------------------------------+-----------------------------------------+
+    | Demand Categories            | Number of different categories of       |
+    |                              | water users defined for the             |
+    |                              | junction. Click the ellipsis            |
+    |                              | button (or hit the Enter key) to        |
+    |                              | bring up a special Demands Editor       |
+    |                              | which will let you assign base          |
+    |                              | demands and time patterns to            |
+    |                              | multiple categories of users at         |
+    |                              | the junction. Ignore if only a          |
+    |                              | single demand category will             |
+    |                              | suffice.                                |
+    +------------------------------+-----------------------------------------+
+    | Emitter Coefficient          | Discharge coefficient for emitter       |
+    |                              | (sprinkler or nozzle) placed at         |
+    |                              | junction. The coefficient               |
+    |                              | represents the flow (in current         |
+    |                              | flow units) that occurs at a            |
+    |                              | pressure drop of 1 psi (or              |
+    |                              | meter). Leave blank if no emitter       |
+    |                              | is present. See the Emitters            |
+    |                              | topic in                                |
+    |                              | :numref:`sec-physical_comps`            |
+    |                              | for more details.                       |
+    +------------------------------+-----------------------------------------+
+    | Initial Quality              | Water quality level at the              |
+    |                              | junction at the start of the            |
+    |                              | simulation period. Can be left          |
+    |                              | blank if no water quality               |
+    |                              | analysis is being made or if the        |
+    |                              | level is zero.                          |
+    +------------------------------+-----------------------------------------+
+    | Source Quality               | Quality of any water entering the       |
+    |                              | network at this location. Click         |
+    |                              | the ellipsis button (or hit the         |
+    |                              | Enter key) to bring up the Source       |
+    |                              | Quality Editor (see                     |
+    |                              | :numref:`sec-ed_nonvisual_objs`         |
+    |                              | below).                                 |
+    +------------------------------+-----------------------------------------+
 	
 ..
    
    The reservoir properties are provided in :numref:`table-reservoir_prop`. 
   
-.. _table-reservoir_prop:
-.. table:: Reservoir Properties	
-		
-    +-----------------------------------+-----------------------------------+
-    | *PROPERTY*                        | *DESCRIPTION*                     |
-    +===================================+===================================+
-    | Reservoir ID                      | A unique label used to identify   |
-    |                                   | the reservoir. It can consist of  |
-    |                                   | a combination of up to 15         |
-    |                                   | numerals or characters. It cannot |
-    |                                   | be the same as the ID for any     |
-    |                                   | other node. This is a required    |
-    |                                   | property.                         |
-    +-----------------------------------+-----------------------------------+
-    | X-Coordinate                      | The horizontal location of the    |
-    |                                   | reservoir on the map, measured in |
-    |                                   | the map's distance units. If left |
-    |                                   | blank the reservoir will not      |
-    |                                   | appear on the network map.        |
-    +-----------------------------------+-----------------------------------+
-    | Y-Coordinate                      | The vertical location of the      |
-    |                                   | reservoir on the map, measured in |
-    |                                   | the map's distance units. If left |
-    |                                   | blank the reservoir will not      |
-    |                                   | appear on the network map.        |
-    +-----------------------------------+-----------------------------------+
-    | Description                       | An optional text string that      |
-    |                                   | describes other significant       |
-    |                                   | information about the reservoir.  |
-    +-----------------------------------+-----------------------------------+
-    | Tag                               | An optional text string (with no  |
-    |                                   | spaces) used to assign the        |
-    |                                   | reservoir to a category, such as  |
-    |                                   | a pressure zone                   |
-    +-----------------------------------+-----------------------------------+
-    | Total Head                        | The hydraulic head (elevation +   |
-    |                                   | pressure head) of water in the    |
-    |                                   | reservoir in feet (meters). This  |
-    |                                   | is a required property.           |
-    +-----------------------------------+-----------------------------------+
-    | Head Pattern                      | The ID label of a time pattern    |
-    |                                   | used to model time variation in   |
-    |                                   | the reservoir's head. Leave blank |
-    |                                   | if none applies. This property is |
-    |                                   | useful if the reservoir           |
-    |                                   | represents a tie-in to another    |
-    |                                   | system whose pressure varies with |
-    |                                   | time.                             |
-    +-----------------------------------+-----------------------------------+
-    | Initial Quality                   | Water quality level at the        |
-    |                                   | reservoir. Can be left blank if   |
-    |                                   | no water quality analysis is      |
-    |                                   | being made or if the level is     |
-    |                                   | zero.                             |
-    +-----------------------------------+-----------------------------------+
-    | Source Quality                    | Quality of any water entering the |
-    |                                   | network at this location. Click   |
-    |                                   | the ellipsis button (or hit the   |
-    |                                   | Enter key) to bring up the Source |
-    |                                   | Quality Editor (see               |
-    |                                   | :numref:`fig-source_quality_ed`   |
-    |                                   | below).                           |
-    +-----------------------------------+-----------------------------------+
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
 
+.. _table-reservoir_prop:
+.. table:: Reservoir Properties
+
+
+    +------------------------------+-----------------------------------------+
+    | *PROPERTY*                   | *DESCRIPTION*                           |
+    +==============================+=========================================+
+    | Reservoir ID                 | A unique label used to identify         |
+    |                              | the reservoir. It can consist of        |
+    |                              | a combination of up to 15               |
+    |                              | numerals or characters. It cannot       |
+    |                              | be the same as the ID for any           |
+    |                              | other node. This is a required          |
+    |                              | property.                               |
+    +------------------------------+-----------------------------------------+
+    | X-Coordinate                 | The horizontal location of the          |
+    |                              | reservoir on the map, measured in       |
+    |                              | the map's distance units. If left       |
+    |                              | blank the reservoir will not            |
+    |                              | appear on the network map.              |
+    +------------------------------+-----------------------------------------+
+    | Y-Coordinate                 | The vertical location of the            |
+    |                              | reservoir on the map, measured in       |
+    |                              | the map's distance units. If left       |
+    |                              | blank the reservoir will not            |
+    |                              | appear on the network map.              |
+    +------------------------------+-----------------------------------------+
+    | Description                  | An optional text string that            |
+    |                              | describes other significant             |
+    |                              | information about the reservoir.        |
+    +------------------------------+-----------------------------------------+
+    | Tag                          | An optional text string (with no        |
+    |                              | spaces) used to assign the              |
+    |                              | reservoir to a category, such as        |
+    |                              | a pressure zone                         |
+    +------------------------------+-----------------------------------------+
+    | Total Head                   | The hydraulic head (elevation +         |
+    |                              | pressure head) of water in the          |
+    |                              | reservoir in feet (meters). This        |
+    |                              | is a required property.                 |
+    +------------------------------+-----------------------------------------+
+    | Head Pattern                 | The ID label of a time pattern          |
+    |                              | used to model time variation in         |
+    |                              | the reservoir's head. Leave blank       |
+    |                              | if none applies. This property is       |
+    |                              | useful if the reservoir                 |
+    |                              | represents a tie-in to another          |
+    |                              | system whose pressure varies with       |
+    |                              | time.                                   |
+    +------------------------------+-----------------------------------------+
+    | Initial Quality              | Water quality level at the              |
+    |                              | reservoir. Can be left blank if         |
+    |                              | no water quality analysis is            |
+    |                              | being made or if the level is           |
+    |                              | zero.                                   |
+    +------------------------------+-----------------------------------------+
+    | Source Quality               | Quality of any water entering the       |
+    |                              | network at this location. Click         |
+    |                              | the ellipsis button (or hit the         |
+    |                              | Enter key) to bring up the Source       |
+    |                              | Quality Editor (see                     |
+    |                              | :numref:`fig-source_quality_ed`         |
+    |                              | below).                                 |
+    +------------------------------+-----------------------------------------+
+ 
 ..
 
+
    The tank properties are provided in :numref:`table-tank_prop`.
+
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|   
     
 .. _table-tank_prop:
 .. table:: Tank Properties	
@@ -524,6 +532,8 @@ Editing Visual Objects
 
    The pipe properties are provided in :numref:`table-pipe_prop`.
  
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
+
 .. _table-pipe_prop:
 .. table:: Pipe Properties	
 		
@@ -623,6 +633,8 @@ Editing Visual Objects
    using the Auto-Length feature (see :numref:`sec-set_map_dimensions`).
 
    The pump properties are provided in :numref:`table-pump_prop`.
+
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
 
 .. _table-pump_prop:
 .. table:: Pump Properties	
@@ -735,6 +747,8 @@ Editing Visual Objects
 
    The valve properties are provided in :numref:`table-valve_prop`.
  
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
+
 .. _table-valve_prop:
 .. table:: Valve Properties	
 		
@@ -818,6 +832,8 @@ Editing Visual Objects
 
    The map label properties are provided in :numref:`table-map_label_prop`.
  
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
+
 .. _table-map_label_prop:
 .. table:: Map Label Properties	
 		
@@ -895,6 +911,8 @@ Editing Non-Visual Objects
    The Curve Editor is a dialog form as shown in :numref:`fig-curve_ed`. To use the
    Curve Editor, enter values for the following items (:numref:`table-curve_ed_prop`):
 
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
+
 .. _table-curve_ed_prop:
 .. table:: Curve Editor Properties	
 		
@@ -933,6 +951,8 @@ Editing Non-Visual Objects
    The Pattern Editor, displayed in :numref:`fig-pat_ed`, edits the properties of
    a time pattern object. To use the Pattern Editor enter values for the
    following items (:numref:`table-pattern_ed_prop`):
+
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
 
 .. _table-pattern_ed_prop:
 .. table:: Pattern Editor Properties	
@@ -1031,6 +1051,8 @@ Editing Non-Visual Objects
    
       Source quality editor.
    ..
+
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
 
 .. _table-source_quality_ed:
 .. table:: Source Quality Editor Properties	 

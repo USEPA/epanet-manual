@@ -16,6 +16,7 @@ a report, or the properties of an object selected from the Browser.*
 
 -------
 
+.. _sec-select_printer:
 
 Selecting a Printer
 ~~~~~~~~~~~~~~~~~~~
@@ -26,7 +27,7 @@ Selecting a Printer
     1. Select **File >> Page Setup** from the main menu.
 
     2. Click the **Printer** button on the Page Setup dialog that appears
-       (see Figure 10.1).
+       (see :numref:`fig-Page_Setup`).
 
     3. Select a printer from the choices available in the combo box in the
        next dialog that appears.
@@ -36,16 +37,24 @@ Selecting a Printer
 
     5. Click **OK** on each dialog box to accept your selections.
 
+   .. _fig-Page_Setup:
+   .. figure:: media/image91.png
+      :alt: Page Setup in EPANET
+   
+      Page setup dialog.
+   ..
+
+.. _sec-set_page:
 
 Setting the Page Format
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-   The Page Setup dialog menu screen is shown in :numref:`fig-Page_Setup` below.  To format the printed page:
+   The Page Setup dialog menu screen is shown in :numref:`fig-Page_Setup`.  To format the printed page:
 
     1. Select **File >> Page Setup** from the main menu.
 
     2. Use the Margins page of the Page Setup dialog form that appears
-       (Figure 10.1) to:
+       (:numref:`fig-Page_Setup`) to:
 
        -  Select a printer
 
@@ -67,13 +76,7 @@ Setting the Page Format
 
     4. Click **OK** to accept your choices.
 
-   .. _fig-Page_Setup:
-   .. figure:: media/image91.png
-      :alt: Page Setup
-   
-      Page Setup Dialog
-   ..
- 
+ .. _sec-print_preview:
    
 Print Preview
 ~~~~~~~~~~~~~
@@ -82,6 +85,8 @@ Print Preview
    menu. A Preview form will appear which shows how each page of the
    object being printed will appear when printed.
 
+
+ .. _sec-print_current_view:
 
 Printing the Current View
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -102,6 +107,7 @@ Printing the Current View
 
     -  Status, Energy, Calibration, and Reaction Reports.
 
+ .. _sec-copy_clipboard:
 
 Copying to the Clipboard or to a File
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -122,9 +128,9 @@ Copying to the Clipboard or to a File
 
    .. _fig-Copy_Network_Map:
    .. figure:: media/Copy_Network_Map.png
-      :alt: Copy Network Map
+      :alt: Copy Network Map Dialog in EPANET
    
-      Copy Network Map
+      Copy network map dialog.
    ..
    
    Use the Copy dialog as follows to define how you want your data

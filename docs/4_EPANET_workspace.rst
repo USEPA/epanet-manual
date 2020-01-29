@@ -559,7 +559,7 @@ Program Preferences
    .. figure:: media/Preferences_General_Tab.png
       :alt: Preferences - General Tab
    
-      Preferences - General Tab
+      Preferences - general tab.
    ..
 
 **Formatting Preferences**

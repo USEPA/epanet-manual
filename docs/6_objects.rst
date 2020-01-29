@@ -194,7 +194,7 @@ Editing Visual Objects
    liters or cubic meters means that SI metric units will be used. Flow
    units are selected from the project’s Hydraulic Options which can be
    accessed from the **Project >> Defaults** menu. The units used for
-   all properties are summarized in :ref:`units`.
+   all properties are summarized in Appendix :ref:`units`.
  
    The junction properties are provided in :numref:`table-junc_prop`. 
    
@@ -930,7 +930,7 @@ Editing Non-Visual Objects
    
 **Pattern Editor**
 
-   The Pattern Editor, displayed in :numref:`fig-pattern_ed`, edits the properties of
+   The Pattern Editor, displayed in :numref:`fig-pat_ed`, edits the properties of
    a time pattern object. To use the Pattern Editor enter values for the
    following items (:numref:`table-pattern_ed_prop`):
 
@@ -961,6 +961,7 @@ Editing Non-Visual Objects
    in pattern data that was previously saved to file or click the
    **Save** button to save the current pattern's data to a file.
  
+   .. _fig-pat_ed: 
    .. figure:: media/image22.png
       :alt: Pattern Editor in EPANET
    

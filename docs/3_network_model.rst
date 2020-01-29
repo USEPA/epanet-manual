@@ -828,7 +828,7 @@ Non-Physical Components
        THEN PUMP 335 STATUS IS OPEN
 
     A description of the formats used with Rule-Based controls can be
-    found in :ref:`command_line`, under the [RULES] heading.
+    found in Appendix :ref:`command_line`, under the [RULES] heading.
 
 .. _sec-hyd_sim_model:
 

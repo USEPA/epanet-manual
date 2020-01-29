@@ -3,9 +3,6 @@
 A. Units of Measurement
 =======================
 
-
-~~~~~
-
 :numref:`table-units` list EPANET parameters and their associated US and SI units.
 
 **Note**: US Customary units apply when CFS, GPM, AFD, or MGD is

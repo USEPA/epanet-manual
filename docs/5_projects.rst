@@ -175,7 +175,7 @@ Project Defaults
    The third tab of the Defaults dialog form is used to assign default
    hydraulic analysis options. It contains a sub-set of the project's Hydraulic 
    Options that can also be accessed from the Browser
-   (see :numref:`sec-analysis_ops'). They are repeated on the Project Defaults dialog
+   (see :numref:`sec-analysis_ops`). They are repeated on the Project Defaults dialog
    so that they can be saved for use with future projects as well as
    with the current one. The most important Hydraulic Options to check
    when setting up a new project are Flow Units, Headloss Formula, and

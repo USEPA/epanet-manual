@@ -116,7 +116,7 @@ Project Defaults
 
    **Default ID Labels**
 
-   The ID Labels page of the Defaults dialog form is shown in Figure 5.1
+   The ID Labels tab of the Defaults dialog form is shown in :numref:`fig-id_labels_page_defaults`
    below. It is used to determine how EPANET will assign default ID
    labels to network components when they are first created. For each
    type of object one can enter a label prefix or leave the field blank
@@ -128,15 +128,17 @@ Project Defaults
    created, the Property Editor can be used to modify its ID label if
    need be.
 
-   |image75|
-
-   **Figure 5.1** ID Labels Page of Project Defaults Dialog
-
+   .. _fig-id_labels_page_defaults:
+   .. figure:: media/image2.png
+      :alt: ID Labels Tab of Project Defaults Dialog in EPANET
+   
+      ID labels tab of project defaults dialog.
+   ..
+    
 
    **Default Node/Link Properties**
 
-   The Properties page of the Defaults dialog form is shown in Figure
-   5.2. It sets default property values for newly created nodes and
+   The Properties tab of the Defaults dialog form is shown in :numref:`fig-Properties_Page_of_the_Project_Defaults_Dialog`. It sets default property values for newly created nodes and
    links. These properties include:
 
     -  Elevation for nodes
@@ -160,17 +162,20 @@ Project Defaults
    network map. A node or link created with these default properties can
    always be modified later on using the Property Editor.
 
-   |image76|
-
-   **Figure 5.2** Properties Page of the Project Defaults Dialog
+   .. _fig-Properties_Page_of_the_Project_Defaults_Dialog:
+   .. figure:: media/image60.png
+      :alt: Properties Tab of the Project Defaults Dialog in EPANET
+   
+      Properties tab of the project defaults dialog.
+   ..
 
 
    **Default Hydraulic Options**
 
-   The third page of the Defaults dialog form is used to assign default
+   The third tab of the Defaults dialog form is used to assign default
    hydraulic analysis options. It contains a sub-set of the project's Hydraulic 
    Options that can also be accessed from the Browser
-   (see Section 8.1). They are repeated on the Project Defaults dialog
+   (see :numref:`sec-analysis_ops'). They are repeated on the Project Defaults dialog
    so that they can be saved for use with future projects as well as
    with the current one. The most important Hydraulic Options to check
    when setting up a new project are Flow Units, Headloss Formula, and
@@ -243,7 +248,7 @@ Calibration Data
 
       1. Select **Project >> Calibration Data** from the Menu Bar.
 
-      2. In the Calibration Data dialog form shown in Figure 5.3, click in
+      2. In the Calibration Data dialog form shown in :numref:`fig-Calibration_Data_Dialog`, click in
          the box next to the parameter you wish to register data for.
 
       3. Either type in the name of a Calibration File for this parameter or
@@ -259,9 +264,13 @@ Calibration Data
 
 ..
 
-   |image77|
+   .. _fig-Calibration_Data_Dialog:
+   .. figure:: media/image60.png
+      :alt: Calibration Data Dialog in EPANET
+   
+      Calibration data dialog.
+   ..
 
-   **Figure 5.3** Calibration Data Dialog
 
 .. _sec-prj_sum:
 

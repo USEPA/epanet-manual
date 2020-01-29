@@ -21,15 +21,18 @@ Property Editor. It also shows how to set program preferences.*
 Overview
 ~~~~~~~~
 
-   The basic EPANET workspace is pictured below. It consists of the
+   The basic EPANET workspace is pictured in :numref:`fig-EPANET_Workspace` below. It consists of the
    following user interface elements: a Menu Bar, two Toolbars, a Status
    Bar, the Network Map window, a Browser window, and a Property Editor
    window. A description of each of these elements is provided in the
    sections that follow.
 
-
-   |image39|
-
+   .. _fig-EPANET_Workspace:
+   .. figure:: media/image37.png
+      :alt: EPANET Workspace
+   
+      EPANET workspace.
+   ..
 
 .. _sec-menubar:
 
@@ -57,10 +60,13 @@ Menu Bar
 **File Menu**
 
    The File Menu contains commands for opening and saving data files and
-   for printing:
+   for printing.  The commands for the File Menu are shown in :numref:`table-File_Menu_Commands` below.
 
+.. _table-File_Menu_Commands:
+.. table:: File Menu Commands
+   
   +---------------+------------------------------------------------------+
-  | *Command*     | *Description*                                        |
+  | *COMMAND*     | *DESCRIPTION*                                        |
   +===============+======================================================+
   | New           | Creates a new EPANET project                         |
   +---------------+------------------------------------------------------+
@@ -84,14 +90,17 @@ Menu Bar
   +---------------+------------------------------------------------------+
   | Exit          | Exits EPANET                                         |
   +---------------+------------------------------------------------------+
-
+..
 
 **Edit Menu**
 
-   The Edit Menu contains commands for editing and copying.
+   The Edit Menu contains commands for editing and copying.  The commands for the Edit Menu are shown in :numref:`table-Edit_Menu_Commands` below.
+   
+.. _table-Edit_Menu_Commands:
+.. table:: Edit Menu Commands  
 
   +-----------------------------------+-----------------------------------+
-  | *Command*                         | *Description*                     |
+  | *COMMAND*                         | *DESCRIPTION*                     |
   +===================================+===================================+
   | Copy To                           | Copies the currently active view  |
   |                                   | (map, report, graph or table) to  |
@@ -113,14 +122,17 @@ Menu Bar
   |                                   | objects that fall within the      |
   |                                   | outlined region of the map        |
   +-----------------------------------+-----------------------------------+
-
+..
 
 **View Menu**
 
-   The View Menu controls how the network map is viewed.
+   The View Menu controls how the network map is viewed.  The controls for the View Menu are shown in :numref:`table-View_Menu_Controls` below.
+   
+.. _table-View_Menu_Controls:
+.. table:: View Menu Controls     
 
   +--------------+-----------------------------------------------------------+
-  | *Command*    | *Description*                                             |
+  | *COMMAND*    | *DESCRIPTION*                                             |
   +==============+===========================================================+
   | Dimensions   | Dimensions the map                                        |
   +--------------+-----------------------------------------------------------+
@@ -146,12 +158,17 @@ Menu Bar
   +--------------+-----------------------------------------------------------+
   | Options      | Sets map appearance options                               |
   +--------------+-----------------------------------------------------------+
-
+..
 
 **Project Menu**
 
+   The Project Menu includes commands related to the current project being analyzed.  The commands for the Project Menu are shown in :numref:`table-Project_Menu_Commands` below.
+      
+.. _table-Project_Menu_Commands:
+.. table:: Project Menu Commmands     
+
   +-----------------------------------+-----------------------------------+
-  | *Command*                         | *Description*                     |
+  | *COMMAND*                         | *DESCRIPTION*                     |
   +===================================+===================================+
   | Summary                           | Provides a summary description of |
   |                                   | the project's characteristics     |
@@ -166,15 +183,18 @@ Menu Bar
   +-----------------------------------+-----------------------------------+
   | Run Analysis                      | Runs a simulation                 |
   +-----------------------------------+-----------------------------------+
-
+..
 
 **Report Menu**
 
    The Report menu has commands used to report analysis results in
-   different formats.
+   different formats. The commands for the Report Menu are shown in :numref:`table-Report_Menu_Commands` below.
+      
+.. _table-Report_Menu_Commands:
+.. table:: Report Menu Commands     
 
   +-----------------------------------+-----------------------------------+
-  | *Command*                         | *Description*                     |
+  | *COMMAND*                         | *DESCRIPTION*                     |
   +===================================+===================================+
   | Status                            | Reports changes in the status of  |
   |                                   | links over time                   |
@@ -203,14 +223,17 @@ Menu Bar
   | Options                           | Controls the display style of a   |
   |                                   | report, graph, or table           |
   +-----------------------------------+-----------------------------------+
-
+..
 
 **Window Menu**
 
-   The Window Menu contains the following commands:
+   The Window Menu contains the following commands shown in :numref:`table-Window_Menu_Commands` below.
+      
+.. _table-Window_Menu_Commands:
+.. table:: Window Menu Commands     
 
   +-------------+-------------------------------------------------------------+
-  | *Command*   | *Description*                                               |
+  | *COMMAND*   | *DESCRIPTION*                                               |
   +=============+=============================================================+
   | Arrange     | Rearranges all child windows to fit within the main window  |
   +-------------+-------------------------------------------------------------+
@@ -218,15 +241,19 @@ Menu Bar
   +-------------+-------------------------------------------------------------+
   | Window List | Lists all open windows; selected window currently has focus |
   +-------------+-------------------------------------------------------------+
-
+..
 
 
 **Help Menu**
 
-   The Help Menu contains commands for getting help in using EPANET:
+   The Help Menu contains commands for getting help in using EPANET. The Help Menu contains the following commands shown in :numref:`table-Help_Menu_Commands` below. 
+   Context-sensitive Help is also available by pressing the F1 key.
+      
+.. _table-Help_Menu_Commands:
+.. table:: Help Menu Commands       
 
   +-------------+----------------------------------------------------------+
-  | *Command*   | *Description*                                            |
+  | *COMMAND*   | *DESCRIPTION*                                            |
   +=============+==========================================================+
   | Help Topics | Displays the Help system's Help Topics dialog box        |
   +-------------+----------------------------------------------------------+
@@ -237,6 +264,7 @@ Menu Bar
   | About       | Lists information about the version of EPANET being used |
   +-------------+----------------------------------------------------------+
 
+..
 
    Context-sensitive Help is also available by pressing the F1 key.
 
@@ -251,7 +279,6 @@ Toolbars
     -  Standard Toolbar
 
     -  Map Toolbar
-
 
 
    The toolbars can be docked underneath the Main Menu bar or dragged to
@@ -342,11 +369,11 @@ Status Bar
 
    - **Run Status** - a faucet icon shows:
 
-      - no running water if no analysis results are available,
+      - No running water if no analysis results are available,
 
-      - running water when valid analysis results are available,
+      - Running water when valid analysis results are available,
 
-      - a broken faucet when analysis results are available but may be
+      - A broken faucet when analysis results are available but may be
         invalid because the network data have been modified.
 
    - **XY Location** - displays the map coordinates of the current
@@ -379,25 +406,35 @@ Network Map
 Data Browser
 ~~~~~~~~~~~~
 
-   The Data Browser (shown below) is accessed from the Data
+   The Data Browser (shown in :numref:`fig-Data_Browser` below) is accessed from the Data
    tab on the Browser window. It gives access to the various objects, by
    category (Junctions, Pipes, etc.) that are contained in the network
    being analyzed. The buttons at the bottom are used to add, delete,
    and edit these objects.
 
-   |image66| 
+   .. _fig-Data_Browser:
+   .. figure:: media/image53A.jpeg
+      :alt: Data Browser in EPANET
+   
+      Data browser.
+   .. 
 
 .. _sec-map_browser:
 
 Map Browser
 ~~~~~~~~~~~
 
-   The Map Browser (shown below) is accessed from the Map tab
+   The Map Browser (shown in :numref:`fig-Map_Browser` below) is accessed from the Map tab
    of the Browser Window. It selects the parameters and time period that
    are viewed in color-coded fashion on the Network Map. It also
    contains controls for animating the map through time.
 
-   |image67| 
+   .. _fig-Map_Browser:
+   .. figure:: media/image54A.jpeg
+      :alt: Map Browser in EPANET
+   
+      Map browser.
+   .. 
  
    The animation control pushbuttons on the Map Browser work as follows:
 
@@ -414,12 +451,19 @@ Map Browser
 Property Editor
 ~~~~~~~~~~~~~~~
 
-   The Property Editor (shown at the left) is used to edit
+   The Property Editor (shown in :numref:`fig-Property_Editor` below) is used to edit
    the properties of network nodes, links, labels, and analysis options.
    It is invoked when one of these objects is selected (either on the
    Network Map or in the Data Browser) and double-clicked or the
    Browser's Edit button is clicked. The following points help explain
    how to use the Editor.
+   
+   .. _fig-Property_Editor:
+   .. figure:: media/image57.png
+      :alt: Property Editor in EPANET
+   
+      Property editor.
+   .. 
 
     -  The Editor is a grid with two columns - one for the property's name
        and the other for its value.
@@ -436,13 +480,13 @@ Property Editor
     -  Depending on the property, the value field can be one of the
        following:
 
-      -  a text box where you type in a value
+      -  A text box where you type in a value
 
-      -  a dropdown list box where you select from a list of choices
+      -  A dropdown list box where you select from a list of choices
 
-      -  an ellipsis button which you click to bring up a specialized editor
+      -  An ellipsis button which you click to bring up a specialized editor
 
-      -  a read-only label used to display computed results
+      -  A read-only label used to display computed results
 
     -  The property in the Editor that currently has focus will be
        highlighted with a white background.
@@ -459,7 +503,6 @@ Property Editor
     -  Clicking the Close button in the upper right corner of its title
        bar will hide the Editor.
 
-      |image69|
 
 .. _sec-prog_pref:
 
@@ -474,16 +517,16 @@ Program Preferences
 
 **General Preferences**
 
-   The following preferences can be set on the General page of the
-   Preferences dialog:
+   The following preferences can be set on the General tab of the
+   Preferences dialog (as shown below in :numref:`table-General_Preferences`).
+   
+.. _table-General_Preferences:
+.. table:: General Preferences  
 
   +-----------------------------------+-----------------------------------+
-  | *Preference*                      | *Description*                     |
+  | *PREFERENCE*                      | *DESCRIPTION*                     |
   +===================================+===================================+
-  | Bold Fonts                        | Check to use bold fonts in all    |
-  |                                   | newly created windows             |
-  +-----------------------------------+-----------------------------------+
-  | Blinking Map Hiliter              | Check to make the selected node,  |
+  | Blinking Map Highlighter          | Check to make the selected node,  |
   |                                   | link, or label on the map blink   |
   |                                   | on and off                        |
   +-----------------------------------+-----------------------------------+
@@ -501,24 +544,19 @@ Program Preferences
   |                                   | newly opened project to disk      |
   |                                   | named with a .bak extension       |
   +-----------------------------------+-----------------------------------+
-  | Temporary Directory               | Name of the directory (folder)    |
-  |                                   | where EPANET writes its temporary |
-  |                                   | files                             |
+  | Clear File List                   | Clears the list of most recently  |
+  |                                   | used project files from the       |
+  |                                   | **File** menu                     |
+  |                                   |                                   |
   +-----------------------------------+-----------------------------------+
-
-
-     **Note**: The Temporary Directory must be a file directory (folder)
-     where the user has write privileges and must have sufficient space to
-     store files which can easily grow to several tens of megabytes for
-     larger networks and simulation runs. The original default is the
-     Windows TEMP directory (usually c:\Windows\Temp).
-
-      |image70|
-
+..
+    
+	Note: The automatic Backup File is placed in the same directory as the input file.  However,
+	the backup file (.bak) is only created for .net type input files, not the .inp text files.
 
 **Formatting Preferences**
 
-   The Formats page of the Preferences dialog box controls how many
+   The Formats tab of the Preferences dialog box (shown in :numref:`fig-Preferences_Formats`) controls how many
    decimal places are displayed when results for computed parameters are
    reported. Use the dropdown list boxes to select a specific Node or
    Link parameter. Use the spin edit boxes to select the number of
@@ -526,9 +564,14 @@ Program Preferences
    parameter. The number of decimal places displayed for any particular
    input design parameter, such as pipe diameter, length, etc. is
    whatever the user enters.
-
-      |image71|
-
+   
+   .. _fig-Preferences_Formats:
+   .. figure:: media/image59.png
+      :alt: Preferences - Formats Tab in EPANET
+   
+      Preferences - formats tab.
+   ..
+      
 
 
 

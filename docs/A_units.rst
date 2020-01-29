@@ -1,14 +1,9 @@
-
-
-
 .. _units:
 
 A. Units of Measurement
 =======================
 
 
-
-UNITS
 ~~~~~
 
 :numref:`table-units` list EPANET parameters and their associated US and SI units.

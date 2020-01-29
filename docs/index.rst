@@ -1,11 +1,7 @@
-..
-    Testing comments
-..
 
 .. include:: front_matter.rst
 
 .. include:: disclaimer.rst
-
 
 .. toctree::
    :numbered:
@@ -33,11 +29,3 @@
    :caption: APPENDIX
 
    back_matter
-
-..
-    Contents
-    ==================
-
-    * :ref:`genindex`
-    * :ref:`modindex`
-    * :ref:`search`

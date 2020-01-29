@@ -2,11 +2,12 @@ EPANET documentation
 ==================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    disclaimer
    acronyms
    Acknowledgments
+   front_matter
    1_introduction
    2_quickstart
    3_network_model

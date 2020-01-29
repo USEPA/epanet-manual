@@ -12,24 +12,24 @@ Quick Start Tutorial
 *This chapter provides a tutorial on how to use EPANET. If you are
 not familiar with the components that comprise a water distribution
 system and how these are represented in pipe network models you might
-want to review the first two sections of Chapter 3 first.*
+want to review the first two sections of* :ref:`network_model` *chapter first.*
 
 
 -------
 
-
+.. _sec-install:
 
 Installing EPANET
 ~~~~~~~~~~~~~~~~~
 
    EPANET Version 2.2 is designed to run under the Windows 7/8/10
    operating system of an Intel-compatible personal computer. It is
-   distributed as a single installer package file, **EPANET-2.2.0-win32.msi**.
+   distributed as a single installer package file, **epanet2.2_setup.exe**.
    To install EPANET:
 
     1. Select **Run** from the Windows Start menu.
 
-    2. Enter the full path and name of the **EPANET-2.2.0-win32.msi** file or click
+    2. Enter the full path and name of the **epanet2.2_setup.exe** file or click
        the **Browse** button to locate it on your computer.
 
     3. Click the **OK** button type to begin the setup process.
@@ -38,9 +38,9 @@ Installing EPANET
 
    The setup program will ask you to choose a folder (directory) where
    the EPANET files will be placed. The default folder is **c:\\Program
-   Files (x86)\\EPANET 2.2.0 **. After the files are installed your Start Menu will
-   have a new item named EPANET 2.2.0. To launch EPANET simply select this
-   item off of the Start Menu, then select EPANET 2.2.0 from the submenu that
+   Files (x86)\\EPANET 2.2**. After the files are installed your Start Menu will
+   have a new item named EPANET 2.2. To launch EPANET simply select this
+   item off of the Start Menu, then select EPANET 2.2 from the submenu that
    appears. (The name of the executable file that runs EPANET under
    Windows is **epanet2w.exe**.)
 
@@ -51,33 +51,38 @@ Installing EPANET
 
     2. Double-click on the **Add/Remove Programs** or **Uninstall a program** item.
 
-    3. Select EPANET 2.2.0 from the list of programs that appears.
+    3. Select EPANET 2.2 from the list of programs that appears.
 
     4. Click the **Add/Remove** button or right click and select **uninstall**.
 
+.. _sec-ex_network:
 
 Example Network
 ~~~~~~~~~~~~~~~~
 
 
    In this tutorial we will analyze the simple distribution network
-   shown in Figure 2.1 below. It consists of a source reservoir (e.g., a
+   shown in :numref:`fig-ex_pipe_network` below. It consists of a source reservoir (e.g., a
    treatment plant clearwell) from which water is pumped into a two-loop
    pipe network. There is also a pipe leading to a storage tank that
    floats on the system. The ID labels for the various components are
    shown in the figure. The nodes in the network have the
-   characteristics shown in Table 2.1. Pipe properties are listed in
-   Table 2.2. In addition, the pump (Link 9) can
+   characteristics shown in :numref:`table-ex_network_node_prop`. Pipe properties are listed in
+   :numref:`table-ex_network_pipe_prop`. In addition, the pump (Link 9) can
    deliver 150 ft of head at a flow of 600 gpm, and the tank (Node 8)
    has a 60-ft diameter, a 3.5-ft water level, and a maximum level of 20
    feet.
-
-        |image0|
-
-    **Figure 2.1** Example Pipe Network
-
-    **Table 2.1** Example Network Node Properties
-
+   
+   .. _fig-ex_pipe_network:
+   .. figure:: media/image1.jpeg
+      :alt: Example Pipe Network
+   
+      Example pipe network.
+   ..
+    
+   .. _table-ex_network_node_prop:
+   .. table:: Example Network Node Properties	
+		
     +------+-----------+--------+
     | Node | Elevation | Demand |
     |      | (ft)      | (gpm)  |
@@ -99,10 +104,11 @@ Example Network
     |    8 |    830    | 0      |
     +------+-----------+--------+
 
+   ..
 
-
-    **Table 2.2** Example Network Pipe Properties
-
+   .. _table-ex_network_pipe_prop:
+   .. table:: Example Network Pipe Properties
+     
     +---------+----------------+----------------------+-------------+
     |    Pipe |    Length (ft) |    Diameter (inches) |    C-Factor |
     +=========+================+======================+=============+
@@ -123,6 +129,10 @@ Example Network
     | 8       |    7000        |    6                 |    100      |
     +---------+----------------+----------------------+-------------+
 
+   ..
+
+.. _sec-prj_setup:
+
 Project Setup
 ~~~~~~~~~~~~~
 
@@ -130,7 +140,7 @@ Project Setup
    that certain default options are selected. To begin, launch EPANET,
    or if it is already running select **File >> New** (from the menu
    bar) to create a new project. Then select **Project**
-   **>> Defaults** to open the dialog form shown in Figure 2.2. We will
+   **>> Defaults** to open the dialog form shown in :numref:`fig-prj_defaults_dialog`. We will
    use this dialog to have EPANET automatically label new objects with
    consecutive numbers starting from 1 as they are added to the network.
    On the ID Labels page of the dialog, clear all of the ID Prefix
@@ -138,20 +148,23 @@ Project Setup
    of the dialog and set the choice of Flow Units to GPM (gallons per
    minute). This implies that US Customary units will be used for all
    other quantities as well (length in feet, pipe diameter in inches,
-   pressure in psi, etc.). Also select Hazen    - Williams (H-W) as the
+   pressure in psi, etc.). Also select Hazen - Williams (H-W) as the
    headloss formula. If you wanted to save these choices for all future
    new projects you could check the **Save** box at the bottom of the
    form before accepting it by clicking the **OK** button.
 
-      |image1|
-
-    **Figure 2.2** Project Defaults Dialog
-
+   .. _fig-prj_defaults_dialog:
+   .. figure:: media/image2.png
+      :alt: Project defaults window
+   
+      Project defaults dialog.
+   ..
+    
    Next we will select some map display options so that as we add
    objects to the map, we will see their ID labels and symbols
    displayed. Select **View >> Options** to bring up the Map Options
    dialog form. Select the Notation page on this form and check the
-   settings shown in Figure 2.3 below. Then switch to the Symbols page
+   settings shown in :numref:`fig-map_op_dialog` below. Then switch to the Symbols page
    and check all of the boxes. Click the **OK** button to accept these
    choices and close the dialog.
 
@@ -161,9 +174,14 @@ Project Setup
    for a new project. These settings will suffice for this example, so
    click the **OK** button.
 
-      |image2|
+   .. _fig-map_op_dialog:
+   .. figure:: media/image3.png
+      :alt: Map options window
+   
+      Map options dialog.
+   ..
 
-    **Figure 2.3** Map Options Dialog
+.. _sec-draw_network:
 
 Drawing the Network
 ~~~~~~~~~~~~~~~~~~~
@@ -184,12 +202,15 @@ Drawing the Network
 
    Finally add the tank by clicking the Tank button |image6| and
    clicking the map where the tank is located. At this point the Network
-   Map should look something like the drawing in Figure 2.4.
+   Map should look something like the drawing in :numref:`fig-network_map_add_nodes`.
 
-    |image7|
-
-   **Figure 2.4** Network Map after Adding Nodes
-
+   .. _fig-network_map_add_nodes:
+   .. figure:: media/image8.png
+      :alt: Network Map after Adding Nodes
+   
+      Network map after adding nodes.
+   ..
+    
    Next we will add the pipes. Let's begin with pipe 1 connecting node 2
    to node 3. First click the Pipe button |image8| on the Toolbar. Then
    click the mouse on node 2 on the map and then on node 3. Note how an
@@ -213,12 +234,12 @@ Drawing the Network
    rather than Text Insertion mode.
 
    At this point we have completed drawing the example network. Your
-   Network Map should look like the map in Figure 2.1. If the nodes are
+   Network Map should look like the map in :numref:`fig-ex_pipe_network`. If the nodes are
    out of position you can move them around by clicking the node to
    select it, and then dragging it with the left mouse button held down
    to its new position. Note how pipes connected to the node are moved
    along with the node. The labels can be repositioned in similar
-   fashion. To re    - shape the curved Pipe 8:
+   fashion. To re - shape the curved Pipe 8:
 
     1. First click on Pipe 8 to select it and then click the |image12|
        button on the Map Toolbar to put the map into Vertex Selection mode.
@@ -232,33 +253,38 @@ Drawing the Network
 
     4. When finished, click |image13| to return to Object Selection mode.
 
+.. _sec-set_obj_prop:
+
 Setting Object Properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
    As objects are added to a project they are assigned a default set of
    properties. To change the value of a specific property for an object
-   one must select the object into the Property Editor (Figure 2.5).
+   one must select the object into the Property Editor (:numref:`fig-prop_editor`).
    There are several different ways to do this. If the Editor is already
    visible then you can simply click on the object or select it from the
    Data page of the Browser. If the Editor is not visible then you can
    make it appear by one of the following actions:
 
-    - Double-click the object on the map.
+    - Double-click the object on the map
 
     - Right-click on the object and select **Properties** from the pop-up
-      menu that appears.
+      menu that appears
 
     - Select the object from the Data page of the Browser window and then
-      click the Browser’s Edit button |image14|.
+      click the Browser’s Edit button |image14|
 
 
    Whenever the Property Editor has the focus you can press the F1 key
    to obtain fuller descriptions of the properties listed
 
-      |image15|
-
-     **Figure 2.5** Property Editor
-
+   .. _fig-prop_editor:
+   .. figure:: media/image15.png
+      :alt: Property Editor Window
+   
+      Property editor.
+   ..
+    
    Let us begin editing by selecting Node 2 into the Property Editor as
    shown above. We would now enter the elevation and demand for this
    node in the appropriate fields. You can use the **Up** and **Down**
@@ -279,15 +305,20 @@ Setting Object Properties
    Next we will create Pump Curve 1. From the Data page of the Browser
    window, select Curves from the dropdown list box and then click the
    Add button |image16|. A new Curve 1 will be added to the database and
-   the Curve Editor dialog form will appear (see Figure 2.6). Enter the
+   the Curve Editor dialog form will appear (see :numref:`fig-curve_editor`). Enter the
    pump’s design flow (600) and head (150) into this form. EPANET
    automatically creates a complete pump curve from this single point.
    The curve’s equation is shown along with its shape. Click **OK** to
    close the Editor.
 
-      |image17|
+   .. _fig-curve_editor:
+   .. figure:: media/image17.png
+      :alt: Curve Editor Window
+   
+      Curve editor.
+   ..
 
-     **Figure 2.6** Curve Editor
+.. _sec-save_open_prjs:
 
 Saving and Opening Projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -300,7 +331,7 @@ Saving and Opening Projects
     2.  In the Save As dialog that appears, select a folder and file name
         under which to save this project. We suggest naming the file
         **tutorial.net**. (An extension of **.net** will be added to the
-        file name if one is not supplied.)
+        file name if one is not supplied.).
 
     3. Click **OK** to save the project to file.
 
@@ -310,6 +341,8 @@ Saving and Opening Projects
 
    To open our project at some later time, we would select the **Open**
    command from the **File** menu.
+
+.. _sec-run_single_period:
 
 Running a Single Period Analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -337,15 +370,18 @@ Running a Single Period Analysis
 
     - Create a tabular listing of results by selecting **Report >> Table**
       (or by clicking the Table button |image19| on the Standard Toolbar).
-      Figure
+      :numref:`fig-ex_table_link_results` displays such a table for the link 
+      results of this run. Note that flows with negative signs means that the 
+      flow is in the opposite direction to the direction in which the pipe was drawn initially.
 
-   2.7 displays such a table for the link results of this run. Note that
-   flows with negative signs means that the flow is in the opposite
-   direction to the direction in which the pipe was drawn initially.
+   .. _fig-ex_table_link_results:
+   .. figure:: media/image20.png
+      :alt: Example of a Table with Link Results
+   
+      Example table of link results.
+   ..
 
-      |image20|
-
-     **Figure 2.7** Example Table of Link Results
+.. _sec-run_EPS:
 
 Running an Extended Period Analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -359,28 +395,34 @@ Running an Extended Period Analysis
    projects.) We set the pattern time step by selecting Options-Times
    from the Data Browser, clicking the Browser’s Edit button to make the
    Property Editor appear (if its not already visible), and entering 6
-   for the value of the Pattern Time Step (as shown in Figure 2.8
+   for the value of the Pattern Time Step (as shown in :numref:`fig-time_options`
    below). While we have the Time Options available we can also set the
    duration for which we want the extended period to run. Let’s use a
    3-day period of time (enter 72 hours for the Duration property).
 
-      |image21|
-
-     **Figure 2.8** Times Options
+   .. _fig-time_options:
+   .. figure:: media/image21.png
+      :alt: Time Options Window
+   
+      Times options.
+   ..
 
    To create the pattern, select the Patterns category in the Browser
    and then click the Add button |image22|. A new Pattern 1 will be
-   created and the Pattern Editor dialog should appear (see Figure 2.9).
+   created and the Pattern Editor dialog should appear (see :numref:`fig-pattern_ed`).
    Enter the multiplier values 0.5, 1.3, 1.0, 1.2 for the time periods 1
    to 4 that will give our pattern a duration of 24 hours. The
    multipliers are used to modify the demand from its base level in each
    time period. Since we are making a run of 72 hours, the pattern will
    wrap around to the start after each 24-hour interval of time.
 
-      |image23|
-
-     **Figure 2.9** Pattern Editor
-
+   .. _fig-pattern_ed:
+   .. figure:: media/image22.png
+      :alt: Pattern Editor Window
+   
+      Pattern editor.
+   ..
+    
    We now need to assign Pattern 1 to the Demand Pattern property of all
    of the junctions in our network. We can utilize one of EPANET’s
    Hydraulic Options to avoid having to edit each junction individually.
@@ -425,12 +467,17 @@ Running an Extended Period Analysis
 
 
    Note the periodic behavior of the water elevation in the tank over
-   time (Figure 2.10).
+   time (:numref:`fig-ex_time_series_plot`).
 
-      |image28|
-
-     **Figure 2.10** Example Time Series Plot
-
+   .. _fig-ex_time_series_plot:
+   .. figure:: media/image26.png
+      :alt: Example of a Time Series Plot
+   
+      Example time series plot.
+   ..
+ 
+.. _sec-run_wq:
+  
 Running a Water Quality Analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -474,42 +521,45 @@ Running a Water Quality Analysis
    and 7 see depressed chlorine levels because of being fed by low
    chlorine water from the tank. Create a reaction report for this run
    by selecting **Report >> Reaction** from the main menu. The report
-   should look like Figure 2.11. It shows on average how much chlorine
+   should look like :numref:`fig-ex_reaction_report`. It shows on average how much chlorine
    loss occurs in the pipes as opposed to the tank. The term “bulk”
    refers to reactions occurring in the bulk fluid while “wall” refers
    to reactions with material on the pipe wall. The latter reaction is
    zero because we did not specify any wall reaction coefficient in this
    example.
 
-       |image29|
-
-     **Figure 2.11** Example Reaction Report
-
+   .. _fig-ex_reaction_report:
+   .. figure:: media/image27.png
+      :alt: Example of a Reaction Report
+   
+      Example reaction report.
+   ..
+   
    We have only touched the surface of the various capabilities offered
    by EPANET. Some additional features of the program that you should
    experiment with are:
 
    - Editing a property for a group of objects that lie within a user-
-     defined area.
+     defined area
 
    - Using Control statements to base pump operation on time of day or
-     tank water levels.
+     tank water levels
 
    - Exploring different Map Options, such as making node size be related
-     to value.
+     to value
 
-   - Attaching a backdrop map (such as a street map) to the network map.
+   - Attaching a backdrop map (such as a street map) to the network map
 
    - Creating different types of graphs, such as profile plots and contour
-     plots.
+     plots
 
    - Adding calibration data to a project and viewing a calibration
-     report.
+     report
 
-   - Copying the map, a graph, or a report to the clipboard or to a file.
+   - Copying the map, a graph, or a report to the clipboard or to a file
 
    - Saving and retrieving a design scenario (i.e., current nodal demands,
-     pipe roughness values, etc.).
+     pipe roughness values, etc.)
 
 
 

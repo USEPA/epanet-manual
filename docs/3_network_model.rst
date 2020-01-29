@@ -19,53 +19,60 @@ water quality transport behavior.*
 -------
 
 
-
+.. _sec-physical_comps:
 
 Physical Components
 ~~~~~~~~~~~~~~~~~~~
 
-  EPANET models a water distribution system as a collection of links
-  connected to nodes. The links represent pipes, pumps, and control
-  valves. The nodes represent junctions, tanks, and reservoirs. The
-  figure below illustrates how these objects can be connected to one
-  another to form a network.
+   EPANET models a water distribution system as a collection of links
+   connected to nodes. The links represent pipes, pumps, and control
+   valves. The nodes represent junctions, tanks, and reservoirs. :numref:`fig-physical_comp_WDS` 
+   below illustrates how these objects can be connected to one
+   another to form a network.
 
-    |image30|
+   .. _fig-physical_comp_WDS:
+   .. figure:: media/image28.png
+      :alt: Physical Components in a Water Distribution System
+   
+      Physical components in a water distribution system.
+   ..
 
-   **Figure 3.1** Physical Components in a Water Distribution System
-
-
+    
 **Junctions**
 
     Junctions are points in the network where links join together and
     where water enters or leaves the network. The basic input data
     required for junctions are:
 
-      -  elevation above some reference (usually mean sea level)
-      -  water demand (rate of withdrawal from the network)
-      -  initial water quality.
+      -  Elevation above some reference (usually mean sea level)
+	  
+      -  Water demand (rate of withdrawal from the network)
+	  
+      -  Initial water quality
 
     The output results computed for junctions at all time periods of a
     simulation are:
 
-      -  hydraulic head (internal energy per unit weight of fluid)
-      -  pressure
-      -  water quality.
+      -  Hydraulic head (internal energy per unit weight of fluid)
+	  
+      -  Pressure
+	  
+      -  Water quality
 
     Junctions can also:
 
-      -  have their demand vary with time
+      -  Have their demand vary with time
 
-      -  have multiple categories of demands assigned to them
+      -  Have multiple categories of demands assigned to them
 
-      -  have negative demands indicating that water is entering the network
+      -  Have negative demands indicating that water is entering the network
 
-      -  have pressure driven demand
+      -  Have pressure driven demand
 
-      -  be water quality sources where constituents enter the network
+      -  Be water quality sources where constituents enter the network
 
-      -  contain emitters (or sprinklers) which make the outflow rate depend
-         on the pressure.
+      -  Contain emitters (or sprinklers) which make the outflow rate depend
+         on the pressure
 
 
 **Reservoirs**
@@ -92,19 +99,20 @@ Physical Components
    water can vary with time during a simulation. The primary input
    properties for tanks are:
 
-    -  bottom elevation (where water level is zero)
+    -  Bottom elevation (where water level is zero)
 
-    -  diameter (or shape if non-cylindrical )
+    -  Diameter (or shape if non-cylindrical )
 
-    -  initial, minimum and maximum water levels
+    -  Initial, minimum and maximum water levels
 
-    -  initial water quality.
+    -  Initial water quality
 
 
    The principal outputs computed over time are:
 
-    -  hydraulic head (water surface elevation)
-    -  water quality.
+    -  Hydraulic head (water surface elevation)
+	
+    -  Water quality
 
 
    Tanks are required to operate within their minimum and maximum
@@ -144,8 +152,7 @@ Physical Components
     .. note::
        The pressure-flow relation at a junction defined by an emitter
        should not be confused with the pressure-demand relation when
-       performing a pressure driven analysis (PDA). See Section:
-       :ref:`Pressure Drive Demand Model <press_driven_analysis>`
+       performing a pressure driven analysis (PDA). See :ref:`Pressure Driven Demand<press_driven_analysis>`
        for more information.
 
 **Pipes**
@@ -156,15 +163,15 @@ Physical Components
    per weight of water) to that at lower head. The principal hydraulic
    input parameters for pipes are:
 
-    -  start and end nodes
+    -  Start and end nodes
 
-    -  diameter
+    -  Diameter
 
-    -  length
+    -  Length
 
-    -  roughness coefficient (for determining headloss)
+    -  Roughness coefficient (for determining headloss)
 
-    -  status (open, closed, or contains a check valve).
+    -  Status (open, closed, or contains a check valve)
 
 
    The status parameter allows pipes to implicitly contain shutoff
@@ -173,28 +180,27 @@ Physical Components
 
    The water quality inputs for pipes consist of:
 
-    -  bulk reaction coefficient
+    -  Bulk reaction coefficient
 
-    -  wall reaction coefficient.
+    -  Wall reaction coefficient
 
 
-   These coefficients are explained more thoroughly in Section 3.4
+   These coefficients are explained more thoroughly in :numref:`sec-wq_sim_model`
    below.
 
    Computed outputs for pipes include:
 
-    -  flow rate
+    -  Flow rate
 
-    -  velocity
+    -  Velocity
 
-    -  headloss
+    -  Headloss
 
     -  Darcy-Weisbach friction factor
 
-    -  average reaction rate (over the pipe length)
+    -  Average reaction rate (over the pipe length)
 
-    -  average water quality (over the pipe length).
-
+    -  Average water quality (over the pipe length)
 
 
    The hydraulic head lost by water flowing in a pipe due to friction
@@ -206,7 +212,6 @@ Physical Components
     -  Darcy-Weisbach formula
 
     -  Chezy-Manning formula
-
 
 
    The Hazen-Williams formula is the most commonly used headloss formula
@@ -223,10 +228,10 @@ Physical Components
        h_{L} = A q^{B}
 
    where :math:`h_{L}` = headloss (Length), :math:`q` = flow rate (Volume/Time),
-   :math:`A` = resistance coefficient, and :math:`B` = flow exponent. Table 3.1
+   :math:`A` = resistance coefficient, and :math:`B` = flow exponent. :numref:`table-pipe_headloss_formulas`
    lists expressions for the resistance coefficient and values for the flow
    exponent for each of the formulas. Each formula uses a different pipe
-   roughness coefficient that must be determined empirically. Table 3.2
+   roughness coefficient that must be determined empirically. :numref:`table-roughness_coeff`
    lists general ranges of these coefficients for different types of new
    pipe materials. Be aware that a pipe’s roughness coefficient can
    change considerably with age.
@@ -240,16 +245,17 @@ Physical Components
        used for fully turbulent flow (Re > 4,000).
 
     -  A cubic interpolation from the Moody Diagram is used for transitional
-       flow (2,000 < Re < 4,000) .
+       flow (2,000 < Re < 4,000).
 
 
 
-   Consult :ref:`Chapter 13 <analysis_algorithms>` for the actual equations
+   Consult Chapter :ref:`analysis_algorithms` for the actual equations
    used.
 
-    **Table 3.1** Pipe Headloss Formulas for Full Flow (for headloss in
-    feet and flow rate in cfs)
-
+   .. _table-pipe_headloss_formulas:
+   .. table:: Pipe Headloss Formulas for Full Flow (for headloss in
+    feet and flow rate in cfs)	
+		
     +-------------------+--------------------------------------------+-----------------------+
     |    *Formula*      |    *Resistance  Coefficient*               |    *Flow Exponent*    |
     |                   |    (:math:`A`)                             |    (:math:`B`)        |
@@ -260,7 +266,7 @@ Physical Components
     +-------------------+--------------------------------------------+-----------------------+
     | Chezy-Manning     |    :math:`4.66\,n^{2}\,d^{-5.33}\,L`       |    :math:`2`          |
     +-------------------+--------------------------------------------+-----------------------+
-
+   ..
 
     Notes:
 
@@ -271,11 +277,10 @@ Physical Components
         | :math:`d` = pipe diameter (ft)
         | :math:`L` = pipe length (ft)
         | :math:`q` = flow rate (cfs)
-
-
-
-    **Table 3.2** Roughness Coefficients for New Pipe
-
+   
+   .. _table-roughness_coeff:
+   .. table:: Roughness Coefficients for New Pipe	
+		
     +-----------------+------------------+------------------------+-----------------+
     |    *Material*   | *Hazen-Williams* | *Darcy-Weisbach*       | *Manning's*     |
     |                 | :math:`C`        | :math:`\epsilon`       | :math:`n`       |
@@ -299,7 +304,7 @@ Physical Components
     |    Vitrified    |    110           |                        |  0.013 -- 0.015 |
     |    Clay         |                  |                        |                 |
     +-----------------+------------------+------------------------+-----------------+
-
+   ..
 
    Pipes can be set open or closed at preset times or when specific
    conditions exist, such as when tank levels fall below or above
@@ -321,11 +326,12 @@ Physical Components
 
    where :math:`K` = minor loss coefficient, :math:`v` = flow velocity
    (Length/Time), and :math:`g` = acceleration of gravity
-   (Length/Time :sup:`2`). Table 3.3 provides minor loss coefficients for
+   (Length/Time :sup:`2`). :numref:`table-minor_loss_coeff` provides minor loss coefficients for
    several types of fittings.
 
-    **Table 3.3** Minor Loss Coefficients for Selected Fittings
-
+   .. _table-minor_loss_coeff:
+   .. table:: Minor Loss Coefficients for Selected Fittings	
+  	
     +---------------------------------------+--------------------+
     |    *FITTING*                          | *LOSS COEFFICIENT* |
     +=======================================+====================+
@@ -355,7 +361,7 @@ Physical Components
     +---------------------------------------+--------------------+
     |    Exit                               |    1.0             |
     +---------------------------------------+--------------------+
-
+   ..
 
 
 **Pumps**
@@ -383,9 +389,7 @@ Physical Components
    As with pipes, pumps can be turned on and off at preset times or when
    certain conditions exist in the network. A pump’s operation can also
    be described by assigning it a time pattern of relative speed
-   settings. EPANET can also compute the
-
-   energy consumption and cost of a pump. Each pump can be assigned an
+   settings. EPANET can also compute the energy consumption and cost of a pump. Each pump can be assigned an
    efficiency curve and schedule of energy prices. If these are not
    supplied then a set of global energy options will be used.
 
@@ -401,13 +405,13 @@ Physical Components
    Valves are links that limit the pressure or flow at a specific point
    in the network. Their principal input parameters include:
 
-    -  start and end nodes
+    -  Start and end nodes
 
-    -  diameter
+    -  Diameter
 
-    -  setting
+    -  Setting
 
-    -  status.
+    -  Status
 
 
    The computed outputs for a valve are flow rate and headloss. The
@@ -423,33 +427,33 @@ Physical Components
 
     -  Throttle Control Valve (TCV)
 
-    -  General Purpose Valve (GPV).
+    -  General Purpose Valve (GPV)
 
 
 
    PRVs limit the pressure at a point in the pipe network. EPANET
    computes in which of three different states a PRV can be in:
 
-    -  partially opened (i.e., active) to achieve its pressure setting on
+    -  Partially opened (i.e., active) to achieve its pressure setting on
        its downstream side when the upstream pressure is above the setting
 
-    -  fully open if the upstream pressure is below the setting
+    -  Fully open if the upstream pressure is below the setting
 
-    -  closed if the pressure on the downstream side exceeds that on the
-       upstream side (i.e., reverse flow is not allowed).
+    -  Closed if the pressure on the downstream side exceeds that on the
+       upstream side (i.e., reverse flow is not allowed)
 
 
 
    PSVs maintain a set pressure at a specific point in the pipe network.
    EPANET computes in which of three different states a PSV can be in:
 
-    -  partially opened (i.e., active) to maintain its pressure setting on
+    -  Partially opened (i.e., active) to maintain its pressure setting on
        its upstream side when the downstream pressure is below this value
 
-    -  fully open if the downstream pressure is above the setting
+    -  Fully open if the downstream pressure is above the setting
 
-    -  closed if the pressure on the downstream side exceeds that on the
-       upstream side (i.e., reverse flow is not allowed).
+    -  Closed if the pressure on the downstream side exceeds that on the
+       upstream side (i.e., reverse flow is not allowed)
 
 
    PBVs force a specified pressure loss to occur across the valve. Flow
@@ -490,15 +494,16 @@ Physical Components
    Because of the ways in which valves are modeled the following rules
    apply when adding valves to a network:
 
-    -  a PRV, PSV or FCV cannot be directly connected to a reservoir or tank
+    -  A PRV, PSV or FCV cannot be directly connected to a reservoir or tank
        (use a length of pipe to separate the two)
 
     -  PRVs cannot share the same downstream node or be linked in series
 
-    -  two PSVs cannot share the same upstream node or be linked in series
+    -  Two PSVs cannot share the same upstream node or be linked in series
 
-    -  a PSV cannot be connected to the downstream node of a PRV.
+    -  A PSV cannot be connected to the downstream node of a PRV
 
+.. _sec-non_physical_comps:
 
 Non-Physical Components
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -534,32 +539,22 @@ Non-Physical Components
    have decreasing head with increasing flow.
 
    EPANET will use a different shape of pump curve depending on the
-   number of points supplied (see Figure 3.2):
-
-      Single-Point Pump Curve:
-
-      |image31|
-
-      Three-Point Pump Curve:
-
-      |image31-2|
-
-      Multi-Point Pump Curve:
-
-      |image32|
-
-      Variable-Speed Pump Curve:
-
-      |image32-2|
-
-    **Figure 3.2** Example Pump Curves
+   number of points supplied.
 
    *Single-Point Curve* -- A single-point pump curve is defined by a
    single head-flow combination that represents a pump's desired
    operating point. EPANET adds two more points to the curve by assuming
    a shutoff head at zero flow equal to 133% of the design head and a
    maximum flow at zero head equal to twice the design flow. It then
-   treats the curve as a three-point curve.
+   treats the curve as a three-point curve. :numref:`fig-single_pt_pump_curve`
+   shows an example of a single-point pump curve. 
+
+   .. _fig-single_pt_pump_curve:
+   .. figure:: media/image29.png
+      :alt: Example of Single-Point Pump Curve
+   
+      Single-point pump curve.
+   ..
 
    *Three-Point Curve* -- A three-point pump curve is defined by three
    operating points: a Low Flow point (flow and head at low or zero flow
@@ -572,12 +567,28 @@ Non-Physical Components
 
    through the three points to define the entire pump curve. In this
    function, :math:`h_{g}` = head gain, :math:`q` = flow rate, and :math:`A`,
-   :math:`B`, and :math:`C` are constants.
+   :math:`B`, and :math:`C` are constants. :numref:`fig-three_pt_pump_curve`
+   shows an example of a three-point pump curve.
 
+   .. _fig-three_pt_pump_curve:
+   .. figure:: media/image29-2.png
+      :alt: Example of Three-Point Pump Curve
+   
+      Three-point pump curve.
+   ..
+   
    *Multi-Point Curve* -- A multi-point pump curve is defined by
    providing either a pair of head-flow points or four or more such
    points. EPANET creates a complete curve by connecting the points with
-   straight-line segments.
+   straight-line segments. :numref:`fig-multi_pt_pump_curve`
+   shows an example of a multi-point pump curve.
+	
+   .. _fig-multi_pt_pump_curve:
+   .. figure:: media/image30-2.png
+      :alt: Example of Multi-Point Pump Curve
+   
+      Multi-point pump curve.
+   ..
 
    For variable speed pumps, the pump curve shifts as the speed changes.
    The relationships between flow (:math:`Q`) and head (:math:`H`) at speeds
@@ -588,23 +599,34 @@ Non-Physical Components
         \frac{Q_1}{Q_2} = \frac{N_1}{N_2} \\
         \frac{H_1}{H_2} = \left( \frac{N_1}{N_2} \right)^2
       \end{gathered}
+   ..
+   
+   :numref:`fig-variable_speed_pump_curve` shows an example of a variable-speed pump curve.
 
+   .. _fig-variable_speed_pump_curve:
+   .. figure:: media/image30.png
+      :alt: Example of Variable-Speed Pump Curve
+   
+      Variable-speed pump curve.
+   ..  
+   
 *Efficiency Curve*
 
    An Efficiency Curve determines pump efficiency (Y in percent) as a
    function of pump flow rate (X in flow units). An example efficiency
-   curve is shown in Figure 3.3. Efficiency should represent wire-to-water
+   curve is shown in :numref:`fig-pump_eff_curve`. Efficiency should represent wire-to-water
    efficiency that takes into account mechanical losses in the pump itself
    as well as electrical losses in the pump's motor. The curve is used only
    for energy calculations. If not supplied for a specific pump then a
    fixed global pump efficiency will be used.
 
-
-      |image33|
-
-    **Figure 3.3** Pump Efficiency Curve
-
-
+   .. _fig-pump_eff_curve:
+   .. figure:: media/image31.png
+      :alt: Example of Pump Efficiency Curve
+   
+      Pump efficiency curve.
+   ..  
+  
 **Volume Curve**
 
    A Volume Curve determines how storage tank volume (Y in cubic feet or
@@ -613,13 +635,15 @@ Non-Physical Components
    tanks whose cross-sectional area varies with height. The lower and
    upper water levels supplied for the curve must contain the lower and
    upper levels between which the tank operates. An example of a tank
-   volume curve is given below.
+   volume curve is given in :numref:`fig-tank_vol_curve`.
 
-      |image34|
-
-    **Figure 3.4** Tank Volume Curve
-
-
+   .. _fig-tank_vol_curve:
+   .. figure:: media/image32.png
+      :alt: Example of Tank Volume Curve
+   
+      Tank volume curve.
+   ..  
+ 
 **Headloss Curve**
 
    A Headloss Curve is used to described the headloss (Y in feet or
@@ -632,47 +656,52 @@ Non-Physical Components
 
 *Time Patterns*
 
-  A Time Pattern is a collection of multipliers that can be applied to
-  a quantity to allow it to vary over time. Nodal demands, reservoir
-  heads, pump schedules, and water quality source inputs can all have
-  time patterns associated with them. The time interval used in all
-  patterns is a fixed value, set with the project's Time Options (see
-  Section 8.1). Within this interval a quantity remains at a constant
-  level, equal to the product of its nominal value and the pattern's
-  multiplier for that time period. Although all time patterns must
-  utilize the same time interval, each can have a different number of
-  periods. When the simulation clock exceeds the number of periods in a
-  pattern, the pattern wraps around to its first period again.
+   A Time Pattern is a collection of multipliers that can be applied to
+   a quantity to allow it to vary over time. Nodal demands, reservoir
+   heads, pump schedules, and water quality source inputs can all have
+   time patterns associated with them. The time interval used in all
+   patterns is a fixed value, set with the project's Time Options (see
+   :numref:`sec-analysis_ops`). Within this interval a quantity remains at a constant
+   level, equal to the product of its nominal value and the pattern's
+   multiplier for that time period. Although all time patterns must
+   utilize the same time interval, each can have a different number of
+   periods. When the simulation clock exceeds the number of periods in a
+   pattern, the pattern wraps around to its first period again.
 
-  As an example of how time patterns work consider a junction node with
-  an average demand of 10 GPM. Assume that the time pattern interval
-  has been set to 4 hours and a pattern with the following multipliers
-  has been specified for demand at this node:
+   As an example of how time patterns work consider a junction node with
+   an average demand of 10 GPM. Assume that the time pattern interval
+   has been set to 4 hours and a pattern with the following multipliers
+   has been specified for demand at this node (:numref:`table-time_pat_multiplier`):
+ 
+   .. _table-time_pat_multiplier:
+   .. table:: Example Time Pattern Multipliers	
+		
+    +------------+-----+-----+-----+-----+-----+-----+
+    | Period     | 1   | 2   | 3   | 4   | 5   | 6   |
+    +============+=====+=====+=====+=====+=====+=====+
+    | Multiplier | 0.5 | 0.8 | 1.0 | 1.2 | 0.9 | 0.7 |
+    +------------+-----+-----+-----+-----+-----+-----+
+   ..
 
-  +------------+-----+-----+-----+-----+-----+-----+
-  | Period     | 1   | 2   | 3   | 4   | 5   | 6   |
-  +============+=====+=====+=====+=====+=====+=====+
-  | Multiplier | 0.5 | 0.8 | 1.0 | 1.2 | 0.9 | 0.7 |
-  +------------+-----+-----+-----+-----+-----+-----+
-
-
-
-  Then during the simulation the actual demand exerted at this node
-  will be as follows:
-
-  +--------+--------+-----+------+-------+-------+-------+-------+
-  | Hours  |    0-4 | 4-8 | 8-12 | 12-16 | 16-20 | 20-24 | 24-28 |
-  +========+========+=====+======+=======+=======+=======+=======+
-  | Demand |    5   | 8   | 10   | 12    | 9     | 7     | 5     |
-  +--------+--------+-----+------+-------+-------+-------+-------+
-
+   Then during the simulation the actual demand exerted at this node
+   will be as follows (:numref:`table-actual_demands`):
+ 
+   .. _table-actual_demands:
+   .. table:: Actual Demands at Node	
+		
+    +--------+--------+-----+------+-------+-------+-------+-------+
+    | Hours  |    0-4 | 4-8 | 8-12 | 12-16 | 16-20 | 20-24 | 24-28 |
+    +========+========+=====+======+=======+=======+=======+=======+
+    | Demand |    5   | 8   | 10   | 12    | 9     | 7     | 5     |
+    +--------+--------+-----+------+-------+-------+-------+-------+
+   ..
 
 *Controls*
 
-  Controls are statements that determine how the network is operated
-  over time. They specify the status of selected links as a function of
-  time, tank water levels, and pressures at select points within the
-  network. There are two categories of controls that can be used:
+   Controls are statements that determine how the network is operated
+   over time. They specify the status of selected links as a function of
+   time, tank water levels, and pressures at select points within the
+   network. There are two categories of controls that can be used:
 
     -  Simple Controls
 
@@ -680,78 +709,80 @@ Non-Physical Components
 
 
 **Simple Controls**
+	
+    Simple controls change the status or setting of a link based on:
+	
+	-  The water level in a tank
+	
+    -  The pressure at a junction
 
-   Simple controls change the status or setting of a link based on:
+    -  The time into the simulation
+	
+    -  The time of day
+ 
 
-    -  the water level in a tank,
-
-    -  the pressure at a junction,
-
-    -  the time into the simulation,
-
-    -  the time of day.
-
-
-
-   They are statements expressed in one of the following three formats:
-
+    They are statements expressed in one of the following three formats:
+	
     ==== = ====== == ========= = =========== =
     LINK x status IF NODE      y ABOVE/BELOW z
     LINK x status AT TIME      t
     LINK x status AT CLOCKTIME c AM/PM
     ==== = ====== == ========= = =========== =
 
-   where:
-      | x = a link ID label,
-      | status = OPEN or CLOSED, a pump speed setting, or a control valve
-        setting,
-      | y = a node ID label,
-      | z = a pressure for a junction or a water level for a tank,
-      | t = a time since the start of the simulation (decimal hours or
-        hours:minutes),
-      | c = a 24-hour clock time.
+    where:
+    | x = a link ID label,
+    | status = OPEN or CLOSED, a pump speed setting, or a control valve setting,
+    | y = a node ID label,
+    | z = a pressure for a junction or a water level for a tank,
+    | t = a time since the start of the simulation (decimal hours or hours:minutes),
+    | c = a 24-hour clock time.
 
-   Some examples of simple controls are:
+	
+    Some examples of simple controls are (:numref:`table-sim_controls`): 
+    
+    .. _table-sim_controls:
+    .. table:: Examples of Simple Controls	
+     
+     +--------------------------------------+---------------------------------+
+     |    *Control Statement*               |    *Meaning*                    |
+     +======================================+=================================+
+     |                                      | (Close Link 12 when the         |
+     | LINK 12 CLOSED IF NODE 23 ABOVE 20   | level in Tank 23                |
+     |                                      | exceeds 20 ft.)                 |
+     +--------------------------------------+---------------------------------+
+     | LINK 12 OPEN IF NODE 130 BELOW 30    | (Open Link 12 if the pressure   |
+     |                                      | at Node 130 drops below 30 psi) |
+     |                                      | drops below 30 psi)             |
+     +--------------------------------------+---------------------------------+
+     | LINK 12 1.5 AT TIME 16               | (Set the relative speed of      |
+     |                                      | pump 12 to 1.5 at 16 hours      |
+     |                                      | into the simulation)            |
+     +--------------------------------------+---------------------------------+
+     | | LINK 12 CLOSED AT CLOCKTIME 10 AM  | (Link 12 is repeatedly closed   |
+     | | LINK 12 OPEN AT CLOCKTIME 8 PM     | at 10 AM and opened at 8 PM     |
+     |                                      | throughout the simulation)      |
+     +--------------------------------------+---------------------------------+
+    ..
+	
+    There is no limit on the number of simple control statements that can
+    be used.
 
-      +--------------------------------------+---------------------------------+
-      |    *Control Statement*               |    *Meaning*                    |
-      +======================================+=================================+
-      |                                      | (Close Link 12 when the         |
-      | LINK 12 CLOSED IF NODE 23 ABOVE 20   | level in Tank 23                |
-      |                                      | exceeds 20 ft.)                 |
-      +--------------------------------------+---------------------------------+
-      | LINK 12 OPEN IF NODE 130 BELOW 30    | (Open Link 12 if the pressure   |
-      |                                      | at Node 130 drops below 30 psi) |
-      |                                      | drops below 30 psi)             |
-      +--------------------------------------+---------------------------------+
-      | LINK 12 1.5 AT TIME 16               | (Set the relative speed of      |
-      |                                      | pump 12 to 1.5 at 16 hours      |
-      |                                      | into the simulation)            |
-      +--------------------------------------+---------------------------------+
-      | | LINK 12 CLOSED AT CLOCKTIME 10 AM  | (Link 12 is repeatedly closed   |
-      | | LINK 12 OPEN AT CLOCKTIME 8 PM     | at 10 AM and opened at 8 PM     |
-      |                                      | throughout the simulation)      |
-      +--------------------------------------+---------------------------------+
+    **Note:** Level controls are stated in terms of the height of water
+    above the tank bottom, not the elevation (total head) of the water
+    surface.
 
-      There is no limit on the number of simple control statements that can
-      be used.
-
-      **Note:** Level controls are stated in terms of the height of water
-      above the tank bottom, not the elevation (total head) of the water
-      surface.
-
-      **Note:** Using a pair of pressure controls to open and close a link
-      can cause the system to become unstable if the pressure settings are
-      too close to one another. In this case using a pair of Rule-Based
-      controls might provide more stability.
-
+    **Note:** Using a pair of pressure controls to open and close a link
+    can cause the system to become unstable if the pressure settings are
+    too close to one another. In this case using a pair of Rule-Based
+    controls might provide more stability.
+   
 
 **Rule-Based Controls**
 
-   Rule-Based Controls allow link status and settings to be based on a
-   combination of conditions that might exist in the network after an
-   initial hydraulic state of the system is computed. Here are several
-   examples of Rule-Based Controls:
+    Rule-Based Controls allow link status and settings to be based on a
+    combination of conditions that might exist in the network after an
+    initial hydraulic state of the system is computed. Here are several
+    examples of Rule-Based Controls:
 
     **Example 1**:
 
@@ -796,9 +827,10 @@ Non-Physical Components
        AND TANK 1 LEVEL BELOW 14
        THEN PUMP 335 STATUS IS OPEN
 
-   A description of the formats used with Rule-Based controls can be
-   found in Appendix C, under the [RULES] heading (page 150).
+    A description of the formats used with Rule-Based controls can be
+    found in Appendix :ref:`command_line`, under the [RULES] heading.
 
+.. _sec-hyd_sim_model:
 
 Hydraulic Simulation Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -814,7 +846,7 @@ Hydraulic Simulation Model
    relationship across each link in the network. This process, known as
    “hydraulically balancing” the network, requires using an
    iterative technique to solve the nonlinear equations involved. EPANET
-   employs the “Gradient Algorithm” for this purpose. Consult Appendix D
+   employs the “Gradient Algorithm” for this purpose. Consult Chapter :ref:`analysis_algorithms`
    for details.
 
    The hydraulic time step used for extended period simulation (EPS) can
@@ -822,12 +854,12 @@ Hydraulic Simulation Model
    than normal will occur automatically whenever one of the following
    events occurs:
 
-    -  the next output reporting time period occurs
-    -  the next time pattern period occurs
-    -  a tank becomes empty or full
-    -  a simple control or rule-based control is activated.
+    -  The next output reporting time period occurs
+    -  The next time pattern period occurs
+    -  A tank becomes empty or full
+    -  A simple control or rule-based control is activated
 
-
+.. _sec-wq_sim_model:
 
 Water Quality Simulation Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -869,51 +901,35 @@ Water Quality Simulation Model
 **Mixing in Storage Tanks**
 
    EPANET can use four different types of models to characterize mixing
-   within storage tanks as illustrated in Figure 3.5:
+   within storage tanks:
 
     -  Complete Mixing
     -  Two-Compartment Mixing
-    -  FIFO Plug Flow
-    -  LIFO Plug Flow
+    -  First-in First-out (FIFO) Plug Flow
+    -  Last-in First-out (LIFO) Plug Flow
 
 
    Different models can be used with different tanks within a network.
-
-
-    (A) Complete Mixing
-
-      |image35|
-
-
-    (B) Two-Compartment Mixing
-
-      |image36|
-
-
-    (C) Plug Flow - FIFO
-
-      |image37|
-
-
-    (D) Plug Flow - LIFO
-
-      |image38|
-
-   **Figure 3.5** Tank Mixing Models
-
-   The Complete Mixing model (Figure 3.5(A)) assumes that all water that
+ 
+   The Complete Mixing model (:numref:`fig-complete_mix`) assumes that all water that
    enters a tank is instantaneously and completely mixed with the water
    already in the tank. It is the simplest form of mixing behavior to
    assume, requires no extra parameters to describe it, and seems to
    apply quite well to a large number of facilities that operate in
    fill-and-draw fashion.
-
-   The Two-Compartment Mixing model (Figure 3.5(B)) divides the
+   
+   .. _fig-complete_mix:
+   .. figure:: media/image33.png
+      :alt: Example of Complete Mixing Model
+   
+      Complete mixing.
+   ..
+   
+   The Two-Compartment Mixing model (:numref:`fig-two_comp_mix`) divides the
    available storage volume in a tank into two compartments, both of
    which are assumed completely mixed. The inlet/outlet pipes of the
    tank are assumed to be located in the first compartment. New water
-   that enters the tank mixes with the water in
-   the first compartment. If this compartment is full, then it sends its
+   that enters the tank mixes with the water in the first compartment. If this compartment is full, then it sends its
    overflow to the second compartment where it completely mixes with the
    water already stored there. When water leaves the tank, it exits from
    the first compartment, which if full, receives an equivalent amount
@@ -922,22 +938,43 @@ Water Quality Simulation Model
    inflow and outflow while the second compartment can represent dead
    zones. The user must supply a single parameter, which is the fraction
    of the total tank volume devoted to the first compartment.
-
-   The FIFO Plug Flow model (Figure 3.5(C)) assumes that there is no
+   
+   .. _fig-two_comp_mix:
+   .. figure:: media/image34.png
+      :alt: Example of Two-Compartment Mixing Model
+   
+      Two-compartment mixing.
+   ..
+ 
+   The FIFO Plug Flow model (:numref:`fig-FIFO_plug`) assumes that there is no
    mixing of water at all during its residence time in a tank. Water
    parcels move through the tank in a segregated fashion where the first
    parcel to enter is also the first to leave. Physically speaking, this
    model is most appropriate for baffled tanks that operate with
    simultaneous inflow and outflow. There are no additional parameters
    needed to describe this mixing model.
+   
+   .. _fig-FIFO_plug:
+   .. figure:: media/image35.png
+      :alt: Example of Plug Flow - FIFO Model
+   
+      Plug flow - FIFO.
+   ..
 
-   The LIFO Plug Flow model (Figure 3.5(D)) also assumes that there is
+   The LIFO Plug Flow model (:numref:`fig-LIFO_plug`) also assumes that there is
    no mixing between parcels of water that enter a tank. However in
    contrast to FIFO Plug Flow, the water parcels stack up one on top of
    another, where water enters and leaves the tank on the bottom. This
    type of model might apply to a tall, narrow standpipe with an
    inlet/outlet pipe at the bottom and a low momentum inflow. It
    requires no additional parameters be provided.
+   
+   .. _fig-LIFO_plug:
+   .. figure:: media/image36.png
+      :alt: Example of Plug Flow - LIFO Model
+   
+      Plug flow - LIFO.
+   ..
 
 
 **Water Quality Reactions**
@@ -947,18 +984,19 @@ Water Quality Simulation Model
    to know the rate at which the substance reacts and how this rate
    might depend on substance concentration. Reactions can occur both
    within the bulk flow and with material along the pipe wall. This is
-   illustrated in Figure 3.6. In this example free chlorine (HOCl) is
+   illustrated in :numref:`fig-reaction_zones`. In this example free chlorine (HOCl) is
    shown reacting with natural organic matter (NOM) in the bulk phase
    and is also transported through a boundary layer at the pipe wall to
    oxidize iron (Fe) released from pipe wall corrosion. Bulk fluid
    reactions can also occur within tanks. EPANET allows a modeler to
    treat these two reaction zones separately.
-
-
-      |image36-2|
-
-    **Figure 3.6** Reaction Zones Within a Pipe
-
+  
+   .. _fig-reaction_zones:
+   .. figure:: media/image36-2.png
+      :alt: Reaction Zones Within a Pipe
+   
+      Reaction zones within a pipe.
+   ..
 
 *Bulk Reactions*
 
@@ -995,7 +1033,10 @@ Water Quality Simulation Model
    where :math:`C_L` = the limiting concentration. Thus there are three
    parameters (:math:`K_b`, :math:`C_L`, and :math:`n`) that are used to
    characterize bulk reaction rates. Some special cases of well-known kinetic
-   models include the following (See Appendix D for more examples):
+   models are provided in :numref:`table-kinetic_models` (see :numref:`sec-analysis_alg_WQ` for more examples):
+
+   .. _table-kinetic_models:
+   .. table:: Special Cases of Well-known Kinetic Models	
 
     +-----------------------+-----------------------+-----------------------+
     |    *Model*            |    *Parameters*       |    *Examples*         |
@@ -1015,8 +1056,7 @@ Water Quality Simulation Model
     | No Reaction           |  :math:`C_L = 0,      |    Fluoride Tracer    |
     |                       |  K_b = 0`             |                       |
     +-----------------------+-----------------------+-----------------------+
-
-
+   ..
 
    The :math:`K_b` for first-order reactions can be estimated by placing a
    sample of water in a series of non-reacting glass bottles and
@@ -1051,11 +1091,11 @@ Water Quality Simulation Model
    :math:`K_{w}` must be supplied to the program by the modeler. First-order
    :math:`K_{w}` values can range anywhere from 0 to as much as 5 ft/day.
 
-   :math:`K_{w}` should be adjusted to account for any mass transfer
+   The variable :math:`K_{w}` should be adjusted to account for any mass transfer
    limitations in moving reactants and products between the bulk flow
    and the wall. EPANET does this automatically, basing the adjustment
    on the molecular diffusivity of the substance being modeled and on
-   the flow's Reynolds number. See Appendix D for details. (Setting the
+   the flow's Reynolds number. See :numref:`sec-analysis_alg_WQ` for details. (Setting the
    molecular diffusivity to zero will cause mass transfer effects to be
    ignored.)
 
@@ -1073,9 +1113,11 @@ Water Quality Simulation Model
    chlorine and other disinfectants. EPANET can make each pipe's :math:`K_{w}`
    be a function of the coefficient used to describe its roughness. A
    different function applies depending on the formula used to compute
-   headloss through the pipe:
+   headloss through the pipe (:numref:`table-headloss_wall_rxn`):
 
-
+   .. _table-headloss_wall_rxn:
+   .. table:: Wall Reaction Formulas Related to Headloss Formula	
+		
     +-----------------------------+-----------------------------+
     |     Headloss Formula        |  Wall Reaction Formula      |
     +=============================+=============================+
@@ -1085,7 +1127,8 @@ Water Quality Simulation Model
     +-----------------------------+-----------------------------+
     |     Chezy-Manning           |    :math:`K_w = F n`        |
     +-----------------------------+-----------------------------+
-
+   ..
+   
    where :math:`C` = Hazen-Williams C-factor, :math:`e` = Darcy-Weisbach
    roughness, :math:`d` = pipe diameter, :math:`n` = Manning roughness
    coefficient, and :math:`F` = wall reaction - pipe roughness coefficient.

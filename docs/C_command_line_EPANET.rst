@@ -32,7 +32,7 @@ General Instructions
   variable. Otherwise full pathnames for the executable **runepanet.exe**
   and the files on the command line must be used. The error messages for
   command line EPANET are the same as those for Windows EPANET and are
-  listed in Appendix B.
+  listed in Appendix :ref:`error_messages`.
 
 Input File Format
 ~~~~~~~~~~~~~~~~~
@@ -41,9 +41,10 @@ Input File Format
   text file that Windows EPANET generates from its **File >> Export >>
   Network** command. It is organized in sections, where each section
   begins with a keyword enclosed in brackets. The various keywords are
-  listed below.
+  listed below in :numref:`table-inp_file_format`.
 
-  .. tabularcolumns:: |\X{1}{5}|\X{9}{50}|\X{1}{5}|\X{1}{6}|\X{1}{5}|
+.. _table-inp_file_format:
+.. table:: EPANET Input File Format	
 
   +-------------+-------------+-------------+-------------+--------------+
   | *Network    | *System     | *Water      | *Options*   | *Network     |
@@ -59,6 +60,7 @@ Input File Format
   | [EMITTERS]  |             |             |             |              |
   +-------------+-------------+-------------+-------------+--------------+
 
+..
 
   The order of sections is not important. However, whenever a node or
   link is referred to in a section it must have already been defined in
@@ -74,15 +76,16 @@ Input File Format
   identify nodes, links, curves and patterns can be any combination of
   up to 31 characters and numbers.
 
-  Figure C.1 displays the input file that represents the tutorial
-  network discussed in Chapter 2.
+  :numref:`ex_input_file` displays the input file that represents the tutorial
+  network discussed in Chapter :ref:`quickstart`.
 
 
   .. literalinclude:: tutorial.inp
+      :name: ex_input_file
+      :caption: Example EPANET input file.
+  .. 
 
-  **Figure C.1** Example EPANET Input File
-
-
+  
   On the pages that follow the contents and formats of each keyword
   section are described in alphabetical order.
 
@@ -99,7 +102,7 @@ Report File Format
    Statements supplied to the [REPORT] section of the input file control
    the contents of the report file generated from a command-line run of
    EPANET. A portion of the report generated from the input file of
-   Figure C.1 is shown in Figure C.2. In general a report can contain
+   :numref:`ex_input_file` is shown in :numref:`ex_report_file`. In general a report can contain
    the following sections:
 
     - Status Section
@@ -107,7 +110,12 @@ Report File Format
     - Nodes Section
     - Links Section
 
-
+ .. literalinclude:: tutorial.out
+      :name: ex_report_file
+      :caption: Excerpt from a EPANET report file.
+ ..   
+ 
+ 
 Status Section
 --------------
 
@@ -146,11 +154,6 @@ Energy Section
    demand charge (cost based on the peak energy usage) incurred. To
    include an Energy Section in the report the command **ENERGY YES**
    must appear in the [REPORT] section of the input file.
-
-   .. literalinclude:: tutorial.out
-
-   **Figure C.2** Excerpt from a Report File
-
 
 Nodes Section
 --------------
@@ -209,11 +212,13 @@ Binary Output File Format
   Data written to the file are 4-byte integers, 4-byte floats, or
   fixed-size strings whose size is a multiple of 4 bytes. This allows
   the file to be divided conveniently into 4-byte records. The file
-  consists of four sections of the following sizes in bytes:
+  consists of four sections listed in :numref:`table-binary`.
 
-
+.. _table-binary:
+.. table:: EPANET Binary Output File Sections and Sizes	
+ 
   +-----------------+----------------------------------------+
-  | *Section*       | *Size in bytes*                        |
+  | *SECTION*       | *SIZE in BYTES*                        |
   +=================+========================================+
   | Prolog          | 852 + 20*Nnodes + 36*Nlinks + 8*Ntanks |
   +-----------------+----------------------------------------+
@@ -223,6 +228,8 @@ Binary Output File Format
   +-----------------+----------------------------------------+
   | Epilog          | 28                                     |
   +-----------------+----------------------------------------+
+
+..
 
   where
 
@@ -241,11 +248,14 @@ Binary Output File Format
 Prolog Section
 ---------------
 
-  The prolog section of the binary Output File contains the following
-  data:
+  The prolog section of the binary output file contains the following
+  data listed in :numref:`table-prolog`.
 
+.. _table-prolog:
+.. table:: EPANET Binary Output File Prolog Section Data	
+ 
   +-----------------------+----------------+-----------------------+
-  | **Item**              |    **Type**    |  **Number of Bytes**  |
+  | *ITEM*                |    *TYPE*      |  *NUMBER of BYTES*    |
   +=======================+================+=======================+
   | Magic Number ( =      |    Integer     |    4                  |
   | 516114521)            |                |                       |
@@ -368,7 +378,7 @@ Prolog Section
   | Diameter of Each Link |    Float       |    4*Nlinks           |
   +-----------------------+----------------+-----------------------+
 
-
+..
 
   There is a one-to-one correspondence between the order in which the
   ID labels for nodes and links are written to the file and the index
@@ -378,11 +388,14 @@ Prolog Section
 Energy Use Section
 ----------------------
 
-  The Energy Use section of the binary output file immediately follows
-  the Prolog section. It contains the following data:
+  The energy use section of the binary output file immediately follows
+  the prolog section. It contains the data listed in :numref:`table-energy_use`.
+
+.. _table-energy_use:
+.. table:: EPANET Binary Output File Energy Use Section Data	
 
   ========================================= ======== ===================
-  **Item**                                  **Type** **Number of Bytes**
+  *ITEM*                                     *TYPE*  *NUMBER of BYTES*
   ========================================= ======== ===================
    Repeated for each pump:
 
@@ -397,6 +410,8 @@ Energy Use Section
    Overall Peak Energy Usage                 Float     4
   ========================================= ======== ===================
 
+..
+  
   The statistics reported in this section refer to the period of time
   between the start of the output reporting period and the end of the
   simulation.
@@ -404,15 +419,18 @@ Energy Use Section
 Extended Period Section
 -----------------------
 
-  The Extended Period section of the binary Output File contains
+  The extended period section of the binary output file contains
   simulation results for each reporting period of an analysis (the
-  reporting start time and time step are written to the Output File's
-  Prolog section and the number of steps is written to the Epilog
-  section). For each reporting period the following values are written
-  to the file:
+  reporting start time and time step are written to the output file's
+  prolog section and the number of steps is written to the epilog
+  section). For each reporting period :numref:`table-extend_period` lists the values that are written
+  to the file.
+  
+.. _table-extend_period:
+.. table:: EPANET Binary Output File Extended Period Section Data	
 
   +------------------------------------+----------------+-------------------+
-  | **Item**                           |    **Type**    | **Size in Bytes** |
+  | *ITEM*                             |    *TYPE*      | *SIZE in BYTES*   |
   +====================================+================+===================+
   | Demand at Each Node                |    Float       |    4*Nnodes       |
   +------------------------------------+----------------+-------------------+
@@ -459,16 +477,19 @@ Extended Period Section
   | Each Link                          |                |                   |
   +------------------------------------+----------------+-------------------+
 
-
+..
 
 Epilogue Section
 -----------------
 
-  The Epilogue section of the binary output file contains the following
-  data:
+  The epilogue section of the binary output file contains the following
+  data listed in :numref:`table-epilogue`.
+
+.. _table-epilogue:
+.. table:: EPANET Binary Output File Epilogue Section Data	
 
   +--------------------------------------+----------+---------------------+
-  | **Item**                             | **Type** | **Number of Bytes** |
+  | *ITEM*                               | *TYPE*   | *NUMBER of BYTES*   |
   +======================================+==========+=====================+
   | Average bulk reaction rate (mass/hr) | Float    |    4                |
   +--------------------------------------+----------+---------------------+
@@ -488,6 +509,7 @@ Epilogue Section
   | Magic Number ( = 516114521)          | Integer  |    4                |
   +--------------------------------------+----------+---------------------+
 
+..
 
   The mass units of the reaction rates both here and in the Extended
   Period output depend on the concentration units assigned to the

@@ -13,7 +13,7 @@ FAQs
 
 **How can I import a pipe network created with a CAD or GIS program?**
 
-  See Section 11.4.
+  See :numref:`sec-import_partial_net`.
 
 **How do I model a groundwater pumping well?**
 
@@ -88,9 +88,15 @@ node?**
 
 **How do I model a tank inlet that discharges above the water surface?**
 
-  |image146|
+ 
+  Use the configuration shown below (:numref:`fig-tank_inlet_above_water`):
 
-  Use the configuration shown below:
+  .. _fig-tank_inlet_above_water:
+  .. figure:: media/image95.png
+     :alt: Example of Tank Inlet Discharging Above Water Surface
+   
+     Example of tank inlet discharging above water surface.
+  ..
 
   The tank's inlet consists of a Pressure Sustaining Valve followed by
   a short length of large diameter pipe. The pressure setting of the
@@ -120,7 +126,7 @@ node?**
 **How do I estimate values of the bulk and wall reaction coefficients?**
 
   Bulk reaction coefficients can be estimated by performing a bottle
-  test in the laboratory (see Bulk Reactions in Section 3.4). Wall
+  test in the laboratory (see Bulk Reactions in :numref:`sec-wq_sim_model`). Wall
   reaction rates cannot be measured directly. They must be back-fitted
   against calibration data collected from field studies (e.g., using
   trial and error to determine coefficient values that produce
@@ -167,10 +173,8 @@ EPANET?**
   the file (select **File >> Open**). You can keep switching back and
   forth between the editor program and EPANET, as more changes are
   needed. Just remember to save the file after modifying it in the
-  editor, and re-open it again
-
-  after switching to EPANET. If you use a word processor (such as
-  WordPad) or a spreadsheet as your editor, remember to save the file
+  editor, and re-open it again after switching to EPANET. If you use a word processor (such as
+  Word) or a spreadsheet as your editor, remember to save the file
   as plain ASCII text.
 
 **Can I run multiple EPANET sessions at the same time?**

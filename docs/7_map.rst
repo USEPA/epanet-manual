@@ -15,12 +15,12 @@ visualization of the system being modeled.*
 
 -------
 
-
+.. _sec-select_map_view:
 
 Selecting a Map View
 ~~~~~~~~~~~~~~~~~~~~
 
-   One uses the Map Page of the Browser (Section 4.7) to select a node
+   One uses the Map Page of the Browser (:numref:`sec-map_browser`) to select a node
    and link parameter to view on the map. Parameters are viewed on the
    map by using colors, as specified in the Map Legends (see below), to
    display different ranges of values.
@@ -71,7 +71,9 @@ Selecting a Map View
 
    The items marked with asterisks are computed quantities whose values
    will only be available if a successful analysis has been run on the
-   network (see Chapter 8 – Analyzing a Network).
+   network (see Chapter :ref:`analyzing_network`).
+
+.. _sec-set_map_dimensions:
 
 Setting the Map’s Dimensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,21 +85,28 @@ Setting the Map’s Dimensions
       1. Select **View >> Dimensions**.
 
       2. Enter new dimension information into the Map Dimensions dialog that
-         appears (see Figure 7.1) or click the **Auto-Size** button to have
+         appears (see :numref:`fig-map_dimensions_dialog`) or click the **Auto-Size** button to have
          EPANET compute dimensions based on the coordinates of objects
          currently included in the network.
 
       3. Click the **OK** button to re-size the map.
 
-      |image100|
-
-   **Figure 7.1** Map Dimensions Dialog
+   
+   .. _fig-map_dimensions_dialog:
+   .. figure:: media/image67.png
+      :alt: Map Dimensions Dialog in EPANET
+   
+      Map dimensions dialog.
+   ..
 
    The information provided in the Map Dimensions dialog consists of the
-   following:
+   following (:numref:`table-map_dimensions_prop`):
+   
+.. _table-map_dimensions_prop:
+.. table:: Map Dimensions Properties	
 
   +-----------------------------------+-----------------------------------+
-  | *Item*                            | *Description*                     |
+  | *ITEM*                            | *DESCRIPTION*                     |
   +===================================+===================================+
   | Lower Left Coordinates            | The X and Y coordinates of the    |
   |                                   | lower left point on the map.      |
@@ -111,12 +120,16 @@ Setting the Map’s Dimensions
   |                                   | arbitrary units).                 |
   +-----------------------------------+-----------------------------------+
 
+..
+
    **Note:** If you are going to use a backdrop map with automatic pipe
    length calculation, then it is recommended that you set the map
    dimensions immediately after creating a new project. Map distance
    units can be different from pipe length units. The latter (feet or
    meters) depend on whether flow rates are expressed in US or metric
    units. EPANET will automatically convert units if necessary.
+
+.. _sec-util_backdrop:
 
 Utilizing a Backdrop Map
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -126,15 +139,20 @@ Utilizing a Backdrop Map
    site development plan, or any other picture or drawing that might be
    useful. For example, using a street map would simplify the process of
    adding pipes to the network since one could essentially digitize the
-   network’s nodes and links directly on top of it.
-
-      |image101|
-
+   network’s nodes and links directly on top of it (:numref:`fig-ex_backdrop`).
+   
+   .. _fig-ex_backdrop:
+   .. figure:: media/image68.png
+      :alt: Example Backdrop
+   
+      Example backdrop.
+   ..
+ 
    The backdrop map must be a Windows enhanced metafile or bitmap
    created outside of EPANET. Once imported, its features cannot be
    edited, although its scale and extent will change as the map window
    is zoomed and panned. For this reason metafiles work better than
-   bitmaps since they will not loose resolution when re- scaled. Most
+   bitmaps since they will not loose resolution when re-scaled. Most
    CAD and GIS programs have the ability to save their drawings and maps
    as metafiles.
 
@@ -168,6 +186,8 @@ Utilizing a Backdrop Map
        aspect ratio (width-to-height ratio) as the backdrop.
 
 
+.. _sec-zoom_map:
+
 Zooming the Map
 ~~~~~~~~~~~~~~~
 
@@ -193,6 +213,8 @@ Zooming the Map
 
     3. The map will be returned to its previous zoom level.
 
+.. _sec-pan_map:
+
 Panning the Map
 ~~~~~~~~~~~~~~~
 
@@ -207,7 +229,7 @@ Panning the Map
 
 
 
-   To pan using the Overview Map (which is described in Section 7.7
+   To pan using the Overview Map (which is described in :numref:`sec-overview_map`
    below):
 
     1. If not already visible, bring up the Overview Map by selecting
@@ -221,6 +243,8 @@ Panning the Map
 
     4. Release the mouse button and the main map will be panned to an area
        corresponding to that of the Overview Map's zoom window.
+
+.. _sec-find_obj:
 
 Finding an Object
 ~~~~~~~~~~~~~~~~~~
@@ -261,15 +285,22 @@ Finding an Object
    Map Finder. Clicking on any ID label will highlight that node on the
    map.
 
+.. _sec-map_legends:
+
 Map Legends
 ~~~~~~~~~~~
 
-   .. image:: media/image69.jpeg
+   .. _fig-ex_map_legend:
+   .. figure:: media/image69.jpeg
+      :alt: Example EPANET Map Legend
       :align: left
-
+   
+      Example map legend.
+   ..
+ 
    There are three types of map legends that can be
    displayed. The Node and Link Legends associate a color with a range
-   of values for the current parameter being viewed on the map. The Time
+   of values for the current parameter being viewed on the map (see :numref:`fig-ex_map_legend`). The Time
    Legend displays the clock time of the simulation time period being
    viewed. To display or hide any of these legends check or uncheck the
    legend from the **View >> Legends** menu or right- click over the map
@@ -289,13 +320,13 @@ Map Legends
     1. Either select **View >> Legends >> Modify >> Node** or right-click on
        the legend if it is visible.
 
-    2. Use the Legend Editor dialog form that appears (see Figure 7.2) to
+    2. Use the Legend Editor dialog form that appears (see :numref:`fig-legend_ed_dialog`) to
        modify the legend's colors and intervals.
 
 
    A similar method is used to edit the Link Legend.
 
-   The Legend Editor (Figure 7.2) is used to set numerical ranges to
+   The Legend Editor (:numref:`fig-legend_ed_dialog`) is used to set numerical ranges to
    which different colors are assigned for viewing a particular
    parameter on the network map. It works as follows:
 
@@ -322,43 +353,56 @@ Map Legends
 
     -  Check **Framed** if you want a frame drawn around the legend.
 
-      |image108|
-
-   **Figure 7.2** Legend Editor Dialog
+   .. _fig-legend_ed_dialog:
+   .. figure:: media/image70.png
+      :alt: Legend Editor Dialog in EPANET
+   
+      Legend editor dialog.
+   ..
+ 
+.. _sec-overview_map:
 
 Overview Map
 ~~~~~~~~~~~~
-
-   .. image:: media/image71.png
-      :align: left
-
+ 
    The Overview Map allows you to see where in terms of the overall
    system the main network map is currently focused. This zoom area is
-   depicted by the rectangular boundary displayed on the Overview Map.
+   depicted by the rectangular boundary displayed on the Overview Map (:numref:`fig-overview_map`).
    As you drag this rectangle to another position the view within the
    main map will follow suit. The Overview Map can be toggled on and off
    by selecting **View >> Overview Map**. Clicking the mouse on its
    title bar will update its map image to match that of the main network
    map.
 
+   .. _fig-overview_map:
+   .. figure:: media/image71.png
+      :alt: Example Overview Map in EPANET
+   
+      Example of overview map.
+   ..
+
+.. _sec-map_disp_ops:
 
 Map Display Options
 ~~~~~~~~~~~~~~~~~~~
 
    There are several ways to bring up the Map Options dialog form
-   (Figure 7.3) used to change the appearance of the Network Map:
+   (:numref:`fig-map_options`) used to change the appearance of the Network Map:
 
-    -  select **View >> Options**,
+    -  Select **View >> Options**
 
-    -  click the Options button |image110| on the Standard Toolbar when the
-       Map window has the focus,
+    -  Click the Options button |image110| on the Standard Toolbar when the
+       Map window has the focus
 
-    -  right-click on any empty portion of the map and select **Options**
-       from the popup menu that appears.
+    -  Right-click on any empty portion of the map and select **Options**
+       from the popup menu that appears
 
-      |image111|
-
-   **Figure 7.3** Map Options Dialog
+   .. _fig-map_options:
+   .. figure:: media/image72.png
+      :alt: Map Options Dialog in EPANET
+   
+      Map options dialog.
+   ..
 
    The dialog contains a separate page, selected from the panel on the
    left side of the form, for each of the following display option
@@ -385,10 +429,13 @@ Map Display Options
 **Node Options**
 
    The Nodes page of the Map Options dialog controls how nodes are
-   displayed on the Network Map.
+   displayed on the Network Map (:numref:`table-node_op_map`).
 
+.. _table-node_op_map:
+.. table:: Node Options for the Map	
+	
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Node Size                         | Selects node diameter             |
   +-----------------------------------+-----------------------------------+
@@ -406,14 +453,18 @@ Map Display Options
   |                                   | this option is checked).          |
   +-----------------------------------+-----------------------------------+
 
+..
 
 **Link Options**
 
    The Links page of the Map Options dialog controls how links are
-   displayed on the map.
+   displayed on the map (:numref:`table-link_op_map`).
 
+.. _table-link_op_map:
+.. table:: Link Options for the Map	
+	
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Link Size                         | Sets thickness of links displayed |
   |                                   | on map                            |
@@ -423,11 +474,18 @@ Map Display Options
   |                                   | increases in value                |
   +-----------------------------------+-----------------------------------+
 
+..
 
 **Label Options**
 
+   The Label page of the Map Options dialog controls how labels are
+   displayed on the map (:numref:`table-label_op_map`).
+
+.. _table-label_op_map:
+.. table:: Label Options for the Map	
+
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Display Labels                    | Displays map labels (labels will  |
   |                                   | be hidden unless this option is   |
@@ -444,15 +502,19 @@ Map Display Options
   |                                   | meter labels                      |
   +-----------------------------------+-----------------------------------+
 
+..
 
 **Notation Options**
 
    The Notation page of the Map Options dialog form determines what kind
    of annotation is provided alongside of the nodes and links of the
-   map.
+   map (:numref:`table-notation_op_map`).
+
+.. _table-notation_op_map:
+.. table:: Notation Options for the Map	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Display Node IDs                  | Displays node ID labels           |
   +-----------------------------------+-----------------------------------+
@@ -474,18 +536,23 @@ Map Display Options
   |                                   | smaller than this                 |
   +-----------------------------------+-----------------------------------+
 
+..
+
    **Note**: Values of the current viewing parameter at only specific
    nodes and links can be displayed by creating Map Labels with meters
-   for those objects. See Sections 6.2 and 6.4 as well as Table 6.7.
+   for those objects. See :numref:`sec-add_objs` and :numref:`sec-ed_visual_objs` as well as :numref:`table-map_label_prop`.
 
 
 **Symbol Options**
 
    The Symbols page of the Map Options dialog determines which types of
-   objects are represented with special symbols on the map.
+   objects are represented with special symbols on the map (:numref:`table-symbol_op_map`).
+
+.. _table-symbol_op_map:
+.. table:: Symbol Options for the Map	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Display Tanks                     | Displays tank symbols             |
   +-----------------------------------+-----------------------------------+
@@ -504,14 +571,18 @@ Map Display Options
   |                                   | smaller than this                 |
   +-----------------------------------+-----------------------------------+
 
+..
 
 **Flow Arrow Options**
 
    The Flow Arrows page of the Map Options dialog controls how
-   flow-direction arrows are displayed on the network map.
+   flow-direction arrows are displayed on the network map (:numref:`table-flow_arrow_op_map`).
+
+.. _table-flow_arrow_op_map:
+.. table:: Flow Arrow Options for the Map	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Arrow Style                       | Selects style (shape) of arrow to |
   |                                   | display (select None to hide      |
@@ -525,9 +596,10 @@ Map Display Options
   |                                   | smaller than this                 |
   +-----------------------------------+-----------------------------------+
 
+..
+
    **Note**: Flow direction arrows will only be displayed after a
-   network has been successfully analyzed (see Section 8.2 Running an
-   Analysis).
+   network has been successfully analyzed (see :numref:`sec-run_analysis`).
 
 
 **Background Options**

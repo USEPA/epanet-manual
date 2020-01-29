@@ -16,6 +16,7 @@ a report, or the properties of an object selected from the Browser.*
 
 -------
 
+.. _sec-select_printer:
 
 Selecting a Printer
 ~~~~~~~~~~~~~~~~~~~
@@ -26,7 +27,7 @@ Selecting a Printer
     1. Select **File >> Page Setup** from the main menu.
 
     2. Click the **Printer** button on the Page Setup dialog that appears
-       (see Figure 10.1).
+       (see :numref:`fig-Page_Setup`).
 
     3. Select a printer from the choices available in the combo box in the
        next dialog that appears.
@@ -36,16 +37,24 @@ Selecting a Printer
 
     5. Click **OK** on each dialog box to accept your selections.
 
+   .. _fig-Page_Setup:
+   .. figure:: media/image91.png
+      :alt: Page Setup in EPANET
+   
+      Page setup dialog.
+   ..
+
+.. _sec-set_page:
 
 Setting the Page Format
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-   To format the printed page:
+   The Page Setup dialog menu screen is shown in :numref:`fig-Page_Setup`.  To format the printed page:
 
     1. Select **File >> Page Setup** from the main menu.
 
     2. Use the Margins page of the Page Setup dialog form that appears
-       (Figure 10.1) to:
+       (:numref:`fig-Page_Setup`) to:
 
        -  Select a printer
 
@@ -67,12 +76,8 @@ Setting the Page Format
 
     4. Click **OK** to accept your choices.
 
-
-    |image140|
-
-    **Figure 10.1** Page Setup Dialog
-
-
+ .. _sec-print_preview:
+   
 Print Preview
 ~~~~~~~~~~~~~
 
@@ -80,6 +85,8 @@ Print Preview
    menu. A Preview form will appear which shows how each page of the
    object being printed will appear when printed.
 
+
+ .. _sec-print_current_view:
 
 Printing the Current View
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -100,24 +107,32 @@ Printing the Current View
 
     -  Status, Energy, Calibration, and Reaction Reports.
 
+ .. _sec-copy_clipboard:
 
 Copying to the Clipboard or to a File
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    EPANET can copy the text and graphics of the current window being
-   viewed to both the Windows clipboard and to a file. Views that can be
+   viewed to both the Windows clipboard and to a file. The Copy Network Map 
+   menu screen is shown in :numref:`fig-Copy_Network_Map` below. Views that can be
    copied in this fashion include the Network Map, graphs, tables, and
    reports. To copy the current view to the clipboard or to file:
 
     1. Select **Edit >> Copy To** from the main menu or click |image142|.
 
-    2. Select choices from the Copy dialog that appears (see Figure 10.2)
+    2. Select choices from the Copy dialog box that appears
        and click its **OK** button.
 
     3. If you selected to copy-to-file, enter the name of the file in the
        Save As dialog box that appears and click **OK**.
 
-
+   .. _fig-Copy_Network_Map:
+   .. figure:: media/Copy_Network_Map.png
+      :alt: Copy Network Map Dialog in EPANET
+   
+      Copy network map dialog.
+   ..
+   
    Use the Copy dialog as follows to define how you want your data
    copied and to where:
 
@@ -136,11 +151,6 @@ Copying to the Clipboard or to a File
     3. Click **OK** to accept your selections or **Cancel** to cancel the
        copy request.
 
-    |image143|
-
-    **Figure 10.2** Copy Dialog
-
-
-
+    
 
 .. include:: image_subdefs.rst

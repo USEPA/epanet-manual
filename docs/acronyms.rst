@@ -1,7 +1,10 @@
 .. raw:: latex
 
-    \listoftables
+    \clearpage
+	\listoftables
+	\clearpage
 	\listoffigures
+	\clearpage
 	
 Abbreviations
 ======================================

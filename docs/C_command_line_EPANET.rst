@@ -5,7 +5,7 @@
 
 .. _command_line:
 
-C. Command Line EPANET
+Command Line EPANET
 ======================
 
 
@@ -42,6 +42,8 @@ Input File Format
   Network** command. It is organized in sections, where each section
   begins with a keyword enclosed in brackets. The various keywords are
   listed below in :numref:`table-inp_file_format`.
+
+.. tabularcolumns:: |p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|
 
 .. _table-inp_file_format:
 .. table:: EPANET Input File Format	
@@ -214,6 +216,8 @@ Binary Output File Format
   the file to be divided conveniently into 4-byte records. The file
   consists of four sections listed in :numref:`table-binary`.
 
+.. tabularcolumns:: |p{4cm}|p{11cm}|
+
 .. _table-binary:
 .. table:: EPANET Binary Output File Sections and Sizes	
  
@@ -251,6 +255,7 @@ Prolog Section
   The prolog section of the binary output file contains the following
   data listed in :numref:`table-prolog`.
 
+.. tabularcolumns:: |p{6cm}|p{3cm}|p{3cm}|
 .. _table-prolog:
 .. table:: EPANET Binary Output File Prolog Section Data	
  
@@ -426,6 +431,8 @@ Extended Period Section
   section). For each reporting period :numref:`table-extend_period` lists the values that are written
   to the file.
   
+ .. tabularcolumns:: |p{5cm}|p{3cm}|p{4cm}|
+
 .. _table-extend_period:
 .. table:: EPANET Binary Output File Extended Period Section Data	
 
@@ -484,6 +491,9 @@ Epilogue Section
 
   The epilogue section of the binary output file contains the following
   data listed in :numref:`table-epilogue`.
+
+
+.. tabularcolumns:: |p{6cm}|p{3cm}|p{3cm}|
 
 .. _table-epilogue:
 .. table:: EPANET Binary Output File Epilogue Section Data	

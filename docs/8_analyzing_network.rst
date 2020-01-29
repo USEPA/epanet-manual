@@ -1,7 +1,4 @@
-﻿.. raw:: latex
-
-    \clearpage
-
+﻿
 
 .. _analyzing_network:
 
@@ -49,8 +46,11 @@ Setting Analysis Options
    Hydraulic options control how the hydraulic computations are carried
    out. They consist of the following items (:numref:`table-hyd_ops`):
 
+.. tabularcolumns:: |p{3cm}|p{12cm}|
+
 .. _table-hyd_ops:
 .. table:: Hydraulic Options for Hydraulic Analysis	
+  :class: longtable
 
   +-----------------------------------+-----------------------------------+
   | *OPTION*                          | *DESCRIPTION*                     |
@@ -284,6 +284,8 @@ Setting Analysis Options
    Water Quality Options control how the water quality analysis is
    carried out. They consist of the following (:numref:`table-wq_ops`):
 
+.. tabularcolumns:: |p{2.5cm}|p{12cm}|
+
 .. _table-wq_ops:
 .. table:: Water Quality Options for Water Quality Analysis	
 
@@ -349,6 +351,8 @@ Setting Analysis Options
 
    Reaction Options set the types of reactions that apply to a water
    quality analysis. They include the following (:numref:`table-rxn_ops`):
+
+.. tabularcolumns:: |p{3.5cm}|p{12cm}|
 
 .. _table-rxn_ops:
 .. table:: Reaction Options for Water Quality Analysis	
@@ -433,6 +437,8 @@ Setting Analysis Options
    extended period simulation. These are listed below in :numref:`table-time_ops` (times can be
    entered as decimal hours or in hours:minutes notation):
 
+.. tabularcolumns:: |p{3.5cm}|p{12cm}|
+
 .. _table-time_ops:
 .. table:: Times Options for Hydraulic and Water Quality Analysis 	
 
@@ -510,6 +516,8 @@ Setting Analysis Options
    Energy Analysis Options provide default values used to compute
    pumping energy and cost when no specific energy parameters are
    assigned to a given pump. They consist of the following (:numref:`table-energy_ops`):
+
+.. tabularcolumns:: |p{4cm}|p{11cm}|
 
 .. _table-energy_ops:
 .. table:: Energy Options for Hydraulic Analysis	

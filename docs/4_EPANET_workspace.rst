@@ -551,8 +551,16 @@ Program Preferences
   +-----------------------------------+-----------------------------------+
 ..
     
-	Note: The automatic Backup File is placed in the same directory as the input file.  However,
-	the backup file (.bak) is only created for .net type input files, not the .inp text files.
+  Note: The automatic Backup File is placed in the same directory as the input file.  However,
+  the backup file (.bak) is only created for .net type input files, not the .inp text files.  The Preferences
+  Menu screen for the General Tab is shown in :numref:`fig-Preferences_General` below.
+	
+   .. _fig-Preferences_General:
+   .. figure:: media/Preferences_General_Tab.png
+      :alt: Preferences - General Tab
+   
+      Preferences - General Tab
+   ..
 
 **Formatting Preferences**
 

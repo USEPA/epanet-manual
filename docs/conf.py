@@ -38,12 +38,20 @@ release = '2.2'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
+#extensions = [
+#    'sphinx.ext.intersphinx',
+#    'sphinx.ext.todo',
+#    'sphinx.ext.mathjax'
+#]
+extensions = ['sphinx.ext.autodoc',
+    'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
-    'sphinx.ext.mathjax'
-]
-
+    'sphinx.ext.coverage',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.githubpages']
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -117,7 +125,7 @@ htmlhelp_basename = 'EPANETdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
-
+latex_engine = 'pdflatex'
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
@@ -126,7 +134,7 @@ latex_elements = {
     # The font size ('10pt', '11pt' or '12pt').
     #
     'pointsize': '10pt',
-
+    'classoptions': ',oneside',
     # Additional stuff for the LaTeX preamble.
     #
     # 'preamble': '',
@@ -134,6 +142,100 @@ latex_elements = {
     # Latex figure (float) alignment
     #
     # 'figure_align': 'htbp',
+   'maketitle': r'''       
+        \pagenumbering{Roman}
+        \begin{titlepage}
+            \centering
+            \vspace*{40mm} %%% * is used to give space from top
+            \textbf{\Huge {EPANET 2.2 User Manual}}
+            
+            \vspace*{10mm} %%% * is used to give space from top
+            \textbf{\Large {Lew Rossman}}
+            
+            \vspace*{1mm} %%% * is used to give space from top
+            \textbf{\Large {Hyoungmin Woo}}
+            
+            \vspace*{1mm} %%% * is used to give space from top
+            \textbf{\Large {Michael Tryby}}
+            
+            \vspace*{1mm} %%% * is used to give space from top
+            \textbf{\Large {Feng Shang}}
+            
+            \vspace*{1mm} %%% * is used to give space from top
+            \textbf{\Large {Terranna Haxton}}
+        \end{titlepage}
+
+
+        \setcounter{page}{1}
+        \pagenumbering{roman}
+        \tableofcontents
+        \listoffigures
+        \listoftables
+        \chapter*{Disclaimer}
+          This User Manual is an updated version of the EPANET 2 Users Manual
+            (EPA/600/R-00/057) written by Lewis Rossman in 2000. The EPANET 2 software
+            was developed by the United States Environmental Protection Agency (EPA).
+
+            EPANET Version 2.2 includes contributions from EPA and individuals outside
+            the United States Government. It has been subjected to review by the Office of Research and Development and approved for publication. Approval does not signify that the contents reflect the views of the Agency, nor does mention of trade names or commercial products constitute endorsement or recommendation for use. 
+
+            Execution of any EPANET installation program, and modification to system configuration files must be made at the user's own risk. Neither the U.S. EPA nor the program author(s) can assume responsibility for program modification, content, output, interpretation, or usage.
+
+            EPANET installation programs have been extensively tested and verified. However, as for all complex software, these programs may not be completely free of errors and may not be applicable for all cases. In no event will the U.S. EPA be liable for direct, indirect, special, incidental, or consequential damages arising out of the use of the programs and/or associated documentation.
+        \chapter*{ACKNOWLEDGEMENT}
+           The U.S. Environmental Protection Agency acknowledges the individuals that 
+           assisted with the technical review and beta-testing of the EPANET software and user manual.
+        \chapter*{ABBREVIATION}
+            \textbf{CAD}: Computer aided design
+
+            \textbf{CV}: Check valve
+
+            \textbf{DDA}: Demand driven analysis
+
+            \textbf{EPA}: Environmental Protection Agency
+
+            \textbf{EPS}: Extended period simulation
+
+            \textbf{FCV}: Flow control valve
+
+            \textbf{FIFO}: First in first out
+
+            \textbf{GGA}: Global gradient algorithm
+
+            \textbf{GIS}: Geographic information system
+
+            \textbf{GPV}: General purpose valve
+
+            \textbf{LIFO}: Last in first out 
+
+            \textbf{PBV}: Pressure breaker valve
+
+            \textbf{PDA}: Pressure driven analysis
+
+            \textbf{PDD}: Pressure driven demand
+
+            \textbf{PRV}: Pressure reducing valve
+
+            \textbf{PSV}: Pressure sustaining valve 
+
+            \textbf{SI}: International System of Units
+
+            \textbf{TCV}: Throttle control valve
+
+            \textbf{THM}: Trihalomethanes
+
+            \textbf{US}: United States
+
+        ''',
+    'sphinxsetup': \
+        'hmargin={0.7in,0.7in}, vmargin={1in,1in}, \
+        verbatimwithframe=true, \
+        TitleColor={rgb}{0,0,0}, \
+        HeaderFamily=\\rmfamily\\bfseries, \
+        InnerLinkColor={rgb}{0,0,1}, \
+        OuterLinkColor={rgb}{0,0,1}',
+
+        'tableofcontents':' ',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples

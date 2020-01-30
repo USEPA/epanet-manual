@@ -562,6 +562,7 @@ Program Preferences
       Preferences - general tab.
    ..
 
+
 **Formatting Preferences**
 
    The Formats tab of the Preferences dialog box (shown in :numref:`fig-Preferences_Formats`) controls how many

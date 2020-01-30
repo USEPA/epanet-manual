@@ -176,6 +176,3 @@
 ..  |image144| image:: media/image93.png
 ..  |image145| image:: media/image94.png
 ..  |image146| image:: media/image95.png
-
-..  |image200| image:: media/Copy_Network_Map.png
-..  |image201| image:: media/preferences_general_tab.png

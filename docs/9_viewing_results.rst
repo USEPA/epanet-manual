@@ -3,16 +3,18 @@
     \clearpage
 
 
-9. VIEWING RESULTS
-==================
-    
+.. _viewing_results:
+
+Viewing Results
+===============
+
 *This chapter describes the different ways in which the results of an
 analysis as well as the basic network input data can be viewed. These
 include different map views, graphs, tables, and special reports.*
 
 -------
 
-
+.. _sec-view_results_map:
 
 Viewing Results on the Map
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -20,19 +22,19 @@ Viewing Results on the Map
   There are several ways in which database values and results of a
   simulation can be viewed directly on the Network Map:
 
-  -  For the current settings on the Map Browser (see Section 4.6), the
+  -  For the current settings on the Map Browser (see :numref:`sec-map_browser`), the
      nodes and links of the map will be colored according to the color-
-     coding used in the Map Legends (see Section 7.6). The map's coloring
+     coding used in the Map Legends (see :numref:`sec-map_legends`). The map's coloring
      will be updated as a new time period is selected in the Browser.
 
   -  When the Flyover Map Labeling program preference is selected (see
-     Section 4.9), moving the mouse over any node or link will display its
+     :numref:`sec-prog_pref`), moving the mouse over any node or link will display its
      ID label and the value of the current viewing parameter for that node
      or link in a hint-style box.
 
   -  ID labels and viewing parameter values can be displayed next to all
      nodes and/or links by selecting the appropriate options on the
-     Notation page of the Map Options dialog form (see Section 7.8).
+     Notation page of the Map Options dialog form (see :numref:`sec-map_disp_ops`).
 
   -  Nodes or links meeting a specific criterion can be identified by
      submitting a Map Query (see below).
@@ -47,19 +49,21 @@ Viewing Results on the Map
      a DXF file or Windows metafile.
 
 
-
-Submitting a Map Query
-----------------------
+**Submitting a Map Query**
 
   A Map Query identifies nodes or links on the network map that meet a
   specific criterion (e.g., nodes with pressure less than 20 psi, links
-  with velocity above 2 ft/sec, etc.). See Figure 9.1 for an example.
+  with velocity above 2 ft/sec). An example of a map query is provided in :numref:`fig-results_map_query`.
+ 
+  .. _fig-results_map_query:
+  .. figure:: media/image74.png
+     :alt: Results of a Map Query in EPANET
+   
+     Results of a map query.
+  ..
+
   To submit a map query:
-
-    |image115|
-
-    **Figure 9.1** Results of a Map Query
-
+  
     1. Select a time period in which to query the map from the Map Browser.
 
     2. Select **View >> Query** or click |image116| on the Map Toolbar.
@@ -89,55 +93,98 @@ Submitting a Map Query
   After the Query box is closed the map will revert back to its
   original display.
 
-   
+.. _sec-view_results_graph:
+
 Viewing Results with a Graph
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   Analysis results, as well as some design parameters, can be viewed
   using several different types of graphs. Graphs can be printed,
   copied to the Windows clipboard, or saved as a data file or Windows
-  metafile. The following types of graphs can be used to view values
-  for a selected parameter (see Figure 9.2 for examples of each):
+  metafile. :numref:`table-type_plots` lists the types of graphs that can be used to view values
+  for a selected parameter. 
 
+.. tabularcolumns:: |p{4cm}|p{6cm}|p{4cm}|
+
+.. _table-type_plots:
+.. table:: Types of Graphs Available to View Results	
 
   +-----------------------+-----------------------+-----------------------+
-  | *Type of Plot*        | *Description*         | *Applies To*          |
+  | *TYPE OF PLOT*        | *DESCRIPTION*         | *APPLIES TO*          |
   +=======================+=======================+=======================+
   | Time Series Plot      | Plots value versus    | Specific nodes or     |
-  |                       | time                  | links                 |
-  +-----------------------+-----------------------+-----------------------+
-  |                       |                       | over all time periods |
+  |                       | time                  | links over all time   |
+  |                       |                       | periods               |
   +-----------------------+-----------------------+-----------------------+
   | Profile Plot          | Plots value versus    | A list of nodes at a  |
-  |                       | distance              |                       |
-  +-----------------------+-----------------------+-----------------------+
-  |                       |                       | specific time         |
+  |                       | distance              | specific time         |
   +-----------------------+-----------------------+-----------------------+
   | Contour Plot          | Shows regions of the  | All nodes at a        |
-  |                       | map                   | specific time         |
-  +-----------------------+-----------------------+-----------------------+
-  |                       | where values fall     |                       |
+  |                       | map where values fall | specific time         |
   |                       | within specific       |                       |
   |                       | intervals             |                       |
   +-----------------------+-----------------------+-----------------------+
   | Frequency Plot        | Plots value versus    | All nodes or links at |
-  |                       | fraction of           | a specific time       |
-  +-----------------------+-----------------------+-----------------------+
-  |                       | objects at or below   |                       |
-  |                       | the value             |                       |
+  |                       | fraction of objects   | a specific time       |
+  |                       | at or below the value |                       |
   +-----------------------+-----------------------+-----------------------+
   | System Flow           | Plots total system    | Water demand for all  |
-  |                       | production            | nodes over all time   |
-  |                       |                       | periods               |
+  |                       | production and        | nodes over all time   |
+  |                       | consumption versus    | periods               |
+  |                       | time                  |                       |
   +-----------------------+-----------------------+-----------------------+
-  |                       | and consumption       |                       |
-  |                       | versus time           |                       |
-  +-----------------------+-----------------------+-----------------------+
+
+..
 
    **Note**: When only a single node or link is graphed in a Time Series
    Plot the graph will also display any measured data residing in a
    Calibration File that has been registered with the project (see
-   Section 5.3).
+   :numref:`sec-cal_data`).
+
+  :numref:`fig-time_series_plot` is an example of a time series plot that shows the pressure at node 22 for different times in the analysis.
+  
+  .. _fig-time_series_plot:
+  .. figure:: media/image75.png
+     :alt: Example of a Time Series Plot in EPANET
+   
+     Example of a time series plot.
+  ..
+
+  :numref:`fig-profile_plot` is an example of a profile plot that shows the pressure at hour 0 for different distances.
+  
+  .. _fig-profile_plot:
+  .. figure:: media/image76.png
+     :alt: Example of a Profile Plot in EPANET
+   
+     Example of a profile plot.
+  ..
+ 
+  :numref:`fig-contour_plot` is an example of a contour plot that shows the quality contours at hour 16 across the network.
+  
+  .. _fig-contour_plot:
+  .. figure:: media/image79.png
+     :alt: Example of a Contour Plot in EPANET
+   
+     Example of a contour plot.
+  ..
+ 
+  :numref:`fig-frequency_plot` is an example of a frequency plot that shows the frequency of different pressures at hour 0.
+  
+  .. _fig-frequency_plot:
+  .. figure:: media/image77.png
+     :alt: Example of a Frequency Plot in EPANET
+   
+     Example of a frequency plot.
+  ..
+
+  :numref:`fig-system_flow_plot` is an example of a system flow plot that shows the amount of water produced and consumed for the simulation duration.
+  
+  .. _fig-system_flow_plot:
+  .. figure:: media/image78.png
+     :alt: Example of a System Flow Plot in EPANET
+   
+     Example of a system flow plot.
+  ..
 
   To create a graph:
 
@@ -149,12 +196,25 @@ Viewing Results with a Graph
     3. Click **OK** to create the graph.
 
 
-  The Graph Selection dialog, as pictured in Figure 9.3, is used to
-  select a type of graph and its contents to display. The choices
-  available in the dialog consist of the following:
+  The Graph Selection dialog, as pictured in :numref:`fig-graph_select`, is used to
+  select a type of graph and its contents to display. 
+
+  .. _fig-graph_select:
+  .. figure:: media/image80.png
+     :alt: Graph Selection Dialog in EPANET
+   
+     Graph selection dialog.
+  ..
+  
+  :numref:`table-graph_select_ops` lists the choices available in the Graph Selection dialog.
+
+.. tabularcolumns:: |p{3cm}|p{11cm}|
+
+.. _table-graph_select_ops:
+.. table:: Graph Selection Dialog Options	
 
   +-----------------------------------+-----------------------------------+
-  | *Item*                            | *Description*                     |
+  | *ITEM*                            | *DESCRIPTION*                     |
   +===================================+===================================+
   | Graph Type                        | Selects a graph type              |
   +-----------------------------------+-----------------------------------+
@@ -173,23 +233,7 @@ Viewing Results with a Graph
   |                                   | plots)                            |
   +-----------------------------------+-----------------------------------+
 
-
-      |image118|
-
-      |image119|
-
-      |image120|
-
-      |image121|
-
-      |image122|
-
-    **Figure 9.2** Examples of Different Types of Graphs
-
-    
-      |image123|
-
-    **Figure 9.3** Graph Selection Dialog
+..
 
   Time Series plots and Profile plots require one or more objects be
   selected for plotting. To select items into the Graph Selection
@@ -207,12 +251,16 @@ Viewing Results with a Graph
   Data Browser onto the Form’s title bar or onto the Items to Graph
   list box.
 
-  The other buttons on the **Graph Selection** dialog form are used as
-  follows:
+  :numref:`table-graph_select_buttons` lists the other buttons on the 
+  **Graph Selection** dialog form and how they are used.
 
+.. tabularcolumns:: |p{3.5cm}|p{12cm}|
+
+.. _table-graph_select_buttons:
+.. table:: Graph Selection Buttons and Purpose	
 
   +-----------------------------------+-----------------------------------+
-  | *Button*                          | *Purpose*                         |
+  | *BUTTON*                          | *PURPOSE*                         |
   +===================================+===================================+
   | Load (Profile Plot Only)          | Loads a previously saved list of  |
   |                                   | nodes                             |
@@ -229,9 +277,9 @@ Viewing Results with a Graph
   |                                   | down one position                 |
   +-----------------------------------+-----------------------------------+
 
+..
 
-
-   To customize the appearance of a graph:
+  To customize the appearance of a graph:
 
     1. Make the graph the active window (click on its title bar).
 
@@ -239,13 +287,13 @@ Viewing Results with a Graph
        Toolbar, or right-click on the graph.
 
     3. For a Time Series, Profile, Frequency or System Flow plot, use the
-       resulting Graph Options dialog (Figure 9.4) to customize the graph's
+       resulting Graph Options dialog (:numref:`fig-graph_ops`) to customize the graph's
        appearance.
 
     4. For a Contour plot use the resulting Contour Options dialog to
        customize the plot.
 
-    
+
 
     **Note**: A Time Series, Profile, or Frequency plot can be zoomed by
     holding down the **Ctrl** key while drawing a zoom rectangle with the
@@ -254,20 +302,23 @@ Viewing Results with a Graph
     also be panned in any direction by holding down the **Ctrl** key and
     moving the mouse across the plot with the right button held down.
 
-   The Graph Options dialog form (Figure 9.4) is used to customize the
-   appearance of an X-Y graph. To use the dialog box:
+  .. _fig-graph_ops:
+  .. figure:: media/image81.png
+     :alt: Graph Options Dialog in EPANET
+   
+     Graph options dialog.
+  ..
+  
+  The Graph Options dialog form (:numref:`fig-graph_ops`) is used to customize the
+  appearance of an X-Y graph. To use the dialog box:
 
     1. Select from among the five tabbed pages that cover the following
        categories of options:
 
        -  General
-
        -  Horizontal Axis
-
        -  Vertical Axis
-
        -  Legend
-
        -  Series
 
     2. Check the **Default** box if you wish to use the current settings as
@@ -275,16 +326,19 @@ Viewing Results with a Graph
 
     3. Select **OK** to accept your selections.
 
-    
 
-   The items contained on each page of the Graph Options dialog are as
-   follows:
 
-General Page
-------------
+  The options contained on each tab of the Graph Options dialog are described below.
+
+  :numref:`table-graph_ops_general` lists the options on the General tab.
+
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
+
+.. _table-graph_ops_general:
+.. table:: Graph Options General Tab	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Panel Color                       | Color of the panel which          |
   |                                   | surrounds the graph’s plotting    |
@@ -305,16 +359,17 @@ General Page
   |                                   | the main title                    |
   +-----------------------------------+-----------------------------------+
 
+..
+  
+  :numref:`table-graph_ops_horizontal` lists the options on the Horizontal and Vertical Axis tabs.
 
-   |image125|
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
 
-   **Figure 9.4** Graph Options Dialog
-
-   Horizontal and Vertical Axis Pages
-
+.. _table-graph_ops_horizontal:
+.. table:: Graph Options Horizontal and Vertical Axis Tabs	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Minimum                           | Sets minimum axis value (minimum  |
   |                                   | data value is shown in            |
@@ -339,14 +394,17 @@ General Page
   |                                   | the axis title.                   |
   +-----------------------------------+-----------------------------------+
 
+..
+  
+  :numref:`table-graph_ops_legend` lists the options on the Legend tab.
 
+.. tabularcolumns:: |p{2.5cm}|p{13cm}|
 
-   Legend Page
-
-
+.. _table-graph_ops_legend:
+.. table:: Graph Options Legend Tab	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Position                          | Selects where to place the        |
   |                                   | legend.                           |
@@ -363,12 +421,9 @@ General Page
   | Visible                           | Makes the legend visible.         |
   +-----------------------------------+-----------------------------------+
 
+..
 
-   
-Series Page
------------
-
-   The Series page (see Figure 9.4) of the Graph Options dialog controls
+   The Series tab (see :numref:`fig-graph_ops`) of the Graph Options dialog controls
    how individual data series (or curves) are displayed on a graph. To
    use this page:
 
@@ -383,22 +438,23 @@ Series Page
        choices are:
 
        -  Lines
-
        -  Markers
-
        -  Patterns
-
        -  Labels
 
        (Not all properties are available for some types of graphs.)
 
-   The data series properties that can be modified include the
-   following:
+   The data series properties that can be modified on the Series tab are listed in :numref:`table-graph_ops_series`.
+
+.. tabularcolumns:: |p{2cm}|p{3.5cm}|p{10cm}|
+
+.. _table-graph_ops_series:
+.. table:: Graph Options Series Tab	
 
     +-----------------------+-----------------------+-----------------------+
-    |    *Category*         |    *Option*           |    *Description*      |
+    |    *CATEGORY*         |    *OPTION*           |    *DESCRIPTION*      |
     +=======================+=======================+=======================+
-    |    *Lines*            |    Style              |    Selects line       |
+    | *Lines*               |    Style              |    Selects line       |
     |                       |                       |    style.             |
     +-----------------------+-----------------------+-----------------------+
     |                       |    Color              |    Selects line       |
@@ -457,18 +513,27 @@ Series Page
     |                       |                       |    or not.            |
     +-----------------------+-----------------------+-----------------------+
 
+..
 
-
-   The Contour Options dialog form (Figure 9.5) is used to customize the
+   The Contour Options dialog form (:numref:`fig-contour_plot_ops`) is used to customize the
    appearance of a contour graph. A description of each option is
-   provided below:
+   provided in :numref:`table-contour_plot_ops`.
 
-    |image126|
 
-    **Figure 9.5** Contour Plot Options Dialog
+  .. _fig-contour_plot_ops:
+  .. figure:: media/image82.png
+     :alt: Contour Plot Options Dialog in EPANET
+   
+     Contour plot options dialog.
+  ..
+
+.. tabularcolumns:: |p{2cm}|p{3.5cm}|p{10cm}|
+
+.. _table-contour_plot_ops:
+.. table:: Contour Plot Options Dialog	
 
     +-----------------------+-----------------------+-----------------------+
-    |    *Category*         |    *Option*           |    *Description*      |
+    |    *CATEGORY*         |    *OPTION*           |    *DESCRIPTION*      |
     +=======================+=======================+=======================+
     |    *Legend*           |    Display Legend     |    Toggles display of |
     |                       |                       |    legend on/off      |
@@ -511,11 +576,15 @@ Series Page
     |                       |                       |    contour plot       |
     +-----------------------+-----------------------+-----------------------+
 
+..
+
+.. _sec-view_results_table:
+
 Viewing Results with a Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   EPANET allows you to view selected project data and analysis results
-   in a tabular format:
+  EPANET allows you to view selected project data and analysis results
+  in a tabular format:
 
     -  A Network Table lists properties and results for all nodes or links
        at a specific period of time.
@@ -525,39 +594,45 @@ Viewing Results with a Table
 
 
 
-   Tables can be printed, copied to the Windows clipboard, or saved to
-   file. An example table is shown in Figure 9.6.
+  Tables can be printed, copied to the Windows clipboard, or saved to
+  file. An example table is shown in :numref:`fig-ex_network_table`.
 
-   To create a table:
+  .. _fig-ex_network_table:
+  .. figure:: media/image83.png
+     :alt: Example Network Table for Nodes in EPANET
+   
+     Example network table for nodes.
+  ..
+
+  To create a table:
 
     1. Select **View >> Table** or click |image127| on the Standard Toolbar.
 
     2. Use the Table Options dialog box that appears to select:
 
-       -  the type of table
+       -  The type of table
 
-       -  the quantities to display in each column
+       -  The quantities to display in each column
 
-       -  any filters to apply to the data
+       -  Any filters to apply to the data
 
-      |image128|
 
-     **Figure 9.6** Example Network Nodes Table
+  The Table Selection options dialog form has three tabs as shown in
+  :numref:`fig-table_select`. All three tabs are available when a table is first
+  created. After the table is created, only the Columns and Filters
+  tabs will appear. The options available on each tab are as follows:
 
-   The Table Options dialog form has three tabbed pages as shown in
-   Figure 9.7. All three pages are available when a table is first
-   created. After the table is created, only the Columns and Filters
-   tabs will appear. The options available on each page are as follows:
+  .. _fig-table_select:
+  .. figure:: media/image84.png
+     :alt: Table Selection Dialog in EPANET
+   
+     Table selection dialog.
+  ..
 
-      |image129|
+**Type Tab**
 
-     **Figure 9.7** Table Selection Dialog
-
-Type Page
-----------
-
-   The Type page of the Table Options dialog is used to select the type
-   of table to create. The choices are:
+  The Type tab of the Table Options dialog is used to select the type
+  of table to create. The choices are:
 
     -  All network nodes at a specific time period
 
@@ -568,14 +643,14 @@ Type Page
     -  All time periods for a specific link
 
 
-   Data fields are available for selecting the time period or node/link
-   to which the table applies.
+  Data fields are available for selecting the time period or node/link
+  to which the table applies.
 
-Columns Page
--------------
 
-   The Columns page of the Table Options dialog form (Figure 9.8)
-   selects the parameters that are displayed in the table’s columns.
+**Columns Tab**
+
+  The Columns tab of the Table Options dialog form (:numref:`fig-columns_tab`)
+  selects the parameters that are displayed in the table’s columns.
 
     -  Click the checkbox next to the name of each parameter you wish to
        include in the table, or if the item is already selected, click in
@@ -589,36 +664,39 @@ Columns Page
        parameter does not have to be selected as one of the columns in the
        table.) Time Series tables cannot be sorted.
 
-      |image130|
 
-     **Figure 9.8** Columns Page of the Table Selection Dialog
+  .. _fig-columns_tab:
+  .. figure:: media/image85.png
+     :alt: Columns Tab of the Table Selection Dialog in EPANET
+   
+     Columns tab of the table selection dialog.
+  ..
 
-Filters Page
--------------
+**Filters Tab**
 
-   The Filters page of the Table Options dialog form (Figure 9.9) is
+   The Filters tab of the Table Options dialog form (:numref:`fig-filters_tab`) is
    used to define conditions for selecting items to appear in a table.
    To filter the contents of a table:
 
-    -  Use the controls at the top of the page to create a condition (e.g.,
-       Pressure Below 20).
+    -  Use the controls at the top of the page to create a condition (e.g., Pressure Below 20).
 
     -  Click the **Add** button to add the condition to the list.
 
-    -  Use the **Delete** button to remove a selected condition from the
-       list.
+    -  Use the **Delete** button to remove a selected condition from the list.
 
+  .. _fig-filters_tab:
+  .. figure:: media/image86.png
+     :alt: Filters Tab of the Table Selection Dialog in EPANET
+   
+     Filters tab of the table selection dialog.
+  ..
 
    Multiple conditions used to filter the table are connected by AND's.
    If a table has been filtered, a re-sizeable panel will appear at the
    bottom indicating how many items have satisfied the filter
    conditions.
-
-      |image131|
-
-     **Figure 9.9** Filters Page of the Table Selection Dialog
-
-   Once a table has been created you can add/delete columns or sort or
+ 
+   Once a table has been created, you can add/delete columns or sort or
    filter its data:
 
     -  Select **Report >> Options** or click |image132| on the Standard
@@ -626,6 +704,9 @@ Filters Page
 
     -  Use the Columns and Filters pages of the Table Selection dialog form
        to modify your table.
+
+
+.. _sec-view_special_reports:
 
 Viewing Special Reports
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -643,90 +724,99 @@ Viewing Special Reports
 
     -  Full Report
 
-
-
    All of these reports can be printed, copied to a file, or copied to
    the Windows clipboard (the Full Report can only be saved to file.)
 
-Status Report
---------------
 
-   EPANET writes all error and warning messages generated during an
-   analysis to a Status Report (see Figure 9.10). Additional information
-   on when network objects change status is also written to this report
-   if the Status Report option in the project's Hydraulics Options was
-   set to Yes or Full. To view a status report on the most recently
-   completed analysis select **Report >> Status** from the main menu.
+**Status Report**
 
-      |image133|
+  EPANET writes all error and warning messages generated during an
+  analysis to a Status Report (see :numref:`fig-ex_status_report`). Additional information
+  on when network objects change status and a final mass balance accounting 
+  for water quality analysis are also written to this report
+  if the Status Report option in the project's Hydraulics Options was
+  set to Yes or Full. For pressure driven analysis, node demand deficiency will also be reported in the status report.
+  To view a status report on the most recently
+  completed analysis select **Report >> Status** from the main menu.
+ 
+  .. _fig-ex_status_report:
+  .. figure:: media/image87.png
+     :alt: Excerpt from an Example Status Report in EPANET
+   
+     Excerpt from an example status report.
+  ..
 
-     **Figure 9.10** Excerpt from a Status Report
+**Energy Report**
 
-Energy Report
---------------
+  EPANET can generate an Energy Report that displays statistics about
+  the energy consumed by each pump and the cost of this energy usage
+  over the duration of a simulation (see :numref:`fig-ex_energy_report`). To generate an
+  Energy Report select **Report >> Energy** from the main menu. The
+  report has two tabs, Table and Chart. One displays energy usage by pump in a
+  tabular format. The second compares a selected energy statistic
+  between pumps using a bar chart.
 
-   EPANET can generate an Energy Report that displays statistics about
-   the energy consumed by each pump and the cost of this energy usage
-   over the duration of a simulation (see Figure 9.11). To generate an
-   Energy Report select **Report >> Energy** from the main menu. The
-   report has two tabbed pages. One displays energy usage by pump in a
-   tabular format. The second compares a selected energy statistic
-   between pumps using a bar chart.
+  .. _fig-ex_energy_report:
+  .. figure:: media/image88.png
+     :alt: Example Energy Report in EPANET
+   
+     Example energy report.
 
-      |image134|
+  ..	 
+   
+**Calibration Report**
 
-     **Figure 9.11** Example Energy Report
-
-Calibration Report
--------------------
-
-   A Calibration Report can show how well EPANET's simulated results
-   match measurements taken from the system being modeled. To create a
-   Calibration Report:
+  A Calibration Report can show how well EPANET's simulated results
+  match measurements taken from the system being modeled. To create a
+  Calibration Report:
 
     1. First make sure that Calibration Data for the quantity being
-       calibrated has been registered with the project (see Section 5.3).
+       calibrated has been registered with the project (see :numref:`sec-cal_data`).
 
     2. Select **Report >> Calibration** from the main menu.
 
-    3. In the Calibration Report Options form that appears (see Figure
-       9.12):
+    3. In the Calibration Report Options form that appears (see :numref:`fig-cal_report_ops`):
 
-       -  select a parameter to calibrate against
+       -  Select a parameter to calibrate against
 
-       -  select the measurement locations to use in the report
+       -  Select the measurement locations to use in the report
 
     4. Click **OK** to create the report.
 
+  .. _fig-cal_report_ops:
+  .. figure:: media/image89.png
+     :alt: Calibration Report Options Dialog in EPANET
+   
+     Calibration report options dialog.
 
+  ..	 
+    
+  After the report is created the Calibration Report Options form can
+  be recalled to change report options by selecting **Report >>
+  Options** or by clicking |image135| on the Standard Toolbar when the
+  report is the current active window in EPANET’s workspace.
 
-   After the report is created the Calibration Report Options form can
-   be recalled to change report options by selecting **Report >>
-   Options** or by clicking |image135| on the Standard Toolbar when the
-   report is the current active window in EPANET’s workspace.
+  A sample Calibration Report is shown in :numref:`fig-ex_cal_report`. It contains
+  three tabbed pages: Statistics, Correlation Plot, and Mean
+  Comparisons.
 
-   A sample Calibration Report is shown in Figure 9.13. It contains
-   three tabbed pages: Statistics, Correlation Plot, and Mean
-   Comparisons.
+  .. _fig-ex_cal_report:
+  .. figure:: media/image90.png
+     :alt: Example of a Calibration Report in EPANET
+   
+     Example of a calibration report.
 
-Statistics Page
-----------------
+  ..	 
+   
+  *Statistics Tab*
 
-   The Statistics page of a Calibration Report lists various error
+   The Statistics tab of a Calibration Report lists various error
    statistics between simulated and observed values at each measurement
    location and for the network as a whole. If a measured value at a
    location was taken at a time in-between the simulation's reporting
    time intervals then a simulated value for that time is found by
    interpolating between the simulated values at either end of the
    interval.
-
-      |image136|
-
-     **Figure 9.12** Calibration Report Options Dialog
-
-      |image137|
-
-     **Figure 9.13** Example Calibration Report
 
    The statistics listed for each measurement location are:
 
@@ -739,253 +829,87 @@ Statistics Page
     -  Mean absolute error between each observed and simulated value
 
     -  Root mean square error (square root of the mean of the squared errors
-       between the observed and simulated values).
-
-
+       between the observed and simulated values)
 
    These statistics are also provided for the network as a whole (i.e.,
    all measurements and model errors pooled together). Also listed is
    the correlation between means (correlation coefficient between the
    mean observed value and mean simulated value at each location).
 
-   **Correlation Plot Page**
+   *Correlation Plot Tab*
 
-   The Correlation Plot page of a Calibration Report displays a scatter
+   The Correlation Plot tab of a Calibration Report displays a scatter
    plot of the observed and simulated values for each measurement made
    at each location. Each location is assigned a different color in the
    plot. The closer that the points come to the 45-degree angle line on
    the plot the closer is the match between observed and simulated
    values.
 
-   **Mean Comparisons Page**
+   *Mean Comparisons Tab*
 
-   The Mean Comparisons page of a Calibration Report presents a bar
+   The Mean Comparisons tab of a Calibration Report presents a bar
    chart that compares the mean observed and mean simulated value for a
    calibration parameter at each location where measurements were taken.
 
-   **Reaction Report**
+**Reaction Report**
 
-   A Reaction Report, available when modeling the fate of a reactive
-   water quality constituent, graphically depicts the overall average
-   reaction rates occurring throughout the network in the following
-   locations:
+  A Reaction Report, available when modeling the fate of a reactive
+  water quality constituent, graphically depicts the overall average
+  reaction rates occurring throughout the network in the following
+  locations:
 
-    -  the bulk flow
+    -  The bulk flow
 
-    -  the pipe wall
+    -  The pipe wall
 
-    -  within storage tanks.
+    -  Within storage tanks
 
+  A pie chart shows what percent of the overall reaction rate is
+  occurring in each location. The chart legend displays the average
+  rates in mass units per hour. A footnote on the chart shows the
+  inflow rate of the reactant into the system.
 
+  The information in the Reaction Report can show at a glance what
+  mechanism is responsible for the majority of growth or decay of a
+  substance in the network. For example, if one observes that most of
+  the chlorine decay in a system is occurring in the storage tanks and
+  not at the walls of the pipes then one might infer that a corrective
+  strategy of pipe cleaning and replacement will have little effect in
+  improving chlorine residuals.
 
-   A pie chart shows what percent of the overall reaction rate is
-   occurring in each location. The chart legend displays the average
-   rates in mass units per hour. A footnote on the chart shows the
-   inflow rate of the reactant into the system.
+  A Graph Options dialog box can be called up to modify the appearance
+  of the pie chart by selecting **Report >> Options** or by clicking
+  |image138| on the Standard Toolbar, or by right-clicking anywhere on
+  the chart.
 
-   The information in the Reaction Report can show at a glance what
-   mechanism is responsible for the majority of growth or decay of a
-   substance in the network. For example, if one observes that most of
-   the chlorine decay in a system is occurring in the storage tanks and
-   not at the walls of the pipes then one might infer that a corrective
-   strategy of pipe cleaning and replacement will have little effect in
-   improving chlorine residuals.
+**Full Report**
 
-   A Graph Options dialog box can be called up to modify the appearance
-   of the pie chart by selecting **Report >> Options** or by clicking
-   |image138| on the Standard Toolbar, or by right-clicking anywhere on
-   the chart.
+  When the |image139| icon appears in the Run Status section of the
+  Status Bar, a report of computed results for all nodes, links and
+  time periods can be saved to file by selecting **Full** from the
+  **Report** menu. This report, which can be viewed or printed outside
+  of EPANET using any text editor or word processor, contains the
+  following information:
 
-   **Full Report**
+    -  Project title and notes
 
-   When the |image139| icon appears in the Run Status section of the
-   Status Bar, a report of computed results for all nodes, links and
-   time periods can be saved to file by selecting **Full** from the
-   **Report** menu. This report, which can be viewed or printed outside
-   of EPANET using any text editor or word processor, contains the
-   following information:
+    -  A table listing the end nodes, length, and diameter of each link
 
-    -  project title and notes
+    -  A table listing energy usage statistics for each pump
 
-    -  a table listing the end nodes, length, and diameter of each link
-
-    -  a table listing energy usage statistics for each pump
-
-    -  a pair of tables for each time period listing computed values for
+    -  A pair of tables for each time period listing computed values for
        each node (demand, head, pressure, and quality) and for each link
-       (flow, velocity, headloss, and status).
+       (flow, velocity, headloss, and status)
 
-..
 
-   This feature is useful mainly for documenting the final results of a
-   network analysis on small to moderately sized networks (full report
-   files for large networks analyzed over many time periods can easily
-   consume dozens of megabytes of disk space). The other reporting tools
-   described in this chapter are available for viewing computed results
-   on a more selective basis.
+  This feature is useful mainly for documenting the final results of a
+  network analysis on small to moderately sized networks (full report
+  files for large networks analyzed over many time periods can easily
+  consume dozens of megabytes of disk space). The other reporting tools
+  described in this chapter are available for viewing computed results
+  on a more selective basis.
 
-..  |image0| image:: media/image1.jpeg
-..  |image1| image:: media/image2.png
-..  |image2| image:: media/image3.png
-..  |image3| image:: media/image4.png
-..  |image4| image:: media/image5.png
-..  |image5| image:: media/image6.png
-..  |image6| image:: media/image7.png
-..  |image7| image:: media/image8.png
-..  |image8| image:: media/image9.png
-..  |image9| image:: media/image10.png
-..  |image10| image:: media/image11.png
-..  |image11| image:: media/image12.png
-..  |image12| image:: media/image13.png
-..  |image13| image:: media/image12.png
-..  |image14| image:: media/image14.jpeg
-..  |image15| image:: media/image15.png
-..  |image16| image:: media/image16.jpeg
-..  |image17| image:: media/image17.png
-..  |image18| image:: media/image18.png
-..  |image19| image:: media/image19.png
-..  |image20| image:: media/image20.png
-..  |image21| image:: media/image21.png
-..  |image22| image:: media/image16.jpeg
-..  |image23| image:: media/image22.png
-..  |image24| image:: media/image18.png
-..  |image25| image:: media/image23.png
-..  |image26| image:: media/image24.png
-..  |image27| image:: media/image25.png
-..  |image28| image:: media/image26.png
-..  |image29| image:: media/image27.png
-..  |image30| image:: media/image28.png
-..  |image31| image:: media/image29.png
-    :width: 250pt
-    :align: middle
 
-..  |image31-2| image:: media/image29-2.png
-    :width: 250pt
-    :align: middle
-    
-..  |image32| image:: media/image30-2.png
-    :width: 250pt
-    :align: middle
-    
-..  |image32-2| image:: media/image30.png
-    :width: 250pt
-    :align: middle
-    
-..  |image33| image:: media/image31.png
-..  |image34| image:: media/image32.png
-..  |image35| image:: media/image33.png
-..  |image36| image:: media/image34.png
-..  |image36-2| image:: media/image36-2.png
-..  |image37| image:: media/image35.png
-..  |image38| image:: media/image36.png
-..  |image39| image:: media/image37.png
-..  |image40| image:: media/image38.png
-..  |image41| image:: media/image39.png
-..  |image42| image:: media/image40.png
-..  |image43| image:: media/image41.png
-..  |image44| image:: media/image42.png
-..  |image45| image:: media/image43.png
-..  |image46| image:: media/image44.png
-..  |image47| image:: media/image45.png
-..  |image48| image:: media/image18.png
-..  |image49| image:: media/image25.png
-..  |image50| image:: media/image19.png
-..  |image51| image:: media/image46.png
-..  |image52| image:: media/image12.png
-..  |image53| image:: media/image13.png
-..  |image54| image:: media/image47.png
-..  |image55| image:: media/image48.png
-..  |image56| image:: media/image49.png
-..  |image57| image:: media/image50.png
-..  |image58| image:: media/image51.png
-..  |image59| image:: media/image6.png
-..  |image60| image:: media/image5.png
-..  |image61| image:: media/image7.png
-..  |image62| image:: media/image9.png
-..  |image63| image:: media/image10.png
-..  |image64| image:: media/image52.png
-..  |image65| image:: media/image11.png
-..  |image66| image:: media/image53.jpeg
-..  |image67| image:: media/image54.jpeg
-..  |image68| image:: media/image55.png
-..  |image69| image:: media/image57.png
-..  |image70| image:: media/image58.png
-..  |image71| image:: media/image59.png
-..  |image72| image:: media/image38.png
-..  |image73| image:: media/image39.png
-..  |image74| image:: media/image40.png
-..  |image75| image:: media/image2.png
-..  |image76| image:: media/image60.png
-..  |image77| image:: media/image61.png
-..  |image78| image:: media/image6.png
-..  |image79| image:: media/image5.png
-..  |image80| image:: media/image7.png
-..  |image81| image:: media/image16.jpeg
-..  |image82| image:: media/image9.png
-..  |image83| image:: media/image10.png
-..  |image84| image:: media/image52.png
-..  |image85| image:: media/image11.png
-..  |image86| image:: media/image12.png
-..  |image87| image:: media/image14.jpeg
-..  |image88| image:: media/image14.jpeg
-..  |image89| image:: media/image17.png
-..  |image90| image:: media/image22.png
-..  |image91| image:: media/image62.png
-..  |image92| image:: media/image63.png
-..  |image93| image:: media/image64.png
-..  |image94| image:: media/image13.png
-..  |image95| image:: media/image65.png
-..  |image96| image:: media/image44.png
-..  |image97| image:: media/image47.png
-..  |image98| image:: media/image44.png
-..  |image99| image:: media/image66.png
-..  |image100| image:: media/image67.png
-..  |image101| image:: media/image68.png
-..  |image102| image:: media/image49.png
-..  |image103| image:: media/image50.png
-..  |image104| image:: media/image48.png
-..  |image105| image:: media/image42.png
-..  |image106| image:: media/image42.png
-..  |image107| image:: media/image69.jpeg
-..  |image108| image:: media/image70.png
-..  |image109| image:: media/image71.png
-..  |image110| image:: media/image46.png
-..  |image111| image:: media/image72.png
-..  |image112| image:: media/image14.jpeg
-..  |image113| image:: media/image18.png
-..  |image114| image:: media/image73.png
-..  |image115| image:: media/image74.png
-..  |image116| image:: media/image45.png
-..  |image117| image:: media/image25.png
-..  |image118| image:: media/image75.png
-..  |image119| image:: media/image76.png
-..  |image120| image:: media/image77.png
-..  |image121| image:: media/image78.png
-..  |image122| image:: media/image79.png
-..  |image123| image:: media/image80.png
-..  |image124| image:: media/image46.png
-..  |image125| image:: media/image81.png
-..  |image126| image:: media/image82.png
-..  |image127| image:: media/image19.png
-..  |image128| image:: media/image83.png
-..  |image129| image:: media/image84.png
-..  |image130| image:: media/image85.png
-..  |image131| image:: media/image86.png
-..  |image132| image:: media/image46.png
-..  |image133| image:: media/image87.png
-..  |image134| image:: media/image88.png
-..  |image135| image:: media/image46.png
-..  |image136| image:: media/image89.png
-..  |image137| image:: media/image90.png
-..  |image138| image:: media/image46.png
-..  |image139| image:: media/image73.png
-..  |image140| image:: media/image91.png
-..  |image141| image:: media/image41.png
-..  |image142| image:: media/image43.png
-..  |image143| image:: media/image92.png
-..  |image144| image:: media/image93.png
-..  |image145| image:: media/image94.png
-..  |image146| image:: media/image95.png
-..  |image147| image:: media/image96.png
-..  |image148| image:: media/image98.png
 
+
+   .. include:: image_subdefs.rst

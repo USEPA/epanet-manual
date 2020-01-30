@@ -3,9 +3,10 @@
     \clearpage
 
 
+.. _map:
 
-7. WORKING WITH THE MAP
-=======================
+Working with the Map
+====================
 
 
 *EPANET displays a map of the pipe network being modeled. This
@@ -14,12 +15,12 @@ visualization of the system being modeled.*
 
 -------
 
-
+.. _sec-select_map_view:
 
 Selecting a Map View
 ~~~~~~~~~~~~~~~~~~~~
 
-   One uses the Map Page of the Browser (Section 4.7) to select a node
+   One uses the Map Page of the Browser (:numref:`sec-map_browser`) to select a node
    and link parameter to view on the map. Parameters are viewed on the
    map by using colors, as specified in the Map Legends (see below), to
    display different ranges of values.
@@ -70,7 +71,9 @@ Selecting a Map View
 
    The items marked with asterisks are computed quantities whose values
    will only be available if a successful analysis has been run on the
-   network (see Chapter 8 – Analyzing a Network).
+   network (see Chapter :ref:`analyzing_network`).
+
+.. _sec-set_map_dimensions:
 
 Setting the Map’s Dimensions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -82,21 +85,28 @@ Setting the Map’s Dimensions
       1. Select **View >> Dimensions**.
 
       2. Enter new dimension information into the Map Dimensions dialog that
-         appears (see Figure 7.1) or click the **Auto-Size** button to have
+         appears (see :numref:`fig-map_dimensions_dialog`) or click the **Auto-Size** button to have
          EPANET compute dimensions based on the coordinates of objects
          currently included in the network.
 
       3. Click the **OK** button to re-size the map.
 
-      |image100|
-
-   **Figure 7.1** Map Dimensions Dialog
+   
+   .. _fig-map_dimensions_dialog:
+   .. figure:: media/image67.png
+      :alt: Map Dimensions Dialog in EPANET
+   
+      Map dimensions dialog.
+   ..
 
    The information provided in the Map Dimensions dialog consists of the
-   following:
+   following (:numref:`table-map_dimensions_prop`):
+   
+.. _table-map_dimensions_prop:
+.. table:: Map Dimensions Properties	
 
   +-----------------------------------+-----------------------------------+
-  | *Item*                            | *Description*                     |
+  | *ITEM*                            | *DESCRIPTION*                     |
   +===================================+===================================+
   | Lower Left Coordinates            | The X and Y coordinates of the    |
   |                                   | lower left point on the map.      |
@@ -110,12 +120,16 @@ Setting the Map’s Dimensions
   |                                   | arbitrary units).                 |
   +-----------------------------------+-----------------------------------+
 
+..
+
    **Note:** If you are going to use a backdrop map with automatic pipe
    length calculation, then it is recommended that you set the map
    dimensions immediately after creating a new project. Map distance
    units can be different from pipe length units. The latter (feet or
    meters) depend on whether flow rates are expressed in US or metric
    units. EPANET will automatically convert units if necessary.
+
+.. _sec-util_backdrop:
 
 Utilizing a Backdrop Map
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -125,15 +139,20 @@ Utilizing a Backdrop Map
    site development plan, or any other picture or drawing that might be
    useful. For example, using a street map would simplify the process of
    adding pipes to the network since one could essentially digitize the
-   network’s nodes and links directly on top of it.
-
-      |image101|
-
+   network’s nodes and links directly on top of it (:numref:`fig-ex_backdrop`).
+   
+   .. _fig-ex_backdrop:
+   .. figure:: media/image68.png
+      :alt: Example Backdrop
+   
+      Example backdrop.
+   ..
+ 
    The backdrop map must be a Windows enhanced metafile or bitmap
    created outside of EPANET. Once imported, its features cannot be
    edited, although its scale and extent will change as the map window
    is zoomed and panned. For this reason metafiles work better than
-   bitmaps since they will not loose resolution when re- scaled. Most
+   bitmaps since they will not loose resolution when re-scaled. Most
    CAD and GIS programs have the ability to save their drawings and maps
    as metafiles.
 
@@ -167,6 +186,8 @@ Utilizing a Backdrop Map
        aspect ratio (width-to-height ratio) as the backdrop.
 
 
+.. _sec-zoom_map:
+
 Zooming the Map
 ~~~~~~~~~~~~~~~
 
@@ -192,6 +213,8 @@ Zooming the Map
 
     3. The map will be returned to its previous zoom level.
 
+.. _sec-pan_map:
+
 Panning the Map
 ~~~~~~~~~~~~~~~
 
@@ -206,7 +229,7 @@ Panning the Map
 
 
 
-   To pan using the Overview Map (which is described in Section 7.7
+   To pan using the Overview Map (which is described in :numref:`sec-overview_map`
    below):
 
     1. If not already visible, bring up the Overview Map by selecting
@@ -220,6 +243,8 @@ Panning the Map
 
     4. Release the mouse button and the main map will be panned to an area
        corresponding to that of the Overview Map's zoom window.
+
+.. _sec-find_obj:
 
 Finding an Object
 ~~~~~~~~~~~~~~~~~~
@@ -260,12 +285,22 @@ Finding an Object
    Map Finder. Clicking on any ID label will highlight that node on the
    map.
 
+.. _sec-map_legends:
+
 Map Legends
 ~~~~~~~~~~~
 
-   |image107|\ There are three types of map legends that can be
+   .. _fig-ex_map_legend:
+   .. figure:: media/image69.jpeg
+      :alt: Example EPANET Map Legend
+      :align: left
+   
+      Example map legend.
+   ..
+   
+   There are three types of map legends that can be
    displayed. The Node and Link Legends associate a color with a range
-   of values for the current parameter being viewed on the map. The Time
+   of values for the current parameter being viewed on the map (see :numref:`fig-ex_map_legend`). The Time
    Legend displays the clock time of the simulation time period being
    viewed. To display or hide any of these legends check or uncheck the
    legend from the **View >> Legends** menu or right- click over the map
@@ -285,13 +320,13 @@ Map Legends
     1. Either select **View >> Legends >> Modify >> Node** or right-click on
        the legend if it is visible.
 
-    2. Use the Legend Editor dialog form that appears (see Figure 7.2) to
+    2. Use the Legend Editor dialog form that appears (see :numref:`fig-legend_ed_dialog`) to
        modify the legend's colors and intervals.
 
 
    A similar method is used to edit the Link Legend.
 
-   The Legend Editor (Figure 7.2) is used to set numerical ranges to
+   The Legend Editor (:numref:`fig-legend_ed_dialog`) is used to set numerical ranges to
    which different colors are assigned for viewing a particular
    parameter on the network map. It works as follows:
 
@@ -318,45 +353,56 @@ Map Legends
 
     -  Check **Framed** if you want a frame drawn around the legend.
 
-      |image108|
-
-   **Figure 7.2** Legend Editor Dialog
+   .. _fig-legend_ed_dialog:
+   .. figure:: media/image70.png
+      :alt: Legend Editor Dialog in EPANET
+   
+      Legend editor dialog.
+   ..
+ 
+.. _sec-overview_map:
 
 Overview Map
 ~~~~~~~~~~~~
-
-      |image109|
-      
-
-
-
-
-Map Display Options
-~~~~~~~~~~~~~~~~~~~
-
+ 
    The Overview Map allows you to see where in terms of the overall
    system the main network map is currently focused. This zoom area is
-   depicted by the rectangular boundary displayed on the Overview Map.
+   depicted by the rectangular boundary displayed on the Overview Map (:numref:`fig-overview_map`).
    As you drag this rectangle to another position the view within the
    main map will follow suit. The Overview Map can be toggled on and off
    by selecting **View >> Overview Map**. Clicking the mouse on its
    title bar will update its map image to match that of the main network
    map.
 
+   .. _fig-overview_map:
+   .. figure:: media/image71.png
+      :alt: Example Overview Map in EPANET
+   
+      Example of overview map.
+   ..
+
+.. _sec-map_disp_ops:
+
+Map Display Options
+~~~~~~~~~~~~~~~~~~~
+
    There are several ways to bring up the Map Options dialog form
-   (Figure 7.3) used to change the appearance of the Network Map:
+   (:numref:`fig-map_options`) used to change the appearance of the Network Map:
 
-    -  select **View >> Options**,
+    -  Select **View >> Options**
 
-    -  click the Options button |image110| on the Standard Toolbar when the
-       Map window has the focus,
+    -  Click the Options button |image110| on the Standard Toolbar when the
+       Map window has the focus
 
-    -  right-click on any empty portion of the map and select **Options**
-       from the popup menu that appears.
+    -  Right-click on any empty portion of the map and select **Options**
+       from the popup menu that appears
 
-      |image111|
-
-   **Figure 7.3** Map Options Dialog
+   .. _fig-map_options:
+   .. figure:: media/image72.png
+      :alt: Map Options Dialog in EPANET
+   
+      Map options dialog.
+   ..
 
    The dialog contains a separate page, selected from the panel on the
    left side of the form, for each of the following display option
@@ -380,15 +426,16 @@ Map Display Options
     -  *Background* (changes color of map's background)
 
 
+**Node Options**
 
-Node Options
-^^^^^^^^^^^^^
-  
    The Nodes page of the Map Options dialog controls how nodes are
-   displayed on the Network Map.
+   displayed on the Network Map (:numref:`table-node_op_map`).
 
+.. _table-node_op_map:
+.. table:: Node Options for the Map	
+	
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Node Size                         | Selects node diameter             |
   +-----------------------------------+-----------------------------------+
@@ -406,14 +453,18 @@ Node Options
   |                                   | this option is checked).          |
   +-----------------------------------+-----------------------------------+
 
-Link Options
-^^^^^^^^^^^^^
+..
+
+**Link Options**
 
    The Links page of the Map Options dialog controls how links are
-   displayed on the map.
+   displayed on the map (:numref:`table-link_op_map`).
 
+.. _table-link_op_map:
+.. table:: Link Options for the Map	
+	
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Link Size                         | Sets thickness of links displayed |
   |                                   | on map                            |
@@ -423,12 +474,18 @@ Link Options
   |                                   | increases in value                |
   +-----------------------------------+-----------------------------------+
 
-  
-Label Options
-^^^^^^^^^^^^^
+..
+
+**Label Options**
+
+   The Label page of the Map Options dialog controls how labels are
+   displayed on the map (:numref:`table-label_op_map`).
+
+.. _table-label_op_map:
+.. table:: Label Options for the Map	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Display Labels                    | Displays map labels (labels will  |
   |                                   | be hidden unless this option is   |
@@ -445,16 +502,19 @@ Label Options
   |                                   | meter labels                      |
   +-----------------------------------+-----------------------------------+
 
+..
 
-Notation Options
-^^^^^^^^^^^^^^^^^
+**Notation Options**
 
    The Notation page of the Map Options dialog form determines what kind
    of annotation is provided alongside of the nodes and links of the
-   map.
+   map (:numref:`table-notation_op_map`).
+
+.. _table-notation_op_map:
+.. table:: Notation Options for the Map	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Display Node IDs                  | Displays node ID labels           |
   +-----------------------------------+-----------------------------------+
@@ -476,19 +536,23 @@ Notation Options
   |                                   | smaller than this                 |
   +-----------------------------------+-----------------------------------+
 
+..
+
    **Note**: Values of the current viewing parameter at only specific
    nodes and links can be displayed by creating Map Labels with meters
-   for those objects. See Sections 6.2 and 6.4 as well as Table 6.7.
+   for those objects. See :numref:`sec-add_objs` and :numref:`sec-ed_visual_objs` as well as :numref:`table-map_label_prop`.
 
-   
-Symbol Options
-^^^^^^^^^^^^^^^
+
+**Symbol Options**
 
    The Symbols page of the Map Options dialog determines which types of
-   objects are represented with special symbols on the map.
+   objects are represented with special symbols on the map (:numref:`table-symbol_op_map`).
+
+.. _table-symbol_op_map:
+.. table:: Symbol Options for the Map	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Display Tanks                     | Displays tank symbols             |
   +-----------------------------------+-----------------------------------+
@@ -507,15 +571,18 @@ Symbol Options
   |                                   | smaller than this                 |
   +-----------------------------------+-----------------------------------+
 
+..
 
-Flow Arrow Options
-^^^^^^^^^^^^^^^^^^^
+**Flow Arrow Options**
 
    The Flow Arrows page of the Map Options dialog controls how
-   flow-direction arrows are displayed on the network map.
+   flow-direction arrows are displayed on the network map (:numref:`table-flow_arrow_op_map`).
+
+.. _table-flow_arrow_op_map:
+.. table:: Flow Arrow Options for the Map	
 
   +-----------------------------------+-----------------------------------+
-  | *Option*                          | *Description*                     |
+  | *OPTION*                          | *DESCRIPTION*                     |
   +===================================+===================================+
   | Arrow Style                       | Selects style (shape) of arrow to |
   |                                   | display (select None to hide      |
@@ -529,177 +596,17 @@ Flow Arrow Options
   |                                   | smaller than this                 |
   +-----------------------------------+-----------------------------------+
 
-   **Note**: Flow direction arrows will only be displayed after a
-   network has been successfully analyzed (see Section 8.2 Running an
-   Analysis).
+..
 
-   Background Options
+   **Note**: Flow direction arrows will only be displayed after a
+   network has been successfully analyzed (see :numref:`sec-run_analysis`).
+
+
+**Background Options**
 
    The Background page of the Map Options dialog offers a selection of
    colors used to paint the map’s background with.
 
-..  |image0| image:: media/image1.jpeg
-..  |image1| image:: media/image2.png
-..  |image2| image:: media/image3.png
-..  |image3| image:: media/image4.png
-..  |image4| image:: media/image5.png
-..  |image5| image:: media/image6.png
-..  |image6| image:: media/image7.png
-..  |image7| image:: media/image8.png
-..  |image8| image:: media/image9.png
-..  |image9| image:: media/image10.png
-..  |image10| image:: media/image11.png
-..  |image11| image:: media/image12.png
-..  |image12| image:: media/image13.png
-..  |image13| image:: media/image12.png
-..  |image14| image:: media/image14.jpeg
-..  |image15| image:: media/image15.png
-..  |image16| image:: media/image16.jpeg
-..  |image17| image:: media/image17.png
-..  |image18| image:: media/image18.png
-..  |image19| image:: media/image19.png
-..  |image20| image:: media/image20.png
-..  |image21| image:: media/image21.png
-..  |image22| image:: media/image16.jpeg
-..  |image23| image:: media/image22.png
-..  |image24| image:: media/image18.png
-..  |image25| image:: media/image23.png
-..  |image26| image:: media/image24.png
-..  |image27| image:: media/image25.png
-..  |image28| image:: media/image26.png
-..  |image29| image:: media/image27.png
-..  |image30| image:: media/image28.png
-..  |image31| image:: media/image29.png
-    :width: 250pt
-    :align: middle
+   .. include:: image_subdefs.rst
 
-..  |image31-2| image:: media/image29-2.png
-    :width: 250pt
-    :align: middle
-    
-..  |image32| image:: media/image30-2.png
-    :width: 250pt
-    :align: middle
-    
-..  |image32-2| image:: media/image30.png
-    :width: 250pt
-    :align: middle
-    
-..  |image33| image:: media/image31.png
-..  |image34| image:: media/image32.png
-..  |image35| image:: media/image33.png
-..  |image36| image:: media/image34.png
-..  |image36-2| image:: media/image36-2.png
-..  |image37| image:: media/image35.png
-..  |image38| image:: media/image36.png
-..  |image39| image:: media/image37.png
-..  |image40| image:: media/image38.png
-..  |image41| image:: media/image39.png
-..  |image42| image:: media/image40.png
-..  |image43| image:: media/image41.png
-..  |image44| image:: media/image42.png
-..  |image45| image:: media/image43.png
-..  |image46| image:: media/image44.png
-..  |image47| image:: media/image45.png
-..  |image48| image:: media/image18.png
-..  |image49| image:: media/image25.png
-..  |image50| image:: media/image19.png
-..  |image51| image:: media/image46.png
-..  |image52| image:: media/image12.png
-..  |image53| image:: media/image13.png
-..  |image54| image:: media/image47.png
-..  |image55| image:: media/image48.png
-..  |image56| image:: media/image49.png
-..  |image57| image:: media/image50.png
-..  |image58| image:: media/image51.png
-..  |image59| image:: media/image6.png
-..  |image60| image:: media/image5.png
-..  |image61| image:: media/image7.png
-..  |image62| image:: media/image9.png
-..  |image63| image:: media/image10.png
-..  |image64| image:: media/image52.png
-..  |image65| image:: media/image11.png
-..  |image66| image:: media/image53.jpeg
-..  |image67| image:: media/image54.jpeg
-..  |image68| image:: media/image55.png
-..  |image69| image:: media/image57.png
-..  |image70| image:: media/image58.png
-..  |image71| image:: media/image59.png
-..  |image72| image:: media/image38.png
-..  |image73| image:: media/image39.png
-..  |image74| image:: media/image40.png
-..  |image75| image:: media/image2.png
-..  |image76| image:: media/image60.png
-..  |image77| image:: media/image61.png
-..  |image78| image:: media/image6.png
-..  |image79| image:: media/image5.png
-..  |image80| image:: media/image7.png
-..  |image81| image:: media/image16.jpeg
-..  |image82| image:: media/image9.png
-..  |image83| image:: media/image10.png
-..  |image84| image:: media/image52.png
-..  |image85| image:: media/image11.png
-..  |image86| image:: media/image12.png
-..  |image87| image:: media/image14.jpeg
-..  |image88| image:: media/image14.jpeg
-..  |image89| image:: media/image17.png
-..  |image90| image:: media/image22.png
-..  |image91| image:: media/image62.png
-..  |image92| image:: media/image63.png
-..  |image93| image:: media/image64.png
-..  |image94| image:: media/image13.png
-..  |image95| image:: media/image65.png
-..  |image96| image:: media/image44.png
-..  |image97| image:: media/image47.png
-..  |image98| image:: media/image44.png
-..  |image99| image:: media/image66.png
-..  |image100| image:: media/image67.png
-..  |image101| image:: media/image68.png
-..  |image102| image:: media/image49.png
-..  |image103| image:: media/image50.png
-..  |image104| image:: media/image48.png
-..  |image105| image:: media/image42.png
-..  |image106| image:: media/image42.png
-..  |image107| image:: media/image69.jpeg
-..  |image108| image:: media/image70.png
-..  |image109| image:: media/image71.png
-..  |image110| image:: media/image46.png
-..  |image111| image:: media/image72.png
-..  |image112| image:: media/image14.jpeg
-..  |image113| image:: media/image18.png
-..  |image114| image:: media/image73.png
-..  |image115| image:: media/image74.png
-..  |image116| image:: media/image45.png
-..  |image117| image:: media/image25.png
-..  |image118| image:: media/image75.png
-..  |image119| image:: media/image76.png
-..  |image120| image:: media/image77.png
-..  |image121| image:: media/image78.png
-..  |image122| image:: media/image79.png
-..  |image123| image:: media/image80.png
-..  |image124| image:: media/image46.png
-..  |image125| image:: media/image81.png
-..  |image126| image:: media/image82.png
-..  |image127| image:: media/image19.png
-..  |image128| image:: media/image83.png
-..  |image129| image:: media/image84.png
-..  |image130| image:: media/image85.png
-..  |image131| image:: media/image86.png
-..  |image132| image:: media/image46.png
-..  |image133| image:: media/image87.png
-..  |image134| image:: media/image88.png
-..  |image135| image:: media/image46.png
-..  |image136| image:: media/image89.png
-..  |image137| image:: media/image90.png
-..  |image138| image:: media/image46.png
-..  |image139| image:: media/image73.png
-..  |image140| image:: media/image91.png
-..  |image141| image:: media/image41.png
-..  |image142| image:: media/image43.png
-..  |image143| image:: media/image92.png
-..  |image144| image:: media/image93.png
-..  |image145| image:: media/image94.png
-..  |image146| image:: media/image95.png
-..  |image147| image:: media/image96.png
-..  |image148| image:: media/image98.png
 

@@ -1,11 +1,14 @@
 .. raw:: latex
 
     \clearpage
-    
--------
+  	\pagenumbering{arabic}
+    \setcounter{page}{1}
 
-1. INTRODUCTION
-===============
+
+.. _introduction:
+
+Introduction
+============
 
 
 What is EPANET
@@ -30,13 +33,13 @@ What is EPANET
    assess alternative management strategies for improving water quality
    throughout a system. These can include:
 
-    -  altering source utilization within multiple source systems,
+    -  Altering source utilization within multiple source systems
 
-    -  altering pumping and tank filling/emptying schedules,
+    -  Altering pumping and tank filling/emptying schedules
 
-    -  use of satellite treatment, such as re-chlorination at storage tanks,
+    -  Use of satellite treatment, such as re-chlorination at storage tanks
 
-    -  targeted pipe cleaning and replacement.
+    -  Targeted pipe cleaning and replacement
 
 ..
 
@@ -54,31 +57,33 @@ Hydraulic Modeling Capabilities
    state-of-the-art hydraulic analysis engine that includes the
    following capabilities:
 
-    - places no limit on the size of the network that can be analyzed
+    - Places no limit on the size of the network that can be analyzed
 
-    - computes friction headloss using the Hazen-Williams, Darcy-Weisbach,
+    - Computes friction headloss using the Hazen-Williams, Darcy-Weisbach,
       or Chezy-Manning formulas
 
-    - includes minor head losses for bends, fittings, etc.
+    - Includes minor head losses for bends, fittings, etc.
 
-    - models constant or variable speed pumps
+    - Models constant or variable speed pumps
 
-    - computes pumping energy and cost
+    - Computes pumping energy and cost
 
-    - models various types of valves including shutoff, check, pressure
+    - Models various types of valves including shutoff, check, pressure
       regulating, and flow control valves
 
-    - allows storage tanks to have any shape (i.e., diameter can vary with
+    - Allows storage tanks to have any shape (i.e., diameter can vary with
       height)
 
-    - considers multiple demand categories at nodes, each with its own
+    - Considers multiple demand categories at nodes, each with its own
       pattern of time variation
 
-    - models pressure-dependent flow issuing from emitters (sprinkler
+    - Models pressure driven flow issuing from emitters (sprinkler
       heads)
 
-    - can base system operation on both simple tank level or timer controls
-      and on complex rule-based controls.
+    - Models pressure driven demand at nodes
+
+    - Can base system operation on both simple tank level or timer controls
+      and on complex rule-based controls
 
 Water Quality Modeling Capabilities
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -86,56 +91,56 @@ Water Quality Modeling Capabilities
    In addition to hydraulic modeling, EPANET provides the following
    water quality modeling capabilities:
 
-    - models the movement of a non-reactive tracer material through the
+    - Models the movement of a non-reactive tracer material through the
       network over time
 
-    - models the movement and fate of a reactive material as it grows
+    - Models the movement and fate of a reactive material as it grows
       (e.g., a disinfection by-product) or decays (e.g., chlorine residual)
       with time
 
-    - models the age of water throughout a network
+    - Models the age of water throughout a network
 
-    - tracks the percent of flow from a given node reaching all other nodes
+    - Tracks the percent of flow from a given node reaching all other nodes
       over time
 
-    - models reactions both in the bulk flow and at the pipe wall
+    - Models reactions both in the bulk flow and at the pipe wall
 
-    - uses n-th order kinetics to model reactions in the bulk flow
+    - Uses n-th order kinetics to model reactions in the bulk flow
 
-    - uses zero or first order kinetics to model reactions at the pipe wall
+    - Uses zero or first order kinetics to model reactions at the pipe wall
 
-    - accounts for mass transfer limitations when modeling pipe wall
+    - Accounts for mass transfer limitations when modeling pipe wall
       reactions
 
-    - allows growth or decay reactions to proceed up to a limiting
+    - Allows growth or decay reactions to proceed up to a limiting
       concentration
 
-    - employs global reaction rate coefficients that can be modified on a
+    - Employs global reaction rate coefficients that can be modified on a
       pipe-by-pipe basis
 
-    - allows wall reaction rate coefficients to be correlated to pipe
+    - Allows wall reaction rate coefficients to be correlated to pipe
       roughness
 
-    - allows for time-varying concentration or mass inputs at any location
+    - Allows for time-varying concentration or mass inputs at any location
       in the network
 
-    - models storage tanks as being either complete mix, plug flow, or
-      two-compartment reactors.
+    - Models storage tanks as being either complete mix, plug flow, or
+      two-compartment reactors
 
 ..
 
    By employing these features, EPANET can study such water quality
    phenomena as:
 
-    -  blending water from different sources
+    -  Blending water from different sources
 
-    -  age of water throughout a system
+    -  Age of water throughout a system
 
-    -  loss of chlorine residuals
+    -  Loss of chlorine residuals
 
-    -  growth of disinfection by-products
+    -  Growth of disinfection by-products
 
-    -  tracking contaminant propagation events.
+    -  Tracking contaminant propagation events
 
 Steps in Using EPANET
 ~~~~~~~~~~~~~~~~~~~~~
@@ -144,16 +149,16 @@ Steps in Using EPANET
    model a water distribution system:
 
     1. Draw a network representation of your distribution system (see
-       Section 6.1) or import a basic description of the network placed in a
-       text file (see Section 11.4).
+       :numref:`sec-add_objs`) or import a basic description of the network placed in a
+       text file (see :numref:`sec-import_partial_net`).
 
     2. Edit the properties of the objects that make up the system (see
-       Section 6.4)
+       :numref:`sec-ed_visual_objs`).
 
-    3. Describe how the system is operated (see Section 6.5)
+    3. Describe how the system is operated (see :numref:`sec-ed_nonvisual_objs`).
 
-    4. Select a set of analysis options (see Section 8.1)
+    4. Select a set of analysis options (see :numref:`sec-analysis_ops`).
 
-    5. Run a hydraulic/water quality analysis (see Section 8.2)
+    5. Run a hydraulic/water quality analysis (see :numref:`sec-run_analysis`).
 
-    6. View the results of the analysis (see Chapter 9).
+    6. View the results of the analysis (see Chapter :ref:`viewing_results`).

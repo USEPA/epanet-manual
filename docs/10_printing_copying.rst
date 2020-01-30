@@ -126,6 +126,7 @@ Copying to the Clipboard or to a File
     3. If you selected to copy-to-file, enter the name of the file in the
        Save As dialog box that appears and click **OK**.
 
+
    .. _fig-Copy_Network_Map:
    .. figure:: media/copymap.png
       :alt: Copy Network Map Dialog in EPANET

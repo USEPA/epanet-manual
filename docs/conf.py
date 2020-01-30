@@ -160,7 +160,10 @@ latex_elements = {
             
             \vspace*{1mm} %%% * is used to give space from top
             \textbf{\Large {Feng Shang}}
-            
+
+            \vspace*{1mm} %%% * is used to give space from top
+            \textbf{\Large {Robert Janke}}            
+
             \vspace*{1mm} %%% * is used to give space from top
             \textbf{\Large {Terranna Haxton}}
         \end{titlepage}

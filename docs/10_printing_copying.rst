@@ -129,9 +129,8 @@ Copying to the Clipboard or to a File
 
    .. _fig-CopyMap:
    .. figure:: media/copymap.png
-      :alt: Copy Network Map Dialog in EPANET
    
-      Copy network map dialog.
+       Copy network map dialog.
    ..
    
    

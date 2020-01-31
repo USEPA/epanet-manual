@@ -128,6 +128,7 @@ Copying to the Clipboard or to a File
 
 
    ssdsdsd
+   
    .. _fig-CopyMap:
    .. figure:: media/copymap.png
       :alt: Copy Network Map Dialog in EPANET

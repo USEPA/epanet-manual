@@ -17,8 +17,7 @@
    
 ..
 
-
-   The U.S. Environmental Protection Agency acknowledges the individuals that assisted with the technical review and beta-testing of the EPANET software and user manual.
-
+   The U.S. Environmental Protection Agency gratefully acknowledges all the individuals (OpenWaterAnalytics, Beta Testers, and EPA technical reviewers) that assisted with the EPANET 2.2.0 release and the technical review and testing of the software and user manual.
+   
 
 

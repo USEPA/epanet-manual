@@ -75,7 +75,7 @@ Viewing Results on the Map
 
        -  Select a parameter to compare against
 
-       -  Select **Above**, **Below,** or **Equals**
+       -  Select **Above**, **Below,** or **Equal To**
 
        -  Enter a value to compare against
 
